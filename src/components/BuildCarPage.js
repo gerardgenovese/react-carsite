@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import BuildCarColors from "./BuildCarColors";
 import BuildCarEngine from "./BuildCarEngine";
+import BuildCarAccessories from "./BuildCarAccessories";
 // import { pickColor } from "../redux/actions";
 class BuildCarPage extends React.Component{
 
@@ -14,22 +15,31 @@ class BuildCarPage extends React.Component{
     engine: this.props.car.engine,
     engineOneSelected: true,
     engineTwoSelected: false,
+    cargoTote: 0,
+    leatherMats: 0,
+    wheelLocks: 0,
     buildNavLinks: 0,
     buildCarColors: true,
     buildCarEngine: false,
+    buldCarAccessories: false
   };
+
+
 
   changeBuildOption = (e) => {
     let show = e.target.getAttribute("data-value");
       switch(show){
         case "buildCarColors":
-          this.setState({buildCarColors: true, buildCarEngine:false});
+          this.setState({buildCarColors: true, buildCarEngine:false, buildCarAccessories: false});
           break;
         case "buildCarEngine":
-          this.setState({buildCarColors: false, buildCarEngine: true});
+          this.setState({buildCarColors: false, buildCarEngine: true, buildCarAccessories: false});
+          break;
+        case "buildCarAccessories":
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: true});
           break;
         default:
-          this.setState({buildCarColors:true, buildCarEngine: false});
+          this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false});
       } 
       console.log(show);
   };
@@ -71,8 +81,18 @@ class BuildCarPage extends React.Component{
       engineTwoSelected: engineTwo
     })
   };
+
+  add_remove_Accessories = (checked) => {
+    this.setState({
+      cargoTote: checked,
+      leatherMats: checked,
+      wheelLocks: checked
+    })
+  };
+
   
   render(){
+
     console.log("buildcarpagestate",this.state);
     return(
       <div>
@@ -86,8 +106,11 @@ class BuildCarPage extends React.Component{
           <div data-value="buildCarEngine" onClick={this.changeBuildOption}>
             Engine
           </div>
+          <div data-value="buildCarAccessories" onClick={this.changeBuildOption}>
+            Accessories
+          </div>
           {
-            this.state.buildCarColors ? <BuildCarColors image={this.state.image} changeColor={this.changeColor} /> : <BuildCarEngine engineOneSelected={this.state.engineOneSelected} engineTwoSelected={this.state.engineTwoSelected} changeEngine={this.changeEngine}/>
+            this.state.buildCarColors ? <BuildCarColors image={this.state.image} changeColor={this.changeColor} /> : this.state.buildCarEngine ? <BuildCarEngine engineOneSelected={this.state.engineOneSelected} engineTwoSelected={this.state.engineTwoSelected} changeEngine={this.changeEngine} /> : <BuildCarAccessories add_remove={this.add_remove_Accessories}/> 
           }  
       </div>
     )

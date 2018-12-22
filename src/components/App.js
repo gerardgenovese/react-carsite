@@ -4,9 +4,7 @@ import BuildCarPage from "./BuildCarPage";
 import '../styles/main.scss';
 
 class App extends React.Component {
-  state={
-    pic: "/images/avalon-blue-front.PNG"
-  }
+
   render() {
     return (
       <div>
