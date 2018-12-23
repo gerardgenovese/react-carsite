@@ -11,7 +11,7 @@ class BuildCarPage extends React.Component{
     image: this.props.car.img,
     carAngle: 0,
     color: this.props.car.color,
-    price: this.props.car.price,
+    // price: this.props.car.price,
     engine: this.props.car.engine,
     engineOneSelected: true,
     engineTwoSelected: false,
@@ -30,8 +30,10 @@ class BuildCarPage extends React.Component{
     buildNavLinks: 0,
     buildCarColors: true,
     buildCarEngine: false,
-    buldCarAccessories: false
+    buldCarAccessories: false,
+    totalPrice: this.props.car.price
   };
+
 
 
 //allows us to click link and show build menu underneath car display
@@ -90,7 +92,9 @@ class BuildCarPage extends React.Component{
       engineOneSelected: engineOne,
       engineTwoSelected: engineTwo
     })
+    this.getTotal();
   };
+
 //add accessory menu
   add_remove_cargoTote = (price, selected) => {
     let cargoTote = JSON.parse(JSON.stringify(this.state.cargoTote));
@@ -99,6 +103,7 @@ class BuildCarPage extends React.Component{
     this.setState({
       cargoTote
     })
+    this.getTotal();
   };
   add_remove_leatherMats = (price, selected) => {
     let leatherMats = JSON.parse(JSON.stringify(this.state.wheelLocks));
@@ -107,6 +112,7 @@ class BuildCarPage extends React.Component{
     this.setState({
       leatherMats
     })
+    this.getTotal();
   };
   add_remove_wheelLocks = (price, selected) => {
     let wheelLocks = JSON.parse(JSON.stringify(this.state.wheelLocks));
@@ -115,14 +121,31 @@ class BuildCarPage extends React.Component{
     this.setState(({
       wheelLocks
     }))
+    this.getTotal();
   };
+
+  getTotal() {
+    setTimeout(() => {
+      const getCargo = JSON.parse(JSON.stringify(this.state.cargoTote));
+      const getMats = JSON.parse(JSON.stringify(this.state.leatherMats));
+      const getLocks = JSON.parse(JSON.stringify(this.state.wheelLocks));
+      const cargoTote = getCargo.price;
+      const leatherMats = getMats.price;
+      const wheelLocks = getLocks.price;
+      const total = this.props.car.price + this.state.engine + cargoTote + leatherMats + wheelLocks;
+
+      // console.log(this.state.price + this.state.engine + cargoTote + leatherMats + wheelLocks);
+      this.setState({totalPrice:total})
+    },100);
+  };
+
   
   render(){
     console.log("buildcarpagestate",this.state);
     return(
       <div>
         <div>{this.state.title}</div>
-        <div>{this.state.price}</div>
+        <div>{this.state.totalPrice}</div>
         <img src={this.state.image} alt={this.state.title}/>
         <button onClick={this.rotateCarImage}>-></button>
         <div data-value="buildCarColors" onClick={this.changeBuildOption}>

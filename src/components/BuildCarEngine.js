@@ -3,11 +3,11 @@ import React from "react";
 class BuildCarEngine extends React.Component {
 
   enginePicked = (e) => {
-    const engine = e.target.value;
-
-    if(engine === "0"){
+    let engine = e.target.value;
+      engine = parseInt(engine);
+    if(engine === 0){
       this.props.changeEngine(engine, true, false)
-    } else if(engine === "500"){
+    } else if(engine === 500){
       this.props.changeEngine(engine, false, true);
     }
   };
