@@ -15,9 +15,18 @@ class BuildCarPage extends React.Component{
     engine: this.props.car.engine,
     engineOneSelected: true,
     engineTwoSelected: false,
-    cargoTote: 0,
-    leatherMats: 0,
-    wheelLocks: 0,
+    cargoTote: {
+      price: 0,
+      selected:false
+    },
+    leatherMats:{
+      price: 0,
+      selected: false
+    },
+    wheelLocks: {
+      price: 0,
+      selected: false
+    },
     buildNavLinks: 0,
     buildCarColors: true,
     buildCarEngine: false,
@@ -25,7 +34,7 @@ class BuildCarPage extends React.Component{
   };
 
 
-
+//allows us to click link and show build menu underneath car display
   changeBuildOption = (e) => {
     let show = e.target.getAttribute("data-value");
       switch(show){
@@ -44,6 +53,7 @@ class BuildCarPage extends React.Component{
       console.log(show);
   };
 
+  //change color menu
   changeColor = (color, image) => {
     this.setState({color, image})
   };
@@ -73,7 +83,7 @@ class BuildCarPage extends React.Component{
       })
     }
   };
-
+//change engine menu
   changeEngine = (enginePicked, engineOne, engineTwo) => {
     this.setState({ 
       engine: enginePicked,
@@ -81,18 +91,33 @@ class BuildCarPage extends React.Component{
       engineTwoSelected: engineTwo
     })
   };
-
-  add_remove_Accessories = (checked) => {
+//add accessory menu
+  add_remove_cargoTote = (price, selected) => {
+    let cargoTote = JSON.parse(JSON.stringify(this.state.cargoTote));
+    cargoTote.price = price;
+    cargoTote.selected = selected;
     this.setState({
-      cargoTote: checked,
-      leatherMats: checked,
-      wheelLocks: checked
+      cargoTote
     })
   };
-
+  add_remove_leatherMats = (price, selected) => {
+    let leatherMats = JSON.parse(JSON.stringify(this.state.wheelLocks));
+    leatherMats.price = price;
+    leatherMats.selected = selected;
+    this.setState({
+      leatherMats
+    })
+  };
+  add_remove_wheelLocks = (price, selected) => {
+    let wheelLocks = JSON.parse(JSON.stringify(this.state.wheelLocks));
+    wheelLocks.price = price;
+    wheelLocks.selected = selected;
+    this.setState(({
+      wheelLocks
+    }))
+  };
   
   render(){
-
     console.log("buildcarpagestate",this.state);
     return(
       <div>
@@ -110,7 +135,25 @@ class BuildCarPage extends React.Component{
             Accessories
           </div>
           {
-            this.state.buildCarColors ? <BuildCarColors image={this.state.image} changeColor={this.changeColor} /> : this.state.buildCarEngine ? <BuildCarEngine engineOneSelected={this.state.engineOneSelected} engineTwoSelected={this.state.engineTwoSelected} changeEngine={this.changeEngine} /> : <BuildCarAccessories add_remove={this.add_remove_Accessories}/> 
+            this.state.buildCarColors ? 
+              <BuildCarColors 
+                image={this.state.image} 
+                changeColor={this.changeColor} 
+              /> 
+              : this.state.buildCarEngine ? 
+              <BuildCarEngine 
+                engineOneSelected={this.state.engineOneSelected} 
+                engineTwoSelected={this.state.engineTwoSelected} 
+                changeEngine={this.changeEngine} 
+              /> 
+              : <BuildCarAccessories 
+                cargoToteSelected={this.state.cargoTote.selected} 
+                leatherMatsSelected={this.state.leatherMats.selected} 
+                wheelLocksSelected={this.state.wheelLocks.selected} 
+                add_remove_Cargo={this.add_remove_cargoTote} 
+                add_remove_Mats={this.add_remove_leatherMats} 
+                add_remove_Locks={this.add_remove_wheelLocks}  
+              /> 
           }  
       </div>
     )
