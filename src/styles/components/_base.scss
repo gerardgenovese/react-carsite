@@ -1,0 +1,22 @@
+*,
+*:before,
+*:after{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  box-sizing:border-box;
+  background:blue;
+}
+
+.body-container{
+  max-width: 120rem;
+  background: gray;
+  display:block;
+  margin: 0 auto;
+}

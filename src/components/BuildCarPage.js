@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import BuildCarColors from "./BuildCarColors";
 import BuildCarEngine from "./BuildCarEngine";
 import BuildCarAccessories from "./BuildCarAccessories";
+import BuildCarCalculator from "./BuildCarCalculator";
 // import { pickColor } from "../redux/actions";
 class BuildCarPage extends React.Component{
 
@@ -31,6 +32,7 @@ class BuildCarPage extends React.Component{
     buildCarColors: true,
     buildCarEngine: false,
     buldCarAccessories: false,
+    buildCarCalculator: false,
     totalPrice: this.props.car.price
   };
 
@@ -41,16 +43,19 @@ class BuildCarPage extends React.Component{
     let show = e.target.getAttribute("data-value");
       switch(show){
         case "buildCarColors":
-          this.setState({buildCarColors: true, buildCarEngine:false, buildCarAccessories: false});
+          this.setState({buildCarColors: true, buildCarEngine:false, buildCarAccessories: false, buildCarCalculator: false});
           break;
         case "buildCarEngine":
-          this.setState({buildCarColors: false, buildCarEngine: true, buildCarAccessories: false});
+          this.setState({buildCarColors: false, buildCarEngine: true, buildCarAccessories: false, buildCarCalculator: false});
           break;
         case "buildCarAccessories":
-          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: true});
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: true, buildCarCalculator: false});
+          break;
+        case "buildCarCalculator":
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarCalculator: true});
           break;
         default:
-          this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false});
+          this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false, buildCarCalculator: false});
       } 
       console.log(show);
   };
@@ -85,6 +90,7 @@ class BuildCarPage extends React.Component{
       })
     }
   };
+
 //change engine menu
   changeEngine = (enginePicked, engineOne, engineTwo) => {
     this.setState({ 
@@ -157,6 +163,9 @@ class BuildCarPage extends React.Component{
           <div data-value="buildCarAccessories" onClick={this.changeBuildOption}>
             Accessories
           </div>
+          <div data-value="buildCarCalculator" onClick={this.changeBuildOption}>
+            Loan Calculator
+          </div>
           {
             this.state.buildCarColors ? 
               <BuildCarColors 
@@ -169,7 +178,8 @@ class BuildCarPage extends React.Component{
                 engineTwoSelected={this.state.engineTwoSelected} 
                 changeEngine={this.changeEngine} 
               /> 
-              : <BuildCarAccessories 
+              : this.state.buildCarAccessories ?
+              <BuildCarAccessories 
                 cargoToteSelected={this.state.cargoTote.selected} 
                 leatherMatsSelected={this.state.leatherMats.selected} 
                 wheelLocksSelected={this.state.wheelLocks.selected} 
@@ -177,6 +187,7 @@ class BuildCarPage extends React.Component{
                 add_remove_Mats={this.add_remove_leatherMats} 
                 add_remove_Locks={this.add_remove_wheelLocks}  
               /> 
+              : <BuildCarCalculator carPrice={this.state.totalPrice}/>
           }  
       </div>
     )

@@ -8,13 +8,14 @@ class LandingPage extends React.Component{
   renderCars() {
     return this.props.allCars.map(car => {
       return(
-        <div key={car.title}>
-          <NavLink to="/build" >
-          <img src={car.img} onClick={()=> {
-            return this.props.buildCar(car)
-          }} alt="car"/>
-          </NavLink>
-        </div>
+
+          <div key={car.title}>
+            <NavLink to="/build" >
+              <img src={car.img} onClick={()=> {
+              return this.props.buildCar(car)
+            }} alt="car"/>
+            </NavLink>
+          </div>
       )
     });
   }

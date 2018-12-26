@@ -23,19 +23,6 @@ class BuildCarAccessories extends React.Component{
     } else if(type === "wheelLocks" && checkbox === false) {
       return this.props.add_remove_Locks(0,false)
     }
-    
-    
-    
-    
-    
-    
-    // (type === "leatherMats" && checkbox === true){
-    //   this.props.add_remove_Mats(75,true)
-    // } else if(type === "wheelLocks" && checkbox === true){
-    //   this.props.add_remove_Locks(75,true)
-    // } else {
-    //   return false
-    // }
   };
 
   render(){
