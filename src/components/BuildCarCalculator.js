@@ -55,18 +55,14 @@ getPayments = (e) => {
     userTotalInterest: totalInterest,
     userTotalPayment: totalPayment
   });
- 
-
 
   this.showPayments();
 };
 
 showPayments = () => {
-  
   if(this.state.gifLoading === ""){
     this.setState({ gifLoading: loading })
   }
- 
   setTimeout(()=> {
     this.setState({ gifLoading: ""})
   },1000);

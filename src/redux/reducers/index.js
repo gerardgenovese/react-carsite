@@ -4,10 +4,12 @@ import { buildCarReducer } from "./buildCarReducer";
 import { allCars } from "./buildCarReducer";
 import pickColorReducer from "./pickColorReducer";
 import pickEngineReducer from "./pickEngineReducer";
+import slideShowReducer from "./slideShowReducer";
 
 export default combineReducers({
   allCars: allCars,
   buildCar: buildCarReducer,
   pickColor: pickColorReducer,
-  pickEngine: pickEngineReducer
+  pickEngine: pickEngineReducer,
+  slideShow: slideShowReducer
 });

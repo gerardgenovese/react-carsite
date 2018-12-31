@@ -1,44 +1,104 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { buildCar } from "../redux/actions";
+import SlideShow from "./SlideShow";
 
 class LandingPage extends React.Component{
+    // state ={
+    //   slideShow: [avalon,camry,corolla],
+    //   slideIndex: 0
+    // }
 
-  renderCars() {
-    return this.props.allCars.map(car => {
-      return(
 
-          <div key={car.title}>
-            <NavLink to="/build" >
-              <img src={car.img} onClick={()=> {
-              return this.props.buildCar(car)
-            }} alt="car"/>
-            </NavLink>
-          </div>
-      )
-    });
-  }
+
+  // renderCars() {
+  //   return this.props.allCars.map(car => {
+  //     return(
+  //       <div key={car.title}>
+  //         <NavLink to="/build" >
+  //           <img src={car.img} onClick={()=> {
+  //           return this.props.buildCar(car)
+  //         }} alt="car"/>
+  //         </NavLink>
+  //       </div>
+  //     )
+  //   });
+  // }
+
+
+
+
+
 
   render(){
+    
+
+  
     return(
       <div>
-        {this.renderCars()}
+        <SlideShow />
+
+        
       </div>
     )
   }
 }
 
+
 const mapStateToProps = (state) => {
-  // console.log("landingstate",state);
   return {
     allCars: state.allCars,
-    // pickColor: state.pickColor,
-    // pickEngine: state.pickEngine
-  
   }
 }
 
 export default connect(mapStateToProps, {
   buildCar,
 })(LandingPage);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // renderCars = () => {
+  //   return(
+  //     <div>
+        
+  //       <Carousel infiniteLoop={true} autoPlay={true} interval={2000} showThumbs={true} showIndicators={true}>
+        
+  //       {
+         
+  //         this.props.allCars.map(car =>{
+  //           return(
+              
+  //             <div key={car.title} onClick={()=> {
+  //               return this.props.buildCar(car)
+  //             }}>
+  //               <img src={car.img} alt="car"/>
+
+  //             </div>
+          
+  //           )
+  //         })
+  //       } 
+      
+  //       </Carousel>
+     
+  //     </div>
+  //   )
+    
+  // }

@@ -12,11 +12,14 @@ html{
 body{
   box-sizing:border-box;
   background:blue;
+  overflow-x: hidden;
 }
 
 .body-container{
-  max-width: 120rem;
+  max-width: 140rem;
   background: gray;
   display:block;
   margin: 0 auto;
+  z-index: initial;
+  overflow:hidden;
 }
