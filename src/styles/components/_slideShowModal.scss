@@ -30,7 +30,7 @@
     display:flex;
     justify-content:space-between;
     padding: 2rem;
-    border-bottom: .5px solid rgba(128, 128, 128, 0.479);
+    border-bottom: $border;
     position:relative;
 
     &--text{

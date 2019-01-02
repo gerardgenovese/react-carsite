@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { buildCar } from "../redux/actions";
 import SlideShow from "./SlideShow";
+import SectionNav from "./SectionNav";
 
 class LandingPage extends React.Component{
     // state ={
@@ -38,7 +39,7 @@ class LandingPage extends React.Component{
     return(
       <div>
         <SlideShow />
-
+        <SectionNav />
         
       </div>
     )
