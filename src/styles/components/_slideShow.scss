@@ -1,3 +1,5 @@
+@import "../mixins/button";
+
 .slideshow{
     width: 100%;
     position:relative;
@@ -78,31 +80,7 @@
     &-button{
       display:block;
       margin: 5%;
-      border-radius:10rem;
-      padding: 3rem 8rem;
-      border: none;
-      background: red;
-      color:white;
-      text-transform:uppercase;
-      font-family: 'Trebuchet MS';
-      font-weight:bold;
-      font-size:1.8rem;
-      transition: .3s;
-      outline-style: none;
-
-      &:hover{
-        box-shadow: 2px 3px 5px black;
-        transform: scale(1.05);
-        transition: .3s;
-        outline:none;
-      }
-      &:active{
-        box-shadow: none;
-        transform:scale(1);
-        transition: .1s;
-        outline-style: dotted;
-      }
-
+      @include button;
     }
 
     &-img {
@@ -153,11 +131,6 @@
 }
 
 
-.slideshow-img{
-  @media screen and(min-width: 1440px){
-    width: 60rem;
-  }
-}
 
 
 @keyframes center{
@@ -186,3 +159,20 @@
 
 
 
+
+  @media screen and(min-width: 1440px){
+    .slideshow-img{
+      width: 70rem;
+    }
+
+
+
+    @keyframes center{
+      0%{
+        transform:translateX(120%);
+      }
+      100%{
+        transform: translateX(-20%);
+      }
+    }
+  }

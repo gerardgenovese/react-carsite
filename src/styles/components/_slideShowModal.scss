@@ -1,0 +1,175 @@
+@import "../mixins/button";
+
+
+.ReactModalPortal .ReactModal__Overlay {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  // transition: opacity 200ms ease-in-out;
+  background-color:rgba(0, 0, 0, 0.568) !important;
+}
+
+// .ReactModalPortal{
+//   background: blue !important;
+// }
+
+.ReactModalPortal .ReactModal__Overlay--after-open{
+  position:relative;
+  z-index: 3;
+}
+
+
+.modal{
+  background: white;
+  max-width: 75%;
+  max-height: 75%;
+  overflow-y:scroll;
+  
+
+  &-header{
+    display:flex;
+    justify-content:space-between;
+    padding: 2rem;
+    border-bottom: .5px solid rgba(128, 128, 128, 0.479);
+    position:relative;
+
+    &--text{
+      font-size: 2rem;
+    }
+    &--close{
+      background:black;
+      color:white;
+      border:none;
+      border-radius: 100%;
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  &-main{
+    display:flex;
+    justify-content:space-between;
+    padding: 2rem 4rem;
+    font-size: 1.6rem;
+    font-family:tahoma;
+
+    &--info{
+      text-transform:uppercase;
+    }
+    &--lease{
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+    &--title{
+      font-size: 2.4rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight:bold;
+    }
+    &--spec{
+      margin-bottom: 2rem;
+    }
+    &--exp{
+      color:gray;
+      font-size: 1.2rem;
+      font-weight:bold;
+    }
+    &--img{
+      width: 40rem;
+      margin-right: 4rem;
+    }
+  }
+
+  &-pricing{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 2rem;
+    background:rgb(240, 237, 237);
+
+    &--cost{
+      display:flex;
+
+      &_container{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding: 0 1rem;
+
+        &-first{
+          border-right: 1px solid black;
+          margin-left: 2rem;
+        }
+      }
+    }
+
+    &--cash{
+      font-size:2.4rem;
+      font-weight:bold;
+    }
+    &--perMonth,
+    &--signing{
+      font-size: 1.2rem;
+      font-family:helvetica;
+      font-weight:bold;
+      color:rgb(82, 78, 78);
+    }
+
+    &--button_quote{
+      @include button;
+     }
+  }
+
+
+
+  &-details{
+    display:flex;
+    justify-content:space-between;
+    padding: 2rem;
+
+    &--text{
+      font-size: 1.4rem;
+      font-family: tahoma;
+      font-weight:bold;
+      color:rgb(49, 48, 48);
+      text-transform: uppercase;
+      width: 60%;
+    }
+
+    &--buttons{
+      display:flex;
+      flex-direction:column;
+      border-left: 1px dotted black;
+      padding-left: 7rem;
+     
+   
+      &_search,
+      &_build{
+        @include button;
+        background:rgb(233, 228, 228);
+        color:black;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &-finePrint{
+    font-family: verdana;
+    padding:4rem;
+    line-height:2;
+
+    &--header{
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+
+
+
+
+.modal{
+  @media screen and(min-width: 1440px){
+    max-width: 50%;
+  }
+}

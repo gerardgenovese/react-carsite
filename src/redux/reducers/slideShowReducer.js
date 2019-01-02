@@ -6,7 +6,7 @@ export default () => {
       carAngle: 0,
       color:"red",
       engine: 0,
-      price: 20000,
+      price: 30000,
       perMonth: 450,
       signing: 3000
       
@@ -27,7 +27,7 @@ export default () => {
       carAngle: 0,
       color:"white",
       engine: "0",
-      price: 25000,
+      price: 20000,
       perMonth: 300,
       signing: 2000
     }
