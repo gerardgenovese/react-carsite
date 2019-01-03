@@ -63,7 +63,7 @@ class SlideShow extends React.Component{
     // },5000)
     console.log("will");
   
-    this.createSlideShowInterval();
+    // this.createSlideShowInterval();
 
   };
 
@@ -186,38 +186,47 @@ class SlideShow extends React.Component{
       <div className="slideshow">
      
         <div key={this.state.slideIndex} className="slideshow-bg" style={backgroundImages}>
-          <div key={this.state.slideIndex} className="slideshow-container">
-            <div className="slideshow-padding">
-              <div className="slideshow-title">
-                <div className="">2019 &nbsp; </div>
-                <div className="slideshow-title--car">{this.state.titles[this.state.slideIndex]}</div>
+        
+      
+            <div key={this.state.slideIndex} className="slideshow-container">
+              <div className="slideshow-padding">
+                <div className="slideshow-title">
+                  <div className="">2019 &nbsp; </div>
+                  <div className="slideshow-title--car">{this.state.titles[this.state.slideIndex]}</div>
+                </div>
+                <div className="slideshow-header">{this.getHeader()}</div>
+                  <p className="slideshow-misc">{this.getPhrase()}</p>
+                <div className="slideshow-flex">
+                  <div className="slideshow-flex-box">
+                    <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
+                    <p className="slideshow-text">Per Month</p>
+                  </div>
+                  <p className="slideshow-text">for</p>
+                  <div className="slideshow-flex-box">
+                    <p className="slideshow-details"> 36 </p>
+                    <p className="slideshow-text">Months</p>
+                  </div>
+                  <div className="slideshow-flex-box">
+                    <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
+                    <p className="slideshow-text">Due At Signing</p>
+                  </div>
+                </div>
+                <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>  
+                <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval}/>         
               </div>
-              <div className="slideshow-header">{this.getHeader()}</div>
-                <p className="slideshow-misc">{this.getPhrase()}</p>
-              <div className="slideshow-flex">
-                <div className="slideshow-flex-box">
-                  <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
-                  <p className="slideshow-text">Per Month</p>
-                </div>
-                <p className="slideshow-text">for</p>
-                <div className="slideshow-flex-box">
-                  <p className="slideshow-details"> 36 </p>
-                  <p className="slideshow-text">Months</p>
-                </div>
-                <div className="slideshow-flex-box">
-                  <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
-                  <p className="slideshow-text">Due At Signing</p>
-                </div>
-              </div>
-              <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>  
-              <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval}/>         
             </div>
-          </div>
 
-          <img key={this.state.slideShow[this.state.slideIndex]} className="slideshow-img" src={this.state.slideShow[this.state.slideIndex]} alt="car" />
+            <img key={this.state.slideShow[this.state.slideIndex]} className="slideshow-img" src={this.state.slideShow[this.state.slideIndex]} alt="car" />  
 
-          <button className="slideshow-prev" onClick={this.prev}> <i className="fas fa-arrow-left"></i></button>
-          <button className="slideshow-next" onClick={this.next}> <i className="fas fa-arrow-right"></i></button>  
+         
+
+
+            
+              <button className="slideshow-prev" onClick={this.prev}> <i className="fas fa-arrow-left"></i></button>
+              <button className="slideshow-next" onClick={this.next}> <i className="fas fa-arrow-right"></i></button>  
+            
+        
+
         </div>
       </div>
 

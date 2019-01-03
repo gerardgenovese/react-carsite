@@ -7,10 +7,10 @@
 
   &-bg{
     // background-image: url("../relativeImages/slideshow/background.jpg");
-    opacity: 0;
+    // opacity: 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    width: 100%;
+    // width: 100%;
     height: 60vh;
     position:relative;
     z-index: 0;
@@ -21,6 +21,7 @@
     animation: bgShow .3s;
     animation-fill-mode: forwards;
   }
+  
 
   &-container{
     width: 30%;
@@ -113,49 +114,43 @@
     bottom: 10%;
     right: 0;
     // z-index:-1;
-    z-index: 3;
+    // z-index: 3;
     width: 50rem;
     animation: center 1s;
     animation-fill-mode: forwards;
   }
 
+&-prev,
+&-next{
+  opacity: 0;
+  position:absolute;
+  height: 100%;
+  width: 4rem;
+  background:rgba(0, 0, 0, 0.329);
+  outline:none;
+  border:none;
+  transition: .3s;
+}
+
   &-prev{
-    opacity: 0;
-    position:absolute;
-    top: 0%;
-    left: 0%;
-    height: 100%;
-    width: 2rem;
-    background:rgba(0, 0, 0, 0.329);
-    outline:none;
-    border:none;
-    transition: .3s;
+    left: 0;
   }
   &-next{
-    opacity: 0;
-    position:absolute;
-    top: 0%;
-    right: 0%;
-    height: 100%;
-    width: 2rem;
-    background:rgba(0, 0, 0, 0.329);
-    outline:none;
-    border:none;
-    transition: .3s;
+    right: 0;
   }
   &-prev:hover,
   &-next:hover{
     opacity: 1;
     background: black;
     transition: .3s;
-  }
-  &-prev:hover *,
-  &-next:hover * {
     color:white;
   }
-
 }
 
+.fa-arrow-left,
+.fa-arrow-right{
+  padding: 0;
+}
 
 @keyframes bgShow{
   0%{
