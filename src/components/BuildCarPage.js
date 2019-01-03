@@ -57,7 +57,7 @@ class BuildCarPage extends React.Component{
         default:
           this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false, buildCarCalculator: false});
       } 
-      console.log(show);
+      // console.log(show);
   };
 
   //change color menu
@@ -147,7 +147,7 @@ class BuildCarPage extends React.Component{
 
   
   render(){
-    console.log("buildcarpagestate",this.state);
+    // console.log("buildcarpagestate",this.state);
     return(
       <div>
         <div>{this.state.title}</div>

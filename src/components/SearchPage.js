@@ -26,9 +26,9 @@ filterList = (e) => {
 };
 
   render(){
-    console.log("cars", this.state.cars);
-    console.log("carList",this.state.carList)
-    console.log("carDisplay",this.state.carDisplay);
+    // console.log("cars", this.state.cars);
+    // console.log("carList",this.state.carList)
+    // console.log("carDisplay",this.state.carDisplay);
     return(
       <div>
         <input type="text" onChange={this.filterList}/>

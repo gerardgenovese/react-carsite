@@ -1,7 +1,7 @@
 import React from "react";
 // import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import { buildCar } from "../redux/actions";
+// import { connect } from "react-redux";
+// import { buildCar } from "../redux/actions";
 import SlideShow from "./SlideShow";
 import SectionNav from "./SectionNav";
 
@@ -47,16 +47,17 @@ class LandingPage extends React.Component{
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    allCars: state.allCars,
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     allCars: state.allCars,
+//   }
+// }
 
-export default connect(mapStateToProps, {
-  buildCar,
-})(LandingPage);
+// export default connect(mapStateToProps, {
+//   buildCar,
+// })(LandingPage);
 
+export default LandingPage;
 
 
 

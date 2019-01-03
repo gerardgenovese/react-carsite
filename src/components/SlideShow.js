@@ -1,28 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
 import SlideShowModal from "./SlideShowModal";
+// import { url } from "inspector";
 
 // import avalon from "../relativeImages/slideshow/avalonSlide.png";
 // import camry from "../relativeImages/slideshow/camrySlide.png";
 // import corolla from "../relativeImages/slideshow/corollaSlide.png";
+// import background from "../relativeImages/slideshow/background.jpg";
 
 class SlideShow extends React.Component{
   state ={
     carInfo: [],
+    carBackground: [],
     slideIndex: 0,
     slideShow: [],
     titles: [],
     prices: [],
     perMonth: [],
     signing: [],
-    carModal: false,
-
-
-
-   }
+    carModal: false
+  } 
 
   componentWillMount(){
     const carInfo = [];
+    const carBackground = [];
     const images = [];
     const titles = []
     const prices = [];
@@ -31,6 +32,7 @@ class SlideShow extends React.Component{
 
     this.props.slideShow.forEach(car => {
       carInfo.push(car);
+      carBackground.push(car.background);
       images.push(car.img);
       titles.push(car.title);
       prices.push(car.price);
@@ -39,6 +41,7 @@ class SlideShow extends React.Component{
     });
     this.setState({ 
       carInfo,
+      carBackground,
       slideShow: images,
       titles: titles,
       prices: prices,
@@ -64,41 +67,46 @@ class SlideShow extends React.Component{
 
   };
 
+  // componentDidMount(){
+  //   this.createSlideShowInterval();
+  // }
+
 
 // componentDidMount() {
 //   console.log("didmount")
 //   this.timerID = setInterval(() => this.startSlideShow(),2000);
 // }
 
-createSlideShowInterval = () => {
-  console.log("create interval")
-  this.slideShow = setInterval(() => this.startSlideShow(), 5000);
-}
+  createSlideShowInterval = () => {
+    console.log("create interval")
+    this.slideShow = setInterval(() => this.startSlideShow(), 5000);
+  }
 
 
-startSlideShow = () =>{
-  console.log("new slide");
+  startSlideShow = () =>{
+    console.log("new slide");
 
-  if(this.state.slideIndex > this.state.slideShow.length - 2){
-    this.setState({ slideIndex: 0 })
-  } else {
-      this.setState((prevState) => {
-        return {
-          slideIndex: prevState.slideIndex + 1,
-        }
-      });
-    }
-}
+    if(this.state.slideIndex > this.state.slideShow.length - 2){
+      this.setState({ slideIndex: 0 })
+    } else {
+        this.setState((prevState) => {
+          return {
+            slideIndex: prevState.slideIndex + 1,
+          }
+        });
+      }
+  }
 
-stopSlideShowAndGetModal = () => {
-  console.log("unmount slideshow")
-  this.setState({ carModal: true })
-  clearInterval(this.slideShow);
-}
-
-
+  stopSlideShowAndGetModal = () => {
+    console.log("unmount slideshow")
+    this.setState({ carModal: true })
+    clearInterval(this.slideShow);
+  }
 
 
+  componentWillUnmount(){
+    clearInterval(this.slideShow);
+  }
 
 
   next = () => {
@@ -136,41 +144,74 @@ stopSlideShowAndGetModal = () => {
     this.setState({ carModal: false })
   };
 
+  getHeader(){
 
+    const header = 
+    [
+      "You've got the wheel",
+      `The All New ${this.state.titles[this.state.slideIndex]}`,
+      "Pack Leading Capability",
+      "Turn every drive into an adventure"
+    ];
+
+    return header[this.state.slideIndex];
+  }
+  getPhrase(){
+
+    const phrase = 
+    [
+      "Luxury that's affordable",
+      "Equipped for featurs like standard Toyota defense",
+      "Everyday deserves more adventure",
+      "Comfort with excitment"
+    ];
+
+    return phrase[this.state.slideIndex];
+  }
 
 
   render(){
-    // console.log("state", this.state);
+    console.log("state", this.state);
 
     const dollarSign = {
       fontFamily: "helvetica",
       fontSize: "1.5rem"
     }
+
+    const backgroundImages = {
+      backgroundImage: `url(${this.state.carBackground[this.state.slideIndex]})`
+    }
   
     return(
       <div className="slideshow">
-        <div className="slideshow-bg">
+     
+        <div key={this.state.slideIndex} className="slideshow-bg" style={backgroundImages}>
           <div key={this.state.slideIndex} className="slideshow-container">
-            <div className="slideshow-header">Toyotathon is on!</div>
-              <p className="slideshow-misc">5 days left</p>
-            <div className="slideshow-title">2019 {this.state.titles[this.state.slideIndex]}</div>
-            <div className="slideshow-flex">
-              <div className="slideshow-flex-box">
-                <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
-                <p className="slideshow-text">Per Month</p>
+            <div className="slideshow-padding">
+              <div className="slideshow-title">
+                <div className="">2019 &nbsp; </div>
+                <div className="slideshow-title--car">{this.state.titles[this.state.slideIndex]}</div>
               </div>
-              <p className="slideshow-text">for</p>
-              <div className="slideshow-flex-box">
-                <p className="slideshow-details"> 36 </p>
-                <p className="slideshow-text">Months</p>
+              <div className="slideshow-header">{this.getHeader()}</div>
+                <p className="slideshow-misc">{this.getPhrase()}</p>
+              <div className="slideshow-flex">
+                <div className="slideshow-flex-box">
+                  <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
+                  <p className="slideshow-text">Per Month</p>
+                </div>
+                <p className="slideshow-text">for</p>
+                <div className="slideshow-flex-box">
+                  <p className="slideshow-details"> 36 </p>
+                  <p className="slideshow-text">Months</p>
+                </div>
+                <div className="slideshow-flex-box">
+                  <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
+                  <p className="slideshow-text">Due At Signing</p>
+                </div>
               </div>
-              <div className="slideshow-flex-box">
-                <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
-                <p className="slideshow-text">Due At Signing</p>
-              </div>
+              <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>  
+              <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval}/>         
             </div>
-            <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>  
-            <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval}/>         
           </div>
 
           <img key={this.state.slideShow[this.state.slideIndex]} className="slideshow-img" src={this.state.slideShow[this.state.slideIndex]} alt="car" />

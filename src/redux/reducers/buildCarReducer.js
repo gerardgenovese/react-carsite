@@ -1,21 +1,46 @@
 const allCars = () => {
   return [
     { 
-      title: "corolla", 
-      img: "/images/corolla/sidefront/red.jpg",
+      title: "camry", 
+      img: "/images/camry/sidefront/red.jpg",
       carAngle: 0,
       color:"red",
+      engine: 0,
+      price: 25000
+      
+    },
+    { 
+      title: "86", 
+      img: "/images/t86/sidefront/white.jpg",
+      carAngle: 0,
+      color:"white",
+      engine: "0",
+      price: 30000
+    },
+    { 
+      title: "corolla", 
+      img: "/images/corolla/sidefront/blue.jpg",
+      carAngle: 0,
+      color:"blue",
       engine: 0,
       price: 20000
       
     },
     { 
-      title: "t86", 
-      img: "/images/t86/sidefront/white.jpg",
+      title: "avalon", 
+      img: "/images/avalon/sidefront/black.jpg",
       carAngle: 0,
-      color:"white",
+      color:"black",
       engine: "0",
-      price: 25000
+      price: 35000
+    },
+    { 
+      title: "yaris", 
+      img: "/images/yaris/sidefront/gray.jpg",
+      carAngle: 0,
+      color:"gray",
+      engine: "0",
+      price: 18000
     }
   ]
 };

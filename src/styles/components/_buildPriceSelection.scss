@@ -1,0 +1,204 @@
+// .build_price{
+//   &-main{
+//     background: $light-gray;
+//   }
+//   &-flex{
+//     display:flex;
+//     flex-wrap: wrap;
+//     justify-content:center;
+//     margin: 0 7.5% 0 7.5%;
+//     padding: 5rem 0;
+
+//     &:hover{
+//       border: red;
+//     }
+//   }
+//   &-flex >* {
+//     flex: 0 0 25%;
+//   }
+
+//  &-renderBox{
+//    background-color:white;
+//     display:flex;
+//     justify-content:center;
+//     // margin: 2rem;
+//     box-shadow: 2px 2px 4px rgb(209, 205, 205);
+//     :hover{
+//       cursor:pointer;
+//       border: 1px solid red;
+//     }
+
+//  }
+
+//   &-img{
+//     width: 20rem;
+//     // margin: 4rem 0 0 0;
+
+//   }
+//   &-asShown{
+//     display:flex;
+//     justify-content:center;
+//     font-family: arial;
+//     font-size: 1.2rem;
+//     color: $light-black;
+//     letter-spacing: .1rem;
+//   }
+//   &-info{
+//     display:flex;
+//     flex-direction:column;
+//     align-items:flex-start;
+//     // margin: 1rem;
+//     font-family: tahoma;
+//     // padding: 0 1rem;
+
+//     &--year,
+//     &--title{
+//       font-size:2rem;
+//       &-flex{
+//         display:flex;
+//       }
+//     }
+//     &--title{
+//       font-weight:bold;
+//     }
+//     &--starting{
+//       font-size: 1.5rem;
+//       color: $light-black;
+
+//     }
+//     &--miles{
+//       font-size: 1.2rem;
+//       color: $light-black;
+//       margin-bottom: 6rem;
+
+//     }
+//   }
+
+// }
+
+.build_price{
+    &-main{
+    background: $light-gray;
+  }
+  &-header{
+    font-size: 6rem;
+    font-family: sans-serif;
+    text-align:center;
+    margin-top: 3rem;
+  }
+  &-text{
+    font-size: 1.2rem;
+    font-family: helvetica;
+    color: rgb(150, 147, 147);
+    text-align:center;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+  }
+  &-carLinks{
+    display:flex;
+    justify-content:center;
+    padding: 2rem 0;
+
+    &--button{
+      border:none;
+      border-bottom: 2px solid red;
+      background:transparent;
+      cursor: pointer;
+    }
+  }
+  
+
+  &-contain{
+    margin: 0 10% 0 10%;
+  }
+
+  &-flex{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    // margin: 0 7.5% 0 7.5%;
+   }
+
+   &-renderBox{
+   background-color:white;
+    display:flex;
+    flex-direction:column;
+    flex: 0 0 25%;
+    margin: 1rem;
+    // align-items:center;
+    box-shadow: 2px 2px 4px rgb(209, 205, 205);
+    }
+
+    &-img{
+      display:block;
+      margin: 2rem auto 0 auto;
+      width: 20rem;
+  }
+
+
+
+
+  &-asShown{
+    display:flex;
+    justify-content:center;
+    font-family: arial;
+    font-size: 1.2rem;
+    color: $light-black;
+    letter-spacing: .1rem;
+  }
+  &-info{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    // margin: 1rem;
+    font-family: tahoma;
+    // padding: 0 1rem;
+
+    &--year,
+    &--title{
+      font-size:2rem;
+      &-flex{
+        display:flex;
+        margin-left: 2rem;
+        padding: 1rem;
+      }
+    }
+    &--title{
+      font-weight:bold;
+    }
+    &--starting{
+      font-size: 1.5rem;
+      color: $light-black;
+      margin-left: 2rem;
+      padding: 0 1rem;
+    }
+    &--miles{
+      font-size: 1.2rem;
+      color: $light-black;
+      margin-left: 2rem;
+      margin-bottom: 6rem;
+      padding: 0 1rem;
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+}
+
+.build_price-renderBox {
+  border:2px solid transparent;
+}
+
+.build_price-renderBox:hover{
+  border:2px solid red;
+}
+

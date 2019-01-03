@@ -13,7 +13,7 @@ class SlideShowModal extends React.Component{
  };
 
   render(){
-    console.log("modal props", this.props.carInfo);
+    // console.log("modal props", this.props.carInfo);
     const { carModal, carInfo } = this.props;
 
     return(
