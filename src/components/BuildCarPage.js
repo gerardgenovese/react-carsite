@@ -147,7 +147,7 @@ class BuildCarPage extends React.Component{
 
   
   render(){
-    // console.log("buildcarpagestate",this.state);
+    console.log("buildcarpagestate",this.state);
     return(
       <div>
         <div>{this.state.title}</div>

@@ -61,9 +61,11 @@ class SlideShow extends React.Component{
     //     });
     //   }
     // },5000)
-    console.log("will");
+
+
+    // console.log("will");
   
-    // this.createSlideShowInterval();
+    this.createSlideShowInterval();
 
   };
 
@@ -78,13 +80,13 @@ class SlideShow extends React.Component{
 // }
 
   createSlideShowInterval = () => {
-    console.log("create interval")
+    // console.log("create interval")
     this.slideShow = setInterval(() => this.startSlideShow(), 5000);
   }
 
 
   startSlideShow = () =>{
-    console.log("new slide");
+    // console.log("new slide");
 
     if(this.state.slideIndex > this.state.slideShow.length - 2){
       this.setState({ slideIndex: 0 })
@@ -171,7 +173,7 @@ class SlideShow extends React.Component{
 
 
   render(){
-    console.log("state", this.state);
+    // console.log("state", this.state);
 
     const dollarSign = {
       fontFamily: "helvetica",

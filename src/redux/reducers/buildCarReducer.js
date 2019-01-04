@@ -11,7 +11,7 @@ const allCars = () => {
     },
     { 
       title: "86", 
-      img: "/images/t86/sidefront/white.jpg",
+      img: "/images/86/sidefront/white.jpg",
       carAngle: 0,
       color:"white",
       engine: "0",
