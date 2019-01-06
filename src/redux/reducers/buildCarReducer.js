@@ -6,8 +6,8 @@ const allCars = () => {
       carAngle: 0,
       color:"red",
       engine: 0,
-      price: 25000
-      
+      price: 25000,
+      miles: "29/32"
     },
     { 
       title: "86", 
@@ -15,7 +15,8 @@ const allCars = () => {
       carAngle: 0,
       color:"white",
       engine: "0",
-      price: 30000
+      price: 30000,
+      miles: "22/28"
     },
     { 
       title: "corolla", 
@@ -23,7 +24,8 @@ const allCars = () => {
       carAngle: 0,
       color:"blue",
       engine: 0,
-      price: 20000
+      price: 20000,
+      miles: "28/35"
       
     },
     { 
@@ -32,7 +34,8 @@ const allCars = () => {
       carAngle: 0,
       color:"black",
       engine: "0",
-      price: 35000
+      price: 35000,
+      miles: "25/30"
     },
     { 
       title: "yaris", 
@@ -40,7 +43,8 @@ const allCars = () => {
       carAngle: 0,
       color:"gray",
       engine: "0",
-      price: 18000
+      price: 18000,
+      miles: "30/35"
     }
   ]
 };

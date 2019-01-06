@@ -62,8 +62,8 @@ class Search extends React.Component{
 
 
 filterList = (e) => {
-  this.setState({ textInput: e.target.value })
-  let searchCar = (/camry|86|corolla|avalon|yaris/i, e.target.value);
+  this.setState({ textInput: e.target.value.toLowerCase() })
+  let searchCar = (/camry|86|corolla|avalon|yaris/i, e.target.value.toLowerCase());
   let carIndex = this.state.carTitles.indexOf(searchCar);
 
   if(searchCar !== this.state.textInput){

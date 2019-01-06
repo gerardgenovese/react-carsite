@@ -4,6 +4,7 @@ import React from "react";
 // import { buildCar } from "../redux/actions";
 import SlideShow from "./SlideShow";
 import SectionNav from "./SectionNav";
+import ExploreAll from "./ExploreAll";
 
 class LandingPage extends React.Component{
     // state ={
@@ -40,7 +41,7 @@ class LandingPage extends React.Component{
       <div>
         <SlideShow />
         <SectionNav />
-        
+        <ExploreAll />
       </div>
     )
   }
