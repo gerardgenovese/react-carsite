@@ -100,55 +100,11 @@
 }
 
 
-
-
-
-
 .carAnimate{
   animation: flowLeft 1s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .exploreAnimation {
-//   animation: flowLeft 1s;
-
-// }
-
-// .carAnimation.camry {
-//   animation: carIn 1s;
-  
-//   animation-delay: .2s;
-//   opacity: 1;
-// }
-
-
-// .carAnimation.t86 {
-//   animation: carIn 1s;
-//   animation-delay: 1s;
-//   opacity: 1;
-// }
-// .carAnimation.corolla {
-//   animation: carIn 1s;
-//   // animation-delay: .4s;
-//   // opacity: 1;
-// }
-
-// .camry{
-//   opacity: 1;
-// }
 
 
 @keyframes flowLeft {
@@ -171,3 +127,4 @@
 //     opacity: 1;
 //   }
 // }
+

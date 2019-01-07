@@ -5,6 +5,7 @@ import React from "react";
 import SlideShow from "./SlideShow";
 import SectionNav from "./SectionNav";
 import ExploreAll from "./ExploreAll";
+import KbbAward from "./KbbAward";
 
 class LandingPage extends React.Component{
     // state ={
@@ -42,6 +43,7 @@ class LandingPage extends React.Component{
         <SlideShow />
         <SectionNav />
         <ExploreAll />
+        <KbbAward />
       </div>
     )
   }

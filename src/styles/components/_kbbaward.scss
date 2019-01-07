@@ -1,0 +1,141 @@
+@import "../mixins/button";
+
+$cyan: blue;
+$yellow: red;
+$red: #000000;
+
+.kbb{
+  margin: 5rem 0;
+
+  &-container{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    margin: 5rem 25% 0 25%;
+    padding: 5rem 0 0 0;
+    border-top: $border;
+  }
+
+  &-img{
+    width: 15rem;
+  }
+  &-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size: 2.5rem;
+    font-family: tahoma;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    &--spacing{
+      padding: 1rem 0;
+    }
+    &--sup{
+      color:red;
+      font-size: 1.4rem;
+    }
+  }
+  &-button{   
+    background:none;
+    border:none;
+    color:black;
+    font-size: 1.8rem;
+    font-family: 'Trebuchet MS';
+    font-weight:bold;
+    text-transform:uppercase;
+    outline:none;
+    cursor:pointer;
+
+    &--flex{
+      display:flex;
+      justify-content:center;
+      margin: 3rem;
+    }
+
+    &--border{
+      display:flex;
+      justify-content:center;
+      position: relative;
+      padding: 1.5rem 5rem;
+      transition: all .3s;
+    
+      &:before{
+        z-index: -1;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: 2px solid black;
+        border-radius:10rem;
+        // transform-origin: 0 0;
+        transition: all .3s;
+      }
+      
+      &:hover:before{
+        transform: scale(1.1);
+      }
+      &:active:before{
+        width: 100%;
+        height: 100%;
+        outline-style: dotted;
+      }
+    }
+  }
+}
+
+
+
+
+// .test {
+//   display:flex;
+//   justify-content:center;
+//   width: 100px;
+//   height: 100px;
+//   // margin: 100px;
+//   position: relative;
+//   // transform-origin: 0 0;
+//   transition: all .3s;
+// }
+// .test:before {
+//   z-index: -1;
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   width: 100px;
+//   height: 100px;
+//   background: red;
+//   // transform-origin: 0 0;
+//   transition: all .3s;
+// }
+
+// .test:hover:before {
+//   transform: scale(2);
+// }
+// .test-text{
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

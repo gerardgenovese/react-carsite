@@ -33,33 +33,72 @@ class ExploreAll extends React.Component {
 
   componentDidMount() {
   window.addEventListener("scroll", this.scrollPos, true);
+
+  // console.log(window.innerHeight)
   };
 
 
   scrollPos = () => {
     let position = window.pageYOffset
 
-    if(position >= 220){
+    if(window.innerHeight < 800){   
+      if(position >= 125){
 
-      setTimeout(() => {
-        this.setState({ camryAnimate: true })
-      },100);
-      setTimeout(() => {
-        this.setState({ t86Animate: true })
-      },300);
-      setTimeout(() => {
-        this.setState({ corollaAnimate: true })
-      },500);
-      setTimeout(() => {
-        this.setState({ avalonAnimate: true })
-      },700);
-      setTimeout(() => {
-        this.setState({ yarisAnimate: true })
-      },900);
-     
-      
-    } 
-    console.log(position)
+        // setTimeout(() => {
+        //   this.setState({ camryAnimate: true })
+        // },100);
+        // setTimeout(() => {
+        //   this.setState({ t86Animate: true })
+        // },300);
+        // setTimeout(() => {
+        //   this.setState({ corollaAnimate: true })
+        // },500);
+        // setTimeout(() => {
+        //   this.setState({ avalonAnimate: true })
+        // },700);
+        // setTimeout(() => {
+        //   this.setState({ yarisAnimate: true })
+        // },900);
+        this.startAnimation();
+      } 
+    }
+    else if(window.innerHeight > 800){
+      // setTimeout(() => {
+      //   this.setState({ camryAnimate: true })
+      // },100);
+      // setTimeout(() => {
+      //   this.setState({ t86Animate: true })
+      // },300);
+      // setTimeout(() => {
+      //   this.setState({ corollaAnimate: true })
+      // },500);
+      // setTimeout(() => {
+      //   this.setState({ avalonAnimate: true })
+      // },700);
+      // setTimeout(() => {
+      //   this.setState({ yarisAnimate: true })
+      // },900);
+      this.startAnimation();
+    }
+    // console.log(position)
+  }
+
+  startAnimation(){
+    setTimeout(() => {
+      this.setState({ camryAnimate: true })
+    },100);
+    setTimeout(() => {
+      this.setState({ t86Animate: true })
+    },300);
+    setTimeout(() => {
+      this.setState({ corollaAnimate: true })
+    },500);
+    setTimeout(() => {
+      this.setState({ avalonAnimate: true })
+    },700);
+    setTimeout(() => {
+      this.setState({ yarisAnimate: true })
+    },900);
   }
 
 
@@ -178,7 +217,6 @@ class ExploreAll extends React.Component {
 
 
   render(){
-    console.log(this.state.animate)
     // return(
     //   <div className="">
 
