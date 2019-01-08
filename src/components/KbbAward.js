@@ -30,8 +30,6 @@ class KbbAward extends React.Component {
             </div>
           </div>
         </Link>
-
-
       </div>
     )
   } 

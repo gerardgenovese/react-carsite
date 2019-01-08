@@ -1,4 +1,5 @@
 @import "./components/variables";
+@import "./mixins/button";
 @import "./components/base";
 @import "./components/buildPriceSelection";
 @import "./components/exploreAll";
@@ -9,4 +10,4 @@
 @import "./components/slideShow";
 @import "./components/slideShowModal";
 @import "./components/test";
-@import "./mixins/button";
+@import "./components/whatsHappening";

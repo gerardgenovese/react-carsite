@@ -115,6 +115,7 @@
 
   &-flex{
     display:flex;
+    -webkit-flex-wrap: wrap;
     flex-wrap:wrap;
     justify-content:center;
     // margin: 0 7.5% 0 7.5%;
