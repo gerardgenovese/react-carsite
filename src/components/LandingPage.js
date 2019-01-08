@@ -7,6 +7,7 @@ import SectionNav from "./SectionNav";
 import ExploreAll from "./ExploreAll";
 import KbbAward from "./KbbAward";
 import WHTParent from "./WHTParent";
+import Footer from "./Footer";
 
 class LandingPage extends React.Component{
     // state ={
@@ -46,6 +47,7 @@ class LandingPage extends React.Component{
         <ExploreAll />
         <KbbAward />
         <WHTParent />
+        <Footer />
       </div>
     )
   }

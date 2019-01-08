@@ -1,0 +1,24 @@
+.footer{
+  &-social{
+    display:flex;
+    justify-content:center;
+    background: #f3ecec;
+    margin: 5rem 0;
+  }
+  &-main{
+    display:flex;
+    justify-content:space-around;
+    font-size: 1.5rem;
+    font-family: tahoma;
+    color: rgb(39, 38, 38);
+    margin: 0 10%;
+    padding: 0 0 5rem 0;
+    &--title{
+      font-weight:bold;
+    }
+  }
+}
+.fab{
+  padding: 2rem;
+  font-size: 4rem;
+}
