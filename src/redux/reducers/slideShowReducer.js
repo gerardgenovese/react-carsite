@@ -41,7 +41,7 @@ export default () => {
       engine: "0",
       price: 30000,
       perMonth: 375,
-      signing: 28000,
+      signing: 2800,
       background: "/images/slideShow/background4.jpg"
     }
   ]

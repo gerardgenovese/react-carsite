@@ -2,7 +2,7 @@ import React from "react";
 
 
 const WHTChild = (props) => {
-  console.log(props.className)
+  // console.log(props.className)
   return(
     <div className="whtC">
       <div className="whtC-container">
