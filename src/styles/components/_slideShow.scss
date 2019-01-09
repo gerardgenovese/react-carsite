@@ -79,9 +79,10 @@
   &-flex{
     display:flex;
     align-items:center;
-    margin-left: 5%;
+    justify-content:center;
+    // margin-left: 5%;
 
-    &-box{
+    &--box{
       display:flex;
       flex-direction: column;
       justify-content:center;

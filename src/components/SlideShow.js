@@ -50,34 +50,12 @@ class SlideShow extends React.Component{
     })
 
 
-    // setInterval(() => {
-    //   if(this.state.slideIndex > this.state.slideShow.length - 2){
-    //     this.setState({ slideIndex: 0 })
-    //   } else {
-    //     this.setState((prevState) => {
-    //       return {
-    //         slideIndex: prevState.slideIndex + 1,
-    //       }
-    //     });
-    //   }
-    // },5000)
 
-
-    // console.log("will");
   
-    this.createSlideShowInterval();
+    // this.createSlideShowInterval();
 
   };
 
-  // componentDidMount(){
-  //   this.createSlideShowInterval();
-  // }
-
-
-// componentDidMount() {
-//   console.log("didmount")
-//   this.timerID = setInterval(() => this.startSlideShow(),2000);
-// }
 
   createSlideShowInterval = () => {
     // console.log("create interval")
@@ -199,16 +177,16 @@ class SlideShow extends React.Component{
                 <div className="slideshow-header">{this.getHeader()}</div>
                   <p className="slideshow-misc">{this.getPhrase()}</p>
                 <div className="slideshow-flex">
-                  <div className="slideshow-flex-box">
+                  <div className="slideshow-flex--box">
                     <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
                     <p className="slideshow-text">Per Month</p>
                   </div>
                   <p className="slideshow-text">for</p>
-                  <div className="slideshow-flex-box">
+                  <div className="slideshow-flex--box">
                     <p className="slideshow-details"> 36 </p>
                     <p className="slideshow-text">Months</p>
                   </div>
-                  <div className="slideshow-flex-box">
+                  <div className="slideshow-flex--box">
                     <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
                     <p className="slideshow-text">Due At Signing</p>
                   </div>
