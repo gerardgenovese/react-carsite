@@ -22,14 +22,15 @@ class KbbAward extends React.Component {
             <p>Luxury Sedan<sup className="kbb-info--sup">30</sup></p>
           </div>
         </div>
-        <Link to="/build">
+        
           <div className="kbb-button--flex" onClick={() => this.props.buildCar(this.props.car)}>
-            <div className="kbb-button--border">
-              <button className="kbb-button"> Explore Avalon
-              </button>
-            </div>
+            <Link to="/build">
+              <div className="kbb-button--border">
+                <button className="kbb-button"> Explore Avalon</button>
+              </div>
+            </Link>
           </div>
-        </Link>
+     
       </div>
     )
   } 

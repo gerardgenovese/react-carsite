@@ -1,8 +1,8 @@
 .footer{
+  background: #f3ecec;
   &-social{
     display:flex;
     justify-content:center;
-    background: #f3ecec;
     margin: 5rem 0;
   }
   &-main{
@@ -13,12 +13,63 @@
     color: rgb(39, 38, 38);
     margin: 0 10%;
     padding: 0 0 5rem 0;
+
     &--title{
       font-weight:bold;
     }
   }
 }
+
 .fab{
-  padding: 2rem;
+  margin: 2rem;
   font-size: 4rem;
+  cursor:pointer;
 }
+
+
+
+////Modal
+
+.footer{
+  &-modal{
+    background: white;
+    max-width: 75%;
+    max-height: 75%;
+    margin: 5rem;
+  }
+  &-header{
+    &--text{
+      text-align:center;
+      font-size: 5rem;
+      padding: 1rem;
+    }
+    &--flex{
+      display:flex;
+      justify-content:flex-end;
+      padding: 1rem;
+    }
+    &--close{
+      background:black;
+      color:white;
+      border:none;
+      border-radius: 100%;
+      padding: 1rem 1.5rem;
+    }
+  }
+}
+
+.footer-main p {
+  line-height:2;
+  cursor:pointer;
+}
+.footer-main div {
+  cursor:pointer;
+}
+
+
+
+video{
+  width: 100%;
+  height: inherit;
+}
+

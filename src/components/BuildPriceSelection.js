@@ -73,7 +73,6 @@ class BuildPriceSelection extends React.Component {
         <div className="build_price-carLinks">
           <button className="build_price-carLinks--cars">Cars</button>
         </div>
-    
         
         <div className="build_price-contain">
           {this.renderCars()}
