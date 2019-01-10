@@ -9,7 +9,12 @@ import BuildCarPageCorolla from "../components/BuildCarPages/BuildCarPageCorolla
 import BuildCarPageAvalon from "../components/BuildCarPages/BuildCarPageAvalon";
 import BuildCarPageYaris from "../components/BuildCarPages/BuildCarPageYaris";
 import SearchPage from "../components/SearchPage";
+
+import Supra from "../components/WhatsHappeningPages/Supra";
+
 import '../styles/main.scss';
+
+
 
 const AppRouter = () => {
   return(
@@ -25,6 +30,8 @@ const AppRouter = () => {
           <Route path="/build/avalon" component={BuildCarPageAvalon}/>
           <Route path="/build/yaris" component={BuildCarPageYaris}/>
           <Route path="/search" component={SearchPage} />
+
+          <Route path="/toyota/supra" component={Supra} />
         </Switch>
       </div>
     </BrowserRouter>

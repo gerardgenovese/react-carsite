@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { buildCar } from "../redux/actions";
+import Footer from "./Footer";
 
 class Search extends React.Component{
 
@@ -67,7 +68,7 @@ class Search extends React.Component{
   render(){
     console.log("state",this.state)
     return(
-      <div>
+      <div className="search">
         <input className="search-input" type="text" onChange={this.filterList} placeholder="Search for your Toyota vehicle..."/>
         <div className={this.state.carIsShowing ? "show" : "hide"}>
           <div className="search-spacing">
@@ -87,6 +88,7 @@ class Search extends React.Component{
             </Link>
           </div>
         </div>
+        <Footer />
      </div>
     )
   }

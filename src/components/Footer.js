@@ -20,12 +20,12 @@ class Footer extends React.Component {
       <footer className="footer">
       
       <div className="footer-social" onClick={this.openModal}>
-        <i className="fab fa-facebook" aria-hidden="true"></i>
-        <i className="fab fa-youtube"></i>
-        <i className="fab fa-twitter-square" aria-hidden="true"></i>
-        <i className="fab fa-google-plus-square" aria-hidden="true"></i>
-        <i className="fab fa-instagram" aria-hidden="true"></i>
-        <i className="fab fa-pinterest-square" aria-hidden="true"></i>
+        <i className="fab fa-facebook footer-fab" aria-hidden="true"></i>
+        <i className="fab fa-youtube footer-fab"></i>
+        <i className="fab fa-twitter-square footer-fab" aria-hidden="true"></i>
+        <i className="fab fa-google-plus-square footer-fab" aria-hidden="true"></i>
+        <i className="fab fa-instagram footer-fab" aria-hidden="true"></i>
+        <i className="fab fa-pinterest-square footer-fab" aria-hidden="true"></i>
       </div>
       <div className="footer-main" onClick={this.openModal}>
         <div>

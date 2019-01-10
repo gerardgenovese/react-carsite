@@ -1,9 +1,11 @@
 
 .select {
+  border-bottom: 5px solid black;
 
-  display:flex;
-  justify-content:center;
-
+  &-container{
+    display:flex;
+    justify-content:center;
+  }
   &-header {
     margin: 5rem 0;
     font-size: 4rem;

@@ -58,9 +58,9 @@ class SelectCars extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="select">
 
-          <div className="select">
+          <div className="select-container">
             <Link to="/build/camry" onClick={() => this.props.buildCar(this.state.cars[0])}>
 
               <div className={this.props.camryAnimate ? "select-car carAnimate" : "select-car"}>

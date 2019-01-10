@@ -1,9 +1,11 @@
 import React from "react";
 
 
+
 const WHTChild = (props) => {
   // console.log(props.className)
   return(
+
     <div className="whtC">
       <div className="whtC-container">
         <div>
@@ -16,7 +18,7 @@ const WHTChild = (props) => {
           <p className="whtC-learn">Learn More</p>
       </div>
     </div>
-
+    
    
   )
 };
