@@ -23,14 +23,16 @@ class ExploreAllTestChild extends React.Component{
 
 
 
-
-
+testrun = () => {
+  this.forceUpdate()
+  this.props.buildCar(this.state.cars[0]);
+};
 
 
   render(){
     return(
       <div className="explore">
-      <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[0])}>
+      <Link to="/build/camry" onClick={this.testrun}>
         <div className={this.props.camryAnimate ? "explore-car carAnimate" : "explore-car"}>
           <div>
             <img className="explore-car--side" src={camrySide} alt="camry"/>
@@ -43,7 +45,7 @@ class ExploreAllTestChild extends React.Component{
           </div>
         </div>  
       </Link>
-      <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[1])}>
+      <Link to="/build/86" onClick={() => this.props.buildCar(this.state.cars[1])}>
         <div className={this.props.t86Animate ? "explore-car carAnimate" : "explore-car"}>
           <div>
             <img className="explore-car--side t86" src={t86Side} alt="86"/>
@@ -56,7 +58,7 @@ class ExploreAllTestChild extends React.Component{
           </div>
         </div>  
       </Link>
-      <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[2])}>
+      <Link to="/build/corolla" onClick={() => this.props.buildCar(this.state.cars[2])}>
         <div className={this.props.corollaAnimate ? "explore-car carAnimate" : "explore-car"}>
           <div>
             <img className="explore-car--side corolla" src={corollaSide} alt="corolla"/>
@@ -69,7 +71,7 @@ class ExploreAllTestChild extends React.Component{
           </div>
         </div>  
       </Link>
-      <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[3])}>
+      <Link to="/build/avalon" onClick={() => this.props.buildCar(this.state.cars[3])}>
         <div className={this.props.avalonAnimate ? "explore-car carAnimate" : "explore-car"}>
           <div>
             <img className="explore-car--side avalon" src={avalonSide} alt="avalon"/>
@@ -82,7 +84,7 @@ class ExploreAllTestChild extends React.Component{
           </div>
         </div> 
       </Link>
-      <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[4])}> 
+      <Link to="/build/yaris" onClick={() => this.props.buildCar(this.state.cars[4])}> 
         <div className={this.props.yarisAnimate ? "explore-car carAnimate" : "explore-car"}>
           <div>
             <img className="explore-car--side yaris" src={yarisSide} alt="yaris"/>

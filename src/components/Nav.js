@@ -58,9 +58,14 @@ changeMenu = () => {
 
 
 componentWillUnmount(){
-  this.setState({ camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false });
+  this.setState({ menu:false, camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false });
 
 };
+
+
+closeMenuAfterClick = () => {
+  this.setState({ menu: false, menuItems:false, camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false })
+}
 
   render(){
     console.log("navstate", this.state)
@@ -69,14 +74,14 @@ componentWillUnmount(){
 
         <div className="nav-container">
           <Link to="/">
-          <img src={Toyota} className="nav-logo" alt="logo" />
+          <img src={Toyota} className="nav-logo" alt="logo" onClick={this.closeMenuAfterClick}/>
           </Link>
           <div className="nav-links">
             <div className="nav-link" >
-              <NavLink to="/" activeClassName="is-active" exact={true}>Explore</NavLink>
+              <NavLink to="/" activeClassName="is-active" exact={true} onClick={this.closeMenuAfterClick}>Explore</NavLink>
             </div>
             <div className="nav-link" >
-              <NavLink to="/search" activeClassName="is-active">Search</NavLink>
+              <NavLink to="/search" activeClassName="is-active" onClick={this.closeMenuAfterClick}>Search</NavLink>
             </div>
         
               
@@ -92,7 +97,9 @@ componentWillUnmount(){
 
     
         </div>
-        <div className={this.state.menu ? "menu menu-open" : "menu menu-closed"}>
+
+
+        <div className={this.state.menu ? "menu menu-open" : "menu menu-closed"} onClick={this.closeMenuAfterClick}>
           <div className={this.state.menuItems ? "menu-items--show" : "menu-items--hidden"}>
 
             <ExploreAllTestChild camryAnimate={this.state.camryAnimate} t86Animate={this.state.t86Animate} corollaAnimate={this.state.corollaAnimate} avalonAnimate={this.state.avalonAnimate} yarisAnimate={this.state.yarisAnimate}/>

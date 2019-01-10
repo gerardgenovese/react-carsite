@@ -36,22 +36,22 @@
 }
 
 .menu{
+  display:flex;
+  justify-content:center;
   position:absolute;
   left: 0;
   // width: 100vw;
   // height: 100vh;
   z-index: 3;
-
+  width: 100%;
+  height: 100vh;
 }
 
 .menu-open{
-  // display:block;
-  width: 100%;
-  height: 100vh;
   transition: .5s;
   animation: menuOpen .4s;
   animation-fill-mode: forwards;
-  background: black;
+  background: white;
   color: white;
 
 }
@@ -60,7 +60,7 @@
   transition: .5s;
   animation: menuClosed .4s;
   animation-fill-mode: forwards;
-  background: black;
+  background: white;
   color: white;
 
 }

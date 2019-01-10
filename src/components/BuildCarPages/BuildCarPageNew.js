@@ -5,14 +5,15 @@ import BuildCarEngine from "./BuildCarEngine";
 import BuildCarAccessories from "./BuildCarAccessories";
 import BuildCarCalculator from "./BuildCarCalculator";
 // import { pickColor } from "../redux/actions";
-class BuildCarPage extends React.Component{
+class BuildCarPageNew extends React.Component{
+
 
  state = {
     title: this.props.car.title,
     image: this.props.car.img,
     carAngle: 0,
     color: this.props.car.color,
-    // price: this.props.car.price,
+    price: this.props.car.price,
     engine: this.props.car.engine,
     engineOneSelected: true,
     engineTwoSelected: false,
@@ -34,8 +35,13 @@ class BuildCarPage extends React.Component{
     buldCarAccessories: false,
     buildCarCalculator: false,
     totalPrice: this.props.car.price
+
+    
   };
 
+  // componentDidUpdate(){
+  //   console.log(this.props.car.title)
+  // }
 
 
 
@@ -147,15 +153,69 @@ class BuildCarPage extends React.Component{
     },100);
   };
 
-  
+// componentDidMount(){
+//   console.log("did",this.state.title);
+//   console.log("did",this.props.car.title);
+// }
+ 
   render(){
     console.log("buildcarpagestate",this.state);
     console.log("buildcarpageprops",this.props)
+
+    // return(
+    //   <div key={this.props.car.title}>
+    //     <div>{this.state.title}</div>
+    //     <div>{this.state.totalPrice}</div>
+    //     <img src={this.state.image} alt={this.state.title}/>
+    //     <button onClick={this.rotateCarImage}>-></button>
+    //     <div data-value="buildCarColors" onClick={this.changeBuildOption}>
+    //       Colors
+    //     </div>
+    //       <div data-value="buildCarEngine" onClick={this.changeBuildOption}>
+    //         Engine
+    //       </div>
+    //       <div data-value="buildCarAccessories" onClick={this.changeBuildOption}>
+    //         Accessories
+    //       </div>
+    //       <div data-value="buildCarCalculator" onClick={this.changeBuildOption}>
+    //         Loan Calculator
+    //       </div>
+    //       {
+    //         this.state.buildCarColors ? 
+    //           <BuildCarColors 
+    //             image={this.state.image} 
+    //             changeColor={this.changeColor} 
+    //           /> 
+    //           : this.state.buildCarEngine ? 
+    //           <BuildCarEngine 
+    //             engineOneSelected={this.state.engineOneSelected} 
+    //             engineTwoSelected={this.state.engineTwoSelected} 
+    //             changeEngine={this.changeEngine} 
+    //           /> 
+    //           : this.state.buildCarAccessories ?
+    //           <BuildCarAccessories 
+    //             cargoToteSelected={this.state.cargoTote.selected} 
+    //             leatherMatsSelected={this.state.leatherMats.selected} 
+    //             wheelLocksSelected={this.state.wheelLocks.selected} 
+    //             add_remove_Cargo={this.add_remove_cargoTote} 
+    //             add_remove_Mats={this.add_remove_leatherMats} 
+    //             add_remove_Locks={this.add_remove_wheelLocks}  
+    //           /> 
+    //           : <BuildCarCalculator carPrice={this.state.totalPrice}/>
+    //       }  
+    //   </div>
+    // )
+
+
+  
+
+
+
     return(
       <div>
-        <div>{this.state.title}</div>
-        <div>{this.state.totalPrice}</div>
-        <img src={this.state.image} alt={this.state.title}/>
+        <div>{this.props.car.title}</div>
+        <div>{this.props.car.totalPrice}</div>
+        <img src={this.props.car.img} alt={this.props.car.title}/>
         <button onClick={this.rotateCarImage}>-></button>
         <div data-value="buildCarColors" onClick={this.changeBuildOption}>
           Colors
@@ -208,8 +268,6 @@ class BuildCarPage extends React.Component{
 
 
 
-
-
   }
 }
 
@@ -219,6 +277,6 @@ const mapStateToProps = (state) => {
   return {car: state.buildCar}
 }
 
-export default connect(mapStateToProps)(BuildCarPage);
+export default connect(mapStateToProps)(BuildCarPageNew);
 
 // export default BuildCarPage;

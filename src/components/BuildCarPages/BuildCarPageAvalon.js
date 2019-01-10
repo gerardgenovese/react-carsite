@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import BuildCarColors from "./BuildCarColors";
-import BuildCarEngine from "./BuildCarEngine";
-import BuildCarAccessories from "./BuildCarAccessories";
-import BuildCarCalculator from "./BuildCarCalculator";
+import BuildCarColors from "../BuildCarColors";
+import BuildCarEngine from "../BuildCarEngine";
+import BuildCarAccessories from "../BuildCarAccessories";
+import BuildCarCalculator from "../BuildCarCalculator";
 // import { pickColor } from "../redux/actions";
 class BuildCarPage extends React.Component{
 
