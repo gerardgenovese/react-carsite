@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import ExploreAllTestChild from "./ExploreAllTestChild";
+import SelectCars from "./SelectCars";
 
 import Toyota from "../relativeImages/toyota-logo.PNG";
 
@@ -8,6 +8,7 @@ class Nav extends React.Component {
 
 
 state = {
+ 
   menu: false,
   menuItems: false,
 
@@ -99,10 +100,10 @@ closeMenuAfterClick = () => {
         </div>
 
 
-        <div className={this.state.menu ? "menu menu-open" : "menu menu-closed"} onClick={this.closeMenuAfterClick}>
-          <div className={this.state.menuItems ? "menu-items--show" : "menu-items--hidden"}>
+        <div className={this.state.menu ? "select-menu select-menu-open" : "select-menu select-menu-closed"} onClick={this.closeMenuAfterClick}>
+          <div className={this.state.menuItems ? "select-menu-items--show" : "select-menu-items--hidden"}>
 
-            <ExploreAllTestChild camryAnimate={this.state.camryAnimate} t86Animate={this.state.t86Animate} corollaAnimate={this.state.corollaAnimate} avalonAnimate={this.state.avalonAnimate} yarisAnimate={this.state.yarisAnimate}/>
+            <SelectCars menu={this.state.menu} camryAnimate={this.state.camryAnimate} t86Animate={this.state.t86Animate} corollaAnimate={this.state.corollaAnimate} avalonAnimate={this.state.avalonAnimate} yarisAnimate={this.state.yarisAnimate}/>
 
 
           </div> 

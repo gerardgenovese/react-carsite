@@ -90,7 +90,7 @@ class ExploreAll extends React.Component {
         <div className="explore-header">Explore All Cars</div>
 
         <div className="explore">
-          <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[0])}>
+          <Link to="/build/camry" onClick={() => this.props.buildCar(this.state.cars[0])}>
 
             <div className={this.state.camryAnimate ? "explore-car carAnimate" : "explore-car"}>
               <div>
@@ -104,7 +104,7 @@ class ExploreAll extends React.Component {
               </div>
             </div>  
           </Link>
-          <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[1])}>
+          <Link to="/build/86" onClick={() => this.props.buildCar(this.state.cars[1])}>
             <div className={this.state.t86Animate ? "explore-car carAnimate" : "explore-car"}>
               <div>
                 <img className="explore-car--side t86" src={t86Side} alt="86"/>
@@ -117,7 +117,7 @@ class ExploreAll extends React.Component {
               </div>
             </div>  
           </Link>
-          <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[2])}>
+          <Link to="/build/corolla" onClick={() => this.props.buildCar(this.state.cars[2])}>
             <div className={this.state.corollaAnimate ? "explore-car carAnimate" : "explore-car"}>
               <div>
                 <img className="explore-car--side corolla" src={corollaSide} alt="corolla"/>
@@ -130,7 +130,7 @@ class ExploreAll extends React.Component {
               </div>
             </div>  
           </Link>
-          <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[3])}>
+          <Link to="/build/avalon" onClick={() => this.props.buildCar(this.state.cars[3])}>
             <div className={this.state.avalonAnimate ? "explore-car carAnimate" : "explore-car"}>
               <div>
                 <img className="explore-car--side avalon" src={avalonSide} alt="avalon"/>
@@ -143,7 +143,7 @@ class ExploreAll extends React.Component {
               </div>
             </div> 
           </Link>
-          <Link to="/build" onClick={() => this.props.buildCar(this.state.cars[4])}> 
+          <Link to="/build/yaris" onClick={() => this.props.buildCar(this.state.cars[4])}> 
             <div className={this.state.yarisAnimate ? "explore-car carAnimate" : "explore-car"}>
               <div>
                 <img className="explore-car--side yaris" src={yarisSide} alt="yaris"/>

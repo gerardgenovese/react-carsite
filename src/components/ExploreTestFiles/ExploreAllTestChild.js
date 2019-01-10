@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { buildCar } from "../redux/actions";
+import { buildCar } from "../../redux/actions";
 
 import camrySide from "../relativeImages/exploreall/camry/side.PNG"
 import camryFront from "../relativeImages/exploreall/camry/front.PNG"

@@ -4,7 +4,7 @@ import React from "react";
 // import { buildCar } from "../redux/actions";
 import SlideShow from "./SlideShow";
 import SectionNav from "./SectionNav";
-import ExploreAllTest from "./ExploreAllTest";
+import ExploreAll from "./ExploreAll";
 import KbbAward from "./KbbAward";
 import WHTParent from "./WHTParent";
 import Footer from "./Footer";
@@ -44,7 +44,7 @@ class LandingPage extends React.Component{
       <div>
         <SlideShow />
         <SectionNav />
-        <ExploreAllTest />
+        <ExploreAll />
         <KbbAward />
         <WHTParent />
         <Footer />
