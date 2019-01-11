@@ -22,7 +22,7 @@ const WHTParent = () => {
 
       <div className="whtP-container">
         <div className="whtP-contain">
-          <Link to="/toyota/supra">
+          <Link to="/toyota-newsroom/supra" target="_blank">
             <WHTChild 
               image={img1}
               callToAction="Latest News"

@@ -16,13 +16,13 @@ const Supra = () => {
             <div className="supra-nav--text">-USA NEWSROOM</div>
           </div>
           <div className="supra-search supra-flex">
-            <div className="dropdown">
-              <button className="dropbtn">Search All Content</button>
-              <i className="fa fa-arrow-down dropbtn-arrow" aria-hidden="true"></i>
-              <div className="dropdown-content">
-                <div className="dropdown-content--link">Link 1</div>
-                <div className="dropdown-content--link">Link 2</div>
-                <div className="dropdown-content--link">Link 3</div>
+            <div className="supra-dropdown">
+              <button className="supra-dropdown--button">Search All Content</button>
+              <i className="fa fa-arrow-down supra-dropdown--arrow" aria-hidden="true"></i>
+              <div className="supra-dropdown--content">
+                <div className="supra-dropdown--content_link">Link 1</div>
+                <div className="supra-dropdown--content_link">Link 2</div>
+                <div className="supra-dropdown--content_link">Link 3</div>
               </div>
             </div>
             <div>
@@ -33,10 +33,35 @@ const Supra = () => {
         </div>
 
         <div className="supra-nav2 supra-flex">
-          <div>TAKATA RECALL INFORMATION</div>
-          <div>CORPORATE</div>
-          <div>TOYOTA</div>
-          <div>LEXUS</div>
+       
+        <div className="supra-nav2--dropdown_noHover">
+            <div className="supra-nav2--text" style={{color:"red"}}>TAKATA RECALL INFORMATION</div>
+        </div>
+      
+          <div className="supra-nav2--dropdown">
+            <div className="supra-nav2--text">CORPORATE</div>
+            <div className="supra-nav2--content">
+              <div className="supra-nav2--content_link supra-nav2--content_link-topBorder">Link 1</div>
+              <div className="supra-nav2--content_link">Link 2</div>
+              <div className="supra-nav2--content_link">Link 3</div>
+            </div>
+          </div>
+          <div className="supra-nav2--dropdown">
+            <div className="supra-nav2--text">TOYOTA</div>
+            <div className="supra-nav2--content">
+              <div className="supra-nav2--content_link supra-nav2--content_link-topBorder">Link 1</div>
+              <div className="supra-nav2--content_link">Link 2</div>
+              <div className="supra-nav2--content_link">Link 3</div>
+            </div>
+          </div>
+          <div className="supra-nav2--dropdown">
+            <div className="supra-nav2--text">LEXUS</div>
+            <div className="supra-nav2--content">
+              <div className="supra-nav2--content_link supra-nav2--content_link-topBorder">Link 1</div>
+              <div className="supra-nav2--content_link">Link 2</div>
+              <div className="supra-nav2--content_link">Link 3</div>
+            </div>
+          </div>
         </div>
 
         <div className="supra-nav3 supra-flex">
@@ -111,8 +136,9 @@ const Supra = () => {
             </div>
             <br/>
             <p className="supra-postBody--text">toyota supra philanthropy</p>
+            <div style={{color: "red" }} className="supra-postBody--goBack">Back</div>
           </div>
-       
+     
 
 
         
@@ -151,21 +177,61 @@ const Supra = () => {
               </div>
             </div>
           </div>
-
         </div>
+
+        <div className="supra-footer"> 
+          <div className="supra-footer--border">
+            &nbsp;
+          </div>
+
+          <div className="supra-footer--container">
+            <div className="supra-footer--main">
+              <div>
+                <div className="supra-footer--column">
+                  <div>Company</div>
+                  <div className="supra-footer--link">Toyota</div>
+                  <div className="supra-footer--link">Toyota Financial</div>
+                  <div className="supra-footer--link">Toyota Motorsports</div>
+                  <div className="supra-footer--link">Toyota en Español</div>
+                </div>
+              </div>
+              <div className="supra-footer--column">
+                <div>Connect</div>
+                <div className="supra-footer--link">Toyota Social</div>
+                <div className="supra-footer--link">RSS</div>
+              </div>
+              <div className="supra-footer--column">
+                <div>Policies</div>
+                <div className="supra-footer--link">Legal Terms</div>
+                <div className="supra-footer--link">Social Policy</div>
+                <div className="supra-footer--link">Accessibility</div>
+              </div>
+            </div>
+            <div className="supra-footer--column supra-footer--media">
+              <div className="supra-footer--media_logo">
+                <i className="fas fa-user-circle"></i>
+                <div className="supra-footer--link">media support</div>
+              </div>
+             
+              <div className="supra-footer--link">web assistance</div>
+              <div>© Toyota Motor Sales, U.S.A., Inc.</div>
+            </div>
+          </div>
+        </div>
+          
+
+
+
+
+
+
+
+
+
+
 
 
       </div>
-
-
-
-
-
-
-
-
-
-
 
 
 

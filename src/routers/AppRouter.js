@@ -31,7 +31,7 @@ const AppRouter = () => {
           <Route path="/build/yaris" component={BuildCarPageYaris}/>
           <Route path="/search" component={SearchPage} />
 
-          <Route path="/toyota/supra" component={Supra} />
+          <Route path="/toyota-newsroom/supra" component={Supra} />
         </Switch>
       </div>
     </BrowserRouter>
