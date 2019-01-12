@@ -11,6 +11,7 @@ import BuildCarPageYaris from "../components/BuildCarPages/BuildCarPageYaris";
 import SearchPage from "../components/SearchPage";
 
 import Supra from "../components/WhatsHappeningPages/Supra";
+import Xfinity from "../components/WhatsHappeningPages/Xfinity";
 
 import '../styles/main.scss';
 
@@ -32,6 +33,7 @@ const AppRouter = () => {
           <Route path="/search" component={SearchPage} />
 
           <Route path="/toyota-newsroom/supra" component={Supra} />
+          <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />
         </Switch>
       </div>
     </BrowserRouter>

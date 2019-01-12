@@ -40,8 +40,11 @@ class BuildPriceSelection extends React.Component {
 
     return this.props.allCars.map(car => {
       const regEx = car.img.replace(/sidefront/g, "side");
+
+      const carLink = `/build/${car.title}`
+
       return(       
-        <Link to="/build" key={car.title} className="build_price-renderBox" onClick={()=>{
+        <Link to={carLink} key={car.title} className="build_price-renderBox" onClick={()=>{
           return this.props.buildCar(car);
           }}> 
 
