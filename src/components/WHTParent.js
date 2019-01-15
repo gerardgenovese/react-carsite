@@ -54,7 +54,7 @@ const WHTParent = () => {
      
 
         <div className="whtP-contain middle">
-          <Link to="/toyota-concept-vehicles/supra/xfinity-series">
+          <Link to="/toyota-concept-vehicles/supra/xfinity-series" target="_blank">
             <WHTChild
               image={img4}
               callToAction="Latest News"

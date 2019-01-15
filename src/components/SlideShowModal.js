@@ -35,31 +35,70 @@ class SlideShowModal extends React.Component{
           </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+              
+
+
+
         <div className="modal-pricing">
-          <div className="modal-pricing--cost">
-            <div className="modal-pricing--cost_container modal-pricing--cost_container-first">
+          <div className="modal-pricing--flex">
+            <div className="modal-pricing--container">
               <div className="modal-pricing--cash">${carInfo.perMonth}</div>
-                <div className="modal-pricing--perMonth">per mos/36Mos</div>
+              <div className="modal-pricing--details">per mos/36Mos</div>
             </div>
-            <div className="modal-pricing--cost_container">
+            <div className="modal-pricing--container2">
               <div className="modal-pricing--cash">${carInfo.signing}</div>
-              <div className="modal-pricing--signing">due at signing</div>
+              <div className="modal-pricing--details">due at signing</div>
             </div>
           </div>
-          <div className="modal-pricing--button"> 
-            <button className="modal-pricing--button_quote">&nbsp;request a quote</button>
+          <div className="modal-pricing-button">
+            <button className="modal-pricing-button--main"></button>
+            <div className="modal-pricing-button--text">TextHere</div>
           </div>
         </div>
 
-        <div className="modal-details">
-          <div className="modal-details--text">
-          Lease a 2018 {carInfo.title} for ${carInfo.perMonth} for 36 Months. (Includes 12000 miles per year for the Lease Term of 36 months)
+        <div className="modal-offer">
+          <div className="modal-offer--container1">
+            <div className="modal-offer--text">
+              Lease a 2018 {carInfo.title} for ${carInfo.perMonth} for 36 Months. (Includes 12000 miles per year for the Lease Term of 36 months)
+            </div>
           </div>
-          <div className="modal-details--buttons">
-            <button className="modal-details--buttons_search">search inventory</button>
-            <button className="modal-details--buttons_build">build yours</button>
+          <div className="modal-offer--container2">
+            <div className="modal-offer-button">
+              <button className="modal-offer-button--main"></button>
+              <div className="modal-offer-button--text">TextHere</div>
+            </div>
+            <div className="modal-offer-button">
+              <button className="modal-offer-button--main"></button>
+              <div className="modal-offer-button--text">TextHere</div>
+            </div>
           </div>
         </div>
+
+
+
+
+
+
+
+
 
         <div className="modal-finePrint">
           <div className="modal-finePrint--header">Offer Details</div>

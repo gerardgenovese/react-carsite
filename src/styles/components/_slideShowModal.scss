@@ -78,79 +78,91 @@
     }
   }
 
-  &-pricing{
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    padding: 2rem;
-    background:rgb(240, 237, 237);
+  // &-pricing{
+  //   display:flex;
+  //   // justify-content: space-between;
+  //   align-items:center;
+  //   // padding: 2rem;
+  //   background:rgb(240, 237, 237);
 
-    &--cost{
-      display:flex;
+  //   &--cost{
+  //     display:flex;
+  //     // width: 50%;
 
-      &_container{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        padding: 0 1rem;
+  //     &_container{
+  //       display:flex;
+  //       flex-direction:column;
+  //       align-items:center;
+  //       justify-content:center;
+  //       // padding: 0 1rem;
 
-        &-first{
-          border-right: 1px solid black;
-          margin-left: 2rem;
-        }
-      }
-    }
+  //       &-first{
+  //         border-right: 1px solid black;
 
-    &--cash{
-      font-size:2.4rem;
-      font-weight:bold;
-    }
-    &--perMonth,
-    &--signing{
-      font-size: 1.2rem;
-      font-family:helvetica;
-      font-weight:bold;
-      color:rgb(82, 78, 78);
-    }
+          
+  //       }
+  //     }
+  //   }
 
-    &--button_quote{
-      @include button;
-     }
-  }
+  //   &--cash{
+  //     font-size:2.4rem;
+  //     font-weight:bold;
+  //   }
+  //   &--perMonth,
+  //   &--signing{
+  //     font-size: 1.2rem;
+  //     font-family:helvetica;
+  //     font-weight:bold;
+  //     color:rgb(82, 78, 78);
+  //   }
+
+  //   // &--button_quote{
+  //   //   @include button;
+  //   //  }
+  //   &-button{
+  //     width: 50%;
+  //     @include button;
+  //   }
+  // }
 
 
 
-  &-details{
-    display:flex;
-    justify-content:space-between;
-    padding: 2rem;
+  // &-details{
+  //   display:flex;
+  //   // justify-content:space-around;
+  //   // padding: 2rem;
 
-    &--text{
-      font-size: 1.4rem;
-      font-family: tahoma;
-      font-weight:bold;
-      color:rgb(49, 48, 48);
-      text-transform: uppercase;
-      width: 60%;
-    }
 
-    &--buttons{
-      display:flex;
-      flex-direction:column;
-      border-left: 1px dotted black;
-      padding-left: 7rem;
-     
+  //   &--text{
+  //     font-size: 1.4rem;
+  //     font-family: tahoma;
+  //     font-weight:bold;
+  //     color:rgb(49, 48, 48);
+  //     text-transform: uppercase;
+  //     width: 50%;
+  //   }
+
+  //   // &--buttons{
+  //   //   display:flex;
+  //   //   flex-direction:column;
+  //   //   border-left: 1px dotted black;
+  //   //   padding-left: 7rem;
+  //   //   position:relative;
    
-      &_search,
-      &_build{
-        @include button;
-        background:rgb(233, 228, 228);
-        color:black;
-        margin-bottom: 1rem;
-      }
-    }
-  }
+  //   //   // &_search,
+  //   //   // &_build{
+  //   //   //   @include button;
+  //   //   //   background:rgb(233, 228, 228);
+  //   //   //   color:black;
+  //   //   //   margin-bottom: 1rem;
+  //   //   // }
+  //   // }
+  //   &-button{
+  //     width: 50%;
+  //     @include button;
+  //     margin: 3rem 0;
+  //   }
+  // }
 
   &-finePrint{
     font-family: verdana;
@@ -173,3 +185,122 @@
     max-width: 50%;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal{
+  
+  &-pricing{
+    display:flex;
+    align-items:center;
+    background:rgb(240, 237, 237);
+
+    &--flex{
+      display:flex;
+      width: 70%;
+      padding: 2rem 0;
+    }
+
+  
+    &--container{
+      margin-left: 5rem;
+      border-right: 2px solid black;
+    }
+
+    &--container,
+    &--container2{
+      padding: 0 2rem;
+    }
+
+
+
+
+
+
+    &--cash{
+      font-size:2.4rem;
+      font-weight:bold;
+    }
+    &--details{
+      font-size: 1.2rem;
+      font-family:helvetica;
+      font-weight:bold;
+      color:rgb(82, 78, 78);
+    }
+
+    &-button{
+      width: 30%;
+      @include buttonRed;
+    }
+  }
+
+
+
+
+
+
+  &-offer{
+    display:flex;
+    align-items:center;
+
+    &--text{
+      font-size: 1.4rem;
+      font-family: tahoma;
+      font-weight:bold;
+      color:rgb(49, 48, 48);
+      text-transform: uppercase;
+      margin-left: 5rem;
+    }
+
+    &--container1{
+      width: 70%;
+    }
+    &--container2{
+      width: 30%;
+    }
+    &-button{
+      @include buttonGray;
+      margin: 3rem 0;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

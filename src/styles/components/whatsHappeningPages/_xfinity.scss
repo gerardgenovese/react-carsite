@@ -2,30 +2,23 @@
 
 .xfinity{
 
-
   &-imgContainer{
     position:relative;
-    display:flex;
-    justify-content:center;
-    height: 100vh;
+    // display:flex;
+    // justify-content:center;
+    // height: 100vh;
+    // width: 100%;
 
     &--img{
-      height: 100vh;
+      width: 100%;
     }
-    &--button{
-      position:absolute;
-      bottom: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      @include button;
-
-      &:hover{
-        transform: translateX(-50%) scale(1.05);
-      }
-      &:active{
-        transform: translateX(-50%) scale(1);
-      }
-    }
+  }
+  &-button{
+    @include buttonRed;
+    position:absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &-series{
@@ -62,12 +55,21 @@
     flex-wrap: wrap;
 
     &--flex{
-      flex: 0 0 25%;
       overflow:hidden;
+      flex: 0 0 25%;
+    }
+
+    &--contain{
       position:relative;
-   
+      transition: .3s;
+
+      &:hover{
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: .3s;
+      }
        
-      &-youtubePlay{
+      &-youtubePlayButton{
         position:absolute;
         top: 50%;
         left: 50%;
@@ -88,22 +90,14 @@
           transition: .3s;
         }
       }
-      
-      
     }
-
     &--img{
       width: 100%;
       transition: .3s;
-      &:hover{
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-        transition: .3s;
-        cursor:pointer;
-      }
     }
   }
 
+  /////////////////////////MODAL///////////////////////
 
   &-modal{
     height: 100vh;
@@ -140,14 +134,7 @@
       }
     }
   }
-
-  &-movie1{
-  height: 100vh;
-  }
-
 }
-
-
 
 .carousel{
   text-align:center;
@@ -157,17 +144,171 @@
   opacity: 1 !important;
 }
 
-
-// .xtest{
-//   margin-top: 24rem;
-// }
-
-
-.xfinity-gallery--flex:hover .xfinity-gallery--flex-youtubePlay{
+//youtube fontawesome play button and background color on hover color changes.
+.xfinity-gallery--contain:hover .xfinity-gallery--contain-youtubePlayButton{
   background: white;
   transition: .3s;
 }
-.xfinity-gallery--flex:hover .xfinity-gallery--flex-youtubeBG::before{
+.xfinity-gallery--contain:hover .xfinity-gallery--contain-youtubeBG::before{
   color: red;
   transition: .3s;
 }
+.xfinity-gallery--flex:hover > *{
+  cursor:pointer;
+}
+
+//FORM/////////////////////////////////////////////////////////FORM//////////////////////////////////////////////////////
+
+
+
+.xfinity {
+
+  &-flex{
+    position: relative;
+    display:flex;
+    justify-content:center;
+    font-family: tahoma;
+    margin: 2rem 0;
+  }
+  &-header{
+    font-size: 3rem;
+    text-transform:uppercase;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  &-input {
+    width: 50%;
+    background:rgb(235, 231, 231);
+    border:1px solid rgb(209, 206, 206);
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 2rem 2rem;
+    border-radius: 2px;
+    transition: all .3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(black, .1);
+      border-bottom: 3px solid green;
+    }
+    &:focus:invalid {
+      border-bottom: 3px solid red;
+    }
+    &::-webkit-input-placeholder {
+      color: gray;
+    }
+  }
+
+  &-label {
+    position: absolute;
+    top:3%;
+    left: 25%;
+    font-family: inherit;
+    font-size: 1.3rem;
+    color: rgb(173, 170, 170);
+    padding-top: .3rem;
+    transition: all .3s;
+  }
+
+  &-input:placeholder-shown + &-label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(.5rem);
+  }
+
+  &-form{
+    margin: 4rem 0 8rem 0;
+    &-button{
+      @include buttonWhite;
+    }
+  }
+
+  &-concept{
+    position:relative;
+    height: 100%;
+
+    &--text{
+      position:absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color:white;
+      font-size: 5rem;
+      font-family: arial;
+    }
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .carsite{
+//   &-button{
+//     display:flex;
+//     align-items: center;
+//     justify-content:center;
+//     position:relative;
+//     & > *{
+//       cursor:pointer;
+//     }
+
+//     &--main{
+//       border: 2px solid black;
+//       background:red;
+//       position:absolute;
+//       width: 15%;
+//       height: 4rem;
+//       border-radius: 3rem;
+//       transition: .3s;
+//       outline:none;
+    
+//       &:hover{
+//         transform: scale(1.1);
+//         transition: .3s;
+//       }
+//       &:active{
+//         outline-style:dotted;
+//       }
+//     }
+    
+//     &--text{
+//       font-size: 1.8rem;
+//       font-family: 'Trebuchet MS';
+//       font-weight:bold;
+//       text-transform:uppercase;
+//       position:relative;
+//       z-index: 1;
+//       pointer-events:none;
+//     }
+//   }
+// }
+
+
+// .xcontain >*{
+//   cursor:pointer;
+// }

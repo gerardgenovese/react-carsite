@@ -191,7 +191,11 @@ class SlideShow extends React.Component{
                     <p className="slideshow-text">Due At Signing</p>
                   </div>
                 </div>
-                <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>  
+                {/* <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>   */}
+                <div className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>
+                  <button className="slideshow-button--main"></button>
+                  <div className="slideshow-button--text">Learn More</div>
+                </div>
                 <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval}/>         
               </div>
             </div>

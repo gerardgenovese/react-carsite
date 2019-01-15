@@ -10,6 +10,10 @@ import WHTParent from "./WHTParent";
 import Footer from "./Footer";
 
 class LandingPage extends React.Component{
+
+
+
+
     // state ={
     //   slideShow: [avalon,camry,corolla],
     //   slideIndex: 0

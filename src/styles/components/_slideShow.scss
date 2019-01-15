@@ -105,9 +105,8 @@
     font-weight:bold;
   }
   &-button{
-    display:block;
-    margin: 5% auto;
-    @include button;
+    @include buttonRed;
+    margin-top: 3rem;
   }
 
   &-img {

@@ -25,8 +25,12 @@ class KbbAward extends React.Component {
         
           <div className="kbb-button--flex" onClick={() => this.props.buildCar(this.props.car)}>
             <Link to="/build">
-              <div className="kbb-button--border">
+              {/* <div className="kbb-button--border">
                 <button className="kbb-button"> Explore Avalon</button>
+              </div> */}
+              <div className="kbb-button">
+                <button className="kbb-button--main"></button>
+                <div className="kbb-button--text">Next</div>
               </div>
             </Link>
           </div>

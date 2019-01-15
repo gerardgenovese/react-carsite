@@ -1,5 +1,6 @@
 import React from "react";
 import XfinityModal from "./XfinityModal";
+import Footer from "../Footer";
 
 import mainImage from "../../relativeImages/whatshappeningpages/xfinity.jpg";
 
@@ -12,6 +13,8 @@ import x5 from "../../relativeImages/whatshappeningpages/xfinityslideshow/x5.jpg
 import x6 from "../../relativeImages/whatshappeningpages/xfinityslideshow/x6.jpg";
 import x7 from "../../relativeImages/whatshappeningpages/xfinityslideshow/x7.jpg";
 
+import racingConcept from "../../relativeImages/whatshappeningpages/racingConcept.jpg";
+
 
 
 
@@ -21,6 +24,10 @@ class Xfinity extends React.Component {
   state = {
     xfinityModal: false,
     selectedImage: null
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   openModal = (e) => {
@@ -42,9 +49,12 @@ class Xfinity extends React.Component {
             <div>
               <img className="xfinity-imgContainer--img" src={mainImage} alt="2019 Supra Xfinity Series Race Car" />
             </div>
-            <div>
-              <button className="xfinity-imgContainer--button">Get Updates</button>
+         
+            <div className="xfinity-button">
+              <button className="xfinity-button--main"></button>
+              <div className="xfinity-button--text">Get Updates</div>
             </div>
+        
           </div>
           <div className="xfinity-series">
             <div className="xfinity-blurp">OUR 200-MPH THUNDERSTORM.</div>
@@ -57,35 +67,49 @@ class Xfinity extends React.Component {
           </div>
 
           <div className="xfinity-gallery">
-
             <div className="xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x0} alt="2019 Supra Xfinity Sereis Race Car" data-type="0" onClick={this.openModal} />
-              <div className="xfinity-gallery--flex-youtubePlay"></div>
-              <i className="fab fa-youtube xfinity-gallery--flex-youtubeBG" aria-hidden="true"></i>
+              <div className="xfinity-gallery--contain" onClick={this.openModal}>
+                <img className="xfinity-gallery--img" src={x0} alt="2019 Supra Xfinity Sereis Race Car" data-type="0" />
+                <div className="xfinity-gallery--contain-youtubePlayButton"></div>
+                  <i className="fab fa-youtube xfinity-gallery--contain-youtubeBG" aria-hidden="true" data-type="0"></i>
+              </div>
             </div>
-
-            <div className="xfinity-gallery--flex xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x1} alt="2019 Supra Xfinity Sereis Race Car" data-type="1" onClick={this.openModal} />
-              <div className="xfinity-gallery--flex-youtubePlay"></div>
-              <i className="fab fa-youtube xfinity-gallery--flex-youtubeBG" aria-hidden="true"></i>
-            </div>
-            <div className="xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x2} alt="2019 Supra Xfinity Sereis Race Car"  data-type="2" onClick={this.openModal}/>
-            </div>
-            <div className="xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x3} alt="2019 Supra Xfinity Sereis Race Car"  data-type="3" onClick={this.openModal}/>
+            <div className="xfinity-gallery--flex" onClick={this.openModal} >
+              <div className="xfinity-gallery--contain">
+                <img className="xfinity-gallery--img" src={x1} alt="2019 Supra Xfinity Sereis Race Car" data-type="1" />
+                <div className="xfinity-gallery--contain-youtubePlayButton"></div>
+                  <i className="fab fa-youtube xfinity-gallery--contain-youtubeBG" aria-hidden="true" data-type="1"></i>
+              </div>
             </div>
             <div className="xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x4} alt="2019 Supra Xfinity Sereis Race Car"  data-type="4" onClick={this.openModal}/>
+              <div className="xfinity-gallery--contain">
+                <img className="xfinity-gallery--img" src={x2} alt="2019 Supra Xfinity Sereis Race Car"  data-type="2" onClick={this.openModal}/>
+              </div>
             </div>
             <div className="xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x5} alt="2019 Supra Xfinity Sereis Race Car"  data-type="5" onClick={this.openModal}/>
+              <div className="xfinity-gallery--contain">
+                <img className="xfinity-gallery--img" src={x3} alt="2019 Supra Xfinity Sereis Race Car"  data-type="3" onClick={this.openModal}/>
+              </div>
             </div>
             <div className="xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x6} alt="2019 Supra Xfinity Sereis Race Car"  data-type="6" onClick={this.openModal}/>
+              <div className="xfinity-gallery--contain">
+                <img className="xfinity-gallery--img" src={x4} alt="2019 Supra Xfinity Sereis Race Car"  data-type="4" onClick={this.openModal}/>
+              </div>
             </div>
             <div className="xfinity-gallery--flex">
-              <img className="xfinity-gallery--img" src={x7} alt="2019 Supra Xfinity Sereis Race Car"  data-type="7" onClick={this.openModal}/>
+              <div className="xfinity-gallery--contain">
+                <img className="xfinity-gallery--img" src={x5} alt="2019 Supra Xfinity Sereis Race Car"  data-type="5" onClick={this.openModal}/>
+              </div>
+            </div>
+            <div className="xfinity-gallery--flex">
+              <div className="xfinity-gallery--contain">
+                <img className="xfinity-gallery--img" src={x6} alt="2019 Supra Xfinity Sereis Race Car"  data-type="6" onClick={this.openModal}/>
+              </div>
+            </div>
+            <div className="xfinity-gallery--flex">
+              <div className="xfinity-gallery--contain">
+                <img className="xfinity-gallery--img" src={x7} alt="2019 Supra Xfinity Sereis Race Car"  data-type="7" onClick={this.openModal}/>
+              </div>
             </div>
           </div>
   
@@ -93,7 +117,40 @@ class Xfinity extends React.Component {
 
 
 
+          <form action="#" className="xfinity-form">
+            <div className="xfinity-flex">
+              <div className="xfinity-header">
+              Sign Up for Supra Xfinity Series Race Car Updates
+              </div>
+            </div>
+
+            <div className="xfinity-flex">
+                <input type="text" className="xfinity-input" placeholder="Name" id="name" required />
+                <label htmlFor="name" className="xfinity-label">Name</label>
+            </div>
+
+            <div className="xfinity-flex">
+                <input type="email" className="xfinity-input" placeholder="Email Address" id="email" required />
+                <label htmlFor="email" className="xfinity-label">Email address</label>
+            </div>
+
+
+            <div className="xfinity-form-button">
+              <input type="submit" value="" className="xfinity-form-button--main"/>
+              <div className="xfinity-form-button--text">Submit</div>
+            </div>
+          </form>
+      
+
+     
+          <div className="xfinity-concept">
+            <img className="xfinity-concept--img" src={racingConcept} alt="xfinity racing concept" />    
+            <div className="xfinity-concept--text">
+              GR Supra Racing Concept
+            </div>
+          </div>
     
+          <Footer />
   
         </div>
   
