@@ -27,6 +27,10 @@ $background: rgb(240, 236, 236);
     margin: 5rem 25% 2rem 25%;
     padding: 5rem;
     height: 101vh;
+
+    &--link{
+      cursor:context-menu;
+    }
   }
 
   &-container{
@@ -38,21 +42,18 @@ $background: rgb(240, 236, 236);
     font-family: tahoma;
     border: 2px solid $light-gray;
     border-radius: 2rem;
-    box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
-    &:hover{
-      border:2px solid red;
-      cursor:pointer;
-    }
- 
   }
   &-title{
     &-flex{
       display:flex;
       align-items:center;
-  
+      margin-bottom: 3rem;
     }
     &--year{
       font-size: 3rem;
+      &:hover{
+        cursor:context-menu;
+      }
     }
     font-size:5rem;
     text-transform:uppercase;
@@ -61,7 +62,12 @@ $background: rgb(240, 236, 236);
 
   &-img{
     width: 50rem;
-    margin-top: 3rem;
+    // margin-top: 3rem;
+    border:2px solid transparent;
+    &:hover{
+      border:2px solid red;
+      cursor:pointer;
+    }
   }
 
   &-price{

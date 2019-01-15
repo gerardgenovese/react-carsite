@@ -155,7 +155,7 @@ class BuildCarPage extends React.Component{
       <div>
         <div>{this.state.title}</div>
         <div>{this.state.totalPrice}</div>
-        <img src={this.state.image} alt={this.state.title}/>
+        <img className="buildCar-img" src={this.state.image} alt={this.state.title}/>
         <button onClick={this.rotateCarImage}>-></button>
         <div data-value="buildCarColors" onClick={this.changeBuildOption}>
           Colors

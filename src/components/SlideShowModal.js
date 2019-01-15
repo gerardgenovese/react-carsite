@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
 
 class SlideShowModal extends React.Component{
 
@@ -12,9 +13,27 @@ class SlideShowModal extends React.Component{
    this.props.startSlideShowAgain();
  };
 
+ test = (e) => {
+  //slideshowreducer brings in a new image for the slideshow but we want the generic image to appear on the buildcarpage. So we rebuild the object with all props and replace the img from the slideshow with the buildCarImg prop that is holding the generic img of our car  in our slideshowreducer object.
+  const replaceCarImageForBuildPage = {
+    title: this.props.carInfo.title, 
+    img: this.props.carInfo.buildCarImg,
+    carAngle: 0,
+    color:this.props.carInfo.color,
+    engine: 0,
+    price: this.props.carInfo.price,
+    miles: this.props.carInfo.miles,
+
+
+    buildCarImg: "/images/avalon/sidefront/blue.jpg"
+  }
+
+  this.props.buildCar(replaceCarImageForBuildPage);
+ };
+
   render(){
-    // console.log("modal props", this.props.carInfo);
-    const { carModal, carInfo } = this.props;
+    console.log("modal props", this.props.carInfo);
+    const { carModal, carInfo} = this.props;
 
     return(
 
@@ -36,27 +55,6 @@ class SlideShowModal extends React.Component{
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-              
-
-
-
         <div className="modal-pricing">
           <div className="modal-pricing--flex">
             <div className="modal-pricing--container">
@@ -70,7 +68,7 @@ class SlideShowModal extends React.Component{
           </div>
           <div className="modal-pricing-button">
             <button className="modal-pricing-button--main"></button>
-            <div className="modal-pricing-button--text">TextHere</div>
+            <div className="modal-pricing-button--text">Request A Quote</div>
           </div>
         </div>
 
@@ -81,21 +79,17 @@ class SlideShowModal extends React.Component{
             </div>
           </div>
           <div className="modal-offer--container2">
+       
             <div className="modal-offer-button">
-              <button className="modal-offer-button--main"></button>
-              <div className="modal-offer-button--text">TextHere</div>
+              <Link to={"select_toyota"} className="modal-offer-button--main"></Link>
+              <div className="modal-offer-button--text">Search Inventory</div> 
             </div>
             <div className="modal-offer-button">
-              <button className="modal-offer-button--main"></button>
-              <div className="modal-offer-button--text">TextHere</div>
+              <Link to={`/build/${carInfo.title}`} onClick={this.test} className="modal-offer-button--main"></Link>
+              <div className="modal-offer-button--text">Build Yours</div>
             </div>
           </div>
         </div>
-
-
-
-
-
 
 
 
@@ -112,5 +106,8 @@ class SlideShowModal extends React.Component{
     )
   }
 }
+
+
+
 
 export default SlideShowModal;

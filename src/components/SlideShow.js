@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import { buildCar } from "../redux/actions";
 import SlideShowModal from "./SlideShowModal";
-// import { url } from "inspector";
+
 
 // import avalon from "../relativeImages/slideshow/avalonSlide.png";
 // import camry from "../relativeImages/slideshow/camrySlide.png";
@@ -196,7 +197,7 @@ class SlideShow extends React.Component{
                   <button className="slideshow-button--main"></button>
                   <div className="slideshow-button--text">Learn More</div>
                 </div>
-                <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval}/>         
+                <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval} buildCar={this.props.buildCar}/>         
               </div>
             </div>
 
@@ -223,4 +224,6 @@ const mapStateToProps = (state) => {
     slideShow: state.slideShow
   }
 }
-export default connect(mapStateToProps)(SlideShow);
+export default connect(mapStateToProps,{
+  buildCar
+})(SlideShow);

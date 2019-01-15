@@ -72,20 +72,22 @@ class Search extends React.Component{
         <input className="search-input" type="text" onChange={this.filterList} placeholder="Search for your Toyota vehicle..."/>
         <div className={this.state.carIsShowing ? "show" : "hide"}>
           <div className="search-spacing">
-            <Link to="/build">
+      
               <div className="search-container" onClick={()=> this.props.buildCar(this.state.carInfo)}>
                 <div className="search-title-flex">
                   <div className="search-title--year">2019 &nbsp; </div>
                   <div className="search-title">{this.state.carTitle}</div>
                 </div>
-                <div>
-                  <img src={this.state.carImage} alt={this.state.carTitle} className="search-img"/>
-                </div>
+    
+                  <Link to={`build/${this.state.carTitle}`}>
+                    <img src={this.state.carImage} alt={this.state.carTitle} className="search-img"/>
+                  </Link>
+         
                 <div className="search-price">
                   {this.state.carPrice}
                 </div>  
               </div>
-            </Link>
+       
           </div>
         </div>
         <Footer />

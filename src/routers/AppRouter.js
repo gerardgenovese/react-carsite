@@ -10,6 +10,8 @@ import BuildCarPageAvalon from "../components/BuildCarPages/BuildCarPageAvalon";
 import BuildCarPageYaris from "../components/BuildCarPages/BuildCarPageYaris";
 import SearchPage from "../components/SearchPage";
 
+import Page404 from "../components/Page404";
+
 import Supra from "../components/WhatsHappeningPages/Supra";
 import Xfinity from "../components/WhatsHappeningPages/Xfinity";
 
@@ -34,6 +36,8 @@ const AppRouter = () => {
 
           <Route path="/toyota-newsroom/supra" component={Supra} />
           <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />
+
+          <Route component={Page404} />
         </Switch>
       </div>
     </BrowserRouter>

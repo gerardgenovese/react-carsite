@@ -2,7 +2,7 @@
 
 .slideshow{
     width: 100%;
-    position:relative;
+    // position:relative;
     z-index: 1;
 
   &-bg{
@@ -118,6 +118,8 @@
     width: 50rem;
     animation: center 1s;
     animation-fill-mode: forwards;
+    //stops image from moving on button hover.
+    -webkit-backface-visibility: hidden;
   }
 
 &-prev,

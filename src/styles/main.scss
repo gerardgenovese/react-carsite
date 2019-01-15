@@ -1,6 +1,10 @@
 @import "./components/variables";
-@import "./mixins/button";
 @import "./components/base";
+
+@import "./components/buildCar/buildCarPage";
+@import "./components/buildCar/buttonColors";
+
+@import "./mixins/button";
 @import "./components/buildPriceSelection";
 @import "./components/exploreAll";
 @import "./components/footer";
@@ -11,7 +15,6 @@
 @import "./components/selectCars";
 @import "./components/slideShow";
 @import "./components/slideShowModal";
-@import "./components/test";
 @import "./components/whatsHappening";
 @import "./components/whatsHappeningPages/supra";
 @import "./components/whatsHappeningPages/xfinity";
