@@ -1,27 +1,60 @@
 import React from "react";
 import Modal from "react-modal";
 
-// import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
+import video1 from "../../relativeImages/toyotaVideo1.mp4";
+import video2 from "../../relativeImages/toyotaVideo2.mp4";
+
 class XfinityModal extends React.Component{
 
-  componentDidMount(){
+  // state = {
+  //   vid1: false,
+  //   vid2: 0,
+  //   image0: 0,
+  //   image1: 1,
+  //   image2: 2,
+  //   image3: 3,
+  //   image4: 4,
+  //   image5: 5,
+  //   image6: 6,
+  //   image7: 7
+  // };
+
+
+ 
+
+
+
+  componentDidMount = () => {
     Modal.setAppElement("body");
   };
 
-  render(){
-    const { openModal, x2, x3, x4, x5, x6, x7, selectedImage } = this.props;
+  stopVideoPlayBack = () => {
+    var vid1 = document.getElementById("video1");
+    var vid2 = document.getElementById("video2");
+     vid1.pause();
+     vid2.pause();
+  };
 
-    const iframeStyle = {
+
+
+  render(){
+    // console.log("xmodalstate", this.state);
+    console.log("state", this.state)
+    const { openModal, x0, x1, x2, x3, x4, x5, x6, x7, selectedImage } = this.props;
+
+    const videoStyle = {
       position: "absolute",
       top: 0,
       left: 0,
       width: "100%",
       height: "100%",
-      margin: "0 auto"
+      margin: "0 auto",
+      zIndex: 5
     }
+
     
     return(
       <div>
@@ -31,13 +64,23 @@ class XfinityModal extends React.Component{
           <button className="xfinity-modal--header_close" onClick={openModal}>X</button>
         </div>
       
-          <Carousel infiniteLoop={true} selectedItem={selectedImage} showThumbs={false}>
+        
+
+        
+
+          <Carousel infiniteLoop={true} onChange={this.stopVideoPlayBack} selectedItem={selectedImage} showThumbs={false} showIndicators={false} showStatus>
             <div>
-              <iframe className="xtest" style={iframeStyle} title="movie" src="https://www.youtube.com/embed/Rsduz8WShPo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <video id="video1" controls poster={x0}>
+                <source src={video1} style={videoStyle} />
+              </video>
             </div>
             <div>
-              <iframe title="movie" style={iframeStyle} src="https://www.youtube.com/embed/6PD-5cCecwo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <video id="video2" controls poster={x1}>
+                <source src={video2} style={videoStyle} />
+              </video>
             </div>
+
+
             <div>
               <img src={x2} alt="2019 Supra Xfinity Sereis Race Car"/>
               <p className="legend">2019 Supra Xfinity Sereis Race Car -- Front View</p>

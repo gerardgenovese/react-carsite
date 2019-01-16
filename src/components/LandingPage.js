@@ -2,12 +2,16 @@ import React from "react";
 // import { NavLink } from "react-router-dom";
 // import { connect } from "react-redux";
 // import { buildCar } from "../redux/actions";
+
+
 import SlideShow from "./SlideShow";
 import SectionNav from "./SectionNav";
 import ExploreAll from "./ExploreAll";
 import KbbAward from "./KbbAward";
 import WHTParent from "./WHTParent";
 import Footer from "./Footer";
+
+
 
 class LandingPage extends React.Component{
 
@@ -46,12 +50,15 @@ class LandingPage extends React.Component{
   
     return(
       <div>
+
         <SlideShow />
         <SectionNav />
         <ExploreAll />
         <KbbAward />
         <WHTParent />
         <Footer />
+
+        
       </div>
     )
   }

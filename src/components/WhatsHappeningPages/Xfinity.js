@@ -19,37 +19,45 @@ import racingConcept from "../../relativeImages/whatshappeningpages/racingConcep
 
 
 
+
 class Xfinity extends React.Component {
 
   state = {
     xfinityModal: false,
-    selectedImage: null
+    selectedImage: null,
+  
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
-  openModal = (e) => {
 
+  openModal = (e) => {
+ 
     const image = parseInt(e.target.getAttribute("data-type"));
-    this.setState({ xfinityModal: !this.state.xfinityModal, selectedImage: image })
+    this.setState({ selectedImage: image })
+    setTimeout(() => {
+      this.setState({ xfinityModal: !this.state.xfinityModal })
+    },100);
+    // e.persist();
     // console.log(e.target.getAttribute("data-type"))
   }
 
 
   render(){
+
+    // console.log("xfinitystate", this.state);
+
+
     return(
-      <div>
-       
-       
-  
+      <div>   
         <div className="xfinity">
           <div className="xfinity-imgContainer">
             <div>
               <img className="xfinity-imgContainer--img" src={mainImage} alt="2019 Supra Xfinity Series Race Car" />
             </div>
-         
+          
             <div className="xfinity-button">
               <button className="xfinity-button--main"></button>
               <div className="xfinity-button--text">Get Updates</div>
@@ -112,8 +120,10 @@ class Xfinity extends React.Component {
               </div>
             </div>
           </div>
-  
-          <XfinityModal openModal={this.openModal} xfinityModal={this.state.xfinityModal} x2={x2} x3={x3} x4={x4} x5={x5} x6={x6} x7={x7} selectedImage={this.state.selectedImage}/>
+
+          <XfinityModal openModal={this.openModal} xfinityModal={this.state.xfinityModal} x0={x0} x1={x1} x2={x2} x3={x3} x4={x4} x5={x5} x6={x6} x7={x7} selectedImage={this.state.selectedImage}/>
+
+
 
 
 
@@ -142,7 +152,7 @@ class Xfinity extends React.Component {
           </form>
       
 
-     
+      
           <div className="xfinity-concept">
             <img className="xfinity-concept--img" src={racingConcept} alt="xfinity racing concept" />    
             <div className="xfinity-concept--text">
@@ -151,9 +161,9 @@ class Xfinity extends React.Component {
           </div>
     
           <Footer />
-  
+
         </div>
-  
+
   
   
   

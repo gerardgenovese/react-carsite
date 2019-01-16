@@ -69,7 +69,7 @@ closeMenuAfterClick = () => {
 }
 
   render(){
-    console.log("navstate", this.state)
+    // console.log("navstate", this.state)
     return(
       <div className="nav">
 
