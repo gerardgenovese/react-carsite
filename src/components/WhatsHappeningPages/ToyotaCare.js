@@ -40,7 +40,7 @@ class ToyotaCare extends React.Component {
           </div>
           <div>
             <div className="tcare-header--2">
-              Peace of Mind everywhere you go.
+              Peace of mind everywhere you go.
             </div>
             <div className="tcare-content">
               <div>
