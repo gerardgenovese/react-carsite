@@ -24,6 +24,10 @@ class Search extends React.Component{
     this.setState({ carTitles: titles });
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   filterList = (e) => {
     this.setState({ textInput: e.target.value.toLowerCase() })
     let searchCar = (/camry|86|corolla|avalon|yaris/i, e.target.value.toLowerCase());

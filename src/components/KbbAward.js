@@ -30,7 +30,7 @@ class KbbAward extends React.Component {
               </div> */}
               <div className="kbb-button">
                 <button className="kbb-button--main"></button>
-                <div className="kbb-button--text">Next</div>
+                <div className="kbb-button--text">Explore Avalon</div>
               </div>
             </Link>
           </div>

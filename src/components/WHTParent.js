@@ -75,7 +75,7 @@ const WHTParent = () => {
           </Link>
         </div>
         <div className="whtP-contain">
-          <Link to="/toyota/supra">
+          <Link to="/toyota-care" target="_blank">
             <WHTChild 
               image={img6}
               callToAction="Latest News"

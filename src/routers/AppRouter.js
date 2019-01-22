@@ -14,6 +14,7 @@ import Page404 from "../components/Page404";
 
 import Supra from "../components/WhatsHappeningPages/Supra";
 import Xfinity from "../components/WhatsHappeningPages/Xfinity";
+import ToyotaCare from "../components/WhatsHappeningPages/ToyotaCare";
 
 import '../styles/main.scss';
 
@@ -36,6 +37,7 @@ const AppRouter = () => {
 
           <Route path="/toyota-newsroom/supra" component={Supra} />
           <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />
+          <Route path="/toyota-care" component={ToyotaCare} />
 
           <Route component={Page404} />
         </Switch>

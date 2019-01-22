@@ -38,8 +38,6 @@ class XfinityModal extends React.Component{
      vid2.pause();
   };
 
-
-
   render(){
     // console.log("xmodalstate", this.state);
     console.log("state", this.state)
@@ -55,7 +53,6 @@ class XfinityModal extends React.Component{
       zIndex: 5
     }
 
-    
     return(
       <div>
         <Modal className="xfinity-modal" isOpen={this.props.xfinityModal}>
@@ -63,10 +60,6 @@ class XfinityModal extends React.Component{
           <div className="xfinity-modal--header_text">Gallery</div>
           <button className="xfinity-modal--header_close" onClick={openModal}>X</button>
         </div>
-      
-        
-
-        
 
           <Carousel infiniteLoop={true} onChange={this.stopVideoPlayBack} selectedItem={selectedImage} showThumbs={false} showIndicators={false} showStatus>
             <div>
