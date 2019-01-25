@@ -42,3 +42,15 @@
   transform: scale(1.4);
   transition: .1s;
 }
+
+@media screen and(max-width:400px){
+  .sectionNav{
+    &-link{
+      font-size: 1.2rem;
+    }
+  }
+  .fas{
+    font-size: 2rem;
+    padding: 1rem;
+  }
+}

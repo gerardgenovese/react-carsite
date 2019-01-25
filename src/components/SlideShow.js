@@ -208,10 +208,11 @@ class SlideShow extends React.Component{
             
               <button className="slideshow-prev" onClick={this.prev}> <i className="fas fa-arrow-left"></i></button>
               <button className="slideshow-next" onClick={this.next}> <i className="fas fa-arrow-right"></i></button>  
-            
-              <div className="slideshow-button slideshow-button-mq" onClick={this.stopSlideShowAndGetModal}>
-          <button className="slideshow-button--main slideshow--main-mq"></button>
-          <div className="slideshow-button--text slideshow--text-mq">Learn More</div>
+            {/*media query only shows at 768px*/}
+            <div className="slideshow-button slideshow-button-mq" onClick={this.stopSlideShowAndGetModal}>
+              <button className="slideshow-button--main slideshow--main-mq"></button>
+            <div className="slideshow-button--text slideshow--text-mq">Learn More</div>
+
         </div>
 
         </div>
