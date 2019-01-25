@@ -4,6 +4,7 @@
   position:relative;
   padding: 1rem;
   border-bottom: $border;
+  z-index: 1;
 
   &-container{
     display:flex;

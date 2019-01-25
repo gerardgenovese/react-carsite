@@ -7,12 +7,14 @@
 
 html{
   font-size: 62.5%;
+  box-sizing:border-box;
 }
 
 body{
   box-sizing:border-box;
   // background:blue;
   overflow-x: hidden;
+  // height: 100%;
 }
 
 .body-container{

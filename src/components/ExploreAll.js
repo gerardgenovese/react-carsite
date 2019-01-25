@@ -34,7 +34,7 @@ class ExploreAll extends React.Component {
   componentDidMount() {
     window.addEventListener("scroll", this.scrollPos, true);
 
-    console.log(window.innerHeight)
+    // console.log(window.innerHeight)
     this.scrollPos();
   };
 
@@ -75,7 +75,7 @@ class ExploreAll extends React.Component {
     this.setState({ camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false });
 
     window.removeEventListener("scroll", this.scrollPos, true);
-    console.log("unmounted")
+    // console.log("unmounted")
   }
 
 

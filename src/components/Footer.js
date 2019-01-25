@@ -19,7 +19,7 @@ class Footer extends React.Component {
     return(
       <footer className="footer">
       
-      <div className="footer-social" onClick={this.openModal}>
+      <div className="footer-social">
         <i className="fab fa-facebook footer-fab" aria-hidden="true"></i>
         <i className="fab fa-youtube footer-fab"></i>
         <i className="fab fa-twitter-square footer-fab" aria-hidden="true"></i>
@@ -27,7 +27,7 @@ class Footer extends React.Component {
         <i className="fab fa-instagram footer-fab" aria-hidden="true"></i>
         <i className="fab fa-pinterest-square footer-fab" aria-hidden="true"></i>
       </div>
-      <div className="footer-main" onClick={this.openModal}>
+      <div className="footer-main">
         <div>
           <p className="footer-main--title">Shopping Tools</p>
           <p>Build Your Toyota</p>

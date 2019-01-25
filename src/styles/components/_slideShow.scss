@@ -107,7 +107,10 @@
   &-button{
     @include buttonRed;
     margin-top: 3rem;
+
+    &-mq{display:none}
   }
+
 
   &-img {
     position:absolute;
@@ -206,6 +209,128 @@
       }
       100%{
         transform: translateX(-20%);
+      }
+    }
+  }
+
+
+  @media screen and(max-width:1150px){
+
+    @keyframes center{
+      0%{
+        transform:translateX(100%);
+      }
+      100%{
+        transform: translateX(-20%);
+      }
+    }
+  }
+  @media screen and(max-width:1000px){
+
+    @keyframes center{
+      0%{
+        transform:translateX(100%);
+      }
+      100%{
+        transform: translateX(-20%);
+      }
+    }
+
+    .slideshow{
+      &-details{
+        font-size: 2rem;
+      }
+
+      &-img{
+        width: 40rem;
+      }
+    }
+  }
+  @media screen and(max-width:800px){
+
+    @keyframes center{
+      0%{
+        transform:translateX(100%);
+      }
+      100%{
+        transform: translateX(-20%);
+      }
+    }
+    .slideshow{
+      &-details{
+        font-size: 1.4rem;
+        padding: 0;
+      }
+      &-img{
+        width: 40rem;
+      }
+    }
+  }
+
+  @media screen and(max-width:750px){
+    @keyframes center{
+      0%{
+        transform:translateX(100%);
+      }
+      100%{
+        transform: translateX(-50%);
+      }
+    }
+    .slideshow{
+
+      &-container{
+        display:none;
+      }
+
+      &-button{
+        &-mq{
+          display:flex;
+          position: absolute;
+          top: 85%;
+          left: 50%;
+          transform: translateX(-50%);
+          margin: 2rem;
+          animation: bgShow .3s;
+          animation-fill-mode: forwards;
+        }
+      }
+      &-details{
+        font-size: 1.4rem;
+        padding: 0;
+      }
+      &-img{
+        width: 40rem;
+        top: 40%;
+        left: 50%;
+      }
+    }
+  }
+  @media screen and(max-width:450px){
+    .slideshow{
+      &-img{
+        width: 30rem;
+        top: 50%;
+      }
+    }
+  }
+  @media screen and(max-width:350px){
+    .slideshow{
+      &-bg{
+        height: 40vh;
+      }
+      &-button{
+        &-mq{
+          top: 80%;
+        }
+      }
+      &--text{
+        &-mq{
+          font-size: 1.4rem;
+        }
+      }
+      &-img{
+        width: 20rem;
+        top: 45%;
       }
     }
   }

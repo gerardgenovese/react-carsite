@@ -203,16 +203,21 @@ class SlideShow extends React.Component{
 
             <img key={this.state.slideShow[this.state.slideIndex]} className="slideshow-img" src={this.state.slideShow[this.state.slideIndex]} alt="car" />  
 
-         
-
+   
 
             
               <button className="slideshow-prev" onClick={this.prev}> <i className="fas fa-arrow-left"></i></button>
               <button className="slideshow-next" onClick={this.next}> <i className="fas fa-arrow-right"></i></button>  
             
-        
+              <div className="slideshow-button slideshow-button-mq" onClick={this.stopSlideShowAndGetModal}>
+          <button className="slideshow-button--main slideshow--main-mq"></button>
+          <div className="slideshow-button--text slideshow--text-mq">Learn More</div>
+        </div>
 
         </div>
+        
+      
+
       </div>
 
     )

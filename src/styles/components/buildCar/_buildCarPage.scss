@@ -1,3 +1,797 @@
-.buildCar-img{
-  width: 60rem;
+// .buildCar-img{
+//   width: 60rem;
+//   transition: .3s;
+
+//   &--shrink{
+//     width: 40rem;
+//     transform: translateX(10rem);
+//     transition: .3s;
+//   }
+// }
+
+// .buildCar{
+//   &-flex{
+//     width: 100vw;
+//     background: white;
+//     display:flex;
+//     justify-content: space-around;
+//     align-items:center;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     padding-top: 5rem;
+//   }
+
+//   &-menu{
+//     display:flex;
+//     justify-content:center;
+//     background:black;
+//     width: 100%;
+
+//     &--fixed{
+//       display:flex;
+//       justify-content:center;
+//       background:black;
+//       position:fixed;
+//       // top: 27%;
+//       top: 20rem;
+//       left: 0;
+//       width: 100%;
+
+//     }
+
+//     &--links{
+//       display:flex;
+//       flex-direction:column;
+//       align-items:center;
+//       justify-content: center;
+//       width: 15rem;
+//       height: 7rem;
+//       background:black;
+//       color:white;
+//       font-size: 1.8rem;
+//       font-family: Arial, Helvetica, sans-serif;
+//       border-right: 1px solid gray;
+
+//       &_first{
+//         border-left: 1px solid gray;
+//       }
+//     }
+//   }
+
+// }
+
+// .buffer{
+//   height: 35rem;
+//   width: 100%;
+//   background:gray;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #mainDiv {
+//   position: relative;
+//   height: 50%;
+//   // width: 100%;
+//   background-color: transparent;
+// }
+
+// .car-contain {
+//   position:relative;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .car-contain2 {
+//   position: fixed;
+//   top: 5%;
+//   width: 100%;
+//   z-index: 100;
+// }
+
+
+.image-background2 {
+  background-color: white;
+  width: 100%;
+  height: 35%;
+  position: fixed;
+  top: 0;
+  z-index:99;
 }
+
+
+// .buildCar-panel {
+//   display: flex;
+//   justify-content: center;
+//   background-color: rgb(44, 41, 41);
+//   z-index: 102;
+//   position: fixed;
+//   width: 100vw;
+//   left: 0;
+
+//   &-text {
+//     color: white;
+//     text-transform: uppercase;
+//     font-size: .7rem;
+//   }
+// }
+
+// .panel{
+//   position: fixed;
+//   width: 100vw;
+//   top: 30%;
+//   left: 0;
+//   display: flex;
+//   justify-content: center;
+//   background-color: rgb(44, 41, 41);
+//   transition: .2s;
+//   z-index: 102;
+// }
+
+
+// .buildCar-panel-buttons {
+//   width: 10%;
+//   height: 7rem;
+//   background-color: rgb(44, 41, 41);
+//   border-right: 1px solid white;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   transition: .3s;
+//   cursor: pointer;
+//   color:white;
+
+//   &_colors{
+//     border-left: 1px solid white;
+//   }
+
+//   &:hover {
+//     background-color: rgb(92, 92, 167)
+//   }
+// }
+
+.active {
+  background-color: rgb(92, 92, 167)
+}
+
+
+
+
+
+
+
+
+
+.buildCar {
+  &-main{
+    margin-top: 3rem;
+  }
+  &-main2{
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    margin-top: 5rem;
+    background-color: transparent;
+    z-index: 99;
+
+    &--buffer{
+      background-color: white;
+      width: 140rem;
+      height: 35%;
+      position: fixed;
+      top: 0;
+    }
+  }
+  &-contain{
+    position:relative;
+    width: 100%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+  }
+  &-contain2{
+    position: fixed;
+
+    top: 5%;
+    width: 140rem;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+  }
+
+  &-img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    transition: .2s;
+    z-index: 100;
+    width: 60rem;
+  }
+  &-img2{
+    position: relative;
+    width: 40rem;
+    top: 0;
+    left: 90%;
+    transform: translateX(-50%);
+    transition: .5s;
+  }
+  &-containTitle{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-transform: uppercase;
+  }
+  &-yourBuild{
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  &-title{
+    font-size: 5rem;
+    font-family: 'Kanit', sans-serif;
+  }
+
+
+  &-panel{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(44, 41, 41);
+    z-index: 102;
+    position: fixed;
+    width: 100vw;
+    left: 0;
+  
+    &-text {
+      color: white;
+      text-transform: uppercase;
+      font-size: .7rem;
+    }
+  }
+  &-panel2{
+    position: fixed;
+    width: 100vw;
+    top: 30%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(44, 41, 41);
+    transition: .2s;
+    z-index: 102;
+  }
+
+  &-panel-buttons {
+    width: 10%;
+    height: 7rem;
+    background-color: rgb(44, 41, 41);
+    border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    cursor: pointer;
+    color:white;
+  
+    &_colors{
+      border-left: 1px solid white;
+    }
+  
+    &:hover {
+      background-color: rgb(92, 92, 167)
+    }
+  }
+}
+
+
+
+
+
+.buildCar {
+  // margin-top: 3rem;
+
+  
+
+  // &-title {
+  //   position: absolute;
+  //   top: 5%;
+  //   left: 5%;
+  //   z-index: 1;
+  //   font-size: 5rem;
+  //   transition: .2s;
+  //   font-family: 'Kanit', sans-serif;
+  //   z-index: 101;
+
+
+  //   &:before {
+  //     content: 'toyota ';
+  //     text-transform: uppercase;
+  //     font-size: 2rem;
+  //   }
+  // }
+  &-price {
+    // position: absolute;
+    // top: 15%;
+    // right: 15%;
+    // z-index: 1;
+    font-size: 3rem;
+    font-family: 'Kanit', sans-serif;
+    font-weight:bold;
+    margin-right: 5rem;
+    // transition: .2s;
+    // z-index: 106;
+    // &:before {
+    //   content: "$";
+    // }
+    // &:after {
+    //   content:' starting';
+    //   font-size:.8rem;
+    //   font-style: italic;
+    // }
+  }
+
+  &-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 9;
+    cursor: pointer;
+    background-color: rgb(189, 184, 184);
+    color: white;
+    border: none;
+    padding: 1rem .5rem;
+    transition: .2s;
+
+    &:hover {
+      background-color: rgb(92, 92, 167);
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+
+}
+
+// .fa-arrow-circle-right {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 10;
+// }
+
+.buildCar-button:hover > .fa-arrow-circle-right {
+  animation: moveButton 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveButton {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+@media(max-width:1000px){
+  .buildCar {
+
+    &-title{
+      left: .5%;
+    }
+    &-price{
+      top: 12%;
+    }
+  }
+}
+
+@media(max-width:900px){
+  .buildCar {
+
+    &-title {
+      font-size:3rem;
+      top: 10%;
+
+      &:before{
+        font-size:1.5rem;
+      }
+    }
+    &-price {
+      top:13%;
+      right: 8%;
+    }
+  }
+}
+
+@media(max-width:600px){
+  .buildCar {
+    &-title {
+      font-size:2.5rem;
+      &:before{
+        font-size:1rem;
+      }
+    }
+    &-price {
+      top:20%;
+      font-size: 1rem;
+      &:after{
+        font-size: .6rem;
+      }
+    }
+    &-button {
+      padding: .5rem 1rem;
+    }
+  }
+}
+
+@media(max-width:500px){
+  .buildCar {
+    &-title {
+      font-size: 2rem;
+
+      &:before{
+        font-size:1rem;
+      }
+    }
+    &-price {
+      font-size: 1rem;
+    }
+
+  }
+}
+
+
+
+
+
+
+// .transition1 {
+//   position: relative;
+//   top: 7%;
+//   left: 60%;
+//   width: 35%;
+//   transform: translateX(-50%);
+//   transition: .5s;
+//   z-index: 100;
+// }
+
+// .car-contain2 {
+//   position: fixed;
+//   top: 5%;
+//   width: 100%;
+//   z-index: 100;
+// }
+
+// .image-background2 {
+//   background-color: white;
+//   width: 100%;
+//   height: 35%;
+//   position: fixed;
+//   top: 0;
+//   z-index:99;
+// }
+// .buildCar2 {
+//   width: 100%;
+//   height: 30vh;
+//   position: relative;
+//   margin-top: 5rem;
+//   background-color: transparent;
+//   z-index: 99;
+// }
+
+.vehicleCart{
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  color: red;
+  font-weight: bold;
+  font-family: 'arial';
+  font-size: .5rem;
+  transition: .2s;
+  z-index: 100;
+}
+.vehicleCartMenu{
+  height: 0;
+  width: 22%;
+  position: fixed;
+  top: 16%;
+  left: 4%;
+  z-index: 105;
+  background-color: rgb(250, 245, 245);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: 0.5s;
+  box-shadow: 2px 2px 10px rgba(175, 170, 170, 0.308), -2px -2px 10px rgba(175, 170, 170, 0.308);
+}
+
+.titleTransition {
+  position: fixed;
+  top: 5%;
+  left: 23%;
+  z-index: 1;
+  font-size: 3rem;
+  font-family: 'Kanit', sans-serif;
+  z-index: 101;
+  transition: .2s;
+}
+.titleTransition:before {
+  content: 'toyota  ';
+  text-transform: uppercase;
+  font-family: arial;
+  font-size: 2rem;
+}
+.priceTransition {
+  position: fixed;
+  top: 7%;
+  right: 15%;
+  z-index: 1;
+  font-size: 1.5rem;
+  font-family: 'Kanit', sans-serif;
+  z-index: 101;
+  transition: .2s;
+  &:before{
+    content: '$';
+  }
+  &:after {
+    content:'starting';
+    font-size:.8rem;
+    font-style: italic;
+  }
+}
+.car-starting {
+  position: fixed;
+  top: 8%;
+  right: 11%;
+  z-index: 1;
+  font-size: .6rem;
+  text-transform: uppercase;
+  font-style: italic;
+  z-index: 101;
+  transition: .2s;
+}
+
+.carButtonRotateRightHide {
+  display: none;
+}
+
+// .panel{
+//   position: fixed;
+//   width: 100%;
+//   top: 30%;
+//   display: flex;
+//   justify-content: center;
+//   background-color: rgb(44, 41, 41);
+//   border-style: transparent;
+//   border-color: rgb(245, 238, 238);
+//   padding: 0 10%;
+//   transition: .2s;
+//   z-index: 102;
+// }
+
+@media(max-width: 1100px){
+  .car-contain2 {
+
+    top: 8%;
+  }
+  .titleTransition{
+   left: 12%;
+  }
+  .priceTransition {
+    top:9%;
+    right: 5%;
+  }
+  .panel {
+    top:20%;
+  }
+  .buildCar2 {
+    height: 25vh;
+  }
+  .image-background2 {
+    height: 30%;
+  }
+  .vehicleCart{
+    top: 12%;
+    left: 5%;
+  }
+}
+@media(max-width:900px){
+
+  .titleTransition {
+    font-size:2rem;
+    top: 10%;
+    &:before{
+      font-size:1.5rem;
+    }
+  }
+  .vehicleCart{
+    top: 13.5%;
+    left: 2%;
+  }
+  .vehicleCartMenu{
+    top: 17%;
+  }
+  .priceTransition {
+    top: 11%;
+    right: 6%;
+
+    &:after {
+      content:'starting';
+      font-size:.8rem;
+      font-style: italic;
+    }
+  }
+}
+
+@media(max-width:800px){
+  .panel {
+    padding:0;
+  }
+}
+
+
+@media(max-width:700px){
+  .titleTransition {
+    font-size:1.5rem;
+    &:before{
+      font-size:1rem;
+    }
+  }
+  .priceTransition{
+    font-size: 1rem;
+  }
+  .panel {
+    top:18%;
+  }
+  .buildCar2 {
+    height: 10vh;
+  }
+  .image-background2 {
+    height: 20%;
+  }
+  .vehicleCart{
+    top: 12.5%;
+    left: 2%;
+    font-size: .5rem;
+  }
+  .vehicleCartMenu{
+    
+    width: 30%;
+  }
+}
+@media(max-width:600px){
+  .titleTransition {
+    top:6%;
+    font-size:2.5rem;
+    &:before{
+      font-size: 1rem;
+    }
+  }
+  .priceTransition{
+    font-size: 1rem;
+    &:after{
+      font-size: .6rem;
+    }
+  }
+  .vehicleCart{
+    top: 9%;
+    left: 13%;
+    font-size: .5rem;
+  }
+  .vehicleCartMenu{
+    top: 15%;
+    left: 4%;
+    width: 40%;
+  }
+}
+@media(max-width:500px){
+  .titleTransition {
+    top: 8%;
+    left: 2%;
+    font-size: 2rem;
+    &:before{
+      font-size: .7rem;
+    }
+  }
+  .vehicleCart{
+    top: 10%;
+    left: 2%;
+    font-size: .4rem;
+  }
+  .vehicleCartMenu{
+    top: 15%;
+    left: 4%;
+    width: 40%;
+  }
+  .priceTransition{
+    top: 10%;
+    right: 4%;
+    font-size: 1rem;
+    &:after {
+      font-size: .4rem;
+    }
+  }
+}
+
+
+
+
+// .buildCar-panel {
+//   display: flex;
+//   justify-content: center;
+//   background-color: rgb(44, 41, 41);
+//   border-style: transparent;
+//   border-color: rgb(245, 238, 238);
+//   padding: 0 10%;
+//   z-index: 102;
+//   position: relative;
+
+//   &-text {
+//     color: white;
+//     text-transform: uppercase;
+//     font-size: .7rem;
+//   }
+// }
+
+// .buildCar-panel-buttons {
+//   width: 100%;
+//   height: 7rem;
+//   background-color: rgb(44, 41, 41);
+//   border-right: 1px solid white;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   transition: .3s;
+//   cursor: pointer;
+//   color:white;
+
+//   &_colors{
+//     border-left: 1px solid white;
+//   }
+
+//   &:hover {
+//     background-color: rgb(92, 92, 167)
+//   }
+// }
+
+// .active {
+//   background-color: rgb(92, 92, 167)
+// }
+
+
+
+
+
+// @media(max-width:800px) {
+
+//   .buildCar-panel {
+//     padding: 0;
+ 
+//   &-text {
+//     font-size: .6rem;
+//   }
+
+//     &-buttons{
+//       padding-top: 1rem;
+//       height: 3rem;
+//     }
+//   }
+
+//   .buildCar__icon--i {
+//     height: .7rem;
+//     color: rgb(245, 238, 238);;
+//   }
+// }

@@ -16,10 +16,6 @@ import x7 from "../../relativeImages/whatshappeningpages/xfinityslideshow/x7.jpg
 import racingConcept from "../../relativeImages/whatshappeningpages/racingConcept.jpg";
 
 
-
-
-
-
 class Xfinity extends React.Component {
 
   state = {
@@ -79,14 +75,14 @@ class Xfinity extends React.Component {
               <div className="xfinity-gallery--contain" onClick={this.openModal}>
                 <img className="xfinity-gallery--img" src={x0} alt="2019 Supra Xfinity Sereis Race Car" data-type="0" />
                 <div className="xfinity-gallery--contain-youtubePlayButton"></div>
-                  <i className="fab fa-youtube xfinity-gallery--contain-youtubeBG" aria-hidden="true" data-type="0"></i>
+                <i className="fab fa-youtube xfinity-gallery--contain-youtubeBG" aria-hidden="true" data-type="0"></i>
               </div>
             </div>
             <div className="xfinity-gallery--flex" onClick={this.openModal} >
               <div className="xfinity-gallery--contain">
                 <img className="xfinity-gallery--img" src={x1} alt="2019 Supra Xfinity Sereis Race Car" data-type="1" />
                 <div className="xfinity-gallery--contain-youtubePlayButton"></div>
-                  <i className="fab fa-youtube xfinity-gallery--contain-youtubeBG" aria-hidden="true" data-type="1"></i>
+                <i className="fab fa-youtube xfinity-gallery--contain-youtubeBG" aria-hidden="true" data-type="1"></i>
               </div>
             </div>
             <div className="xfinity-gallery--flex">
