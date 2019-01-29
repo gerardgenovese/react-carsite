@@ -270,7 +270,7 @@ class BuildCarPage extends React.Component{
           <img src={this.state.image} className={this.state.carTransition ? "buildCar-img2": "buildCar-img"} alt={this.state.title}/>
         </div>
         <p className="buildCar-price">{this.state.totalPrice}</p>
-        <button className="buildCar-button"><i className="fas fa-arrow-circle-right"></i></button>
+        <button className="buildCar-button" onClick={this.rotateCarImage}><i className="fas fa-arrow-circle-right"></i></button>
       </div>
      
     </div>
@@ -278,25 +278,25 @@ class BuildCarPage extends React.Component{
 
 
     <div className={this.state.carTransition ? "buildCar-panel2" : "buildCar-panel"}>
-      <div className="buildCar-panel-buttons buildCar-panel-buttons_colors car-panel active">
-        <i className="fas fa-car buildCar__icon--i"></i>
-        <p className="buildCar-panel-text">Colors</p>
+      <div className="buildCar-panel-buttons buildCar-panel-buttons_colors car-panel active" data-value="buildCarColors" onClick={this.changeBuildOption}>
+        <i className="fas fa-car buildCar__icon--i" data-value="buildCarColors" onClick={this.changeBuildOption}></i>
+        <p className="buildCar-panel-text" data-value="buildCarColors" onClick={this.changeBuildOption}>Colors</p>
       </div>
-      <div className="buildCar-panel-buttons">
-        <i className="fas fa-cogs buildCar__icon--i"></i>
-        <p className="buildCar-panel-text">Engine Type</p>
+      <div className="buildCar-panel-buttons" data-value="buildCarEngine" onClick={this.changeBuildOption}>
+        <i className="fas fa-cogs buildCar__icon--i" data-value="buildCarEngine" onClick={this.changeBuildOption}></i>
+        <p className="buildCar-panel-text" data-value="buildCarEngine" onClick={this.changeBuildOption}>Engine Type</p>
       </div>
       <div className="buildCar-panel-buttons" data-value="buildCarAccessories" onClick={this.changeBuildOption}>
-        <i className="fas fa-tags buildCar__icon--i"></i>
-        <p className="buildCar-panel-text">Accessories</p>
+        <i className="fas fa-tags buildCar__icon--i" data-value="buildCarAccessories" onClick={this.changeBuildOption}></i>
+        <p className="buildCar-panel-text" data-value="buildCarAccessories" onClick={this.changeBuildOption}>Accessories</p>
       </div>
       <div className="buildCar-panel-buttons panel-gallery">
         <i className="fas fa-images buildCar__icon--i"></i>
       <p className="buildCar-panel-text">Gallery</p>
       </div>
-      <div className="buildCar-panel-buttons  calc-panel">
-        <i className="fas fa-calculator buildCar__icon--i"></i>
-      <p className="buildCar-panel-text">Finance</p>
+      <div className="buildCar-panel-buttons calc-panel" data-value="buildCarCalculator" onClick={this.changeBuildOption}>
+        <i className="fas fa-calculator buildCar__icon--i" data-value="buildCarCalculator" onClick={this.changeBuildOption}></i>
+      <p className="buildCar-panel-text" data-value="buildCarCalculator" onClick={this.changeBuildOption}>Finance</p>
       </div>
     </div>
 
@@ -326,30 +326,32 @@ class BuildCarPage extends React.Component{
 
 
 
+          <div className="buildCar-options--container">
+            {
+              this.state.buildCarColors ? 
+                <BuildCarColors 
+                  image={this.state.image} 
+                  changeColor={this.changeColor} 
+                /> 
+                : this.state.buildCarEngine ? 
+                <BuildCarEngine 
+                  engineOneSelected={this.state.engineOneSelected} 
+                  engineTwoSelected={this.state.engineTwoSelected} 
+                  changeEngine={this.changeEngine} 
+                /> 
+                : this.state.buildCarAccessories ?
+                <BuildCarAccessories 
+                  cargoToteSelected={this.state.cargoTote.selected} 
+                  leatherMatsSelected={this.state.leatherMats.selected} 
+                  wheelLocksSelected={this.state.wheelLocks.selected} 
+                  add_remove_Cargo={this.add_remove_cargoTote} 
+                  add_remove_Mats={this.add_remove_leatherMats} 
+                  add_remove_Locks={this.add_remove_wheelLocks}  
+                /> 
+                : <BuildCarCalculator carPrice={this.state.totalPrice}/>
+            }  
 
-          {
-            this.state.buildCarColors ? 
-              <BuildCarColors 
-                image={this.state.image} 
-                changeColor={this.changeColor} 
-              /> 
-              : this.state.buildCarEngine ? 
-              <BuildCarEngine 
-                engineOneSelected={this.state.engineOneSelected} 
-                engineTwoSelected={this.state.engineTwoSelected} 
-                changeEngine={this.changeEngine} 
-              /> 
-              : this.state.buildCarAccessories ?
-              <BuildCarAccessories 
-                cargoToteSelected={this.state.cargoTote.selected} 
-                leatherMatsSelected={this.state.leatherMats.selected} 
-                wheelLocksSelected={this.state.wheelLocks.selected} 
-                add_remove_Cargo={this.add_remove_cargoTote} 
-                add_remove_Mats={this.add_remove_leatherMats} 
-                add_remove_Locks={this.add_remove_wheelLocks}  
-              /> 
-              : <BuildCarCalculator carPrice={this.state.totalPrice}/>
-          }  
+          </div>
 
           <Footer />
       </div>

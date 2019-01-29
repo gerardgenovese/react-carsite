@@ -1,7 +1,26 @@
+@import "../../mixins/buildCarOptions-header";
+
+
+
 .button-colors{
-  width: 2rem;
-  height: 1rem;
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem;
   box-shadow: 2px 1px 3px gray;
+  &:hover{
+    cursor:pointer;
+  }
+
+  &--container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-top: 5rem;
+  }
+  &--header{
+    @include buildCarHeader;
+  }
 }
 .white{
   background:white;

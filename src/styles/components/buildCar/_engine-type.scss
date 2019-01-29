@@ -1,0 +1,210 @@
+// .buildCar-engine{
+//   &--header{
+//     margin-top: 15rem;
+//     text-align:center;
+//     font-size:3rem;
+//     text-transform: uppercase;
+//     margin-bottom: 2rem;
+//   }
+//   &--container{
+//     width: 100%;
+//     height: 40rem;
+//     display:flex;
+//     justify-content: space-around;
+//     margin-top: 3rem;
+//   }
+//   &--contain{
+//     padding: 3rem 1rem 3rem 3rem;
+//     background:rgb(247, 245, 245);
+//     box-shadow: 2px 2px 5px rgb(202, 199, 199);
+//     margin-bottom: 5rem;
+//     height: 16rem;    
+//     border: 2px solid transparent;
+    
+//     &:hover{
+//       border:2px solid red;
+//     }
+
+
+//   }
+//   &--label{
+//     font-size: 2rem;
+
+//     cursor:pointer;
+//   }
+
+//   &--input{
+//     cursor:pointer;
+//   }
+// }
+
+// .engine-selected{
+//   border: 2px solid red;
+// }
+
+
+
+
+
+
+@import "../../mixins/buildCarOptions-header";
+
+
+.buildCar-engine {
+  display: flex;
+  justify-content: space-around;
+  margin: 2.2rem 0;
+  position: relative;
+  // margin-top: 10rem;
+
+  &--header{
+    @include buildCarHeader;
+  }
+
+  &--label {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+    margin: 3rem;
+    padding: 1rem 2rem;
+    background-color: rgb(248, 248, 250);
+    position: relative;
+    cursor: pointer;
+    font-size: 2rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: 2px 0 15px rgb(139, 136, 136);
+    border-radius: 5px;
+  }
+
+  &--type {
+    font-size: 1.6rem;
+    padding: 1rem;
+    font-weight:bold;
+    text-transform: uppercase;
+    font-style:italic;
+  }
+
+  &--specs {
+    font-size: 2rem;
+    padding: .5rem;
+  }
+  &--spec{
+    padding: .5rem;
+  }
+
+  &--cost {
+    text-align:center;
+    margin: 1rem 0;
+  }
+
+/* Hide the default radio button */
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+/* Custom radio button */
+  &--checkmark {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgb(238, 156, 156);
+    // background-color: rgb(136, 60, 60);
+    border-radius: 50%;
+    align-self: center;
+    position:relative;
+}
+
+/* On mouse-over, add a light red background color */
+  &--label:hover input ~ &--checkmark {
+    background-color: rgb(231, 84, 84);
+  }
+/* When radio button is checked, add red background */
+  &--label input:checked ~ &--checkmark {
+    background-color: rgb(243, 33, 33);
+  }
+/* Create the indicator (the dot/circle - hidden when not checked) */
+  &--checkmark:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; 
+  }
+/* Show the indicator (dot/circle) when checked */
+  &--label input:checked ~ &--checkmark:after {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: white;
+    border-radius: 50%;
+  }
+/* Style the indicator (dot/circle) */
+  // &--label &--checkmark:after {
+  //   // top: .45rem;
+  //   // left: .45rem;
+
+  //   width: 1rem;
+  //   height: 1rem;
+  //   // border-radius: 50%;
+  //   background: white;
+  // }
+}
+
+
+
+
+@media(max-width: 1000px){
+  .buildCar-engine {
+
+    &--label {
+      height: 20rem;
+      padding: 1rem 2rem;
+      margin-bottom: .8rem;
+      border-radius: 0;
+
+    }
+    &--header {
+      font-size: 1.2rem;
+    }
+    &--specs {
+      font-size: .9rem;
+    }
+  }
+}
+@media(max-width: 500px){
+  .buildCar-engine {
+
+    &--label {
+      height: 20rem;
+      padding: 1rem 2rem;
+      margin-bottom: .8rem;
+      border-radius: 0;
+      display:block;
+    }
+    &--header {
+      font-size: 1.2rem;
+    }
+    &--specs {
+      font-size: .9rem;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

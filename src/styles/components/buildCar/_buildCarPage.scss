@@ -184,7 +184,7 @@
     position: relative;
     margin-top: 5rem;
     background-color: transparent;
-    z-index: 99;
+    z-index: 1;
 
     &--buffer{
       background-color: white;
@@ -192,6 +192,7 @@
       height: 35%;
       position: fixed;
       top: 0;
+
     }
   }
   &-contain{
@@ -217,7 +218,7 @@
     transform: translateX(-50%);
 
     transition: .2s;
-    z-index: 100;
+    z-index: 0;
     width: 60rem;
   }
   &-img2{
@@ -227,6 +228,7 @@
     left: 90%;
     transform: translateX(-50%);
     transition: .5s;
+    z-index: 0;
   }
   &-containTitle{
     display:flex;
@@ -248,7 +250,7 @@
     display: flex;
     justify-content: center;
     background-color: rgb(44, 41, 41);
-    z-index: 102;
+    // z-index: 1;
     position: fixed;
     width: 100vw;
     left: 0;
@@ -268,7 +270,7 @@
     justify-content: center;
     background-color: rgb(44, 41, 41);
     transition: .2s;
-    z-index: 102;
+    z-index: 2;
   }
 
   &-panel-buttons {
@@ -345,7 +347,7 @@
     position: absolute;
     top: 50%;
     right: 0;
-    z-index: 9;
+    // z-index: 9;
     cursor: pointer;
     background-color: rgb(189, 184, 184);
     color: white;
@@ -566,6 +568,30 @@
 .carButtonRotateRightHide {
   display: none;
 }
+
+
+
+
+
+
+
+.buildCar-options--container{
+  width: 100%;
+  height: 50rem;
+  margin-top: 15rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // .panel{
 //   position: fixed;

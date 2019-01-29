@@ -2,9 +2,11 @@
 .select {
   border-bottom: 5px solid black;
 
+
   &-container{
     display:flex;
     justify-content:center;
+
   }
   &-header {
     margin: 5rem 0;
@@ -104,11 +106,11 @@
   position:absolute;
   top: 100%;
   left: 0;
+  z-index: 100;
   width: 100%;
   height: 100vh;
   // margin-top: 5rem;
   background:white;
-  z-index: 3;
   border-top: $border;
  }
 
@@ -119,7 +121,8 @@
   // background: white;
   // color: white;
   // width:100%
-  z-index: 3;
+  position:absolute;
+  z-index: 100;
 }
 .select-menu-closed{
   height: 0;

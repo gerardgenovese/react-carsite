@@ -1,0 +1,150 @@
+@import "../../mixins/buildCarOptions-header";
+
+.buildCar{
+  &--header{
+    @include buildCarHeader;
+  }
+  &-flex{
+    background-color: rgb(247, 243, 243);
+    display:flex;
+  }
+  &-accs{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+ 
+    &--items {
+      max-width: 75%;
+      margin: 0 auto;
+      border-left: 1px solid rgb(233, 224, 224);
+      border-right: 1px solid rgb(233, 224, 224);
+      border-bottom: 1px solid rgb(233, 224, 224);
+    }
+    &--img {
+      width: 100%;
+    }
+
+    &--header {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+  
+    &--price {
+      margin: 1rem 0 1rem 0;
+      padding-left: 2rem;
+      font-size: 1.3rem;
+    }
+
+    &--details {
+      padding-left: 2rem;
+      color: red;
+      background-color: transparent;
+      border: transparent;
+    
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: transparent;
+      }
+    }
+
+    &--checkbox {
+      // width: 15rem;
+      // height: 3rem;
+      position: relative;
+      display:flex;
+      justify-content: center;
+      margin: 2rem;
+
+      &-label {
+        // display: block;
+        // padding-left: 3.5rem;
+        // margin-bottom: 1.2rem;
+        cursor: pointer;
+        font-size: 1.2rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        /* Hide the browser's default checkbox */
+        & input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+
+          &:checked ~ .checkmark {
+            background-color: #2196F3;
+            transform: scale(1.1);
+          }
+        }
+
+        &:hover input ~ .checkmark {
+          transform: scale(1.1);
+          box-shadow: 0 2px 5px rgb(177, 173, 173);
+        }
+
+        & input:checked ~ .checkmark {
+          background-color: rgb(243, 33, 33);
+          color: rgb(231, 222, 222);
+          transform: scale(1.1);
+        }
+        & input[type="checkbox"]:not(:checked) ~ .checkmark {
+          background-color: white;
+          color: black;
+          transform: scale(1);
+        }
+      }
+    }
+
+  }
+
+}
+
+.checkmark {
+  // position: absolute;
+  // top: 0%;
+  // left: 10%;
+
+  height: 1.5rem;
+  width: 6rem;
+  font-size: 1.6rem;
+  font-family: helvetica;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(26, 25, 25);
+  border-radius: 20rem;
+  padding: .5rem 3rem;
+  transition: .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-open{
+//  overflow: scroll;
+overflow-y: scroll;
+ overflow-x: hidden;
+ margin: 0 !important;
+ padding: 0 !important;
+}
+
+
+@media(max-width:768px){
+  // .buildCar-accs--items{
+  //   width: 50%;
+  //   display: block;
+  //   margin: 0 auto;
+  // }
+  .buildCar-accs--header{
+    font-size:1.2rem;
+  }
+}
+@media(max-width:500px){
+  .buildCar-accs--items{
+    width: 75%;
+    display: block;
+    margin:0 auto;
+  }
+}

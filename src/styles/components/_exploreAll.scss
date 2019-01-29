@@ -1,6 +1,10 @@
 
 .explore {
 
+  &-mq{
+    display:none;
+  }
+
   display:flex;
   justify-content:center;
 
@@ -89,4 +93,42 @@
 //     opacity: 1;
 //   }
 // }
+
+@media screen and(max-width: 768px){
+
+
+
+  .explore{
+    display:none;
+    &-car{
+      // width: 100%;
+      &:hover &--front {
+        display: none;
+      }
+ 
+    }
+  }
+
+ 
+  .explore{
+
+    &-mq{
+      display:flex;
+      justify-content:flex-start;
+      overflow-x:auto;
+      width: 100%;
+      &-test{
+        
+        // width: 100%;
+      }
+    }
+    &-car{
+      &--side_mq{
+        // display:inline-block;
+        // margin: 0 auto;
+
+      }
+    }
+  }
+}
 

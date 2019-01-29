@@ -28,7 +28,7 @@ class BuildCarAccessories extends React.Component{
   render(){
     return(
       <div>
-        <div>
+        {/* <div>
           <img src={cargoTote} alt="cargoTote"/>
           <div>$75.00</div>
           <input type="checkbox" data-type="cargoTote" defaultChecked={this.props.cargoToteSelected} onClick={this.addOrRemoveAccessories}/>
@@ -42,8 +42,59 @@ class BuildCarAccessories extends React.Component{
           <img src={wheelLocks} alt="wheellLocks"/>
           <div>$75.00</div>
           <input type="checkbox" data-type="wheelLocks" defaultChecked={this.props.wheelLocksSelected} onClick={this.addOrRemoveAccessories}/>
-        </div> 
+        </div>  */}
+
+
+
+      <h1 className="buildCar--header">Choose Accessories</h1>
+      <div className="buildCar-flex">
+        <div className="buildCar-accs">
+          <div className="buildCar-accs--items">
+            <img src={cargoTote} alt="cargoTote" className="buildCar-accs--img"/>
+            <p className="buildCar-accs--header">Alloy Wheel Locks</p>
+            <p className="buildCar-accs--price">$75 <small>msrp</small></p>
+            <div className="buildCar-accs--checkbox">
+              <label className="buildCar-accs--checkbox-label">
+                <input type="checkbox" data-type="cargoTote" defaultChecked={this.props.cargoToteSelected} onClick={this.addOrRemoveAccessories}/>
+                <span className="checkmark">{this.props.cargoToteSelected ? "Added" : "Add"}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div className="buildCar-accs">
+          <div className="buildCar-accs--items">
+            <img src={leatherMats} alt="leatherMats" className="buildCar-accs--img" />
+            <p className="buildCar-accs--header">Leather-Mats</p>
+            <p className="buildCar-accs--price">$75 <small>msrp</small></p>
+
+            <div className="buildCar-accs--checkbox">
+              <label className="buildCar-accs--checkbox-label">
+                <input type="checkbox" data-type="leatherMats" defaultChecked={this.props.leatherMatsSelected} onClick={this.addOrRemoveAccessories}/>
+                <span className="checkmark">{this.props.leatherMatsSelected ? "Added" : "Add"}</span>
+              </label>
+            </div>
+          </div>  
+        </div>
+        <div className="buildCar-accs">
+          <div className="buildCar-accs--items">
+            <img src={wheelLocks} alt="wheellLocks" className="buildCar-accs--img" />
+            <p className="buildCar-accs--header">Cargo-Tote</p>
+            <p className="buildCar-accs--price">$75 <small>msrp</small></p>
+            <div className="buildCar-accs--checkbox">
+              <label className="buildCar-accs--checkbox-label">
+                <input type="checkbox" data-type="wheelLocks" defaultChecked={this.props.wheelLocksSelected} onClick={this.addOrRemoveAccessories}/>
+                <span className="checkmark">{this.props.wheelLocksSelected ? "Added" : "Add"}</span>
+              </label>
+            </div>
+          </div>
+        </div>  
       </div>
+
+
+
+
+
+    </div>
     )
   }
 }
