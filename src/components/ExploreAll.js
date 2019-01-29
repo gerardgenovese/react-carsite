@@ -77,6 +77,7 @@ class ExploreAll extends React.Component {
 
     window.removeEventListener("scroll", this.scrollPos, true);
     // console.log("unmounted")
+
   }
 
 

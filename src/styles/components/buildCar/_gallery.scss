@@ -1,0 +1,58 @@
+@import "../../mixins/buildCarOptions-header";
+
+.gallery{
+  &-header{
+    @include buildCarHeader;
+  }
+  &-flex{
+    display:flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  &-imgContain{
+    // width: 25%;
+    // height: 25%;
+    
+    flex: 0 0 25%;
+    cursor: pointer;
+
+    position:relative;
+
+
+  }
+  &-filter{
+    position:absolute;
+    background:transparent;
+    width: 100%;
+    height: 100%;
+    transition: .3s;
+
+    &:hover{
+      background: rgba(240, 12, 12, 0.39);
+      transition: .3s;
+    }
+  }
+  &-img{
+    width: 100%;
+    height: 100%;
+  }
+  &-modal{
+    &--img{
+      display:block;
+      margin: 0 auto;
+      width: 75%;
+    }
+  }
+}
+
+
+@media screen and(min-width: 1440px){
+  .gallery{
+    &-modal{
+      &--img{
+        width: 50%;
+      }
+   
+    }
+  }
+}

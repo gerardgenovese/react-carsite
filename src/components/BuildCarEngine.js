@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 class BuildCarEngine extends React.Component {
 
@@ -93,7 +94,7 @@ class BuildCarEngine extends React.Component {
             </label>
           </div>
 
-
+        <Footer />
       </div>
     )
   }

@@ -1,7 +1,11 @@
 import React from "react";
+
 import cargoTote from "../relativeImages/accessories/cargo-tote.jpg";
 import leatherMats from "../relativeImages/accessories/leather-mats.jpg";
 import wheelLocks from "../relativeImages/accessories/wheel-lock.jpg";
+
+import Footer from "./Footer";
+
 class BuildCarAccessories extends React.Component{
 
   addOrRemoveAccessories = (e) => {
@@ -92,7 +96,7 @@ class BuildCarAccessories extends React.Component{
 
 
 
-
+        <Footer />
 
     </div>
     )

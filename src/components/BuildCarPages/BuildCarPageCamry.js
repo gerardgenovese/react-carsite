@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import BuildCarColors from "../BuildCarColors";
 import BuildCarEngine from "../BuildCarEngine";
 import BuildCarAccessories from "../BuildCarAccessories";
+import BuildCarGallery from "../BuildCarGallery";
 import BuildCarCalculator from "../BuildCarCalculator";
-import Footer from "../Footer";
+// import Footer from "../Footer";
 // import { pickColor } from "../redux/actions";
 class BuildCarPage extends React.Component{
 
@@ -33,6 +34,7 @@ class BuildCarPage extends React.Component{
     buildCarColors: true,
     buildCarEngine: false,
     buldCarAccessories: false,
+    buldCarGallery: false,
     buildCarCalculator: false,
     totalPrice: this.props.car.price,
     carTransition: false,
@@ -48,19 +50,22 @@ class BuildCarPage extends React.Component{
     let show = e.target.getAttribute("data-value");
       switch(show){
         case "buildCarColors":
-          this.setState({buildCarColors: true, buildCarEngine:false, buildCarAccessories: false, buildCarCalculator: false});
+          this.setState({buildCarColors: true, buildCarEngine:false, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: false});
           break;
         case "buildCarEngine":
-          this.setState({buildCarColors: false, buildCarEngine: true, buildCarAccessories: false, buildCarCalculator: false});
+          this.setState({buildCarColors: false, buildCarEngine: true, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: false});
           break;
         case "buildCarAccessories":
-          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: true, buildCarCalculator: false});
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: true, buildCarGallery: false, buildCarCalculator: false});
+          break;
+        case "buildCarGallery":
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: true, buildCarCalculator: false});
           break;
         case "buildCarCalculator":
-          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarCalculator: true});
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: true});
           break;
         default:
-          this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false, buildCarCalculator: false});
+          this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: false});
       } 
       // console.log(show);
   };
@@ -290,9 +295,9 @@ class BuildCarPage extends React.Component{
         <i className="fas fa-tags buildCar__icon--i" data-value="buildCarAccessories" onClick={this.changeBuildOption}></i>
         <p className="buildCar-panel-text" data-value="buildCarAccessories" onClick={this.changeBuildOption}>Accessories</p>
       </div>
-      <div className="buildCar-panel-buttons panel-gallery">
-        <i className="fas fa-images buildCar__icon--i"></i>
-      <p className="buildCar-panel-text">Gallery</p>
+      <div className="buildCar-panel-buttons panel-gallery" data-value="buildCarGallery" onClick={this.changeBuildOption}>
+        <i className="fas fa-images buildCar__icon--i" data-value="buildCarGallery" onClick={this.changeBuildOption}></i>
+      <p className="buildCar-panel-text" data-value="buildCarGallery" onClick={this.changeBuildOption}>Gallery</p>
       </div>
       <div className="buildCar-panel-buttons calc-panel" data-value="buildCarCalculator" onClick={this.changeBuildOption}>
         <i className="fas fa-calculator buildCar__icon--i" data-value="buildCarCalculator" onClick={this.changeBuildOption}></i>
@@ -348,12 +353,16 @@ class BuildCarPage extends React.Component{
                   add_remove_Mats={this.add_remove_leatherMats} 
                   add_remove_Locks={this.add_remove_wheelLocks}  
                 /> 
+                : this.state.buildCarGallery ?
+                <BuildCarGallery 
+                  car={this.state.title}  
+                /> 
                 : <BuildCarCalculator carPrice={this.state.totalPrice}/>
             }  
 
           </div>
-
-          <Footer />
+{/* 
+          <Footer /> */}
       </div>
     )
 

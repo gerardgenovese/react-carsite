@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 class BuildCarColors extends React.Component {
 
@@ -28,6 +29,8 @@ class BuildCarColors extends React.Component {
           </div>
         </div>
         
+
+        <Footer />
       </div>
     )
   }

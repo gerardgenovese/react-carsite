@@ -61,7 +61,7 @@ class XfinityModal extends React.Component{
           <button className="xfinity-modal--header_close" onClick={openModal}>X</button>
         </div>
 
-          <Carousel infiniteLoop={true} onChange={this.stopVideoPlayBack} selectedItem={selectedImage} showThumbs={false} showIndicators={false} showStatus>
+          <Carousel infiniteLoop={true} onChange={this.stopVideoPlayBack} selectedItem={selectedImage} showThumbs={false} showIndicators={false} showStatus={false}>
             <div>
               <video id="video1" controls poster={x0}>
                 <source src={video1} style={videoStyle} />
