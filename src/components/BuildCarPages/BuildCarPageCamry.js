@@ -4,7 +4,7 @@ import BuildCarColors from "../BuildCarColors";
 import BuildCarEngine from "../BuildCarEngine";
 import BuildCarAccessories from "../BuildCarAccessories";
 import BuildCarGallery from "../BuildCarGallery";
-import BuildCarCalculator from "../BuildCarCalculator";
+import BuildCarFinance from "../BuildCarFinance";
 // import Footer from "../Footer";
 // import { pickColor } from "../redux/actions";
 class BuildCarPage extends React.Component{
@@ -357,7 +357,7 @@ class BuildCarPage extends React.Component{
                 <BuildCarGallery 
                   car={this.state.title}  
                 /> 
-                : <BuildCarCalculator carPrice={this.state.totalPrice}/>
+                : <BuildCarFinance carPrice={this.state.totalPrice}/>
             }  
 
           </div>
