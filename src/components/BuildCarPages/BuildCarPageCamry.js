@@ -331,7 +331,7 @@ class BuildCarPage extends React.Component{
 
 
 
-          <div className="buildCar-options--container">
+          <div className={this.state.carTransition ? "buildCar-options--container2" : "buildCar-options--container"}>
             {
               this.state.buildCarColors ? 
                 <BuildCarColors 

@@ -101,14 +101,14 @@
 // }
 
 
-.image-background2 {
-  background-color: white;
-  width: 100%;
-  height: 35%;
-  position: fixed;
-  top: 0;
-  z-index:99;
-}
+// .image-background2 {
+//   background-color: white;
+//   width: 100%;
+//   height: 35%;
+//   position: fixed;
+//   top: 0;
+//   z-index:99;
+// }
 
 
 // .buildCar-panel {
@@ -162,14 +162,15 @@
 //   }
 // }
 
+
+
+
+
+
+
 .active {
   background-color: rgb(92, 92, 167)
 }
-
-
-
-
-
 
 
 
@@ -378,6 +379,65 @@
   animation-iteration-count: infinite;
 }
 
+
+
+.buildCar-options--container{
+  width: 100%;
+  height: 50rem;
+  margin-top: 12rem;
+}
+.buildCar-options--container2{
+  margin-top: 6rem;
+}
+
+
+
+
+@media screen and(min-width:1440px){
+
+  .buildCar{
+    &-options{
+      &--container{
+        margin-top: 10rem;
+      }
+      &--container2{
+        margin-top: 0;
+      }
+    }
+     
+  
+  }
+  .buildCar-panel2{
+    animation: navMove .5s;
+    animation-fill-mode: forwards;
+  }
+
+  .buildCar-main2--buffer{
+    height: 25%;
+  }
+}
+
+@keyframes navMove{
+  0%{
+    transform: translateY(20%);
+  }
+  100%{
+    transform: translateY(-80%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes moveButton {
   0% {
     left: 0;
@@ -388,72 +448,72 @@
 }
 
 
-@media(max-width:1000px){
-  .buildCar {
+// @media(max-width:1000px){
+//   .buildCar {
 
-    &-title{
-      left: .5%;
-    }
-    &-price{
-      top: 12%;
-    }
-  }
-}
+//     &-title{
+//       left: .5%;
+//     }
+//     &-price{
+//       top: 12%;
+//     }
+//   }
+// }
 
-@media(max-width:900px){
-  .buildCar {
+// @media(max-width:900px){
+//   .buildCar {
 
-    &-title {
-      font-size:3rem;
-      top: 10%;
+//     &-title {
+//       font-size:3rem;
+//       top: 10%;
 
-      &:before{
-        font-size:1.5rem;
-      }
-    }
-    &-price {
-      top:13%;
-      right: 8%;
-    }
-  }
-}
+//       &:before{
+//         font-size:1.5rem;
+//       }
+//     }
+//     &-price {
+//       top:13%;
+//       right: 8%;
+//     }
+//   }
+// }
 
-@media(max-width:600px){
-  .buildCar {
-    &-title {
-      font-size:2.5rem;
-      &:before{
-        font-size:1rem;
-      }
-    }
-    &-price {
-      top:20%;
-      font-size: 1rem;
-      &:after{
-        font-size: .6rem;
-      }
-    }
-    &-button {
-      padding: .5rem 1rem;
-    }
-  }
-}
+// @media(max-width:600px){
+//   .buildCar {
+//     &-title {
+//       font-size:2.5rem;
+//       &:before{
+//         font-size:1rem;
+//       }
+//     }
+//     &-price {
+//       top:20%;
+//       font-size: 1rem;
+//       &:after{
+//         font-size: .6rem;
+//       }
+//     }
+//     &-button {
+//       padding: .5rem 1rem;
+//     }
+//   }
+// }
 
-@media(max-width:500px){
-  .buildCar {
-    &-title {
-      font-size: 2rem;
+// @media(max-width:500px){
+//   .buildCar {
+//     &-title {
+//       font-size: 2rem;
 
-      &:before{
-        font-size:1rem;
-      }
-    }
-    &-price {
-      font-size: 1rem;
-    }
+//       &:before{
+//         font-size:1rem;
+//       }
+//     }
+//     &-price {
+//       font-size: 1rem;
+//     }
 
-  }
-}
+//   }
+// }
 
 
 
@@ -494,92 +554,87 @@
 //   z-index: 99;
 // }
 
-.vehicleCart{
-  position: fixed;
-  top: 10%;
-  left: 5%;
-  color: red;
-  font-weight: bold;
-  font-family: 'arial';
-  font-size: .5rem;
-  transition: .2s;
-  z-index: 100;
-}
-.vehicleCartMenu{
-  height: 0;
-  width: 22%;
-  position: fixed;
-  top: 16%;
-  left: 4%;
-  z-index: 105;
-  background-color: rgb(250, 245, 245);
-  overflow-x: hidden;
-  overflow-y: hidden;
-  transition: 0.5s;
-  box-shadow: 2px 2px 10px rgba(175, 170, 170, 0.308), -2px -2px 10px rgba(175, 170, 170, 0.308);
-}
+// .vehicleCart{
+//   position: fixed;
+//   top: 10%;
+//   left: 5%;
+//   color: red;
+//   font-weight: bold;
+//   font-family: 'arial';
+//   font-size: .5rem;
+//   transition: .2s;
+//   z-index: 100;
+// }
+// .vehicleCartMenu{
+//   height: 0;
+//   width: 22%;
+//   position: fixed;
+//   top: 16%;
+//   left: 4%;
+//   z-index: 105;
+//   background-color: rgb(250, 245, 245);
+//   overflow-x: hidden;
+//   overflow-y: hidden;
+//   transition: 0.5s;
+//   box-shadow: 2px 2px 10px rgba(175, 170, 170, 0.308), -2px -2px 10px rgba(175, 170, 170, 0.308);
+// }
 
-.titleTransition {
-  position: fixed;
-  top: 5%;
-  left: 23%;
-  z-index: 1;
-  font-size: 3rem;
-  font-family: 'Kanit', sans-serif;
-  z-index: 101;
-  transition: .2s;
-}
-.titleTransition:before {
-  content: 'toyota  ';
-  text-transform: uppercase;
-  font-family: arial;
-  font-size: 2rem;
-}
-.priceTransition {
-  position: fixed;
-  top: 7%;
-  right: 15%;
-  z-index: 1;
-  font-size: 1.5rem;
-  font-family: 'Kanit', sans-serif;
-  z-index: 101;
-  transition: .2s;
-  &:before{
-    content: '$';
-  }
-  &:after {
-    content:'starting';
-    font-size:.8rem;
-    font-style: italic;
-  }
-}
-.car-starting {
-  position: fixed;
-  top: 8%;
-  right: 11%;
-  z-index: 1;
-  font-size: .6rem;
-  text-transform: uppercase;
-  font-style: italic;
-  z-index: 101;
-  transition: .2s;
-}
+// .titleTransition {
+//   position: fixed;
+//   top: 5%;
+//   left: 23%;
+//   z-index: 1;
+//   font-size: 3rem;
+//   font-family: 'Kanit', sans-serif;
+//   z-index: 101;
+//   transition: .2s;
+// }
+// .titleTransition:before {
+//   content: 'toyota  ';
+//   text-transform: uppercase;
+//   font-family: arial;
+//   font-size: 2rem;
+// }
+// .priceTransition {
+//   position: fixed;
+//   top: 7%;
+//   right: 15%;
+//   z-index: 1;
+//   font-size: 1.5rem;
+//   font-family: 'Kanit', sans-serif;
+//   z-index: 101;
+//   transition: .2s;
+//   &:before{
+//     content: '$';
+//   }
+//   &:after {
+//     content:'starting';
+//     font-size:.8rem;
+//     font-style: italic;
+//   }
+// }
+// .car-starting {
+//   position: fixed;
+//   top: 8%;
+//   right: 11%;
+//   z-index: 1;
+//   font-size: .6rem;
+//   text-transform: uppercase;
+//   font-style: italic;
+//   z-index: 101;
+//   transition: .2s;
+// }
 
-.carButtonRotateRightHide {
-  display: none;
-}
-
-
+// .carButtonRotateRightHide {
+//   display: none;
+// }
 
 
 
 
 
-.buildCar-options--container{
-  width: 100%;
-  height: 50rem;
-  margin-top: 15rem;
-}
+
+
 
 
 
@@ -607,149 +662,149 @@
 //   z-index: 102;
 // }
 
-@media(max-width: 1100px){
-  .car-contain2 {
+// @media(max-width: 1100px){
+//   .car-contain2 {
 
-    top: 8%;
-  }
-  .titleTransition{
-   left: 12%;
-  }
-  .priceTransition {
-    top:9%;
-    right: 5%;
-  }
-  .panel {
-    top:20%;
-  }
-  .buildCar2 {
-    height: 25vh;
-  }
-  .image-background2 {
-    height: 30%;
-  }
-  .vehicleCart{
-    top: 12%;
-    left: 5%;
-  }
-}
-@media(max-width:900px){
+//     top: 8%;
+//   }
+//   .titleTransition{
+//    left: 12%;
+//   }
+//   .priceTransition {
+//     top:9%;
+//     right: 5%;
+//   }
+//   .panel {
+//     top:20%;
+//   }
+//   .buildCar2 {
+//     height: 25vh;
+//   }
+//   .image-background2 {
+//     height: 30%;
+//   }
+//   .vehicleCart{
+//     top: 12%;
+//     left: 5%;
+//   }
+// }
+// @media(max-width:900px){
 
-  .titleTransition {
-    font-size:2rem;
-    top: 10%;
-    &:before{
-      font-size:1.5rem;
-    }
-  }
-  .vehicleCart{
-    top: 13.5%;
-    left: 2%;
-  }
-  .vehicleCartMenu{
-    top: 17%;
-  }
-  .priceTransition {
-    top: 11%;
-    right: 6%;
+//   .titleTransition {
+//     font-size:2rem;
+//     top: 10%;
+//     &:before{
+//       font-size:1.5rem;
+//     }
+//   }
+//   .vehicleCart{
+//     top: 13.5%;
+//     left: 2%;
+//   }
+//   .vehicleCartMenu{
+//     top: 17%;
+//   }
+//   .priceTransition {
+//     top: 11%;
+//     right: 6%;
 
-    &:after {
-      content:'starting';
-      font-size:.8rem;
-      font-style: italic;
-    }
-  }
-}
+//     &:after {
+//       content:'starting';
+//       font-size:.8rem;
+//       font-style: italic;
+//     }
+//   }
+// }
 
-@media(max-width:800px){
-  .panel {
-    padding:0;
-  }
-}
+// @media(max-width:800px){
+//   .panel {
+//     padding:0;
+//   }
+// }
 
 
-@media(max-width:700px){
-  .titleTransition {
-    font-size:1.5rem;
-    &:before{
-      font-size:1rem;
-    }
-  }
-  .priceTransition{
-    font-size: 1rem;
-  }
-  .panel {
-    top:18%;
-  }
-  .buildCar2 {
-    height: 10vh;
-  }
-  .image-background2 {
-    height: 20%;
-  }
-  .vehicleCart{
-    top: 12.5%;
-    left: 2%;
-    font-size: .5rem;
-  }
-  .vehicleCartMenu{
+// @media(max-width:700px){
+//   .titleTransition {
+//     font-size:1.5rem;
+//     &:before{
+//       font-size:1rem;
+//     }
+//   }
+//   .priceTransition{
+//     font-size: 1rem;
+//   }
+//   .panel {
+//     top:18%;
+//   }
+//   .buildCar2 {
+//     height: 10vh;
+//   }
+//   .image-background2 {
+//     height: 20%;
+//   }
+//   .vehicleCart{
+//     top: 12.5%;
+//     left: 2%;
+//     font-size: .5rem;
+//   }
+//   .vehicleCartMenu{
     
-    width: 30%;
-  }
-}
-@media(max-width:600px){
-  .titleTransition {
-    top:6%;
-    font-size:2.5rem;
-    &:before{
-      font-size: 1rem;
-    }
-  }
-  .priceTransition{
-    font-size: 1rem;
-    &:after{
-      font-size: .6rem;
-    }
-  }
-  .vehicleCart{
-    top: 9%;
-    left: 13%;
-    font-size: .5rem;
-  }
-  .vehicleCartMenu{
-    top: 15%;
-    left: 4%;
-    width: 40%;
-  }
-}
-@media(max-width:500px){
-  .titleTransition {
-    top: 8%;
-    left: 2%;
-    font-size: 2rem;
-    &:before{
-      font-size: .7rem;
-    }
-  }
-  .vehicleCart{
-    top: 10%;
-    left: 2%;
-    font-size: .4rem;
-  }
-  .vehicleCartMenu{
-    top: 15%;
-    left: 4%;
-    width: 40%;
-  }
-  .priceTransition{
-    top: 10%;
-    right: 4%;
-    font-size: 1rem;
-    &:after {
-      font-size: .4rem;
-    }
-  }
-}
+//     width: 30%;
+//   }
+// }
+// @media(max-width:600px){
+//   .titleTransition {
+//     top:6%;
+//     font-size:2.5rem;
+//     &:before{
+//       font-size: 1rem;
+//     }
+//   }
+//   .priceTransition{
+//     font-size: 1rem;
+//     &:after{
+//       font-size: .6rem;
+//     }
+//   }
+//   .vehicleCart{
+//     top: 9%;
+//     left: 13%;
+//     font-size: .5rem;
+//   }
+//   .vehicleCartMenu{
+//     top: 15%;
+//     left: 4%;
+//     width: 40%;
+//   }
+// }
+// @media(max-width:500px){
+//   .titleTransition {
+//     top: 8%;
+//     left: 2%;
+//     font-size: 2rem;
+//     &:before{
+//       font-size: .7rem;
+//     }
+//   }
+//   .vehicleCart{
+//     top: 10%;
+//     left: 2%;
+//     font-size: .4rem;
+//   }
+//   .vehicleCartMenu{
+//     top: 15%;
+//     left: 4%;
+//     width: 40%;
+//   }
+//   .priceTransition{
+//     top: 10%;
+//     right: 4%;
+//     font-size: 1rem;
+//     &:after {
+//       font-size: .4rem;
+//     }
+//   }
+// }
 
 
 
