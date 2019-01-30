@@ -94,6 +94,7 @@ showPayments = () => {
 
 
 
+
   render(){
     // console.log(this.state.carPrice);
     // console.log(this.state.userMonthlyPayment);

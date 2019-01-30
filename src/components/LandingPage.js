@@ -49,7 +49,7 @@ class LandingPage extends React.Component{
 
   
     return(
-      <div>
+      <div className='landingContain'>
 
         <SlideShow />
         <SectionNav />
