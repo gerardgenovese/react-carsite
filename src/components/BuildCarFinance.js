@@ -1,6 +1,8 @@
 import React from "react";
 import loading from "../relativeImages/loading.gif";
 
+import Footer from "./Footer";
+
 class BuildCarFinance extends React.Component {
 
   state = {
@@ -39,7 +41,7 @@ getPayments = (e) => {
 
   e.preventDefault();
 
-  if(this.state.interst || this.state.yearsToRepay === null){
+  if(this.state.interest === null || this.state.interest === undefined || this.state.interest === "" || this.state.yearsToRepay === null || this.state.yearsToRepay === undefined || this.state.yearsToRepay === ""){
     
     this.setState({ showError: true })
 
@@ -163,7 +165,7 @@ showPayments = () => {
           }
         </div>
 
-        
+        <Footer />
       </div>
     )
   }

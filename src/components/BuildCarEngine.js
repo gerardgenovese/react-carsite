@@ -61,7 +61,7 @@ class BuildCarEngine extends React.Component {
 
       <div>
 
-      <h1 className="buildCar-engine--header">Choose Engine Type</h1>
+      <h1 className="buildCar-engine--headerMain">Choose Engine Type</h1>
         <div className="buildCar-engine">
             <label className="buildCar-engine--label"> <h3 className="buildCar-engine--header">2.5 4-Cyl. Super Thruster Engine</h3>
               <p className="buildCar-engine--type">8-Speed Automatic</p>

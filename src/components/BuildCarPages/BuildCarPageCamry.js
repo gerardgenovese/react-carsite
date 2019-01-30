@@ -5,6 +5,7 @@ import BuildCarEngine from "../BuildCarEngine";
 import BuildCarAccessories from "../BuildCarAccessories";
 import BuildCarGallery from "../BuildCarGallery";
 import BuildCarFinance from "../BuildCarFinance";
+import BuildCarSummary from "../BuildCarSummary";
 // import Footer from "../Footer";
 // import { pickColor } from "../redux/actions";
 class BuildCarPage extends React.Component{
@@ -35,7 +36,8 @@ class BuildCarPage extends React.Component{
     buildCarEngine: false,
     buldCarAccessories: false,
     buldCarGallery: false,
-    buildCarCalculator: false,
+    buildCarFinance: false,
+    buildCarSummary: false,
     totalPrice: this.props.car.price,
     carTransition: false,
     panelActive: true
@@ -50,22 +52,25 @@ class BuildCarPage extends React.Component{
     let show = e.target.getAttribute("data-value");
       switch(show){
         case "buildCarColors":
-          this.setState({buildCarColors: true, buildCarEngine:false, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: false});
+          this.setState({buildCarColors: true, buildCarEngine:false, buildCarAccessories: false, buildCarGallery: false, buildCarFinance: false, buildCarSummary: false});
           break;
         case "buildCarEngine":
-          this.setState({buildCarColors: false, buildCarEngine: true, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: false});
+          this.setState({buildCarColors: false, buildCarEngine: true, buildCarAccessories: false, buildCarGallery: false, buildCarFinance: false, buildCarSummary: false});
           break;
         case "buildCarAccessories":
-          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: true, buildCarGallery: false, buildCarCalculator: false});
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: true, buildCarGallery: false, buildCarFinance: false, buildCarSummary: false});
           break;
         case "buildCarGallery":
-          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: true, buildCarCalculator: false});
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: true, buildCarFinance: false, buildCarSummary: false});
           break;
-        case "buildCarCalculator":
-          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: true});
+        case "buildCarFinance":
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: false, buildCarFinance: true, buildCarSummary: false});
+          break;
+        case "buildCarSummary":
+          this.setState({buildCarColors: false, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: false, buildCarFinance: false, buildCarSummary: true});
           break;
         default:
-          this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: false, buildCarCalculator: false});
+          this.setState({buildCarColors:true, buildCarEngine: false, buildCarAccessories: false, buildCarGallery: false, buildCarFinance: false});
       } 
       // console.log(show);
   };
@@ -260,125 +265,84 @@ class BuildCarPage extends React.Component{
 
 
 
-  <section className="buildCar"> 
-    <div className={this.state.carTransition ? "buildCar-main2" : "buildCar-main"}>
-
-      <div className={this.state.carTransition ? "buildCar-main2--buffer" : ""}></div>
-
-      <div className={this.state.carTransition ? "buildCar-contain2" : "buildCar-contain"}>
-        <div className="buildCar-containTitle">
-          <p className="buildCar-yourBuild">Your Build</p>
-          <p className="buildCar-title">{this.state.title}</p>
-        </div>
-   
-        <div>
-          <img src={this.state.image} className={this.state.carTransition ? "buildCar-img2": "buildCar-img"} alt={this.state.title}/>
-        </div>
-        <p className="buildCar-price">{this.state.totalPrice}</p>
-        <button className="buildCar-button" onClick={this.rotateCarImage}><i className="fas fa-arrow-circle-right"></i></button>
-      </div>
-     
-    </div>
-
-
-
-    <div className={this.state.carTransition ? "buildCar-panel2" : "buildCar-panel"}>
-      <div className="buildCar-panel-buttons buildCar-panel-buttons_colors car-panel active" data-value="buildCarColors" onClick={this.changeBuildOption}>
-        <i className="fas fa-car buildCar__icon--i" data-value="buildCarColors" onClick={this.changeBuildOption}></i>
-        <p className="buildCar-panel-text" data-value="buildCarColors" onClick={this.changeBuildOption}>Colors</p>
-      </div>
-      <div className="buildCar-panel-buttons" data-value="buildCarEngine" onClick={this.changeBuildOption}>
-        <i className="fas fa-cogs buildCar__icon--i" data-value="buildCarEngine" onClick={this.changeBuildOption}></i>
-        <p className="buildCar-panel-text" data-value="buildCarEngine" onClick={this.changeBuildOption}>Engine Type</p>
-      </div>
-      <div className="buildCar-panel-buttons" data-value="buildCarAccessories" onClick={this.changeBuildOption}>
-        <i className="fas fa-tags buildCar__icon--i" data-value="buildCarAccessories" onClick={this.changeBuildOption}></i>
-        <p className="buildCar-panel-text" data-value="buildCarAccessories" onClick={this.changeBuildOption}>Accessories</p>
-      </div>
-      <div className="buildCar-panel-buttons panel-gallery" data-value="buildCarGallery" onClick={this.changeBuildOption}>
-        <i className="fas fa-images buildCar__icon--i" data-value="buildCarGallery" onClick={this.changeBuildOption}></i>
-      <p className="buildCar-panel-text" data-value="buildCarGallery" onClick={this.changeBuildOption}>Gallery</p>
-      </div>
-      <div className="buildCar-panel-buttons calc-panel" data-value="buildCarCalculator" onClick={this.changeBuildOption}>
-        <i className="fas fa-calculator buildCar__icon--i" data-value="buildCarCalculator" onClick={this.changeBuildOption}></i>
-      <p className="buildCar-panel-text" data-value="buildCarCalculator" onClick={this.changeBuildOption}>Finance</p>
-      </div>
-    </div>
-
-
-
-  
-
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div className={this.state.carTransition ? "buildCar-options--container2" : "buildCar-options--container"}>
-            {
-              this.state.buildCarColors ? 
-                <BuildCarColors 
-                  image={this.state.image} 
-                  changeColor={this.changeColor} 
-                /> 
-                : this.state.buildCarEngine ? 
-                <BuildCarEngine 
-                  engineOneSelected={this.state.engineOneSelected} 
-                  engineTwoSelected={this.state.engineTwoSelected} 
-                  changeEngine={this.changeEngine} 
-                /> 
-                : this.state.buildCarAccessories ?
-                <BuildCarAccessories 
-                  cargoToteSelected={this.state.cargoTote.selected} 
-                  leatherMatsSelected={this.state.leatherMats.selected} 
-                  wheelLocksSelected={this.state.wheelLocks.selected} 
-                  add_remove_Cargo={this.add_remove_cargoTote} 
-                  add_remove_Mats={this.add_remove_leatherMats} 
-                  add_remove_Locks={this.add_remove_wheelLocks}  
-                /> 
-                : this.state.buildCarGallery ?
-                <BuildCarGallery 
-                  car={this.state.title}  
-                /> 
-                : <BuildCarFinance carPrice={this.state.totalPrice}/>
-            }  
-
+        <section className="buildCar"> 
+          <div className={this.state.carTransition ? "buildCar-main2" : "buildCar-main"}>
+            <div className={this.state.carTransition ? "buildCar-main2--buffer" : ""}></div>
+            <div className={this.state.carTransition ? "buildCar-contain2" : "buildCar-contain"}>
+              <div className="buildCar-containTitle">
+                <p className="buildCar-yourBuild">Your Build</p>
+                <p className="buildCar-title">{this.state.title}</p>
+              </div>
+              <div>
+                <img src={this.state.image} className={this.state.carTransition ? "buildCar-img2": "buildCar-img"} alt={this.state.title}/>
+              </div>
+              <p className="buildCar-price">{this.state.totalPrice}</p>
+              <button className="buildCar-changeAngle" onClick={this.rotateCarImage}><i className="fas fa-arrow-circle-right"></i></button>
+            </div>
           </div>
-{/* 
-          <Footer /> */}
+
+          <div className={this.state.carTransition ? "buildCar-panel2" : "buildCar-panel"}>
+            <div className={this.state.buildCarColors ? "buildCar-panel-buttons buildCar-panel-buttons_border panel-active" : "buildCar-panel-buttons buildCar-panel-buttons_border"} data-value="buildCarColors" onClick={this.changeBuildOption}>
+              <i className="fas fa-car" data-value="buildCarColors" onClick={this.changeBuildOption}></i>
+              <p className={this.state.buildCarColors ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarColors" onClick={this.changeBuildOption}>Colors</p>
+            </div>
+            <div className={this.state.buildCarEngine ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarEngine" onClick={this.changeBuildOption}>
+              <i className="fas fa-cogs" data-value="buildCarEngine" onClick={this.changeBuildOption}></i>
+              <p className={this.state.buildCarEngine ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarEngine" onClick={this.changeBuildOption}>Engine Type</p>
+            </div>
+            <div className={this.state.buildCarAccessories ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarAccessories" onClick={this.changeBuildOption}>
+              <i className="fas fa-tags" data-value="buildCarAccessories" onClick={this.changeBuildOption}></i>
+              <p className={this.state.buildCarAccessories ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarAccessories" onClick={this.changeBuildOption}>Accessories</p>
+            </div>
+            <div className={this.state.buildCarGallery ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarGallery" onClick={this.changeBuildOption}>
+              <i className="fas fa-images" data-value="buildCarGallery" onClick={this.changeBuildOption}></i>
+              <p className={this.state.buildCarGallery ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarGallery" onClick={this.changeBuildOption}>Gallery</p>
+            </div>
+            <div className={this.state.buildCarFinance ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarFinance" onClick={this.changeBuildOption}>
+              <i className="fas fa-calculator" data-value="buildCarFinance" onClick={this.changeBuildOption}></i>
+              <p className={this.state.buildCarFinance ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarFinance" onClick={this.changeBuildOption}>Finance</p>
+            </div>
+            <div className={this.state.buildCarSummary ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarSummary" onClick={this.changeBuildOption}>
+              <p className={this.state.buildSummary ? "buildCar-panel-text buildCar-panel-text--summary panel-active-text" : "buildCar-panel-text buildCar-panel-text--summary"} data-value="buildCarSummary" onClick={this.changeBuildOption}>SUMMARY</p>
+            </div>
+          </div>
+        </section>
+
+        <div className={this.state.carTransition ? "buildCar-options--container2" : "buildCar-options--container"}>
+          {
+          this.state.buildCarColors ? 
+            <BuildCarColors 
+              image={this.state.image} 
+              changeColor={this.changeColor} 
+            /> 
+            : this.state.buildCarEngine ? 
+            <BuildCarEngine 
+              engineOneSelected={this.state.engineOneSelected} 
+              engineTwoSelected={this.state.engineTwoSelected} 
+              changeEngine={this.changeEngine} 
+            /> 
+            : this.state.buildCarAccessories ?
+            <BuildCarAccessories 
+              cargoToteSelected={this.state.cargoTote.selected} 
+              leatherMatsSelected={this.state.leatherMats.selected} 
+              wheelLocksSelected={this.state.wheelLocks.selected} 
+              add_remove_Cargo={this.add_remove_cargoTote} 
+              add_remove_Mats={this.add_remove_leatherMats} 
+              add_remove_Locks={this.add_remove_wheelLocks}  
+            /> 
+            : this.state.buildCarGallery ?
+            <BuildCarGallery 
+              car={this.state.title}  
+            /> 
+            : this.state.buildCarFinance ? 
+            <BuildCarFinance carPrice={this.state.totalPrice}
+            /> :
+            <BuildCarSummary /> 
+          }  
+        </div>
+
       </div>
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   }
