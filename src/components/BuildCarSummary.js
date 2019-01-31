@@ -33,7 +33,7 @@ engineChoice() {
           <div className="summary-wrapper">
         
             <div className="summary-title">
-              2019 Toyota {title.toUpperCase()}
+              2019 Toyota {title}
             </div>
             <div className="summary-engine">
               {this.engineChoice()}
