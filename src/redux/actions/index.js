@@ -18,3 +18,12 @@ export const pickEngine = (engine) => {
     payload: engine
   }
 };
+
+
+
+export const purchase = (selections) => {
+  return {
+    type: "PURCHASE_SELECTIONS",
+    payload: selections
+  }
+}

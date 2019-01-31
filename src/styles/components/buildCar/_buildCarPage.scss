@@ -1,10 +1,20 @@
+
+
+
 .buildCar {
+  margin-bottom: 3rem;
+
+  &2{
+    margin-bottom: 1rem;
+  }
   &-main{
     margin-top: 3rem;
+
   }
   &-main2{
     width: 100%;
-    height: 30vh;
+    // height: 30vh;
+    height:25vh;
     position: relative;
     margin-top: 3rem;
     background-color: transparent;
@@ -13,7 +23,7 @@
     &--buffer{
       background-color: white;
       width: 140rem;
-      height: 35%;
+      height: 32%;
       position: fixed;
       top: 0;
 
@@ -25,6 +35,7 @@
     display:flex;
     justify-content:space-around;
     align-items:center;
+    
   }
   &-contain2{
     position: fixed;
@@ -104,13 +115,14 @@
     // z-index: 1;
     position: fixed;
     width: 100vw;
-    left: 0;
+    // left: 0;
+    // border-top: 2px solid transparent;
 
     &-buttons{
       width: 10%;
-      height: 7rem;
+      height: 9rem;
       background-color: rgb(44, 41, 41);
-      border-right: 1px solid white;
+      border-right: 1px solid $buildCarBackgroundPanelActive;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -118,10 +130,9 @@
       transition: .3s;
       cursor: pointer;
       color:white;
-      border-top: 2px solid transparent;
     
       &_border{
-        border-left: 1px solid white;
+        border-left: 1px solid $buildCarBackgroundPanelActive;
       }
     
       &:hover {
@@ -130,7 +141,6 @@
     }
   
   &-text {
-    color: white;
     text-transform: uppercase;
     font-size: .9rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -146,6 +156,7 @@
   &-panel2{
     position: fixed;
     width: 100vw;
+    // height: 9rem;
     top: 25%;
     left: 0;
     display: flex;
@@ -153,14 +164,13 @@
     background-color: rgb(44, 41, 41);
     transition: .2s;
     z-index: 2;
-    border-top: 2px transparent;
+    animation: navMoveSmall .5s;
+    animation-fill-mode: forwards;
+    // border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+
   }
 }
-
-
-
-
-
 
 
 .buildCar-button:hover > .fa-arrow-circle-right {
@@ -172,30 +182,35 @@
 
 
 .buildCar-options--container{
-  width: 100%;
-  height: 50rem;
-  margin-top: 12rem;
+  // width: 100%;
+  // height: 50rem;
+  // margin-top: 12rem;
+  background:$buildCarBackgroundPanelActive;
 }
 .buildCar-options--container2{
-  margin-top: 6rem;
+  // margin-top: 6rem;
+  background:$buildCarBackgroundPanelActive;
 }
-
+.panel-inactive{
+  border-top: 2px solid transparent;
+}
 .panel-active {
   // &:not(:last-child){
   //   background:white;
   //   color: black;
   //   border-top: 2px solid red;
   // }
-  background:white;
+  background:$buildCarBackgroundPanelActive;
   color: black;
   border-top: 2px solid red;
+  backface-visibility: hidden;
 
   &-text{
     color: black;
     text-decoration:underline;
   }
   &:hover{
-    background: white;
+    background: $buildCarBackgroundPanelActive;
   }
 
 }
@@ -204,12 +219,15 @@
 @media screen and(min-width:1440px){
 
   .buildCar{
+    &-main{
+
+    }
     &-main2{
-      height: 25vh;
+      height: 20vh;
     }
     &-options{
       &--container{
-        margin-top: 10rem;
+        margin-top: 8rem;
       }
       &--container2{
         margin-top: 0;
@@ -236,6 +254,14 @@
     transform: translateY(-80%);
   }
 }
+@keyframes navMoveSmall{
+  0%{
+    transform: translateY(20%);
+  }
+  100%{
+    transform: translateY(-20%);
+  }
+}
 
 
 
@@ -257,7 +283,6 @@
     left: 100%;
   }
 }
-
 
 
 

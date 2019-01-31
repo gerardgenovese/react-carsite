@@ -7,7 +7,7 @@ import BuildCarGallery from "../BuildCarGallery";
 import BuildCarFinance from "../BuildCarFinance";
 import BuildCarSummary from "../BuildCarSummary";
 // import Footer from "../Footer";
-// import { pickColor } from "../redux/actions";
+import { purchase } from "../../redux/actions";
 class BuildCarPage extends React.Component{
 
  state = {
@@ -15,7 +15,7 @@ class BuildCarPage extends React.Component{
     image: this.props.car.img,
     carAngle: 0,
     color: this.props.car.color,
-    // price: this.props.car.price,
+    price: this.props.car.price,
     engine: this.props.car.engine,
     engineOneSelected: true,
     engineTwoSelected: false,
@@ -42,10 +42,6 @@ class BuildCarPage extends React.Component{
     carTransition: false,
     panelActive: true
   };
-
-
- 
-
 
 //allows us to click link and show build menu underneath car display
   changeBuildOption = (e) => {
@@ -160,7 +156,7 @@ class BuildCarPage extends React.Component{
     },100);
   };
 
-
+  //scroll to to of page. create a scroll event to capture position for animation
   componentDidMount() {
     window.scrollTo(0, 0);
 
@@ -174,13 +170,12 @@ class BuildCarPage extends React.Component{
 
     window.removeEventListener("scroll", this.buildCarScroll, true);
     console.log("buildcar scroll unmounted")
-  }
+  };
 
 
   buildCarScroll = () => {
     let position = window.pageYOffset
 
-  
       if(position > 25){
         console.log("change to")
         this.setState({ carTransition: true })
@@ -190,6 +185,39 @@ class BuildCarPage extends React.Component{
       console.log("change back")
       this.setState({ carTransition: false })
     }
+  };
+
+
+  //send user selections to redux store
+  getPurchasedItems = () => {
+
+    const getCargo = JSON.parse(JSON.stringify(this.state.cargoTote));
+    const getMats = JSON.parse(JSON.stringify(this.state.leatherMats));
+    const getLocks = JSON.parse(JSON.stringify(this.state.wheelLocks));
+    const cargoTote = getCargo.price;
+    const leatherMats = getMats.price;
+    const wheelLocks = getLocks.price;
+
+    const allSelections = {
+      title: this.state.title,
+      color: this.state.color,
+      engineOne: this.state.engineOneSelected,
+      engineTwo: this.state.engineTwoSelected,
+      cargoTote,
+      leatherMats,
+      wheelLocks,
+      price: this.state.price,
+      totalPrice: this.state.totalPrice
+
+    }
+
+    return this.props.purchase(allSelections)
+  };
+
+
+  summaryPanelButton = (e) => {
+    this.changeBuildOption(e);
+    this.getPurchasedItems();
 
   }
 
@@ -265,7 +293,7 @@ class BuildCarPage extends React.Component{
 
 
 
-        <section className="buildCar"> 
+        <section className={this.state.carTransition ? "buildCar2" : "buildCar"}> 
           <div className={this.state.carTransition ? "buildCar-main2" : "buildCar-main"}>
             <div className={this.state.carTransition ? "buildCar-main2--buffer" : ""}></div>
             <div className={this.state.carTransition ? "buildCar-contain2" : "buildCar-contain"}>
@@ -282,28 +310,28 @@ class BuildCarPage extends React.Component{
           </div>
 
           <div className={this.state.carTransition ? "buildCar-panel2" : "buildCar-panel"}>
-            <div className={this.state.buildCarColors ? "buildCar-panel-buttons buildCar-panel-buttons_border panel-active" : "buildCar-panel-buttons buildCar-panel-buttons_border"} data-value="buildCarColors" onClick={this.changeBuildOption}>
+            <div className={this.state.buildCarColors ? "buildCar-panel-buttons buildCar-panel-buttons_border panel-active" : "buildCar-panel-buttons buildCar-panel-buttons_border panel-inactive"} data-value="buildCarColors" onClick={this.changeBuildOption}>
               <i className="fas fa-car" data-value="buildCarColors" onClick={this.changeBuildOption}></i>
               <p className={this.state.buildCarColors ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarColors" onClick={this.changeBuildOption}>Colors</p>
             </div>
-            <div className={this.state.buildCarEngine ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarEngine" onClick={this.changeBuildOption}>
+            <div className={this.state.buildCarEngine ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons panel-inactive"} data-value="buildCarEngine" onClick={this.changeBuildOption}>
               <i className="fas fa-cogs" data-value="buildCarEngine" onClick={this.changeBuildOption}></i>
               <p className={this.state.buildCarEngine ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarEngine" onClick={this.changeBuildOption}>Engine Type</p>
             </div>
-            <div className={this.state.buildCarAccessories ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarAccessories" onClick={this.changeBuildOption}>
+            <div className={this.state.buildCarAccessories ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons panel-inactive"} data-value="buildCarAccessories" onClick={this.changeBuildOption}>
               <i className="fas fa-tags" data-value="buildCarAccessories" onClick={this.changeBuildOption}></i>
               <p className={this.state.buildCarAccessories ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarAccessories" onClick={this.changeBuildOption}>Accessories</p>
             </div>
-            <div className={this.state.buildCarGallery ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarGallery" onClick={this.changeBuildOption}>
+            <div className={this.state.buildCarGallery ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons panel-inactive"} data-value="buildCarGallery" onClick={this.changeBuildOption}>
               <i className="fas fa-images" data-value="buildCarGallery" onClick={this.changeBuildOption}></i>
               <p className={this.state.buildCarGallery ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarGallery" onClick={this.changeBuildOption}>Gallery</p>
             </div>
-            <div className={this.state.buildCarFinance ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarFinance" onClick={this.changeBuildOption}>
+            <div className={this.state.buildCarFinance ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons panel-inactive"} data-value="buildCarFinance" onClick={this.changeBuildOption}>
               <i className="fas fa-calculator" data-value="buildCarFinance" onClick={this.changeBuildOption}></i>
               <p className={this.state.buildCarFinance ? "buildCar-panel-text panel-active-text" : "buildCar-panel-text"} data-value="buildCarFinance" onClick={this.changeBuildOption}>Finance</p>
             </div>
-            <div className={this.state.buildCarSummary ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons"} data-value="buildCarSummary" onClick={this.changeBuildOption}>
-              <p className={this.state.buildSummary ? "buildCar-panel-text buildCar-panel-text--summary panel-active-text" : "buildCar-panel-text buildCar-panel-text--summary"} data-value="buildCarSummary" onClick={this.changeBuildOption}>SUMMARY</p>
+            <div className={this.state.buildCarSummary ? "buildCar-panel-buttons panel-active" : "buildCar-panel-buttons panel-inactive"} data-value="buildCarSummary" onClick={this.summaryPanelButton}>
+              <p className={this.state.buildSummary ? "buildCar-panel-text buildCar-panel-text--summary panel-active-text" : "buildCar-panel-text buildCar-panel-text--summary"} data-value="buildCarSummary" onClick={this.summaryPanelButton}>SUMMARY</p>
             </div>
           </div>
         </section>
@@ -337,7 +365,7 @@ class BuildCarPage extends React.Component{
             : this.state.buildCarFinance ? 
             <BuildCarFinance carPrice={this.state.totalPrice}
             /> :
-            <BuildCarSummary /> 
+            <BuildCarSummary title={this.state.title}/> 
           }  
         </div>
 
@@ -354,6 +382,8 @@ const mapStateToProps = (state) => {
   return {car: state.buildCar}
 }
 
-export default connect(mapStateToProps)(BuildCarPage);
+export default connect(mapStateToProps,{
+  purchase
+})(BuildCarPage);
 
 // export default BuildCarPage;

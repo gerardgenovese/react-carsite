@@ -5,11 +5,13 @@ import { allCars } from "./buildCarReducer";
 import pickColorReducer from "./pickColorReducer";
 import pickEngineReducer from "./pickEngineReducer";
 import slideShowReducer from "./slideShowReducer";
+import purchaseSelections from "./purchaseReducer";
 
 export default combineReducers({
   allCars: allCars,
   buildCar: buildCarReducer,
   pickColor: pickColorReducer,
   pickEngine: pickEngineReducer,
-  slideShow: slideShowReducer
+  slideShow: slideShowReducer,
+  purchaseSelections: purchaseSelections
 });
