@@ -114,8 +114,9 @@
     background-color: rgb(44, 41, 41);
     // z-index: 1;
     position: fixed;
+    left: 0;
     width: 100vw;
-    // left: 0;
+    
     // border-top: 2px solid transparent;
 
     &-buttons{
@@ -219,21 +220,33 @@
 @media screen and(min-width:1440px){
 
   .buildCar{
-    &-main{
-
-    }
+  
     &-main2{
       height: 20vh;
+
+      &--buffer{
+        // min-width: 100vw !important;
+        // left: 0;
+      }
     }
     &-options{
       &--container{
-        margin-top: 8rem;
+        // margin-top: 8rem;
+        margin-top: 5rem;
+        // min-width: 100vw !important;
+        // position:absolute;
+        // left: 0;
+        // z-index: -1;
       }
       &--container2{
         margin-top: 0;
+        min-width: 100vw !important;
+        position:absolute;
+        left: 0;
+        z-index: -1;
       }
     }
-     
+  
   
   }
   .buildCar-panel2{
@@ -243,6 +256,8 @@
 
   .buildCar-main2--buffer{
     height: 25%;
+    min-width: 100vw !important;
+    left: 0;
   }
 }
 
