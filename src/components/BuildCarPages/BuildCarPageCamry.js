@@ -399,11 +399,11 @@ class BuildCarPage extends React.Component{
                 Your Build 
               </div>
               <div className="buildCar-title">
-                {this.state.title} titleee
+                {this.state.title}
               </div>
             </div>
             <div>
-              <img className={this.state.carTransition ? "buildCar-imgScroll" : "buildCar-img"}src={carImage} alt="car" />
+              <img className={this.state.carTransition ? "buildCar-imgScroll" : "buildCar-img"}src={this.state.image} alt="car" />
             </div>
             <div className="buildCar-priceButtonFlex">
               <div className="buildCar-price">
@@ -451,7 +451,7 @@ class BuildCarPage extends React.Component{
         </div>
 
 
-        <div>
+        <div className={this.state.carTransition ? "buildCar-panelOptionsScroll" : "buildCar-panelOptions"}>
           {
           this.state.buildCarColors ? 
             <BuildCarColors 

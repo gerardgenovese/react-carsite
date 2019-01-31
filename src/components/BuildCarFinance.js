@@ -131,7 +131,11 @@ showPayments = () => {
         </form>
         <div>
           {
-            this.state.gifLoading ? <img className="finance-gifLoading" src={this.state.gifLoading} alt="loading"/> : 
+            // this.state.gifLoading ? <img className="finance-gifLoading" src={this.state.gifLoading} alt="loading"/> : 
+            // <div className={this.state.showPayments ? "finance-show" : "finance-hide"}>
+
+
+            this.state.gifLoading ? <div className="finance-loading"></div> : 
             <div className={this.state.showPayments ? "finance-show" : "finance-hide"}>
 
               <div className="finance-inputContain">
