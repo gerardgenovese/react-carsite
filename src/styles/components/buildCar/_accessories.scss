@@ -8,6 +8,8 @@
     // background-color: rgb(247, 243, 243);
     display:flex;
     margin: 1rem;
+    position:relative;
+
   }
   &-accs{
     // background-color: rgb(255, 255, 255);
@@ -56,6 +58,7 @@
       // width: 15rem;
       // height: 3rem;
       position: relative;
+      z-index: 0;
       display:flex;
       justify-content: center;
       margin: 2rem;
