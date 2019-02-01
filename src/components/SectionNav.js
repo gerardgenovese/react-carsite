@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import CarModels from "./CarModels";
-
 
 class SectionNav extends React.Component{
   render(){
+    console.log("navprops",this.props)
     return(
       <div>
-
         <div className="sectionNav">
           <div className="sectionNav-spacing sectionNav-spacing--borderRight">
             <Link to="/select_toyota">
@@ -16,7 +14,6 @@ class SectionNav extends React.Component{
                   <div>
                     <div className="sectionNav-link">Build</div>
                     <div className="sectionNav-link"> & Price</div>
-          
                   </div>
               </div>
             </Link>
@@ -33,7 +30,6 @@ class SectionNav extends React.Component{
             </Link>
           </div>
         </div>
-
       </div>
     )
   }

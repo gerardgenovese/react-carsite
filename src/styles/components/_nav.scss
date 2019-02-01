@@ -1,11 +1,9 @@
 
 
 .nav{
-  // position:relative;
-  padding: 1rem;
+  font-size: 1.5rem;
   border-bottom: $border;
   z-index: 1;
-
   position:absolute;
   top: 0;
   left: 0;
@@ -18,40 +16,96 @@
     left: 0;
     width: 100%;
     background:white;
-
   }
-
   &-container{
     display:flex;
     align-items:center;
     justify-content: space-between;
-
+    background:rgb(240, 238, 238);
+    border-bottom: 1px solid rgb(211, 207, 207);
   }
-
-
-
-
-  
-  font-size: 2rem;
-  // max-width: 1247px;
-  // min-width: 1247px;
-
+  &-container2{
+    display:flex;
+    justify-content: 
+    space-around;
+    align-items:center;
+    margin: .5rem 10%;
+  }
+  &-logo-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
   &-logo{
-    width: 15rem;
-    margin: 0 10rem;
+    width: 12rem;
+
+    &-text{
+      font-size: .8rem;
+      font-weight: bold;
+      text-transform:uppercase;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
   }
-  &-links{
-    margin-right: 20rem;
+  &-search--flex{
     display:flex;
   }
+  &-search-fa{
+    font-size: 1rem;
+  }
 
+  &-flex{
+    display:flex;
+  }
   &-link{
     text-decoration: none;
     padding: 0 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    height: 100%;
+    padding: 1rem;
+    cursor:pointer;
+    
+    &--2{
+      position:relative;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: rgb(95, 93, 93);
+      cursor:pointer;
+      transition:.3s;
 
-    &--arrow{
-      display:flex;
-      align-items:center;
+      &-active{
+        &::before{
+          content: "";
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background: red;
+        }
+      }
+      &-inactive{
+        &::before{
+          content: "";
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          height: 2px;
+          width: 3px;
+          background: red;
+          transform: scaleY(0);
+          transition: transform .2s,
+          width .4s cubic-bezier(1,0,0,1) .2s,
+          background-color .1s;
+        }
+        &:hover::before{
+          transform: scaleY(1);
+          width: 100%;
+        }
+      }
     }
-  }
+  } 
 }
+

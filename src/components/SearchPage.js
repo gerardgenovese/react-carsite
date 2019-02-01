@@ -70,7 +70,7 @@ class Search extends React.Component{
   }
 
   render(){
-    console.log("state",this.state)
+    // console.log("state",this.state)
     return(
       <div className="search">
         <input className="search-input" type="text" onChange={this.filterList} placeholder="Search for your Toyota vehicle..."/>

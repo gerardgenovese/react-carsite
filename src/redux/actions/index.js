@@ -26,4 +26,4 @@ export const purchase = (selections) => {
     type: "PURCHASE_SELECTIONS",
     payload: selections
   }
-}
+};

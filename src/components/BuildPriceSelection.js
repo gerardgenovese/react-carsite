@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { buildCar } from "../redux/actions";
 
+import Footer from "./Footer";
+
 class BuildPriceSelection extends React.Component {
 
 
@@ -80,6 +82,7 @@ class BuildPriceSelection extends React.Component {
         <div className="build_price-contain">
           {this.renderCars()}
         </div>
+        <Footer />
       </div>
     )
   }

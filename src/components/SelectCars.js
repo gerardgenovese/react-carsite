@@ -15,6 +15,8 @@ import yarisSide from "../relativeImages/exploreall/yaris/side.png"
 import yarisFront from "../relativeImages/exploreall/yaris/front.png"
 
 
+
+
 class SelectCars extends React.Component {
 
 
@@ -128,6 +130,7 @@ class SelectCars extends React.Component {
               </div>  
             </Link>
           </div> 
+
         </div>
       
     )

@@ -4,40 +4,30 @@
   margin: 0;
   padding: 0;
 }
-
 html{
   font-size: 62.5%;
   box-sizing:border-box;
 }
-
 body{
   box-sizing:border-box;
-  // background:blue;
   overflow-x: hidden;
-  // height: 100%;
 }
-
 .body-container{
   max-width: 140rem;
   display:block;
   margin: 0 auto;
   z-index: initial;
-  // overflow:hidden;
 }
-
 .landingContain{
   overflow: hidden;
 }
-
 a{
   color:inherit;
   text-decoration:none;
 }
-
 .is-active{
-  font-weight:bold;
+  background: rgb(216, 209, 209);
 }
-
 #root{
-  margin-top:5.9rem;
+  margin-top:11rem;
 }
