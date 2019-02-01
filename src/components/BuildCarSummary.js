@@ -6,6 +6,11 @@ import Footer from "./Footer";
 class BuildCarSummary extends React.Component{
 
 
+  state={
+    engineOne : true
+
+  }
+
 engineChoice() {
   if(this.props.purchase.engineOne){
     return (
@@ -22,6 +27,25 @@ engineChoice() {
   }
 }
 
+getCarTotalString = (price) => {
+  return this.props.getTotalString(price)
+};
+
+getPriceString = () => {
+
+  if(this.props.purchase.price === undefined){
+    return '25000'
+  }
+  let price = this.props.purchase.price;
+  let priceString = price.toString();
+
+  let first = priceString.slice(0,2);
+  let second = priceString.slice(2);
+
+  return <div>${first},{second}</div>
+};
+
+
   render(){
     console.log("props", this.props.purchase)
 
@@ -35,9 +59,17 @@ engineChoice() {
             <div className="summary-title">
               2019 Toyota {title}
             </div>
-            <div className="summary-engine">
-              {this.engineChoice()}
+
+            <div className="summary-engineFlex">
+              <div className="summary-engine">
+                {this.engineChoice()}
+              </div>
+              <div className="summary-desc--info">
+                {this.props.purchase.engineOne ? "0" : "$500.00"}
+              </div>
+
             </div>
+          
 
           
             <div className="summary-flex">
@@ -46,7 +78,7 @@ engineChoice() {
               </div>
               <div className="border"></div>
               <div className="summary-desc--info">
-                {price}
+                {this.getPriceString()}
               </div>
             
             </div>
@@ -62,8 +94,8 @@ engineChoice() {
               </div>
             </div>
             
-            <div className="summary-desc">
-              Accessories
+            <div className="summary-acc">
+              <div className="summary-acc--text">Accessories</div>
             </div>
 
             <div className="summary-flex">
@@ -72,7 +104,7 @@ engineChoice() {
               </div>
               <div className="border"></div>
               <div className="summary-desc--info">
-                {cargoTote}
+                {this.props.purchase.cargoTote === 0 ? "0" : "$75.00"}
               </div>
             </div>
             <div className="summary-flex">
@@ -81,7 +113,7 @@ engineChoice() {
               </div>
               <div className="border"></div>
               <div className="summary-desc--info">
-                {leatherMats}
+              {this.props.purchase.leatherMats === 0 ? "0" : "$75.00"}
               </div>
             </div>
             <div className="summary-flex">
@@ -90,7 +122,7 @@ engineChoice() {
               </div>
               <div className="border"></div>
               <div className="summary-desc--info">
-                {wheelLocks}
+              {this.props.purchase.wheelLocks === 0 ? "0" : "$75.00"}
               </div>
             </div>
 
@@ -100,7 +132,7 @@ engineChoice() {
               </div>
               <div className="border"></div>
               <div className="summary-desc--info">
-                {totalPrice}
+                {this.getCarTotalString(totalPrice)}
               </div>
             </div>
           </div>

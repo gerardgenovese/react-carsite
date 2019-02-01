@@ -55,7 +55,7 @@ class BuildCarAccessories extends React.Component{
         <div className="buildCar-accs">
           <div className="buildCar-accs--items">
             <img src={cargoTote} alt="cargoTote" className="buildCar-accs--img"/>
-            <p className="buildCar-accs--header">Alloy Wheel Locks</p>
+            <p className="buildCar-accs--header">Cargo Tote</p>
             <p className="buildCar-accs--price">$75 <small>msrp</small></p>
             <div className="buildCar-accs--checkbox">
               <label className="buildCar-accs--checkbox-label">
@@ -82,7 +82,7 @@ class BuildCarAccessories extends React.Component{
         <div className="buildCar-accs">
           <div className="buildCar-accs--items">
             <img src={wheelLocks} alt="wheellLocks" className="buildCar-accs--img" />
-            <p className="buildCar-accs--header">Cargo-Tote</p>
+            <p className="buildCar-accs--header">Alloy Wheel-Locks</p>
             <p className="buildCar-accs--price">$75 <small>msrp</small></p>
             <div className="buildCar-accs--checkbox">
               <label className="buildCar-accs--checkbox-label">

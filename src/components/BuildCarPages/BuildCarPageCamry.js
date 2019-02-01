@@ -162,6 +162,8 @@ class BuildCarPage extends React.Component{
   };
 
   carString = () => {
+
+    console.log("working herer 2")
   //for testing. remove when done
     if(this.state.totalPrice === undefined){
       return <div>25000</div>
@@ -480,7 +482,7 @@ class BuildCarPage extends React.Component{
             : this.state.buildCarFinance ? 
             <BuildCarFinance carPrice={this.state.totalPrice}
             /> :
-            <BuildCarSummary title={this.state.title}/> 
+            <BuildCarSummary title={this.state.title} getTotalString={this.carString}/> 
           }  
         </div>
 
