@@ -49,7 +49,7 @@ getPriceString = () => {
   render(){
     console.log("props", this.props.purchase)
 
-    const { title, price, color, cargoTote, leatherMats, wheelLocks, totalPrice } = this.props.purchase;
+    const { title, color, totalPrice } = this.props.purchase;
     return(
       <div>
           <h1 className="summary-header">&nbsp;</h1>

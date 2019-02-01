@@ -340,7 +340,7 @@
     position:fixed;
     top: 0;
     padding-top: 5rem;
-    z-index: 1;
+    z-index: 0;
     min-width: 100vw;
   }
 
@@ -382,7 +382,7 @@
   &-priceButtonFlex{
     display:flex;
     position:relative;
-    z-index: 1;
+    z-index: 0;
   }
   
 

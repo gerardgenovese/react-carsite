@@ -10,7 +10,7 @@ import BuildCarSummary from "../BuildCarSummary";
 import { purchase } from "../../redux/actions";
 
 
-import carImage from "../../relativeImages/red.jpg";
+// import carImage from "../../relativeImages/red.jpg";
 
 
 class BuildCarPage extends React.Component{

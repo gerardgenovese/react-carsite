@@ -63,7 +63,7 @@ class SelectCars extends React.Component {
           <div className="select-container">
             <Link to="/build/camry" onClick={() => this.props.buildCar(this.state.cars[0])}>
 
-              <div className={this.props.camryAnimate ? "select-car carAnimate" : "select-car"}>
+              <div className={this.props.menu ? "select-car camryAnimate" : "select-car"}>
                 <div>
                   <img className="select-car--side" src={camrySide} alt="camry"/>
                   <img className="select-car--front" src={camryFront} alt="camry"/>
@@ -76,7 +76,7 @@ class SelectCars extends React.Component {
               </div>  
             </Link>
             <Link to="/build/86" onClick={() => this.props.buildCar(this.state.cars[1])}>
-              <div className={this.props.t86Animate ? "select-car carAnimate" : "select-car"}>
+              <div className={this.props.menu ? "select-car t86Animate" : "select-car"}>
                 <div>
                   <img className="select-car--side t86" src={t86Side} alt="86"/>
                   <img className="select-car--front t86" src={t86Front} alt="86"/>
@@ -89,7 +89,7 @@ class SelectCars extends React.Component {
               </div>  
             </Link>
             <Link to="/build/corolla" onClick={() => this.props.buildCar(this.state.cars[2])}>
-              <div className={this.props.corollaAnimate ? "select-car carAnimate" : "select-car"}>
+              <div className={this.props.menu ? "select-car corollaAnimate" : "select-car"}>
                 <div>
                   <img className="select-car--side corolla" src={corollaSide} alt="corolla"/>
                   <img className="select-car--front corolla" src={corollaFront} alt="corolla"/>
@@ -102,7 +102,7 @@ class SelectCars extends React.Component {
               </div>  
             </Link>
             <Link to="/build/avalon" onClick={() => this.props.buildCar(this.state.cars[3])}>
-              <div className={this.props.avalonAnimate ? "select-car carAnimate" : "select-car"}>
+              <div className={this.props.menu ? "select-car avalonAnimate" : "select-car"}>
                 <div>
                   <img className="select-car--side avalon" src={avalonSide} alt="avalon"/>
                   <img className="select-car--front avalon" src={avalonFront} alt="avalon"/>
@@ -115,7 +115,7 @@ class SelectCars extends React.Component {
               </div> 
             </Link>
             <Link to="/build/yaris" onClick={() => this.props.buildCar(this.state.cars[4])}> 
-              <div className={this.props.yarisAnimate ? "select-car carAnimate" : "select-car"}>
+              <div className={this.props.menu ? "select-car yarisAnimate" : "select-car"}>
                 <div>
                   <img className="select-car--side yaris" src={yarisSide} alt="yaris"/>
                   <img className="select-car--front yaris" src={yarisFront} alt="yaris="/>

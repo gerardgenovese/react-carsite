@@ -19,7 +19,6 @@ import ToyotaCare from "../components/WhatsHappeningPages/ToyotaCare";
 import '../styles/main.scss';
 
 
-
 const AppRouter = () => {
   return(
     <BrowserRouter>

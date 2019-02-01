@@ -21,23 +21,20 @@ class ExploreAll extends React.Component {
 
   state = {
     cars: this.props.cars,
-    // image: [],
-    // title: [],
-    // price: []
-    camryAnimate: false,
-    t86Animate: false,
-    corollaAnimate:false,
-    avalonAnimate:false,
-    yarisAnimate:false
-  }
-  
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.scrollPos, true);
+    // camryAnimate: false,
+    // t86Animate: false,
+    // corollaAnimate:false,
+    // avalonAnimate:false,
+    // yarisAnimate:false,
 
-    // console.log(window.innerHeight)
-    this.scrollPos();
+
+    scroll: false
   };
+
+  componentDidMount(){
+    window.addEventListener("scroll", this.scrollPos, true);
+  }
 
 
   scrollPos = () => {
@@ -45,50 +42,202 @@ class ExploreAll extends React.Component {
 
     if(window.innerHeight < 1000){   
       if(position >= 125){
-        this.startAnimation();
+        this.setState({ scroll: true })
       } 
     }
     else if(window.innerHeight > 1000){
-      this.startAnimation();
+      this.setState({ scroll: true })
     }
   }
 
-  startAnimation(){
-    setTimeout(() => {
-      this.setState({ camryAnimate: true })
-    },100);
-    setTimeout(() => {
-      this.setState({ t86Animate: true })
-    },300);
-    setTimeout(() => {
-      this.setState({ corollaAnimate: true })
-    },500);
-    setTimeout(() => {
-      this.setState({ avalonAnimate: true })
-    },700);
-    setTimeout(() => {
-      this.setState({ yarisAnimate: true })
-    },900);
-  }
-
-
-  componentWillUnmount(){
-    this.setState({ camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false });
-
+  componentWillUnmount = () => {
     window.removeEventListener("scroll", this.scrollPos, true);
-    // console.log("unmounted")
-
   }
+
+
+
+  
+
+  // componentDidMount() {
+  //   window.addEventListener("scroll", this.scrollPos, true);
+
+  //   // console.log(window.innerHeight)
+  //   this.scrollPos();
+
+
+    
+  // };
+
+
+  // startAnimation = () => {
+  //   setTimeout(() => {
+  //     this.setState({ camryAnimate: true })
+  //   },100);
+  //   setTimeout(() => {
+  //     this.setState({ t86Animate: true })
+  //   },300);
+  //   setTimeout(() => {
+  //     this.setState({ corollaAnimate: true })
+  //   },500);
+  //   setTimeout(() => {
+  //     this.setState({ avalonAnimate: true })
+  //   },700);
+  //   setTimeout(() => {
+  //     this.setState({ yarisAnimate: true })
+  //   },900);
+  // }
+
+  
+  // scrollPos = () => {
+  //   let position = window.pageYOffset
+
+  //   if(window.innerHeight < 1000){   
+  //     if(position >= 125){
+  //       this.startAnimation();
+  //     } 
+  //   }
+  //   else if(window.innerHeight > 1000){
+  //     this.startAnimation();
+  //   }
+  // }
+
+
+
+  // componentWillUnmount = () => {
+  //   this.setState({ camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false });
+
+  //   window.removeEventListener("scroll", this.scrollPos, true);
+  //   // console.log("unmounted")
+
+
+  //   clearTimeout(this.startAnimation);
+
+  // }
 
 
   render(){
-   
+   console.log("explore", this.state.scroll)
     return (
       <div>
 
+        <div>
+          <div className="explore-header">Explore All Cars</div>
+
+          <div className="explore">
+            <Link to="/build/camry" onClick={() => this.props.buildCar(this.state.cars[0])}>
+
+              <div className={this.state.scroll ? "explore-car camryAnimate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side" src={camrySide} alt="camry"/>
+                  <img className="explore-car--front" src={camryFront} alt="camry"/>
+                </div>
+                <div className="explore-car--info">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[0].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[0].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[0].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+            <Link to="/build/86" onClick={() => this.props.buildCar(this.state.cars[1])}>
+              <div className={this.state.scroll ? "explore-car t86Animate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side t86" src={t86Side} alt="86"/>
+                  <img className="explore-car--front t86" src={t86Front} alt="86"/>
+                </div>
+                <div className="explore-car--info t86">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[1].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[1].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[1].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+            <Link to="/build/corolla" onClick={() => this.props.buildCar(this.state.cars[2])}>
+              <div className={this.state.scroll ? "explore-car corollaAnimate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side corolla" src={corollaSide} alt="corolla"/>
+                  <img className="explore-car--front corolla" src={corollaFront} alt="corolla"/>
+                </div>
+                <div className="explore-car--info corolla">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[2].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[2].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[2].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+            <Link to="/build/avalon" onClick={() => this.props.buildCar(this.state.cars[3])}>
+              <div className={this.state.scroll ? "explore-car avalonAnimate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side avalon" src={avalonSide} alt="avalon"/>
+                  <img className="explore-car--front avalon" src={avalonFront} alt="avalon"/>
+                </div>
+                <div className="explore-car--info avalon">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[3].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[3].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[3].miles} est MPG</div>
+                </div>
+              </div> 
+            </Link>
+            <Link to="/build/yaris" onClick={() => this.props.buildCar(this.state.cars[4])}> 
+              <div className={this.state.scroll ? "explore-car yarisAnimate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side yaris" src={yarisSide} alt="yaris"/>
+                  <img className="explore-car--front yaris" src={yarisFront} alt="yaris="/>
+                </div>
+                <div className="explore-car--info yaris">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[4].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[4].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[4].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+          </div> 
+        </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      
    
-      <div onScroll={this.scrollPos}>
+      {/* <div onScroll={this.scrollPos}>
         <div className="explore-header">Explore All Cars</div>
 
         <div className="explore">
@@ -160,7 +309,7 @@ class ExploreAll extends React.Component {
           </Link>
         </div> 
       </div>
-  
+   */}
    
 
 

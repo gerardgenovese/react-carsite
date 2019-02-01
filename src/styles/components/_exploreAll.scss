@@ -66,10 +66,46 @@
 }
 
 
-.carAnimate{
+// .carAnimate{
+//   animation: flowLeft 1s;
+//   animation-fill-mode: forwards;
+//   opacity: 0;
+// }
+
+.camryAnimate{
   animation: flowLeft 1s;
   animation-fill-mode: forwards;
   opacity: 0;
+  animation-delay: .1s;
+
+}
+
+.t86Animate{
+  animation: flowLeft 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: .3s;
+}
+
+.corollaAnimate{
+  animation: flowLeft 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: .5s;
+}
+
+.avalonAnimate{
+  animation: flowLeft 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay:.7s
+}
+
+.yarisAnimate{
+  animation: flowLeft 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: .9s;
 }
 
 
@@ -84,6 +120,28 @@
     opacity: 1;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // @keyframes carIn{
 //   0%{
