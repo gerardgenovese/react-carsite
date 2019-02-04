@@ -163,7 +163,6 @@ class BuildCarPage extends React.Component{
 
   carString = () => {
 
-    console.log("working herer 2")
   //for testing. remove when done
     if(this.state.totalPrice === undefined){
       return <div>25000</div>
@@ -187,14 +186,14 @@ class BuildCarPage extends React.Component{
 
     window.addEventListener("scroll", this.buildCarScroll, true);
 
-    console.log(window.innerHeight)
+    // console.log(window.innerHeight)
     this.buildCarScroll();
   };
 
   componentWillUnmount(){
 
     window.removeEventListener("scroll", this.buildCarScroll, true);
-    console.log("buildcar scroll unmounted")
+    // console.log("buildcar scroll unmounted")
   };
 
 
@@ -202,12 +201,12 @@ class BuildCarPage extends React.Component{
     let position = window.pageYOffset
 
       if(position > 25){
-        console.log("change to")
+        // console.log("change to")
         this.setState({ carTransition: true })
       } 
 
     else if(position < 55){
-      console.log("change back")
+      // console.log("change back")
       this.setState({ carTransition: false })
     }
   };

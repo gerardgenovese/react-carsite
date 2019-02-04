@@ -52,7 +52,8 @@
 
 .buildCar-engine {
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
+  justify-content:center;
   margin: 0 0 2.2rem 0;
   position: relative;
   // margin-top: 10rem;
@@ -70,9 +71,9 @@
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    width: 100%;
+    // width: 100%;
     margin: 0 3rem 3rem 3rem;
-    padding: 1rem 2rem;
+    padding: 1rem 5rem;
     background-color: rgb(248, 248, 250);
     position: relative;
     cursor: pointer;

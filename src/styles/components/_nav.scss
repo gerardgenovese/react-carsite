@@ -66,6 +66,10 @@
     height: 100%;
     padding: 1rem;
     cursor:pointer;
+
+    &:hover{
+      background: rgb(230, 227, 227);
+    }
     
     &--2{
       position:relative;

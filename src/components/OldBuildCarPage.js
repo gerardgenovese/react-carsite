@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import BuildCarColors from "./BuildCarColors";
 import BuildCarEngine from "./BuildCarEngine";
 import BuildCarAccessories from "./BuildCarAccessories";
-import BuildCarCalculator from "./BuildCarCalculator";
+import BuildCarFinance from "./BuildCarFinance";
+
+
+
 // import { pickColor } from "../redux/actions";
 class BuildCarPage extends React.Component{
 
@@ -35,7 +38,6 @@ class BuildCarPage extends React.Component{
     buildCarCalculator: false,
     totalPrice: this.props.car.price
   };
-
 
 
 
@@ -190,7 +192,7 @@ class BuildCarPage extends React.Component{
                 add_remove_Mats={this.add_remove_leatherMats} 
                 add_remove_Locks={this.add_remove_wheelLocks}  
               /> 
-              : <BuildCarCalculator carPrice={this.state.totalPrice}/>
+              : <BuildCarFinance carPrice={this.state.totalPrice}/>
           }  
       </div>
     )
@@ -212,6 +214,7 @@ class BuildCarPage extends React.Component{
 
   }
 }
+// import AppRouter from "../routers/AppRouter";
 
 
 const mapStateToProps = (state) => {

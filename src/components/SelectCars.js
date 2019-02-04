@@ -56,7 +56,8 @@ class SelectCars extends React.Component {
   // componentWillUnmount(){
   //   this.setState({ camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false });
   // }
-
+  
+  
 
   render(){
     return (
