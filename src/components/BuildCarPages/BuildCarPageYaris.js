@@ -345,8 +345,12 @@ class BuildCarPage extends React.Component{
   }
 }
 
+// const mapStateToProps = (state) => {
+//   return {car: state.buildCar}
+// }
+
 const mapStateToProps = (state) => {
-  return {car: state.buildCar}
+  return {car: state.allCars[4]}
 }
 
 export default connect(mapStateToProps,{

@@ -48,6 +48,25 @@ class BuildCarPage extends React.Component{
     panelActive: true
   };
 
+  //scroll to to of page. create a scroll event to capture position for animation
+  componentDidMount() {
+    window.scrollTo(0, 0);
+
+    window.addEventListener("scroll", this.buildCarScroll, true);
+
+    // console.log(window.innerHeight)
+    this.buildCarScroll();
+  };
+
+  componentWillUnmount(){
+
+    window.removeEventListener("scroll", this.buildCarScroll, true);
+    // console.log("buildcar scroll unmounted")
+  };
+  
+
+
+
 //allows us to click link and show build menu underneath car display
   changeBuildOption = (e) => {
     let show = e.target.getAttribute("data-value");
@@ -178,22 +197,6 @@ class BuildCarPage extends React.Component{
         ${first},{second}
       </div>
     )
-  };
-
-  //scroll to to of page. create a scroll event to capture position for animation
-  componentDidMount() {
-    window.scrollTo(0, 0);
-
-    window.addEventListener("scroll", this.buildCarScroll, true);
-
-    // console.log(window.innerHeight)
-    this.buildCarScroll();
-  };
-
-  componentWillUnmount(){
-
-    window.removeEventListener("scroll", this.buildCarScroll, true);
-    // console.log("buildcar scroll unmounted")
   };
 
 
@@ -345,9 +348,14 @@ class BuildCarPage extends React.Component{
   }
 }
 
+// const mapStateToProps = (state) => {
+//   return {car: state.buildCar}
+// }
+
 const mapStateToProps = (state) => {
-  return {car: state.buildCar}
+  return {car: state.allCars[0]}
 }
+
 
 export default connect(mapStateToProps,{
   purchase
