@@ -45,11 +45,39 @@ class BuildCarPage extends React.Component{
     buildCarSummary: false,
     totalPrice: this.props.car.price,
     carTransition: false,
-    panelActive: true
+    panelActive: true,
   };
+
+  //scroll to to of page. create a scroll event to capture position for animation
+  componentDidMount() {
+    window.scrollTo(0, 0);
+
+    window.addEventListener("scroll", this.buildCarScroll, true);
+
+    // console.log(window.innerHeight)
+    this.buildCarScroll();
+  };
+
+  componentWillUnmount(){
+
+    window.removeEventListener("scroll", this.buildCarScroll, true);
+    // console.log("buildcar scroll unmounted")
+  };
+  
+
+
 
 //allows us to click link and show build menu underneath car display
   changeBuildOption = (e) => {
+
+    let position = window.pageYOffset;
+    // console.log(position);
+    if(position > 25){
+      window.scrollTo(0, 26);
+    }
+
+
+    
     let show = e.target.getAttribute("data-value");
       switch(show){
         case "buildCarColors":
@@ -180,22 +208,6 @@ class BuildCarPage extends React.Component{
     )
   };
 
-  //scroll to to of page. create a scroll event to capture position for animation
-  componentDidMount() {
-    window.scrollTo(0, 0);
-
-    window.addEventListener("scroll", this.buildCarScroll, true);
-
-    // console.log(window.innerHeight)
-    this.buildCarScroll();
-  };
-
-  componentWillUnmount(){
-
-    window.removeEventListener("scroll", this.buildCarScroll, true);
-    // console.log("buildcar scroll unmounted")
-  };
-
 
   buildCarScroll = () => {
     let position = window.pageYOffset
@@ -307,7 +319,8 @@ class BuildCarPage extends React.Component{
               </div>
             </div>
           </div>
-          <div className={this.state.carTransition ? "buildCar-panelOptionsScroll" : "buildCar-panelOptions"}>
+
+          <div className={this.state.carTransition ? "buildCar-panelContentScroll" : "buildCar-panelContentNoScroll"}>
             {
             this.state.buildCarColors ? 
               <BuildCarColors 
@@ -352,6 +365,7 @@ class BuildCarPage extends React.Component{
 const mapStateToProps = (state) => {
   return {car: state.allCars[3]}
 }
+
 
 export default connect(mapStateToProps,{
   purchase

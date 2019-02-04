@@ -316,6 +316,7 @@
 
 
 .buildCar{
+
   &-section{
     // position:relative;
     // z-index: 2;
@@ -331,7 +332,9 @@
     min-width: 100vw;
     position:absolute;
     left: 0;
-    padding-top: 15%;
+    padding-top: 35rem;
+    // padding-top: 2%;
+    // transition: 3s;
   }
 
   &-mainContainer{
@@ -461,16 +464,35 @@
       }
     }
   }
-
+  &-panelContentNoScroll{
+    padding-top: 5rem;
+  }
+  &-panelContentScroll{
+    // padding-top: 5rem;
+    // padding-top: 0;
+    animation: testing .7s;
+    animation-fill-mode: forwards;
+  }
 
 
 }
 
 
-@media screen and (max-width: 1300px){
-  .buildCar{
-    &-panelOptionsScroll{
-      margin-top: 20rem;
-    }
+// @media screen and (max-width: 1300px){
+//   .buildCar{
+//     &-panel1440Scroll{
+//       // margin-top: 20rem;
+//       // margin-top: 12rem;
+//     }
+//   }
+// }
+
+
+@keyframes testing {
+  0%{
+    padding-top: 10rem;
+  }
+  100%{
+    padding-top: 0;
   }
 }

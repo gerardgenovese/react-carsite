@@ -45,7 +45,7 @@ class BuildCarPage extends React.Component{
     buildCarSummary: false,
     totalPrice: this.props.car.price,
     carTransition: false,
-    panelActive: true
+    panelActive: true,
   };
 
   //scroll to to of page. create a scroll event to capture position for animation
@@ -69,6 +69,15 @@ class BuildCarPage extends React.Component{
 
 //allows us to click link and show build menu underneath car display
   changeBuildOption = (e) => {
+
+    let position = window.pageYOffset;
+    // console.log(position);
+    if(position > 25){
+      window.scrollTo(0, 26);
+    }
+
+
+    
     let show = e.target.getAttribute("data-value");
       switch(show){
         case "buildCarColors":
@@ -310,7 +319,8 @@ class BuildCarPage extends React.Component{
               </div>
             </div>
           </div>
-          <div className={this.state.carTransition ? "buildCar-panelOptionsScroll" : "buildCar-panelOptions"}>
+
+          <div className={this.state.carTransition ? "buildCar-panelContentScroll" : "buildCar-panelContentNoScroll"}>
             {
             this.state.buildCarColors ? 
               <BuildCarColors 

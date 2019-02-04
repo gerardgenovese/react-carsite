@@ -14,7 +14,7 @@ const allCars = () => {
       img: "/images/86/sidefront/white.jpg",
       carAngle: 0,
       color:"white",
-      engine: "0",
+      engine: 0,
       price: 30000,
       miles: "22/28"
     },
@@ -33,7 +33,7 @@ const allCars = () => {
       img: "/images/avalon/sidefront/black.jpg",
       carAngle: 0,
       color:"black",
-      engine: "0",
+      engine: 0,
       price: 35000,
       miles: "25/30"
     },
@@ -42,7 +42,7 @@ const allCars = () => {
       img: "/images/yaris/sidefront/gray.jpg",
       carAngle: 0,
       color:"gray",
-      engine: "0",
+      engine: 0,
       price: 18000,
       miles: "30/35"
     }

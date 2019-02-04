@@ -19,22 +19,22 @@ class BuildCarGallery extends React.Component{
 
   state = {
     galleryModal: false,
-    selectedImage: null
+    selectedImage: null,
+    loading: true
   };
 
+
+  componentDidMount = () => {
+    Modal.setAppElement("body");
+    setTimeout(() => {
+      this.setState({ loading: false })
+    },500);
+  };
 
   changeImageCar = (car, number) => {
     const image = window.location.origin + `/images/gallery/${car}/${car}${number}.jpg`;
     return image;
   };
-
-
-
-
-  componentDidMount = () => {
-    Modal.setAppElement("body");
-  };
-
 
 
   openModal = (e) => {
@@ -52,74 +52,84 @@ class BuildCarGallery extends React.Component{
   //  console.log("props", this.props.car)
 
    const car = this.props.car;
+   const container = {
+     height: "50vh"
+   }
 
     return(
 
       <div>
 
-        <h1 className="gallery-header">Toyota {this.props.car} Image Gallery</h1>
-          <div className="gallery-flex">
-            <div className="gallery-imgContain" >
-              <div className="gallery-filter" data-type="0"
-              onClick={this.openModal}></div>
-              <img className="gallery-img" src={this.changeImageCar(car, 1)} alt={car} />
-            </div>
-            <div className="gallery-imgContain">
-              <div className="gallery-filter" data-type="1" onClick={this.openModal}></div>
-              <img className="gallery-img" src={this.changeImageCar(car, 2)} alt={car} />
-            </div>
-            <div className="gallery-imgContain">
-              <div className="gallery-filter" data-type="2" onClick={this.openModal}></div>
-              <img className="gallery-img" src={this.changeImageCar(car, 3)} alt={car} />
-            </div>
-            <div className="gallery-imgContain">
-              <div className="gallery-filter" data-type="3" onClick={this.openModal}></div>
-              <img className="gallery-img" src={this.changeImageCar(car, 4)} alt={car} />
-            </div>
-            <div className="gallery-imgContain">
-              <div className="gallery-filter" data-type="4" onClick={this.openModal}></div>
-              <img className="gallery-img" src={this.changeImageCar(car, 5)} alt={car} />
-            </div>
-            <div className="gallery-imgContain">
-              <div className="gallery-filter" data-type="5" onClick={this.openModal}></div>
-              <img className="gallery-img" src={this.changeImageCar(car, 6)} alt={car} />
-            </div>
-            <div className="gallery-imgContain">
-              <div className="gallery-filter" data-type="6" onClick={this.openModal}></div>
-              <img className="gallery-img" src={this.changeImageCar(car, 7)} alt={car} />
-            </div>
-          </div>
+        {
+          this.state.loading ? <div style={container}><div className="finance-loading"></div></div> :
 
-          <Modal className="xfinity-modal gallery-modal" isOpen={this.state.galleryModal}>
-          <div className="xfinity-modal--header">
-            <div className="xfinity-modal--header_text">Toyota {car} Image Gallery</div>
-            <button className="xfinity-modal--header_close" onClick={this.openModal}>X</button>
+          <div>
+            <h1 className="gallery-header">Toyota {this.props.car} Image Gallery</h1>
+            <div className="gallery-flex">
+              <div className="gallery-imgContain" >
+                <div className="gallery-filter" data-type="0"
+                onClick={this.openModal}></div>
+                <img className="gallery-img" src={this.changeImageCar(car, 1)} alt={car} />
+              </div>
+              <div className="gallery-imgContain">
+                <div className="gallery-filter" data-type="1" onClick={this.openModal}></div>
+                <img className="gallery-img" src={this.changeImageCar(car, 2)} alt={car} />
+              </div>
+              <div className="gallery-imgContain">
+                <div className="gallery-filter" data-type="2" onClick={this.openModal}></div>
+                <img className="gallery-img" src={this.changeImageCar(car, 3)} alt={car} />
+              </div>
+              <div className="gallery-imgContain">
+                <div className="gallery-filter" data-type="3" onClick={this.openModal}></div>
+                <img className="gallery-img" src={this.changeImageCar(car, 4)} alt={car} />
+              </div>
+              <div className="gallery-imgContain">
+                <div className="gallery-filter" data-type="4" onClick={this.openModal}></div>
+                <img className="gallery-img" src={this.changeImageCar(car, 5)} alt={car} />
+              </div>
+              <div className="gallery-imgContain">
+                <div className="gallery-filter" data-type="5" onClick={this.openModal}></div>
+                <img className="gallery-img" src={this.changeImageCar(car, 6)} alt={car} />
+              </div>
+              <div className="gallery-imgContain">
+                <div className="gallery-filter" data-type="6" onClick={this.openModal}></div>
+                <img className="gallery-img" src={this.changeImageCar(car, 7)} alt={car} />
+              </div>
+            </div>
+
+            <Modal className="xfinity-modal gallery-modal" isOpen={this.state.galleryModal}>
+            <div className="xfinity-modal--header">
+              <div className="xfinity-modal--header_text">Toyota {car} Image Gallery</div>
+              <button className="xfinity-modal--header_close" onClick={this.openModal}>X</button>
+            </div>
+              <Carousel className="gallery-test" infiniteLoop={true} selectedItem={this.state.selectedImage} showThumbs={false} showIndicators={false} showStatus={false}>       
+                <div  className="gallery-modal--img">
+                  <img src={this.changeImageCar(car, 1)} alt="2019 Supra Xfinity Sereis Race Car"/>
+                </div>
+                <div  className="gallery-modal--img">
+                  <img src={this.changeImageCar(car, 2)} alt="2019 Supra Xfinity Sereis Race Car"/>                
+                </div>
+                <div  className="gallery-modal--img">
+                  <img src={this.changeImageCar(car, 3)} alt="2019 Supra Xfinity Sereis Race Car"/>            
+                </div>
+                <div  className="gallery-modal--img">
+                  <img src={this.changeImageCar(car, 4)} alt="2019 Supra Xfinity Sereis Race Car"/>                
+                </div>
+                <div  className="gallery-modal--img">
+                  <img src={this.changeImageCar(car, 5)} alt="2019 Supra Xfinity Sereis Race Car"/>               
+                </div>
+                <div  className="gallery-modal--img">
+                  <img src={this.changeImageCar(car, 6)} alt="2019 Supra Xfinity Sereis Race Car"/>                   
+                </div>
+                <div  className="gallery-modal--img">
+                  <img src={this.changeImageCar(car, 7)} alt="2019 Supra Xfinity Sereis Race Car"/>            
+                </div>
+              </Carousel>
+            </Modal>
           </div>
-            <Carousel className="gallery-test" infiniteLoop={true} selectedItem={this.state.selectedImage} showThumbs={false} showIndicators={false} showStatus={false}>       
-              <div  className="gallery-modal--img">
-                <img src={this.changeImageCar(car, 1)} alt="2019 Supra Xfinity Sereis Race Car"/>
-              </div>
-              <div  className="gallery-modal--img">
-                <img src={this.changeImageCar(car, 2)} alt="2019 Supra Xfinity Sereis Race Car"/>                
-              </div>
-              <div  className="gallery-modal--img">
-                <img src={this.changeImageCar(car, 3)} alt="2019 Supra Xfinity Sereis Race Car"/>            
-              </div>
-              <div  className="gallery-modal--img">
-                <img src={this.changeImageCar(car, 4)} alt="2019 Supra Xfinity Sereis Race Car"/>                
-              </div>
-              <div  className="gallery-modal--img">
-                <img src={this.changeImageCar(car, 5)} alt="2019 Supra Xfinity Sereis Race Car"/>               
-              </div>
-              <div  className="gallery-modal--img">
-                <img src={this.changeImageCar(car, 6)} alt="2019 Supra Xfinity Sereis Race Car"/>                   
-              </div>
-              <div  className="gallery-modal--img">
-                <img src={this.changeImageCar(car, 7)} alt="2019 Supra Xfinity Sereis Race Car"/>            
-              </div>
-            </Carousel>
-          </Modal>
+        }
         <Footer />
+
 
       </div>
 
