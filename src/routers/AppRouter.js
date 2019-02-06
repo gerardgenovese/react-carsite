@@ -9,6 +9,8 @@ import BuildCarPageCorolla from "../components/BuildCarPages/BuildCarPageCorolla
 import BuildCarPageAvalon from "../components/BuildCarPages/BuildCarPageAvalon";
 import BuildCarPageYaris from "../components/BuildCarPages/BuildCarPageYaris";
 import SearchPage from "../components/SearchPage";
+import SearchInventory from "../components/SearchInventory";
+import SearchCarInventory from "../components/SearchCarInventory";
 
 import Page404 from "../components/Page404";
 
@@ -33,6 +35,8 @@ const AppRouter = () => {
           <Route path="/build/avalon" component={BuildCarPageAvalon}/>
           <Route path="/build/yaris" component={BuildCarPageYaris}/>
           <Route path="/search" component={SearchPage} />
+          <Route path="/search-inventory" component={SearchInventory} />
+          <Route path="/toyota/car/inventory" component={SearchCarInventory} />
 
           <Route path="/toyota-newsroom/supra" component={Supra} />
           <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />

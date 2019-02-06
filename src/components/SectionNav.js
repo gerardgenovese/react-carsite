@@ -19,7 +19,7 @@ class SectionNav extends React.Component{
             </Link>
           </div> 
           <div className="sectionNav-spacing">
-            <Link to="/search">
+            <Link to="/search-inventory">
               <div className="sectionNav-flex">
                 <i className="fas fa-search-dollar"></i>
                   <div>

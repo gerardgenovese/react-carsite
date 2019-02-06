@@ -1,0 +1,155 @@
+.carInv{
+  margin-top: 10rem;
+
+  &-mainFlex{
+    display:flex;
+    justify-content: space-around;
+    margin: 0 10%;
+  }
+  &-leftContainer{
+    width: 30%;
+  }
+  &-rightContainer{
+    width: 60%;
+  }
+
+  &-filter-groupHeader{
+    display:flex;
+    justify-content: space-around;
+    padding: 2rem;
+
+  }
+  &-pricepoint--header{
+    display:flex;
+    justify-content: space-between;
+
+    padding: 2rem;
+  }
+  &-selected{
+    &--flex{
+      display:flex;
+      align-items:center;
+    }
+
+    &--options{
+      font-size: 2rem;
+      text-transform:uppercase;
+
+      &-close{
+        font-size: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:bold;
+        margin-left: 2px;
+        background: red;
+        color:white;
+        border-radius:5rem;
+        padding: .2rem .5rem;
+      }
+    }
+  }
+
+    ////////CHECKBOX options menu funcitonality
+
+  //main container
+  &-checkbox{
+    padding: 0 1em;
+  }
+  //inner container
+  &-tab{
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    //main header input
+    &--header{
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    //main header input label
+      &-label{
+        position: relative;
+        display: block;
+        font-size: 2rem;
+        padding: 0 0 0 1em;
+        background: #16a085;
+        font-weight: bold;
+        line-height: 3;
+        cursor: pointer;
+      }
+    }
+    //menu content that open and closes with car trims
+    &--content{
+      max-height: 100vh;
+      overflow: hidden;
+      background: #1abc9c;
+      -webkit-transition: max-height 1.5s;
+      -o-transition: max-height 1.5s;
+      transition: max-height 1.5s;
+      //flex wrapper for checkbox and label text 
+      &-flex{
+        display:flex;
+        align-items:center;
+        padding: 1rem 2rem;
+      }
+      &-input{
+        margin: 0 1rem;
+      }
+      &-label{
+        font-size: 1.6rem;
+        font-weight:bold;
+      }
+    }
+  }
+
+  //when checkbox is checked max height set to 0 that menu content closes
+  &-tab &-tab--header:checked ~ &-tab--content{
+    max-height: 0;
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
+  }
+  //the label to show the text for what car options your choosing
+  &-tab &-tab--header-label::after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 3em;
+    height: 3em;
+    line-height: 3;
+    text-align: center;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+  }
+  //the open/close "x" "+" when clicked rotates to proper position
+  &-tab &-tab--header[type=checkbox] + &-tab--header-label::after{
+    content: "+";
+    transform: rotate(45deg);
+  }
+  &-tab &-tab--header[type=checkbox]:checked + &-tab--header-label::after{
+    transform: rotate(180deg);
+  }
+}
+
+
+
+//RANGE SLIDER
+
+.range{
+  padding: 2rem 0 ;
+
+
+  &-input{
+    display:block;
+    margin: 0 auto;
+  }
+
+  &-price{
+    &--flex{
+      display:flex;
+      justify-content:space-around;
+    }
+  }
+}
