@@ -1,0 +1,33 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "trim": "L",
+      "image": "/images/camry/sidefront/red.jpg"
+    },
+    {
+      "id": 1,
+      "title": "json-server",
+      "trim": "L",
+      "image": "/images/camry/sidefront/blue.jpg"
+    },
+    {
+      "id": 1,
+      "body": "some comment",
+      "trim": "LE",
+      "image": "/images/avalon/sidefront/black.jpg"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "trim": "LE",
+      "image": "/images/avalon/sidefront/black.jpg"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

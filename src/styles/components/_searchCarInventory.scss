@@ -1,5 +1,6 @@
 .carInv{
   margin-top: 10rem;
+  background: rgb(231, 237, 241);
 
   &-mainFlex{
     display:flex;
@@ -48,7 +49,7 @@
     }
   }
 
-    ////////CHECKBOX options menu funcitonality
+    ////////////////////////////////////////CHECKBOX options menu funcitonality
 
   //main container
   &-checkbox{
@@ -59,20 +60,24 @@
     position: relative;
     margin-bottom: 1px;
     width: 100%;
-    color: #fff;
+    // color: #fff;
+    color: rgb(19, 18, 18);
     overflow: hidden;
+    border-bottom: 1px solid rgb(172, 170, 170);
+
     //main header input
     &--header{
       position: absolute;
       opacity: 0;
       z-index: -1;
+
     //main header input label
       &-label{
         position: relative;
         display: block;
         font-size: 2rem;
         padding: 0 0 0 1em;
-        background: #16a085;
+        // background: #16a085;
         font-weight: bold;
         line-height: 3;
         cursor: pointer;
@@ -82,7 +87,7 @@
     &--content{
       max-height: 100vh;
       overflow: hidden;
-      background: #1abc9c;
+      // background: #1abc9c;
       -webkit-transition: max-height 1.5s;
       -o-transition: max-height 1.5s;
       transition: max-height 1.5s;
@@ -94,10 +99,16 @@
       }
       &-input{
         margin: 0 1rem;
+
+        &:hover{
+          cursor:pointer;
+        }
       }
       &-label{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight:bold;
+        color: rgb(49, 49, 49);
       }
     }
   }
@@ -133,23 +144,119 @@
   }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 //RANGE SLIDER
 
-.range{
-  padding: 2rem 0 ;
+
+.range-container{
+  position: relative;
+  height: 10rem;
+}
+
+.range-flex{
+  display:flex;
+  justify-content:center;
+  margin: 2rem 0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  // width: 50%;
+  width: 100%;
+  height: 25px;
+  position: absolute;
+  background: #a4a4a4;
+  outline: none;
+}
+
+.slider input {
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  left: 25%;
+  top: 15px;
+  width: 50%;
+  outline: none;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: #ea4550;
+  cursor: pointer;
+
+  pointer-events: all;
+  position: relative;
+  z-index: 1;
+  outline: 0;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ea4550;
+  cursor: pointer;
+
+  pointer-events: all;
+  position: relative;
+  z-index: 10;
+  -moz-appearance: none;
+  width: 9px;
+}
+
+.slider input::-moz-range-track {
+  position: relative;
+  z-index: -1;
+  border: 0;
+}
+.slider input:last-of-type::-moz-range-track {
+  -moz-appearance: none;
+  background: none transparent;
+  border: 0;
+
+}
+.slider input[type=range]::-moz-focus-outer {
+border: 0;
+}
 
 
-  &-input{
-    display:block;
-    margin: 0 auto;
-  }
+.carInv{
+  &-color{
+    width: 4rem;
+    height: 4rem;
+    border-radius: .5rem;
+    box-shadow: 2px 1px 5px rgb(129, 129, 129);
+    margin-right: 1rem;
+    
+    &--text{
+      letter-spacing: 1px;
+    }
 
-  &-price{
-    &--flex{
-      display:flex;
-      justify-content:space-around;
+    &--white{
+      background:white;
+    }
+    &--black{
+      background: black;
+    }
+    &--gray{
+      background:rgb(175, 172, 172);
+    }
+    &--smoke{
+      background:rgb(126, 124, 124);
+    }
+    &--blue{
+      background: blue;
+    }
+    &--red{
+      background: red;
     }
   }
 }
