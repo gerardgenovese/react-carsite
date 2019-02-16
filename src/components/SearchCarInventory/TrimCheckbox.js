@@ -12,6 +12,7 @@ class TrimCheckbox extends React.Component {
  
     console.log("allCars", this.props.allCars);
     console.log("filter", this.props.filteredCars);
+  
 
  
     let targetValue = e.target.value;
@@ -35,6 +36,8 @@ class TrimCheckbox extends React.Component {
   };
 
   onGetTrim(){
+
+    console.log("trim", this.state.trim);
 
     let allCars = this.props.allCars;
     let filteredCars = this.props.filteredCars;
@@ -86,8 +89,11 @@ class TrimCheckbox extends React.Component {
       }
 
     } else{
-        // count = 0;
-        return this.state.allCars;
+        // // count = 0;
+        // console.log('filtered array', this.state.newFilteredCars);
+        // // return this.state.allCars;
+        // this.props.getFilteredCars(this.state.newFilteredCars);
+        this.setState({ newFilteredCars: this.props.AllCars })
       }
 
 
@@ -103,7 +109,12 @@ class TrimCheckbox extends React.Component {
       console.log("newfilteredCars", this.state.newFilteredCars);
       this.sendFilteredCars();
     });
+
   };
+
+
+
+
 
   sendFilteredCars = () => {
     console.log(this.state.newFilteredCars);
@@ -113,8 +124,6 @@ class TrimCheckbox extends React.Component {
 
 
   render(){
-
-
     return(
       <div className="carInv-tab">
         <input type="checkbox" id="main-header1"className="carInv-tab--header" />
