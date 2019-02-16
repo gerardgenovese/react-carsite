@@ -1,58 +1,31 @@
-var FilteredList = React.createClass({
-  filterList: function(event){
-    
-    var updatedList = this.state.initialItems;
+import React from "react";
 
-    updatedList = updatedList.filter(function(item){
-      return item.toLowerCase().search(
-        event.target.value.toLowerCase()) !== -1;
-    });
-    this.setState({items: updatedList});
-  },
-  getInitialState: function(){
-     return {
-       initialItems: [
-         "Apples",
-         "Broccoli",
-         "Chicken",
-         "Duck",
-         "Eggs",
-         "Fish",
-         "Granola",
-         "Hash Browns"
-       ],
-       items: []
-     }
-  },
-  componentWillMount: function(){
-    this.setState({items: this.state.initialItems})
-  },
-  render: function(){
-    return (
-      <div className="filter-list">
-        <form>
-        <fieldset className="form-group">
-        <input type="text" className="form-control form-control-lg" placeholder="Search" onChange={this.filterList}/>
-        </fieldset>
-        </form>
-      <List items={this.state.items}/>
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
+
+import test from "../relativeImages/exploreall/86/front.PNG"
+
+class Test extends React.Component{
+  render(){
+    return(
+      <Carousel>
+      <div>
+          <img src={test} />
+          <p className="legend">Legend 1</p>
       </div>
-    );
+      <div>
+          <img src={test} />
+          <p className="legend">Legend 2</p>
+      </div>
+      <div>
+          <img src={test} />
+          <p className="legend">Legend 3</p>
+      </div>
+    </Carousel>
+    )
   }
-});
 
-var List = React.createClass({
-  render: function(){
-    return (
-      <ul className="list-group">
-      {
-        this.props.items.map(function(item) {
-          return <li className="list-group-item" data-category={item} key={item}>{item}</li>
-        })
-       }
-      </ul>
-    )  
-  }
-});
 
-React.render(<FilteredList/>, document.getElementById('app'));
+}
+export default Test;

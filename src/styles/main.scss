@@ -1,6 +1,9 @@
 @import "./components/variables";
 @import "./components/base";
 
+@import "./mixins/buildCarOptions-header";
+@import "./mixins/button";
+
 @import "./components/buildCar/buildCarPage";
 @import "./components/buildCar/accessories";
 @import "./components/buildCar/buttonColors";
@@ -9,8 +12,10 @@
 @import "./components/buildCar/gallery";
 @import "./components/buildCar/summary";
 
-@import "./mixins/buildCarOptions-header";
-@import "./mixins/button";
+@import "./components/searchCarInventory/rangeSlider";
+@import "./components/searchCarInventory/searchCarInventory";
+@import "./components/searchCarInventory/showcase";
+
 
 @import "./components/buildPriceSelection";
 @import "./components/exploreAll";
@@ -18,7 +23,8 @@
 @import "./components/kbbaward";
 @import "./components/nav";
 @import "./components/search";
-@import "./components/searchCarInventory";
+// @import "./components/searchCarInventory";
+
 @import "./components/sectionNav";
 @import "./components/selectCars";
 @import "./components/slideShow";

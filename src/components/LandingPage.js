@@ -11,6 +11,8 @@ import KbbAward from "./KbbAward";
 import WHTParent from "./WHTParent";
 import Footer from "./Footer";
 
+import Test from "./Test";
+
 
 
 class LandingPage extends React.Component{
@@ -57,6 +59,7 @@ class LandingPage extends React.Component{
         <KbbAward />
         <WHTParent />
         <Footer />
+        <Test />
 
         
       </div>

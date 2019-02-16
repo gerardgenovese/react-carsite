@@ -9,19 +9,31 @@ import dbJSON from "../db/db.json";
 class SearchCarInventory extends React.Component {
 
   state = {
-    car: "",
     inventoryOptions: [],
+    car: "",
     // sliderPrice: this.props.location.state.price
+    trim: [],
+    color:[],
+    engine: [],
+    cargoTote: false,
+    leatherMats: false,
+    wheelLocks: false,
+    priceLow: "",
+    priceHigh: "",
+
+
+    
+    images: [],
+
+
+
+
 
     sliderOneDefaultValue: "",
     sliderTwoDefaultValue: "",
 
     sliderRangeOne: "",
-    sliderRangeTwo: "",
-    color:"red",
-
-
-    images: []
+    sliderRangeTwo: ""
   };
 
   componentWillMount(){
@@ -34,21 +46,20 @@ class SearchCarInventory extends React.Component {
 
     this.setState({ 
       car: this.props.location.state.car,
+      priceLow: defaultValueOne,
+      priceHigh: defaultValueTwo,
       sliderOneDefaultValue: defaultValueOne, 
       sliderTwoDefaultValue: defaultValueTwo,
       sliderRangeOne: defaultValueOne,
       sliderRangeTwo: defaultValueTwo
     });
+    this.loadImages();
   };
 
   //scroll to top of page when page loads
   componentDidMount() {
     window.scrollTo(0, 0); 
-
-
-
-
-    this.loadImages();
+    // this.loadImages();
   };
 
    //Propogate carInventory page with every car in database(db.json)
@@ -56,61 +67,45 @@ class SearchCarInventory extends React.Component {
     //get json data
     let jsData = JSON.parse(JSON.stringify(dbJSON));
 
-    let jsImage = jsData.cars.map(el => {
-      return el.image;
-    });
-    this.setState({ images: jsImage})
+    //get car model
+    let carModel = this.state.car;
 
-  };
-
-  //when the user clicks a car option/checkbox, this will create a new inventory state - state.inventoryOptions, and will either add or remove the option depending on the checkbox.value. We then call this.inventory.
-  getInventoryOption = (e) => {
-    e.persist();
-    let newInventory = this.state.inventoryOptions.slice();
-
-    if(e.target.checked === true){
-      newInventory.push(e.target.value);
-      this.setState(() => {
-        return{
-           inventoryOptions: newInventory 
-        }
-      }, () => {
-        this.inventory();
-      })
-    } else {
-        newInventory = newInventory.filter(item => item !== e.target.value)
-        this.setState(() => {
-          return{
-            inventoryOptions: newInventory
-          }
-        }, () => {
-          this.inventory();
-        })
+    if(carModel === "camry"){
+      let jsImage = jsData.camry.forEach(car => {
+        this.setState({ images: jsImage})
+      });
+    } else if(carModel === "corolla"){
+      let jsImage = jsData.corolla.forEach(car => {
+        this.setState({ images: jsImage})
+      });
     }
   };
 
-    //inventory is called in the function getInventoryOption. Everytime inventory is called it checks to see if state.options has a length > 0. If so, it will loop through the state.options array 1 time for each index in the array and filter out any json objects that don't match the option/checkbox that was clicked. We return a clean filtered array of each index that returns true and the car image for that index and set a new setState for state.images to showcase the filtered state.
-    inventory = () => {
-      //get json data
-      let jsData = JSON.parse(JSON.stringify(dbJSON));
-  
-      let options = this.state.inventoryOptions;
-      if(options.length > 0){
-        for(let i = 0; i < options.length; i++){
-          let option = options[i];
-          let filterList = jsData.cars.filter(car => {
-            return option === car.trim
-          });
-          let carImages = filterList.map(car => {
-            return car.image;
-          });
-          this.setState({ images: carImages })
-        }
-      } else{
-        this.loadImages();
-      }
-    };
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   //onChange methods which will change the state of the two sliders so we can grab a price value later on
@@ -151,7 +146,7 @@ class SearchCarInventory extends React.Component {
   };
 
   render(){
-    console.log("ci", this.props)
+    // console.log("ci", this.props)
     console.log("cistate",this.state);
 
     //Slice first letter of car name and Capitalize then add the rest of string to create a Capitalized car name
@@ -188,15 +183,15 @@ class SearchCarInventory extends React.Component {
                   <label htmlFor="main-header1" className="carInv-tab--header-label">Model Trims</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-model1" className="carInv-tab--content-input" value="L" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-model1" className="carInv-tab--content-input" data-type="trim" value="L" onChange={this.getInventoryOption}/>
                       <label htmlFor="car-model1" className="carInv-tab--content-label">L</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-model2" className="carInv-tab--content-input" value="LE" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-model2" className="carInv-tab--content-input" data-type="trim" value="LE" onChange={this.getInventoryOption}/>
                       <label htmlFor="car-model2" className="carInv-tab--content-label">LE</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-model3" className="carInv-tab--content-input" value="Hybrid LE" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-model3" className="carInv-tab--content-input" data-type="trim" value="Hybrid LE" onChange={this.getInventoryOption}/>
                       <label htmlFor="car-model3" className="carInv-tab--content-label">Hybrid LE</label>
                     </div>
                   </div>
@@ -207,11 +202,11 @@ class SearchCarInventory extends React.Component {
                   <label htmlFor="main-header2" className="carInv-tab--header-label">Engine</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="engine-acc1" className="carInv-tab--content-input" value="8 Speed Automatic" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="engine-acc1" className="carInv-tab--content-input" data-type="engine" value="8 Speed Automatic" onChange={this.getInventoryOption}/>
                       <label htmlFor="engine-acc1" className="carInv-tab--content-label">2.5 4-Cyl 8 speed Automatic</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="engine-acc2" className="carInv-tab--content-input" value="8 Speed Manual" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="engine-acc2" className="carInv-tab--content-input" data-type="engine" value="8 Speed Manual" onChange={this.getInventoryOption}/>
                       <label htmlFor="engine-acc2" className="carInv-tab--content-label">2.5 4-Cyl 8 speed Manual</label>
                     </div>
                   </div>
@@ -226,8 +221,8 @@ class SearchCarInventory extends React.Component {
                       <div className="range-flex">
                         {this.showCorrectSliderRange()}
                       </div>
-                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderOneDefaultValue} className="slider" id="lower" onChange={this.rangeOne}/>
-                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderTwoDefaultValue} className="slider" id="higher" onChange={this.rangeTwo}/>
+                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderOneDefaultValue} className="slider" id="lower" onChange={this.rangeOne} data-type="range"/>
+                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderTwoDefaultValue} className="slider" id="higher" onChange={this.rangeTwo} data-type="range"/>
                     </div>
                   </div>
                 </div>
@@ -238,32 +233,32 @@ class SearchCarInventory extends React.Component {
                   <label htmlFor="main-header4" className="carInv-tab--header-label">Exterior Color</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color1" className="carInv-tab--content-input" value="White" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-color1" className="carInv-tab--content-input" data-type="color" value="white" onChange={this.getInventoryOption}/>
                       <div className="carInv-color carInv-color--white"></div>
                       <label htmlFor="car-color1" className="carInv-tab--content-label carInv-color--text">White</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color2" className="carInv-tab--content-input" value="Black" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-color2" className="carInv-tab--content-input" data-type="color" value="black" onChange={this.getInventoryOption}/>
                       <div className="carInv-color carInv-color--black"></div>
                       <label htmlFor="car-color2" className="carInv-tab--content-label carInv-color--text">Black</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color3" className="carInv-tab--content-input" value="Gray" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-color3" className="carInv-tab--content-input" data-type="color" value="gray" onChange={this.getInventoryOption}/>
                       <div className="carInv-color carInv-color--gray"></div>
                       <label htmlFor="car-color3" className="carInv-tab--content-label carInv-color--text">Gray</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color4" className="carInv-tab--content-input" value="Smoke" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-color4" className="carInv-tab--content-input" data-type="color" value="smoke" onChange={this.getInventoryOption}/>
                       <div className="carInv-color carInv-color--smoke"></div>
                       <label htmlFor="car-color4" className="carInv-tab--content-label carInv-color--text">Smoke</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color5" className="carInv-tab--content-input" value="Blue" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-color5" className="carInv-tab--content-input" data-type="color" value="blue" onChange={this.getInventoryOption}/>
                       <div className="carInv-color carInv-color--blue"></div>
                       <label htmlFor="car-color5" className="carInv-tab--content-label carInv-color--text">Blue</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color6" className="carInv-tab--content-input" value="Red" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-color6" className="carInv-tab--content-input" data-type="color" value="red" onChange={this.getInventoryOption}/>
                       <div className="carInv-color carInv-color--red"></div>
                       <label htmlFor="car-color6" className="carInv-tab--content-label carInv-color--text">Red</label>
                     </div>
@@ -275,15 +270,15 @@ class SearchCarInventory extends React.Component {
                   <label htmlFor="main-header5" className="carInv-tab--header-label">Accessories</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-accessory1" className="carInv-tab--content-input" value="Cargo Tote" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-accessory1" className="carInv-tab--content-input" data-type="accessory" value="Cargo Tote" onChange={this.getInventoryOption}/>
                       <label htmlFor="car-accessory1" className="carInv-tab--content-label">Cargo Tote</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-accessory2" className="carInv-tab--content-input" value="Leather Mats" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-accessory2" className="carInv-tab--content-input" data-type="accessory" value="Leather Mats" onChange={this.getInventoryOption}/>
                       <label htmlFor="car-accessory2" className="carInv-tab--content-label">Leather Mats</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-accessory3" className="carInv-tab--content-input" value="Wheel Locks" onChange={this.getInventoryOption}/>
+                      <input type="checkbox" id="car-accessory3" className="carInv-tab--content-input" data-type="accessory" value="Wheel Locks" onChange={this.getInventoryOption}/>
                       <label htmlFor="car-accessory3" className="carInv-tab--content-label">Wheel Locks</label>
                     </div>
                   </div>
@@ -331,17 +326,19 @@ class SearchCarInventory extends React.Component {
             <div>
               {this.state.inventoryOptions.length === 0 ? <div></div> : <div>{addRemoveOptions}</div>}
             </div>
+
             <div>
 
               {
                 this.state.images.map((image, i) => {
                   return(
-                    
-                      <img key={i} src={window.location.origin + image} alt={this.state.car}/>
-                  
+                      
+                      <img style={{width: "10rem"}} key={i} src={window.location.origin + image} alt={this.state.car}/>
+                 
                   )
                 })
               }
+    
             </div>
           </div>
         </div>
@@ -352,3 +349,122 @@ class SearchCarInventory extends React.Component {
 }
 
 export default SearchCarInventory;
+
+
+
+
+
+
+
+
+
+  // getInventoryOption = (e) => {
+  //   //get data-type for switch statement & e.target value for the options the user is checking
+  //   let targetType = e.target.getAttribute("data-type");
+  //   let targetValue = e.target.value;
+
+  //   //create new arrays for our state
+  //   let newInventory = this.state.inventoryOptions.slice();
+  //   let newTrim = this.state.trim.slice();
+  //   let newEngine = this.state.engine.slice();
+    
+  //   //if the target is checked, find the data type to match the switch case. If target is not checked, filter through the array and remove the item that's no longer found.
+  //   if(e.target.checked){
+  //     switch(targetType){
+  //       case "trim":
+  //         newInventory.push(targetValue);
+  //         newTrim.push(targetValue)
+  //         break;
+  //       case "engine":
+  //         newInventory.push(targetValue);
+  //         newEngine.push(targetValue);
+  //         break;
+  //       default:
+  //       console.log("no");
+  //     } 
+  //   } else{
+  //     newInventory = newInventory.filter(item => item !== targetValue);
+  //     newTrim = newTrim.filter(item => item !== targetValue);
+  //   }
+
+  //   //set state and call inventory function
+  //   this.setState(() => {
+  //     return{
+  //       inventoryOptions: newInventory,
+  //       trim: newTrim,
+  //       engine: newEngine
+  //     }
+  //   }, () => {
+  //     this.inventory();
+  //   });
+ 
+
+  //   console.log(targetType);
+  // };
+
+   
+
+   
+  // inventory = () => {
+  //   console.log("inventory called")
+
+  //   let allOptions = this.state.inventoryOptions;
+    
+  // };
+
+
+
+
+
+ //inventory is called in the function getInventoryOption. Everytime inventory is called it checks to see if state.options has a length > 0. If so, it will loop through the state.options array 1 time for each index in the array and filter any json objects that don't match the option/checkbox that was clicked. We return a clean filtered array of each index that returns true and the car image for that index and set a new setState for state.images to showcase the filtered state.
+    // inventory = () => {
+    //   //get json data
+    //   let jsData = JSON.parse(JSON.stringify(dbJSON));
+  
+    //   let options = this.state.inventoryOptions;
+
+
+
+    //   let allCars = this.state.images.slice();
+
+    //   if(options.length > 0){
+
+
+   
+        
+
+    //     for(let i = 0; i < options.length; i++){
+    //       let option = options[i];
+
+
+
+    //       var filterList = jsData.cars.filter(car => {
+    //         return option === car.trim
+    //       });
+
+    //       var carImages = filterList.map(car => {
+    //         return car.image;
+    //       });
+
+    //       allCars.push(carImages);
+
+
+       
+         
+    
+        
+    //     }
+    //   } else{
+    //     this.loadImages();
+    //   }
+
+    //   if(allCars.length === 0){
+    //     this.loadImages();
+    //   } else{
+    //     this.setState(() => {
+    //       return{
+    //         images: [...allCars]
+    //       }
+    //     });
+   
+    //   }

@@ -9,7 +9,7 @@ import kbbaward from "../relativeImages/kbb-award.png"
 class KbbAward extends React.Component {
   
   render(){
-    console.log(this.props)
+    // console.log(this.props)
     return(
       <div className="kbb">
         <div className="kbb-container">

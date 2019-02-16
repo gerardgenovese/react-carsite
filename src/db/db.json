@@ -1,33 +1,76 @@
 {
-  "cars": [
+  "camry": [
     {
       "id": 1,
-      "title": "json-server",
+      "model": "camry",
       "trim": "L",
+      "color": "red",
+      "engine": "8 Speed Manual",
+      "cargoTote": "cargo Tote",
+      "leatherMats": "Leather Mats",
+      "wheelLocks": "",
+      "price": 25575,
       "image": "/images/camry/sidefront/red.jpg"
     },
     {
-      "id": 1,
-      "title": "json-server",
+      "id": 2,
+      "model": "camry",
+      "trim": "LE",
+      "color": "red",
+      "engine": "8 Speed Manual",
+      "cargoTote": "",
+      "leatherMats": "Leather Mats",
+      "wheelLocks": "",
+      "price": 25075,
+      "image": "/images/camry/sidefront/red.jpg"
+    },
+    {
+      "id": 3,
+      "model": "camry",
       "trim": "L",
+      "color": "blue",
+      "engine": "8 Speed Manual",
+      "cargoTote": "Cargo Tote",
+      "leatherMats": "Leather Mats",
+      "wheelLocks": "",
+      "price": 25650,
       "image": "/images/camry/sidefront/blue.jpg"
     },
     {
-      "id": 1,
-      "body": "some comment",
-      "trim": "LE",
-      "image": "/images/avalon/sidefront/black.jpg"
-    }
-  ],
-  "comments": [
+      "id": 4,
+      "model": "camry",
+      "trim": "L",
+      "color": "gray",
+      "engine": "8 Speed Automatic",
+      "cargoTote": "Cargo Tote",
+      "leatherMats": "Leather Mats",
+      "wheelLocks": "Wheel Locks",
+      "price": 25225,
+      "image": "/images/camry/sidefront/gray.jpg"
+    },
     {
-      "id": 1,
-      "body": "some comment",
+      "id": 5,
+      "model": "camry",
       "trim": "LE",
-      "image": "/images/avalon/sidefront/black.jpg"
+      "color": "black",
+      "engine": "8 Speed Manual",
+      "cargoTote": "",
+      "leatherMats": "Leather Mats",
+      "wheelLocks": "Wheel Locks",
+      "price": 25650,
+      "image": "/images/camry/sidefront/black.jpg"
+    },
+    {
+      "id": 6,
+      "model": "camry",
+      "trim": "Hybrid LE",
+      "color": "white",
+      "engine": "8 Speed Manual",
+      "cargoTote": "Cargo Tote",
+      "leatherMats": "",
+      "wheelLocks": "",
+      "price": 25575,
+      "image": "/images/camry/sidefront/white.jpg"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

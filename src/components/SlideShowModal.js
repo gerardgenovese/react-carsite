@@ -83,7 +83,7 @@ class SlideShowModal extends React.Component{
        
             <div className="modal-offer-button">
               {/* <Link to="/toyota/car/inventory" className="modal-offer-button--main"></Link> */}
-              <Link to={{ pathname: "/toyota/car/inventory", state: {car: carInfo.title, price:carInfo.price} }} className="modal-offer-button--main"></Link>
+              <Link to={{ pathname: "/toyota/car/inventory", state: {title: carInfo.title, price:carInfo.price} }} className="modal-offer-button--main"></Link>
               <div className="modal-offer-button--text">Search Inventory</div> 
             </div>
             <div className="modal-offer-button">

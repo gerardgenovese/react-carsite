@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class SectionNav extends React.Component{
   render(){
-    console.log("navprops",this.props)
+    // console.log("navprops",this.props)
     return(
       <div>
         <div className="sectionNav">

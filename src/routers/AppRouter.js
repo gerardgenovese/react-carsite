@@ -10,7 +10,7 @@ import BuildCarPageAvalon from "../components/BuildCarPages/BuildCarPageAvalon";
 import BuildCarPageYaris from "../components/BuildCarPages/BuildCarPageYaris";
 import SearchPage from "../components/SearchPage";
 import SearchInventory from "../components/SearchInventory";
-import SearchCarInventory from "../components/SearchCarInventory";
+import SearchCarInventory from "../components/SearchCarInventory/SearchCarInventory";
 
 import Page404 from "../components/Page404";
 
