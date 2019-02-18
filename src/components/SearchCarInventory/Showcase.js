@@ -14,11 +14,14 @@ class Showcase extends React.Component {
 
 
   showcaseCars(){
+    console.log("showcase filtered", this.props.filteredCars);
+    console.log("showcase allcars", this.props.allCars);
+
+
     let carArray;
 
     this.props.filteredCars.length > 0 ? carArray = this.props.filteredCars : carArray = this.props.allCars;
-    console.log("carArray", this.props.filteredCars);
-    console.log("carArray allcars", this.props.allCars);
+
 
     return carArray.map((car, i) => { 
       let color = { background: car.color };
