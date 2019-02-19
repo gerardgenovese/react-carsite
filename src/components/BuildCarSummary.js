@@ -56,7 +56,7 @@ class BuildCarSummary extends React.Component{
   render(){
     console.log("props", this.props.purchase)
 
-    const { title, color, totalPrice } = this.props.purchase;
+    const { model, color, totalPrice } = this.props.purchase;
 
     const container = {
       height: "40vh"
@@ -74,7 +74,7 @@ class BuildCarSummary extends React.Component{
                 <div className="summary-wrapper">
               
                   <div className="summary-title">
-                    2019 Toyota {title}
+                    2019 Toyota {model}
                   </div>
 
                   <div className="summary-engineFlex">

@@ -14,7 +14,7 @@ class SlideShowModal extends React.Component{
   };
 
   buildCarSelected = (e) => {
-    //slideshowreducer brings in a new image for the slideshow but we want the generic image to appear on the buildcarpage. So we rebuild the object with all props and replace the img from the slideshow with the buildCarImg prop that is holding the generic img of our car  in our slideshowreducer object.
+    //slideshowreducer brings in a new image for the slideshow but we want the generic image to appear on the buildcarpage. So we rebuild the object with all props and replace the img from the slideshow with the buildCarImg prop that is holding the generic img of our car in our slideshowreducer object.
     const replaceCarImageForBuildPage = {
       title: this.props.carInfo.title, 
       img: this.props.carInfo.buildCarImg,
@@ -46,12 +46,12 @@ class SlideShowModal extends React.Component{
         <div className="modal-main">
           <div className="modal-main--info">
             <div className="modal-main--lease">Lease</div>
-            <div className="modal-main--title">2018 {carInfo.title.toUpperCase()}</div>
+            <div className="modal-main--title">2018 {carInfo.model.toUpperCase()}</div>
             <div className="modal-main--spec">LE</div>
             <div className="modal-main--exp">Exp 1/02/2019</div>
           </div>
           <div className="">
-            <img className="modal-main--img" src={carInfo.img} alt={carInfo.title} />
+            <img className="modal-main--img" src={carInfo.img} alt={carInfo.model} />
           </div>
         </div>
 
@@ -83,7 +83,7 @@ class SlideShowModal extends React.Component{
        
             <div className="modal-offer-button">
               {/* <Link to="/toyota/car/inventory" className="modal-offer-button--main"></Link> */}
-              <Link to={{ pathname: "/toyota/car/inventory", state: {title: carInfo.title, price:carInfo.price} }} className="modal-offer-button--main"></Link>
+              <Link to={{ pathname: "/toyota/car/inventory", state: {model: carInfo.model, price:carInfo.price} }} className="modal-offer-button--main"></Link>
               <div className="modal-offer-button--text">Search Inventory</div> 
             </div>
             <div className="modal-offer-button">

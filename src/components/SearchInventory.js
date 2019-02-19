@@ -13,8 +13,8 @@ class SearchInventory extends React.Component {
   };
 
   
-  miles(title) {
-    switch(title){
+  miles(model) {
+    switch(model){
       case "camry":
         return "29/32";
        case "86":
@@ -26,7 +26,7 @@ class SearchInventory extends React.Component {
       case "yaris":
         return "30/35";
       default:
-        return title
+        return model
     }
   };
 
@@ -39,8 +39,8 @@ class SearchInventory extends React.Component {
     return newTotal;
   }
 
-  upperCaseFirstLetter(title){
-    return title.substr(0,1).toUpperCase() + title.substr(1);
+  upperCaseFirstLetter(model){
+    return model.substr(0,1).toUpperCase() + model.substr(1);
   }
 
   renderCars() {
@@ -48,10 +48,10 @@ class SearchInventory extends React.Component {
     return this.props.allCars.map(car => {
       const regEx = car.img.replace(/sidefront/g, "side");
 
-      const carLink = `/build/${car.title}`
+      const carLink = `/build/${car.model}`
 
       return(       
-        <Link to={carLink} key={car.title} className="build_price-renderBox" onClick={()=>{
+        <Link to={carLink} key={car.model} className="build_price-renderBox" onClick={()=>{
           return this.props.buildCar(car);
           }}> 
 
@@ -62,10 +62,10 @@ class SearchInventory extends React.Component {
           <div className="build_price-info">
             <div className="build_price-info--flex">
               <div className="build_price-info--year">  2019 &nbsp;</div>
-              <div className="build_price-info--title"> {this.upperCaseFirstLetter(car.title)}</div>
+              <div className="build_price-info--title"> {this.upperCaseFirstLetter(car.model)}</div>
             </div>
             <div className="build_price-info--starting">${car.price} starting<sup>1</sup></div>
-            <div className="build_price-info--miles">{this.miles(car.title)} est mpg<sup>5</sup></div>
+            <div className="build_price-info--miles">{this.miles(car.model)} est mpg<sup>5</sup></div>
           </div>
         </Link>
       )

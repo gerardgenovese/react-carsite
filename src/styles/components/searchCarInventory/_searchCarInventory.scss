@@ -1,6 +1,10 @@
 .carInv{
-  margin-top: 10rem;
+  margin-top: 8rem;
   background: rgb(231, 237, 241);
+
+  &-header{
+    padding-top: 2rem;
+  }
 
   &-mainFlex{
     display:flex;

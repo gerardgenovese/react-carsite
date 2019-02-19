@@ -15,7 +15,7 @@ class SlideShow extends React.Component{
     carBackground: [],
     slideIndex: 0,
     slideShow: [],
-    titles: [],
+    models: [],
     prices: [],
     perMonth: [],
     signing: [],
@@ -26,7 +26,7 @@ class SlideShow extends React.Component{
     const carInfo = [];
     const carBackground = [];
     const images = [];
-    const titles = []
+    const models = []
     const prices = [];
     const perMonth = [];
     const signing = [];
@@ -35,7 +35,7 @@ class SlideShow extends React.Component{
       carInfo.push(car);
       carBackground.push(car.background);
       images.push(car.img);
-      titles.push(car.title);
+      models.push(car.title);
       prices.push(car.price);
       perMonth.push(car.perMonth);
       signing.push(car.signing);
@@ -44,7 +44,7 @@ class SlideShow extends React.Component{
       carInfo,
       carBackground,
       slideShow: images,
-      titles: titles,
+      models: models,
       prices: prices,
       perMonth,
       signing,
@@ -130,7 +130,7 @@ class SlideShow extends React.Component{
     const header = 
     [
       "You've got the wheel",
-      `The All New ${this.state.titles[this.state.slideIndex]}`,
+      `The All New ${this.state.models[this.state.slideIndex]}`,
       "Pack Leading Capability",
       "Turn every drive into an adventure"
     ];
@@ -173,7 +173,7 @@ class SlideShow extends React.Component{
               <div className="slideshow-padding">
                 <div className="slideshow-title">
                   <div className="">2019 &nbsp; </div>
-                  <div className="slideshow-title--car">{this.state.titles[this.state.slideIndex]}</div>
+                  <div className="slideshow-title--car">{this.state.models[this.state.slideIndex]}</div>
                 </div>
                 <div className="slideshow-header">{this.getHeader()}</div>
                   <p className="slideshow-misc">{this.getPhrase()}</p>

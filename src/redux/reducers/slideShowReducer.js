@@ -1,7 +1,7 @@
 export default () => {
   return [
     { 
-      title: "avalon", 
+      model: "avalon", 
       img: "/images/slideShow/avalonSlide.png",
       carAngle: 0,
       color:"blue",
@@ -14,7 +14,7 @@ export default () => {
       buildCarImg: "/images/avalon/sidefront/blue.jpg"
     },
     { 
-      title: "camry", 
+      model: "camry", 
       img: "/images/slideShow/camrySlide.png",
       carAngle: 0,
       color:"red",
@@ -27,7 +27,7 @@ export default () => {
       buildCarImg: "/images/camry/sidefront/red.jpg"
     },
     { 
-      title: "corolla", 
+      model: "corolla", 
       img: "/images/slideShow/corollaSlide.png",
       carAngle: 0,
       color:"white",
@@ -40,7 +40,7 @@ export default () => {
       buildCarImg: "/images/corolla/sidefront/white.jpg"
     },
     { 
-      title: "86", 
+      model: "86", 
       img: "/images/slideShow/86Slide.png",
       carAngle: 0,
       color:"white",

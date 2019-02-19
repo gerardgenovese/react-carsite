@@ -13,10 +13,10 @@ import { purchase } from "../../redux/actions";
 // import carImage from "../../relativeImages/red.jpg";
 
 
-class BuildCarPage extends React.Component{
+class BuildCarPageAvalon extends React.Component{
 
  state = {
-    title: this.props.car.title,
+    model: this.props.car.model,
     image: this.props.car.img,
     carAngle: 0,
     color: this.props.car.color,
@@ -112,10 +112,10 @@ class BuildCarPage extends React.Component{
   rotateCarImage = (e) => {
     e.preventDefault();
     
-    let side = `/images/${this.state.title}/side/${this.state.color}.jpg`;
-    let back = `/images/${this.state.title}/back/${this.state.color}.jpg`;
-    let front = `/images/${this.state.title}/front/${this.state.color}.jpg`;
-    let sideFront = `/images/${this.state.title}/sidefront/${this.state.color}.jpg`;
+    let side = `/images/${this.state.model}/side/${this.state.color}.jpg`;
+    let back = `/images/${this.state.model}/back/${this.state.color}.jpg`;
+    let front = `/images/${this.state.model}/front/${this.state.color}.jpg`;
+    let sideFront = `/images/${this.state.model}/sidefront/${this.state.color}.jpg`;
 
     let allCarAngles = [front, back, side, sideFront];
 
@@ -193,7 +193,7 @@ class BuildCarPage extends React.Component{
 
   //for testing. remove when done
     if(this.state.totalPrice === undefined){
-      return <div>25000</div>
+      return <div>$30,000</div>
     }
   
     let total = this.state.totalPrice;
@@ -235,7 +235,7 @@ class BuildCarPage extends React.Component{
     const wheelLocks = getLocks.price;
 
     const allSelections = {
-      title: this.state.title,
+      model: this.state.model,
       color: this.state.color,
       engineOne: this.state.engineOneSelected,
       engineTwo: this.state.engineTwoSelected,
@@ -273,7 +273,7 @@ class BuildCarPage extends React.Component{
                   Your Build 
                 </div>
                 <div className="buildCar-title">
-                  {this.state.title}
+                  {this.state.model}
                 </div>
               </div>
               <div>
@@ -344,12 +344,12 @@ class BuildCarPage extends React.Component{
               /> 
               : this.state.buildCarGallery ?
               <BuildCarGallery 
-                car={this.state.title}  
+                car={this.state.model}  
               /> 
               : this.state.buildCarFinance ? 
               <BuildCarFinance carPrice={this.state.totalPrice}
               /> :
-              <BuildCarSummary title={this.state.title} getTotalString={this.carString}/> 
+              <BuildCarSummary model={this.state.model} getTotalString={this.carString}/> 
             }  
           </div>
         </div>
@@ -369,5 +369,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,{
   purchase
-})(BuildCarPage);
+})(BuildCarPageAvalon);
 

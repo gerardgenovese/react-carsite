@@ -10,7 +10,7 @@ class Nav extends React.Component {
 
 state = {
   menu: false,
-  selectVecicle: false, 
+  selectVehicle: false, 
 };
 
 

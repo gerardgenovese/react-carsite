@@ -7,70 +7,83 @@ import Footer from "./Footer";
 class Search extends React.Component{
 
   state = {
-    cars: this.props.cars,
+    cars: [],
     textInput: "",
     carIsShowing: false,
-    carTitles: [],
+    carModels: [],
     carImage: "",
-    carTitle: "",
+    carModel: "",
     carPrice: "",
     carIndex: undefined,
     carInfo: []
   };
 
+  //grabs car array from redux store and propagates this.state.cars with array of cars & carModels with an array of all model names
   componentWillMount(){
-    const titles = [];
-    this.props.cars.forEach(car => titles.push(car.title));
-    this.setState({ carTitles: titles });
+    const models = [];
+    this.props.cars.forEach(car => models.push(car.model));
+    this.setState({ cars: this.props.cars, carModels: models });
   };
 
+  //auto scroll to top of page when coming from another page
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
+  //matches the textInput from the user to the car model
   filterList = (e) => {
     this.setState({ textInput: e.target.value.toLowerCase() })
     let searchCar = (/camry|86|corolla|avalon|yaris/i, e.target.value.toLowerCase());
-    let carIndex = this.state.carTitles.indexOf(searchCar);
+    let carIndex = this.state.carModels.indexOf(searchCar);
 
     if(searchCar !== this.state.textInput){
-      this.setState({
+      this.setState(() => ({
         carImage: "",
-        carTitle: "",
+        carModel: "",
         carPrice: "",
         carIndex: undefined,
         carInfo: []
-      })
+      }), () => { this.showCar() });
     }
     if(carIndex !== -1){
       let getCar = this.state.cars[carIndex]
 
-      this.setState({
+      this.setState(() => ({
         carImage: getCar.img,
-        carTitle: getCar.title,
+        carModel: getCar.model,
         carPrice: getCar.price,
         carIndex,
         carInfo: this.state.cars[carIndex]
-      })
+      }), () => { this.showCar() });
     } 
-    this.showCar();
+    
   };
 
+  //shows the car match on UI
   showCar = () => {
-    this.setState({ carIsShowing: false });
-    setTimeout(() => {
-      if(this.state.carTitle === this.state.textInput && this.state.textInput !== undefined && this.state.textInput !== ""){
-        // console.log("yes")
+    // this.setState({ carIsShowing: false });
+    // // setTimeout(() => {
+    //   if(this.state.carModel === this.state.textInput && this.state.textInput !== undefined && this.state.textInput !== ""){
+
+    //     this.setState({ carIsShowing: true })
+    //   } else {
+    //       this.setState({ carIsShowing: false })
+
+    //     }
+    // // },200);
+
+
+    this.setState(() => ({ carIsShowing: false }), () => {
+      if(this.state.carModel === this.state.textInput && this.state.textInput !== undefined && this.state.textInput !== ""){
         this.setState({ carIsShowing: true })
       } else {
           this.setState({ carIsShowing: false })
-          // console.log("no");
         }
-    },200);
-  }
+    });
+  };
 
   render(){
-    // console.log("state",this.state)
+    console.log("state",this.state)
     return(
       <div className="search">
         <input className="search-input" type="text" onChange={this.filterList} placeholder="Search for your Toyota vehicle..."/>
@@ -80,11 +93,11 @@ class Search extends React.Component{
               <div className="search-container" onClick={()=> this.props.buildCar(this.state.carInfo)}>
                 <div className="search-title-flex">
                   <div className="search-title--year">2019 &nbsp; </div>
-                  <div className="search-title">{this.state.carTitle}</div>
+                  <div className="search-title">{this.state.carModel}</div>
                 </div>
     
-                  <Link to={`build/${this.state.carTitle}`}>
-                    <img src={this.state.carImage} alt={this.state.carTitle} className="search-img"/>
+                  <Link to={`build/${this.state.carModel}`}>
+                    <img src={this.state.carImage} alt={this.state.carModel} className="search-img"/>
                   </Link>
          
                 <div className="search-price">

@@ -1,7 +1,7 @@
 const allCars = () => {
   return [
     { 
-      title: "camry", 
+      model: "camry", 
       img: "/images/camry/sidefront/red.jpg",
       carAngle: 0,
       color:"red",
@@ -10,7 +10,7 @@ const allCars = () => {
       miles: "29/32"
     },
     { 
-      title: "86", 
+      model: "86", 
       img: "/images/86/sidefront/white.jpg",
       carAngle: 0,
       color:"white",
@@ -19,7 +19,7 @@ const allCars = () => {
       miles: "22/28"
     },
     { 
-      title: "corolla", 
+      model: "corolla", 
       img: "/images/corolla/sidefront/blue.jpg",
       carAngle: 0,
       color:"blue",
@@ -29,7 +29,7 @@ const allCars = () => {
       
     },
     { 
-      title: "avalon", 
+      model: "avalon", 
       img: "/images/avalon/sidefront/black.jpg",
       carAngle: 0,
       color:"black",
@@ -38,7 +38,7 @@ const allCars = () => {
       miles: "25/30"
     },
     { 
-      title: "yaris", 
+      model: "yaris", 
       img: "/images/yaris/sidefront/gray.jpg",
       carAngle: 0,
       color:"gray",
