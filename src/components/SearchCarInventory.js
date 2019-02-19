@@ -28,7 +28,9 @@ class SearchCarInventory extends React.Component {
     sliderTwoDefaultValue: "",
 
     sliderRangeOne: "",
-    sliderRangeTwo: ""
+    sliderRangeTwo: "",
+
+    priceLowToHigh: []
   };
 
   componentWillMount(){
@@ -59,7 +61,6 @@ class SearchCarInventory extends React.Component {
     return(<span className="showcase-price">${first},{second}</span>)
   };
 
-
    //Load images from db.json to state 
   loadImages = () => {
     let jsData = JSON.parse(JSON.stringify(dbJSON));
@@ -84,8 +85,30 @@ class SearchCarInventory extends React.Component {
       let car = jsData.yaris.map(car => car);
       this.setState({ cars: car })
     }
-
   };
+
+  getPricePoint = (e) => e.target.value === "low" ? this.lowToHigh() : this.highToLow();
+
+  lowToHigh = () => {
+    if(this.state.filteredCars.length > 0){
+      let sortCars = this.state.filteredCars.sort((a, b) => a.price - b.price);
+      this.setState({ filteredCars: sortCars })
+    } else{
+      let sortCars = this.state.cars.sort((a, b) => a.price - b.price);
+      this.setState({ cars: sortCars })
+    }
+  };
+  highToLow = () => {
+    if(this.state.filteredCars.length > 0){
+      let sortCars = this.state.filteredCars.sort((b, a) => a.price - b.price);
+      this.setState({ filteredCars: sortCars })
+    } else{
+      let sortCars = this.state.cars.sort((b, a) => a.price - b.price);
+      this.setState({ cars: sortCars })
+    }
+  };
+
+
 
   //when checkboxes are clicked we begin our filter process here
   onUserClick = (e) => {
@@ -537,8 +560,8 @@ class SearchCarInventory extends React.Component {
           <div className="showcase-flexOne">
             <p>{this.carModelCapitalize()}</p>
             <p>{car.trim}</p>
-            <div>
-              <img src={car.image} alt="toy" className="showcase-img"/>
+            <div className="showcase-imgContain">
+              <img src={car.image} alt={car.model} className="showcase-img"/>
             </div>
           </div>
           <div className="showcase-flexTwo">
@@ -728,10 +751,11 @@ class SearchCarInventory extends React.Component {
           <div className="carInv-rightContainer">
             <div className="carInv-pricepoint--header">
               <div>{this.carMatchesNumberDisplay()}</div>
-                <form>
+                <form onChange={this.getPricePoint}>
                   <select name="pricepoint">
-                    <option value="">Price: Low To High</option>
-                    <option value="">Price: High To Low</option>
+                    <option selected disabled hidden>Sort Prices</option>
+                    <option value="low" >Price: Low To High</option>
+                    <option value="high" >Price: High To Low</option>
                   </select>
                 </form>
             </div>
