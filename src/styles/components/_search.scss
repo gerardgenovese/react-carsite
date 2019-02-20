@@ -11,6 +11,11 @@ $background: rgb(240, 236, 236);
     margin: 0 auto;
     font-size: 2rem;
 
+    @media screen and(max-width: 768px){
+      width: 100%;
+      margin: 0 5%;
+    }
+
     &::placeholder{
       color:red;
     }
@@ -26,7 +31,11 @@ $background: rgb(240, 236, 236);
   &-spacing{
     margin: 5rem 25% 2rem 25%;
     padding: 5rem;
-    height: 101vh;
+    height: 100vh;
+    
+    @media screen and(max-width:768px){
+      margin: 0;
+    }
   }
 
   &-container{
@@ -38,8 +47,19 @@ $background: rgb(240, 236, 236);
     font-family: tahoma;
     border: 2px solid $light-gray;
     border-radius: 2rem;
+
+  
   }
   &-title{
+    font-size:5rem;
+    text-transform:uppercase;
+    font-weight:bold;
+
+
+    @media screen and(max-width: 600px){
+      font-size: 3rem;
+    }
+
     &-flex{
       display:flex;
       align-items:center;
@@ -47,19 +67,26 @@ $background: rgb(240, 236, 236);
     }
     &--year{
       font-size: 3rem;
+
+      @media screen and(max-width: 600px){
+        font-size: 2rem;
+      }
+
       &:hover{
         cursor:context-menu;
       }
     }
-    font-size:5rem;
-    text-transform:uppercase;
-    font-weight:bold;
+
   }
 
   &-img{
     width: 50rem;
-    // margin-top: 3rem;
     border:2px solid transparent;
+
+    @media screen and(max-width: 600px){
+      width: 30rem;
+    }
+
     &:hover{
       border:2px solid red;
       cursor:pointer;
