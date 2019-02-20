@@ -16,7 +16,16 @@ body{
   max-width: 140rem;
   display:block;
   margin: 0 auto;
-  z-index: initial;
+  // z-index: initial;
+}
+.body-container--overflow{
+  max-width: 140rem;
+  display:block;
+  margin: 0 auto;
+  // z-index: initial;
+  max-height: 110vh;
+  position:fixed;
+  overflow: hidden;
 }
 .landingContain{
   overflow: hidden;

@@ -20,63 +20,23 @@ class LandingPage extends React.Component{
 
 
 
-    // state ={
-    //   slideShow: [avalon,camry,corolla],
-    //   slideIndex: 0
-    // }
-
-
-
-  // renderCars() {
-  //   return this.props.allCars.map(car => {
-  //     return(
-  //       <div key={car.title}>
-  //         <NavLink to="/build" >
-  //           <img src={car.img} onClick={()=> {
-  //           return this.props.buildCar(car)
-  //         }} alt="car"/>
-  //         </NavLink>
-  //       </div>
-  //     )
-  //   });
-  // }
-
-
-
-
-
-
   render(){
     
 
   
     return(
       <div className='landingContain'>
-
         <SlideShow />
         <SectionNav />
         <ExploreAll />
         <KbbAward />
         <WHTParent />
         <Footer />
-
-
-        
       </div>
     )
   }
 }
 
-
-// const mapStateToProps = (state) => {
-//   return {
-//     allCars: state.allCars,
-//   }
-// }
-
-// export default connect(mapStateToProps, {
-//   buildCar,
-// })(LandingPage);
 
 export default LandingPage;
 

@@ -21,32 +21,45 @@ import ToyotaCare from "../components/WhatsHappeningPages/ToyotaCare";
 import '../styles/main.scss';
 
 
-const AppRouter = () => {
-  return(
-    <BrowserRouter>
-      <div className="body-container">
-        <Nav />
-        <Switch>
-          <Route path="/" component={LandingPage} exact={true}/>
-          <Route path="/select_toyota" component={BuildPriceSelection}/>
-          <Route path="/build/camry" component={BuildCarPageCamry}/>
-          <Route path="/build/86" component={BuildCarPage86}/>
-          <Route path="/build/corolla" component={BuildCarPageCorolla}/>
-          <Route path="/build/avalon" component={BuildCarPageAvalon}/>
-          <Route path="/build/yaris" component={BuildCarPageYaris}/>
-          <Route path="/search" component={SearchPage} />
-          <Route path="/search-inventory" component={SearchInventory} />
-          <Route path="/toyota/car/inventory" component={SearchCarInventory} />
+class AppRouter extends React.Component {
 
-          <Route path="/toyota-newsroom/supra" component={Supra} />
-          <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />
-          <Route path="/toyota-care" component={ToyotaCare} />
+  state = {
+    menu: false
+  };
 
-          <Route component={Page404} />
-        </Switch>
-      </div>
-    </BrowserRouter>
-  )
+  getStateFromNav = (state) => {
+    this.setState({ menu: !this.state.menu });
+    console.log("getstatefromnav",state);
+  };
+
+  render(){
+    return(
+      <BrowserRouter>
+        <div className={this.state.menu ? "body-container body-container--overflow" : "body-container"}>
+          <Nav getStateFromNav={this.getStateFromNav} />
+          <Switch>
+            <Route path="/" component={LandingPage} exact={true}/>
+            <Route path="/select_toyota" component={BuildPriceSelection}/>
+            <Route path="/build/camry" component={BuildCarPageCamry}/>
+            <Route path="/build/86" component={BuildCarPage86}/>
+            <Route path="/build/corolla" component={BuildCarPageCorolla}/>
+            <Route path="/build/avalon" component={BuildCarPageAvalon}/>
+            <Route path="/build/yaris" component={BuildCarPageYaris}/>
+            <Route path="/search" component={SearchPage} />
+            <Route path="/search-inventory" component={SearchInventory} />
+            <Route path="/toyota/car/inventory" component={SearchCarInventory} />
+  
+            <Route path="/toyota-newsroom/supra" component={Supra} />
+            <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />
+            <Route path="/toyota-care" component={ToyotaCare} />
+  
+            <Route component={Page404} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    )
+  }
+
 };
 
 export default AppRouter;
