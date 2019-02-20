@@ -75,7 +75,7 @@ class SlideShowModal extends React.Component{
         </div>
 
         <div className="modal-offer">
-          <div className="modal-pricing--flex">
+          <div className="modal-pricing--flex modal-offer--flex">
             <div className="modal-pricing--flexPricing modal-offer--border">
               <div className="modal-pricing--details modal-offer--details">  Lease a 2018 {carInfo.title} for ${carInfo.perMonth} for 36 Months. (Includes 12000 miles per year for the Lease Term of 36 months)</div>
             </div>
