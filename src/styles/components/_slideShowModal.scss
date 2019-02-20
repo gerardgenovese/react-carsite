@@ -24,6 +24,12 @@
   max-width: 75%;
   max-height: 75%;
   overflow-y:scroll;
+  @media screen and(min-width: 1440px){
+    max-width: 50%;
+  }
+  @media screen and(max-width: 768px){
+    max-width: 100%;
+  }
   
 
   &-header{
@@ -58,17 +64,35 @@
     font-size: 1.6rem;
     font-family:tahoma;
 
+    @media screen and(max-width: 768px){
+      align-items:center;
+      padding: 2rem 2rem;
+    }
+    @media screen and(max-width: 400px){
+      align-items:center;
+      padding: 2rem 1rem;
+    }
+    
+
     &--info{
       text-transform:uppercase;
     }
     &--lease{
       font-size: 1.4rem;
       margin-bottom: 2rem;
+      @media screen and(max-width: 768px){
+        margin-bottom: .5rem;
+      }
+      
     }
     &--title{
       font-size: 2.4rem;
       font-family: Arial, Helvetica, sans-serif;
       font-weight:bold;
+      @media screen and(max-width: 500px){
+        font-size: 1.6rem;
+      }
+      
     }
     &--spec{
       margin-bottom: 2rem;
@@ -81,24 +105,41 @@
     &--img{
       width: 40rem;
       margin-right: 4rem;
+
+      @media screen and(max-width: 768px){
+        width: 25rem;
+        margin-right: 1rem;
+      }
+      @media screen and(max-width: 600px){
+        width: 20rem;
+      }
+
+      @media screen and(max-width: 400px){
+        width: 18rem;
+      }
+      
     }
   }
 
 
   &-pricing{
-    display:flex;
-    align-items:center;
+    // display:flex;
+    // align-items:center;
     background:rgb(240, 237, 237);
 
     &--flex{
       display:flex;
-      width: 70%;
+      justify-content: space-between;
+      width: 90%;
       padding: 2rem 0;
+      flex-wrap: wrap;
+    }
+    &--flexPricing{
+      display:flex;
     }
 
   
     &--container{
-      margin-left: 5rem;
       border-right: 2px solid black;
     }
 
@@ -106,7 +147,6 @@
     &--container2{
       padding: 0 2rem;
     }
-
 
     &--cash{
       font-size:2.4rem;
@@ -119,57 +159,78 @@
       color:rgb(82, 78, 78);
     }
 
-    &-button{
-      width: 30%;
+    &--button{
+      // width: 30%;
       @include buttonRed;
     }
   }
 
+  // &-offer{
+  //   display:flex;
+  //   justify-content: space-between;
+  //   align-items:center;
+  //   padding: 0 2rem;
+  //   &--text{
+  //     font-size: 1.4rem;
+  //     font-family: tahoma;
+  //     font-weight:bold;
+  //     color:rgb(49, 48, 48);
+  //     text-transform: uppercase;
+  //     // margin-left: 5rem;
+  //   }
 
+  //   &--container1{
+  //     padding: 2rem 0;
+  //   }
+  //   &--container2{
 
+  //     display:flex;
+  //     flex-direction:column;
+  //     justify-content: center;
+  //     align-items:center;
+  //   }
+  //   &-button{
+  //     @include buttonGray;
+  //     // margin: 3rem 0;
+  //     margin: 2rem 0;
 
+  //     &-text{
+  //       color:black;
+  //     }
+  //   }
 
+  // }
 
   &-offer{
-    display:flex;
-    align-items:center;
 
-    &--text{
-      font-size: 1.4rem;
-      font-family: tahoma;
-      font-weight:bold;
-      color:rgb(49, 48, 48);
-      text-transform: uppercase;
-      margin-left: 5rem;
+    &--border{
+      
+      @media screen and(max-width: 1250px){
+        width: 50%;
+      }
     }
-
-    &--container1{
-      width: 70%;
+    &--details {
+      padding: 0 2rem;
+      align-self:center;
     }
-    &--container2{
-      width: 30%;
+    &--buttons{
+      display:flex;
+      flex-direction:column;
+      justify-content: space-between;
+      align-items:center;
+      border-left: 2px dotted black;
+      padding-left: 4rem;
     }
-    &-button{
+    &--button{
       @include buttonGray;
-      margin: 3rem 0;
+      margin-bottom: 2rem;
     }
+    &--button2{
+      @include buttonGray;
+      margin-top:2rem;
+    }
+
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -189,15 +250,51 @@
 
 
 
-.modal{
-  @media screen and(min-width: 1440px){
-    max-width: 50%;
+
+@media screen and(max-width: 768px){
+  .modal{
+
+    &-pricing{
+     
+      &--flex{
+        flex-direction: column;
+        align-items:center;
+        width: 100%;
+        padding-bottom: 3rem;
+      }
+      &--container{
+        margin-bottom: 3rem;
+        padding: 0 2rem 0 0;
+        
+      }
+      &--container2{
+        padding: 0 0 0 2rem;
+      }
+      
+      &-button{
+        &--text{
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+    &-offer{
+      &--buttons{
+        border-left: none;
+        padding-left: 0;
+        margin-top: 3rem;
+      }
+      &--details{
+        text-align:center;
+      }
+    }
+
   }
 }
 
+@media screen and(max-width: 768px){
 
-
-
+}
 
 
 

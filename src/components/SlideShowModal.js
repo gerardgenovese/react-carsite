@@ -55,34 +55,53 @@ class SlideShowModal extends React.Component{
           </div>
         </div>
 
-
         <div className="modal-pricing">
           <div className="modal-pricing--flex">
-            <div className="modal-pricing--container">
-              <div className="modal-pricing--cash">${carInfo.perMonth}</div>
-              <div className="modal-pricing--details">per mos/36Mos</div>
+            <div className="modal-pricing--flexPricing">
+              <div className="modal-pricing--container">
+                <div className="modal-pricing--cash">${carInfo.perMonth}</div>
+                <div className="modal-pricing--details">per mos/36Mos</div>
+              </div>
+              <div className="modal-pricing--container2">
+                <div className="modal-pricing--cash">${carInfo.signing}</div>
+                <div className="modal-pricing--details">due at signing</div>
+              </div>
             </div>
-            <div className="modal-pricing--container2">
-              <div className="modal-pricing--cash">${carInfo.signing}</div>
-              <div className="modal-pricing--details">due at signing</div>
+            <div className="modal-pricing--button">
+              <button className="modal-pricing--button--main"></button>
+              <div className="modal-pricing--button--text">Request A Quote</div>
             </div>
-          </div>
-          <div className="modal-pricing-button">
-            <button className="modal-pricing-button--main"></button>
-            <div className="modal-pricing-button--text">Request A Quote</div>
           </div>
         </div>
 
         <div className="modal-offer">
+          <div className="modal-pricing--flex">
+            <div className="modal-pricing--flexPricing modal-offer--border">
+              <div className="modal-pricing--details modal-offer--details">  Lease a 2018 {carInfo.title} for ${carInfo.perMonth} for 36 Months. (Includes 12000 miles per year for the Lease Term of 36 months)</div>
+            </div>
+            <div className="modal-offer--buttons">
+              <div className="modal-offer--button">
+                <Link to={{ pathname: "/toyota/car/inventory", state: {model: carInfo.model, price:carInfo.price} }} className="modal-offer--button--main"></Link>
+                <div className="modal-offer--button--text">Search Inventory</div>
+              </div>
+              <div className="modal-offer--button2">
+                <Link to={`/build/${carInfo.model}`} onClick={this.buildCarSelected} className="modal-offer--button--main"></Link>
+                <div className="modal-offer--button--text">Build Yours</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        {/* <div className="modal-offer">
           <div className="modal-offer--container1">
             <div className="modal-offer--text">
-              Lease a 2018 {carInfo.title} for ${carInfo.perMonth} for 36 Months. (Includes 12000 miles per year for the Lease Term of 36 months)
+              Lease a 2018 {carInfo.title} for ${carInfo.perMonth} 
             </div>
           </div>
           <div className="modal-offer--container2">
-       
             <div className="modal-offer-button">
-              {/* <Link to="/toyota/car/inventory" className="modal-offer-button--main"></Link> */}
+     
               <Link to={{ pathname: "/toyota/car/inventory", state: {model: carInfo.model, price:carInfo.price} }} className="modal-offer-button--main"></Link>
               <div className="modal-offer-button--text">Search Inventory</div> 
             </div>
@@ -91,7 +110,7 @@ class SlideShowModal extends React.Component{
               <div className="modal-offer-button--text">Build Yours</div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
 
