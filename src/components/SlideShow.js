@@ -35,7 +35,7 @@ class SlideShow extends React.Component{
       carInfo.push(car);
       carBackground.push(car.background);
       images.push(car.img);
-      models.push(car.title);
+      models.push(car.model);
       prices.push(car.price);
       perMonth.push(car.perMonth);
       signing.push(car.signing);
@@ -152,7 +152,7 @@ class SlideShow extends React.Component{
 
 
   render(){
-    // console.log("state", this.state);
+    console.log("state", this.state);
 
     const dollarSign = {
       fontFamily: "helvetica",
@@ -165,61 +165,85 @@ class SlideShow extends React.Component{
   
     return(
       <div className="slideshow">
-     
+    
         <div key={this.state.slideIndex} className="slideshow-bg" style={backgroundImages}>
-        
-      
-            <div key={this.state.slideIndex} className="slideshow-container">
-              <div className="slideshow-padding">
-                <div className="slideshow-title">
-                  <div className="">2019 &nbsp; </div>
-                  <div className="slideshow-title--car">{this.state.models[this.state.slideIndex]}</div>
-                </div>
-                <div className="slideshow-header">{this.getHeader()}</div>
-                  <p className="slideshow-misc">{this.getPhrase()}</p>
-                <div className="slideshow-flex">
-                  <div className="slideshow-flex--box">
-                    <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
-                    <p className="slideshow-text">Per Month</p>
-                  </div>
-                  <p className="slideshow-text">for</p>
-                  <div className="slideshow-flex--box">
-                    <p className="slideshow-details"> 36 </p>
-                    <p className="slideshow-text">Months</p>
-                  </div>
-                  <div className="slideshow-flex--box">
-                    <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
-                    <p className="slideshow-text">Due At Signing</p>
-                  </div>
-                </div>
-                {/* <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>   */}
-                <div className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>
-                  <button className="slideshow-button--main"></button>
-                  <div className="slideshow-button--text">Learn More</div>
-                </div>
-                {/*media query only shows at 768px*/}
-                <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval} buildCar={this.props.buildCar}/>         
+    
+          <div key={this.state.slideIndex} className="slideshow-container">
+            <div className="slideshow-padding">
+              <div className="slideshow-title">
+                <div className="">2019 &nbsp; </div>
+                <div className="slideshow-title--car">{this.state.models[this.state.slideIndex]}</div>
               </div>
+              <div className="slideshow-header">{this.getHeader()}</div>
+                <p className="slideshow-misc">{this.getPhrase()}</p>
+              <div className="slideshow-flex">
+                <div className="slideshow-flex--box">
+                  <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
+                  <p className="slideshow-text">Per Month</p>
+                </div>
+                <p className="slideshow-text">for</p>
+                <div className="slideshow-flex--box">
+                  <p className="slideshow-details"> 36 </p>
+                  <p className="slideshow-text">Months</p>
+                </div>
+                <div className="slideshow-flex--box">
+                  <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
+                  <p className="slideshow-text">Due At Signing</p>
+                </div>
+              </div>
+              {/* <button className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>Learn More</button>   */}
+              <div className="slideshow-button" onClick={this.stopSlideShowAndGetModal}>
+                <button className="slideshow-button--main"></button>
+                <div className="slideshow-button--text">Learn More</div>
+              </div>
+              {/*media query only shows at 768px*/}
+              <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval} buildCar={this.props.buildCar}/>         
             </div>
+          </div>
 
-            <img key={this.state.slideShow[this.state.slideIndex]} className="slideshow-img" src={this.state.slideShow[this.state.slideIndex]} alt="car" />  
+          <img key={this.state.slideShow[this.state.slideIndex]} className="slideshow-img" src={this.state.slideShow[this.state.slideIndex]} alt="car" />  
 
-   
+  
 
-            
-              <button className="slideshow-prev" onClick={this.prev}> <i className="fas fa-arrow-left"></i></button>
-              <button className="slideshow-next" onClick={this.next}> <i className="fas fa-arrow-right"></i></button>  
-            {/* media query only shows at 768px */}
+        
+          <button className="slideshow-prev" onClick={this.prev}> <i className="fas fa-arrow-left"></i></button>
+          <button className="slideshow-next" onClick={this.next}> <i className="fas fa-arrow-right"></i></button>  
+        </div>
 
 
-            <div className="slideshow-button slideshow-button-mq" onClick={this.stopSlideShowAndGetModal}>
+          {/* media query only shows at 768px */}
+        <div className="slideshow-mqContain">
+          <div className="slideshow-title slideshow-title-mq">
+            <div className=""> GET YOUR 2019&nbsp;</div>
+            <div className="slideshow-title--car">{this.state.models[this.state.slideIndex]} </div>
+            <div>&nbsp;FOR</div>
+          </div>
+          <div className="slideshow-flex">
+            <div className="slideshow-flex--box">
+              <p className="slideshow-details slideshow-details-mq"><sup style={dollarSign}>$</sup>{this.state.perMonth[this.state.slideIndex]}</p>
+              <p className="slideshow-text">Per Month</p>
+            </div>
+            <p className="slideshow-text">for</p>
+            <div className="slideshow-flex--box">
+              <p className="slideshow-details"> 36 </p>
+              <p className="slideshow-text">Months</p>
+            </div>
+            <div className="slideshow-flex--box">
+              <p className="slideshow-details"><sup style={dollarSign}>$</sup>{this.state.signing[this.state.slideIndex]}</p>
+              <p className="slideshow-text">Due At Signing</p>
+            </div>
+          </div>
+          <div className="slideshow-button slideshow-button-mq" onClick={this.stopSlideShowAndGetModal}>
             <button className="slideshow-button--main slideshow--main-mq"></button>
             <div className="slideshow-button--text slideshow--text-mq">Learn More</div>
           </div>
-
-
         </div>
-        
+    
+
+
+
+
+      
      
 
       </div>
