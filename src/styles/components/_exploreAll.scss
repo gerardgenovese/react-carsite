@@ -127,22 +127,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // @keyframes carIn{
 //   0%{
 //     opacity: 0;
@@ -154,39 +138,60 @@
 
 @media screen and(max-width: 768px){
 
-
-
   .explore{
     display:none;
     &-car{
-      // width: 100%;
+      width: 100%;
       &:hover &--front {
         display: none;
       }
- 
     }
   }
 
  
   .explore{
-
     &-mq{
       display:flex;
       justify-content:flex-start;
       overflow-x:auto;
       width: 100%;
-      &-test{
-        
-        // width: 100%;
+
+      &::-webkit-scrollbar{
+        width: 0;
+        height: 0;
       }
     }
     &-car{
       &--side_mq{
-        // display:inline-block;
+        display:inline-block;
+        width: 100vw;
         // margin: 0 auto;
-
       }
     }
   }
 }
 
+// @media screen and(max-width: 500px){
+
+//   .explore{
+//     &-mq{
+//       &::-webkit-scrollbar{
+//         width: 0;
+//         height: 0;
+//       }
+//     }
+
+//     &-car{
+//       &--side_mq{
+//         width: 100vw;
+//       }
+//     }
+
+//   }
+// }
+
+// .testing{
+//   display:flex;
+//   justify-content:center;
+//   width: 100vw;
+// }

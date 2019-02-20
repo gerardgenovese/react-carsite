@@ -8,7 +8,7 @@ const WHTChild = (props) => {
 
     <div className="whtC">
       <div className="whtC-container">
-        <div>
+        <div className="whtC-imgContain">
           <img className="whtC-img" src={props.image} alt="#" />
         </div>
           <p className="whtC-callToAction">{props.callToAction}</p>

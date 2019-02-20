@@ -4,12 +4,11 @@
 
 .slideshow{
     width: 100%;
-    // position:relative;
+    position:relative;
     z-index: 1;
+    margin-top: .5rem;
 
   &-bg{
-    // background-image: url("../relativeImages/slideshow/background.jpg");
-    // opacity: 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     // width: 100%;
@@ -29,7 +28,6 @@
     width: 30%;
     background: rgba(221, 218, 218, 0.877);
     // opacity: 0;
- 
     
     margin-left: 5%;
 
@@ -46,8 +44,9 @@
   }
 
   &-title{
-    display:flex;
-    justify-content:center;
+    // display:flex;
+    // justify-content:center;
+    text-align:center;
     text-transform: uppercase;
     font-size: 1.8rem;
     font-family: sans-serif;
@@ -71,8 +70,6 @@
     font-size: 1.2rem;
     font-weight:bold;
     font-family: tahoma;
-    // margin: 1rem 0 2rem 5%;
-    // padding: 0 0 3% 0;
     margin: 3rem;
     text-align:center;
   }
@@ -82,7 +79,6 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    // margin-left: 5%;
 
     &--box{
       display:flex;
@@ -110,7 +106,9 @@
     @include buttonRed;
     margin-top: 3rem;
 
-    &-mq{display:none}
+    &-mq{
+      display:none
+    }
   }
 
 
@@ -279,23 +277,23 @@
       }
     }
     .slideshow{
-
       &-container{
         display:none;
+      }
+      &-bg{
+        justify-content: center;
+        align-items:flex-end;
       }
 
       &-button{
         &-mq{
           display:flex;
-          position: absolute;
-          top: 85%;
-          left: 50%;
-          transform: translateX(-50%);
           margin: 2rem;
           animation: bgShow .3s;
           animation-fill-mode: forwards;
         }
       }
+
       &-details{
         font-size: 1.4rem;
         padding: 0;
@@ -315,14 +313,14 @@
       }
     }
   }
-  @media screen and(max-width:350px){
+  @media screen and(max-width:400px){
     .slideshow{
       &-bg{
-        height: 40vh;
+        height: 30vh;
       }
       &-button{
         &-mq{
-          top: 80%;
+          width: 15rem;
         }
       }
       &--text{
@@ -332,7 +330,7 @@
       }
       &-img{
         width: 20rem;
-        top: 45%;
+        top: 40%;
       }
     }
   }

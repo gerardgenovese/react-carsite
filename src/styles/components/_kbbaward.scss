@@ -43,7 +43,31 @@ $red: #000000;
 }
 
 
+@media screen and(max-width: 768px){
+  .kbb{
+    &-container{
+      margin: 5rem 5% 0 5%;
+    }
+  }
+}
 
+@media screen and(max-width: 500px){
+  .kbb{
+    &-container{
+      margin: 5rem 2% 0 2%;
+    }
+    &-info{
+      font-size: 1.6rem;
+    }
+  }
+}
+@media screen and(max-width: 400px){
+  .kbb{
+    &-img{
+      width: 10rem;
+    }
+  }
+}
 
 
 

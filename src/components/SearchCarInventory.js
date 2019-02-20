@@ -87,6 +87,7 @@ class SearchCarInventory extends React.Component {
     }
   };
 
+  //gets the select value and calls function
   getPricePoint = (e) => e.target.value === "low" ? this.lowToHigh() : this.highToLow();
 
   lowToHigh = () => {
@@ -107,8 +108,6 @@ class SearchCarInventory extends React.Component {
       this.setState({ cars: sortCars })
     }
   };
-
-
 
   //when checkboxes are clicked we begin our filter process here
   onUserClick = (e) => {

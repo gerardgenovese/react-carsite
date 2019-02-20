@@ -87,7 +87,7 @@ class SlideShowModal extends React.Component{
               <div className="modal-offer-button--text">Search Inventory</div> 
             </div>
             <div className="modal-offer-button">
-              <Link to={`/build/${carInfo.title}`} onClick={this.buildCarSelected} className="modal-offer-button--main"></Link>
+              <Link to={`/build/${carInfo.model}`} onClick={this.buildCarSelected} className="modal-offer-button--main"></Link>
               <div className="modal-offer-button--text">Build Yours</div>
             </div>
           </div>

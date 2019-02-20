@@ -118,13 +118,81 @@ class ExploreAll extends React.Component {
             </Link>
           </div> 
         </div>
+
+
+
+
+        <div>
+          <div className="explore-mq">
+            <Link to="/build/camry" onClick={() => this.props.buildCar(this.state.cars[0])}>
+              <div className={this.state.scroll ? "explore-car camryAnimate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side_mq" src={process.env.PUBLIC_URL + '/images/camry/side/red.jpg'} alt="camry"/>
+                </div>
+                <div className="explore-car--info">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[0].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[0].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[0].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+            <Link to="/build/86" onClick={() => this.props.buildCar(this.state.cars[1])}>
+              <div className={this.state.scroll ? "explore-car t86Animate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side_mq t86" src={process.env.PUBLIC_URL + '/images/86/side/white.jpg'} alt="86"/>
+                </div>
+                <div className="explore-car--info t86">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[1].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[1].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[1].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+            <Link to="/build/corolla" onClick={() => this.props.buildCar(this.state.cars[2])}>
+              <div className={this.state.scroll ? "explore-car corollaAnimate" : "explore-car"}>
+                <div className="testing">
+                  <img className="explore-car--side_mq corolla" src={process.env.PUBLIC_URL + '/images/corolla/side/blue.jpg'} alt="corolla"/>
+                </div>
+                <div className="explore-car--info corolla">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[2].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[2].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[2].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+            <Link to="/build/avalon" onClick={() => this.props.buildCar(this.state.cars[3])}>
+              <div className={this.state.scroll ? "explore-car avalonAnimate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side_mq avalon" src={process.env.PUBLIC_URL + '/images/avalon/side/black.jpg'} alt="avalon"/>
+                </div>
+                <div className="explore-car--info avalon">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[3].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[3].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[3].miles} est MPG</div>
+                </div>
+              </div> 
+            </Link>
+            <Link to="/build/yaris" onClick={() => this.props.buildCar(this.state.cars[4])}> 
+              <div className={this.state.scroll ? "explore-car yarisAnimate" : "explore-car"}>
+                <div>
+                  <img className="explore-car--side_mq yaris" src={process.env.PUBLIC_URL + '/images/yaris/side/gray.jpg'} alt="yaris"/>
+                </div>
+                <div className="explore-car--info yaris">
+                  <div className="explore-car--model"><strong>2019 {this.state.cars[4].title}</strong></div> 
+                  <div className="explore-car--price">${this.state.cars[4].price}</div>
+                  <div className="explore-car--mileage">{this.state.cars[4].miles} est MPG</div>
+                </div>
+              </div>  
+            </Link>
+          </div> 
+        </div>
   
 
-        <div className="explore explore-mq">
+        {/* <div className="explore-mq">
           <Link to="/build/camry" onClick={() => this.props.buildCar(this.state.cars[0])}>
-            <div className={this.state.camryAnimate ? "explore-car carAnimate" : "explore-car"}>
-              <div className="explore-mq-test">
-                <img className="explore-car--side_mq_mq" src={camrySide} alt="camry"/>
+            <div className={this.state.scroll ? "explore-car carAnimate" : "explore-car"}>
+              <div className="explore-mq">
+                <img className="explore-car--side_mq" src={camrySide} alt="camry"/>
                 <img className="explore-car--front" src={camryFront} alt="camry"/>
               </div>
               <div className="explore-car--info">
@@ -135,8 +203,8 @@ class ExploreAll extends React.Component {
             </div>  
           </Link>
           <Link to="/build/86" onClick={() => this.props.buildCar(this.state.cars[1])}>
-            <div className={this.state.t86Animate ? "explore-car carAnimate" : "explore-car"}>
-              <div className="explore-mq-test">
+            <div className={this.state.scroll ? "explore-car carAnimate" : "explore-car"}>
+              <div className="explore-mq">
                 <img className="explore-car--side_mq t86" src={t86Side} alt="86"/>
                 <img className="explore-car--front t86" src={t86Front} alt="86"/>
               </div>
@@ -148,8 +216,8 @@ class ExploreAll extends React.Component {
             </div>  
           </Link>
           <Link to="/build/corolla" onClick={() => this.props.buildCar(this.state.cars[2])}>
-            <div className={this.state.corollaAnimate ? "explore-car carAnimate" : "explore-car"}>
-              <div className="explore-mq-test">
+            <div className={this.state.scroll ? "explore-car carAnimate" : "explore-car"}>
+              <div className="explore-mq">scroll
                 <img className="explore-car--side_mq corolla" src={corollaSide} alt="corolla"/>
                 <img className="explore-car--front corolla" src={corollaFront} alt="corolla"/>
               </div>
@@ -161,8 +229,8 @@ class ExploreAll extends React.Component {
             </div>  
           </Link>
           <Link to="/build/avalon" onClick={() => this.props.buildCar(this.state.cars[3])}>
-            <div className={this.state.avalonAnimate ? "explore-car carAnimate" : "explore-car"}>
-              <div className="explore-mq-test">
+            <div className={this.state.scroll ? "explore-car carAnimate" : "explore-car"}>
+              <div className="explore-mq">
                 <img className="explore-car--side_mq avalon" src={avalonSide} alt="avalon"/>
                 <img className="explore-car--front avalon" src={avalonFront} alt="avalon"/>
               </div>
@@ -174,8 +242,8 @@ class ExploreAll extends React.Component {
             </div> 
           </Link>
           <Link to="/build/yaris" onClick={() => this.props.buildCar(this.state.cars[4])}> 
-            <div className={this.state.yarisAnimate ? "explore-car carAnimate" : "explore-car"}>
-              <div className="explore-mq-test">
+            <div className={this.state.scroll ? "explore-car carAnimate" : "explore-car"}>
+              <div className="explore-mq">
                 <img className="explore-car--side_mq yaris" src={yarisSide} alt="yaris"/>
                 <img className="explore-car--front yaris" src={yarisFront} alt="yaris="/>
               </div>
@@ -186,7 +254,7 @@ class ExploreAll extends React.Component {
               </div>
             </div>  
           </Link>
-        </div> 
+        </div>  */}
       </div>
     )
   }

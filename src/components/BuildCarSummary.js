@@ -69,7 +69,7 @@ class BuildCarSummary extends React.Component{
 
           <div>
 
-              <h1 className="summary-header">&nbsp;</h1>
+              {/* <h1 className="summary-header">&nbsp;</h1> */}
               <div className="summary-contain">
                 <div className="summary-wrapper">
               

@@ -90,9 +90,6 @@
 
 */
 
-
-
-
 @mixin buttonRed{
 
   display:flex;
@@ -104,7 +101,7 @@
   }
 
   &--main{
-    border:none;
+    border: none;
     background:red;
     position:absolute;
     width: 20rem;
@@ -116,7 +113,6 @@
     &:hover{
       transform: scale(1.1);
       transition: .3s;
-      background:rgb(170, 4, 4);
     }
     &:active{
       outline-style:dotted;
@@ -135,6 +131,7 @@
     letter-spacing: 1px;
   }
 }
+
 
 
 @mixin buttonWhite{
