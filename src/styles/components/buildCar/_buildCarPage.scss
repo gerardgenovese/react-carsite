@@ -335,6 +335,10 @@
     position:absolute;
     left: 0;
     padding-top: 35rem;
+
+    @media screen and(max-width:500px){
+      padding-top:30rem;
+    }
   }
 
   &-mainContainer{
@@ -552,6 +556,10 @@
     // padding-top: 0;
     animation: panelScroll .7s;
     animation-fill-mode: forwards;
+
+    @media screen and(max-width: 500px){
+      animation: panelScrollMQ .7s forwards;
+    }
   }
 
 
@@ -574,6 +582,14 @@
 @keyframes panelScroll {
   0%{
     padding-top: 10rem;
+  }
+  100%{
+    padding-top: 0;
+  }
+}
+@keyframes panelScrollMQ {
+  0%{
+    padding-top: 2rem;
   }
   100%{
     padding-top: 0;
