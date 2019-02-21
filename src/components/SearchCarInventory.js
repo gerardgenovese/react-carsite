@@ -30,8 +30,43 @@ class SearchCarInventory extends React.Component {
     sliderRangeOne: "",
     sliderRangeTwo: "",
 
-    priceLowToHigh: []
+    priceLowToHigh: [],
+
+
+    showFilterMQ: false,
+    showFilterButtonMQ: false
   };
+
+  //when clear All is clicked all filters are removed checkboxes unchecked, range sliders returned to default values and showcaseCars method is called to display the cars
+  clearAllFilters = () => {
+    this.setState(() => ({ inventoryOptions: [], filteredCars: [], trim: [], engine: [], color: [], cargoTote: false, leatherMats: false, wheelLocks: false, sliderRangeOne: this.state.sliderOneDefaultValue, sliderRangeTwo: this.state.sliderTwoDefaultValue, lowPricePoint: this.state.sliderOneDefaultValue, highPricePoint: this.state.sliderTwoDefaultValue }), () => {
+
+      document.getElementById("car-model1").checked = false;
+      document.getElementById("car-model2").checked = false;
+      document.getElementById("car-model3").checked = false;
+
+      document.getElementById("engine-acc1").checked = false;
+      document.getElementById("engine-acc2").checked = false;
+
+      document.querySelector("#lower").value = this.state.sliderOneDefaultValue;
+      document.querySelector("#higher").value = this.state.sliderTwoDefaultValue;
+
+      document.getElementById("car-color1").checked = false;
+      document.getElementById("car-color2").checked = false;
+      document.getElementById("car-color3").checked = false;
+      document.getElementById("car-color4").checked = false;
+      document.getElementById("car-color5").checked = false;
+      document.getElementById("car-color6").checked = false;
+      
+      document.getElementById("car-accessory1").checked = false;
+      document.getElementById("car-accessory2").checked = false;
+      document.getElementById("car-accessory3").checked = false;
+
+      
+    }, () => { this.showcaseCars() });
+  };
+
+
 
   componentWillMount(){
     //gets the price of the selected car, from <Link> in SlideShowModal.js, as a number and saves the two default value for the range slider and sets the range slider values
@@ -47,8 +82,16 @@ class SearchCarInventory extends React.Component {
   };
 
   //scroll to top of page when page loads & runs method to put car objects into state
+  //gets window width for searchcarinventory filters display. Above 768 show filters. Below 768 hide and enable button click method getshowFilterMQ to show it.
   componentDidMount() {
     window.scrollTo(0, 0); 
+
+    if(window.innerWidth > 768){
+      this.setState({ showFilterMQ: true, showFilterButtonMQ: false });
+     } else if(window.innerWidth < 768) {
+      this.setState({ showFilterMQ: false, showFilterButtonMQ: true });
+     }
+
     this.loadImages();
   };
 
@@ -173,7 +216,7 @@ class SearchCarInventory extends React.Component {
       }
     }
 
-    this.setState(() => ({ filteredCars: [], trim: combinedTrim, engine: combinedEngine, color: combinedColor, cargoTote, leatherMats, wheelLocks }), () => {
+    this.setState(() => ({ filteredCars: [], inventoryOptions:[...combinedTrim, ...combinedEngine, ...combinedColor], trim: combinedTrim, engine: combinedEngine, color: combinedColor, cargoTote, leatherMats, wheelLocks }), () => {
       // console.log("clicked", this.state.leatherMats);
       this.getCorrectArrayToDisplay();
     });
@@ -619,6 +662,25 @@ class SearchCarInventory extends React.Component {
     if(range1 === range2){ return( <div>{range1} - {range2}</div> )}
    };
 
+   //when filter button is showing in 768px or below its onClick will toggle between showing the filters full screen fixed and then hiding it
+   getShowFilterMQ = () => {
+    this.setState({ showFilterMQ: !this.state.showFilterMQ });
+   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   render(){
     // console.log("ci", this.props)
@@ -626,19 +688,33 @@ class SearchCarInventory extends React.Component {
 
     //Slice first letter of car name and Capitalize then add the rest of string to create a Capitalized car name
     // const car = this.props.location.state.model.slice(0,1).toUpperCase() + this.props.location.state.model.slice(1);
-  
+
+
+
+    let addRemoveOptions = this.state.inventoryOptions.map((e, i ) => {
+      return (
+        <div key={i} className="carInv-addRemoveOptions--innerFlex">
+          <div className="carInv-addRemoveOptions--options">{e}</div>
+          <div className="carInv-addRemoveOptions--close">X</div>
+          <div>&nbsp;</div>
+        </div>
+      )
+    });
+
+ 
     return(
       <div className="carInv">
         <div className="build_price-header carInv-header">2019 {this.carModelCapitalize()} Inventory</div>
+        <button className={this.state.showFilterMQ ? "carInv-filterButton--MQ--hide" : "carInv-filterButton--MQ--show"} onClick={this.getShowFilterMQ}>FILTERS</button>
         <div className="carInv-mainFlex">
           <div className="carInv-leftContainer">
             <div className="carInv-filter-groupHeader">
               <div>Filters</div>
-              <div>Clear All</div>
+              <div onClick={this.clearAllFilters}>Clear All</div>
             </div>
             <div>
-              <div className="carInv-checkbox">
-
+              <div className={this.state.showFilterMQ ? "carInv-checkbox carInv-checkbox--show" : "carInv-checkbox carInv-checkbox--hide"}>
+                <button className={this.state.showFilterButtonMQ ? "carInv-filterButton--MQ--show" : "carInv-filterButton--MQ--hide"} onClick={this.getShowFilterMQ}>FILTERS</button>
                 <div className="carInv-tab">
                   <input type="checkbox" id="main-header1"className="carInv-tab--header" />
                   <label htmlFor="main-header1" className="carInv-tab--header-label">Model Trims</label>
@@ -752,13 +828,16 @@ class SearchCarInventory extends React.Component {
               <div>{this.carMatchesNumberDisplay()}</div>
                 <form onChange={this.getPricePoint}>
                   <select name="pricepoint">
-                    <option selected disabled hidden>Sort Prices</option>
+                    <option hidden>Sort Prices</option>
                     <option value="low" >Price: Low To High</option>
                     <option value="high" >Price: High To Low</option>
                   </select>
                 </form>
             </div>
-            <div>
+
+            <div className="carInv-addRemoveOptions--outerFlex">{addRemoveOptions}</div>
+
+            <div className="carInv-selected--flex">
               {this.showcaseCars()}
             </div>
           </div>
