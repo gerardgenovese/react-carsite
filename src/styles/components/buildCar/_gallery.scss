@@ -18,7 +18,9 @@
 
     position:relative;
 
-
+    @media screen and(max-width: 768px){
+      flex: 0 0 50%;
+    }
   }
   &-filter{
     position:absolute;
