@@ -276,7 +276,7 @@ class BuildCarPageAvalon extends React.Component{
                   {this.state.model}
                 </div>
               </div>
-              <div>
+              <div className="buildCar-imgContain">
                 <img className={this.state.carTransition ? "buildCar-imgScroll" : "buildCar-img"}src={this.state.image} alt="car" />
               </div>
               <div className="buildCar-priceButtonFlex">
