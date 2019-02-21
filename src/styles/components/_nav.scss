@@ -1,50 +1,51 @@
 
 
 .nav{
-  font-size: 1.5rem;
-  border-bottom: $border;
-  z-index: 1;
-  position:absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  // background:white;
-
-  &-fixed{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-  }
 
   &-container{
     &--open{
+
+
+      font-size: 1.5rem;
+      border-bottom: $border;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      z-index: 5;
+      
       display:flex;
       align-items:center;
       justify-content: space-between;
       background:rgb(240, 238, 238);
       border-bottom: 1px solid rgb(211, 207, 207);
-      // padding-right: 1.7rem;
-    }
-    &--closed{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      background:rgb(240, 238, 238);
-      border-bottom: 1px solid rgb(211, 207, 207);
+
     }
 
+    &--closed{
+
+      font-size: 1.5rem;
+      border-bottom: $border;
+      width: 100vw;
+      position:absolute;
+      top: 0;
+    
+
+
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      background:rgb(240, 238, 238);
+      border-bottom: 1px solid rgb(211, 207, 207);
+    }
   }
 
 
 
   &-container2{
     &--open{
-      animation: menuOpen .4s;
-      animation-fill-mode: forwards;
+ 
       position:fixed;
-      top: 3.75%;
+      top: 3.5rem;
       left: 0;
       width: 100vw;
       background: white;
@@ -52,7 +53,14 @@
       // padding-right: 5rem;
       // overflow:hidden;
       // height: 1000px;
-      overflow:scroll;
+      animation: menuOpen .4s;
+      animation-fill-mode: forwards;
+      // overflow:scroll;
+      overflow:hidden;
+
+      @media screen and(max-width: 768px){
+        overflow:scroll;
+      }
     }
 
     &--closed{
@@ -61,10 +69,10 @@
       animation: menuClosed .4s;
       animation-fill-mode: forwards;
       position:absolute;
+      top: 3.5rem;
       // top: 3.75%;
-      top: 3.75%;
       left: 0;
-      width: 100%;
+      width: 100vw;
       background: white;
       z-index: 5;
       // background:blue;

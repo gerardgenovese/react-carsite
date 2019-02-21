@@ -34,7 +34,6 @@ class Nav extends React.Component {
   render(){
     return(
       <div>
-        <div className={this.state.menu ? " nav nav-fixed" : "nav"}>
           <div className={this.state.menu ? "nav-container--open" : "nav-container--closed"}>
             <div></div>
             <div></div>
@@ -54,7 +53,6 @@ class Nav extends React.Component {
             </div>
             <div></div>
           </div>
-        </div>
         <div className={this.state.menu ? "nav-container2--open" : "nav-container2--closed"}>
           <div className="nav-container2--links">
             <div>

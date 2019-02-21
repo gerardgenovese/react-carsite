@@ -287,7 +287,7 @@ class BuildCarPageAvalon extends React.Component{
               </div>
             </div>
             <div>
-              <div className="buildCar-panelContainer" >
+              <div className="buildCar-panelContainer">
                 <div className={this.state.buildCarColors ?"buildCar-panelButtons buildCar-border buildCar-panelActive" : "buildCar-panelButtons buildCar-border buildCar-panelInactive"} data-value="buildCarColors" onClick={this.changeBuildOption}>
                   <p className="buildCar-panelButtons-text" data-value="buildCarColors" onClick={this.changeBuildOption}>Color</p>
                   <i className="fas fa-car" data-value="buildCarColors" onClick={this.changeBuildOption}></i>

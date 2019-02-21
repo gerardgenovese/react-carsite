@@ -106,6 +106,13 @@ class SelectCars extends React.Component {
             </div>  
           </Link>
         </div> 
+        <div>
+            <div className={this.props.menu ? "select-container" : "select-container--hidden"}>
+              <div>
+                <div className="select-car--side--bottomspace">&nbsp;</div>
+              </div>
+            </div>  
+        </div> 
       </div> 
     )
   }

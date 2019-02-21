@@ -58,6 +58,11 @@
   position: relative;
   // margin-top: 10rem;
 
+
+  @media screen and(max-width: 768px){
+    flex-direction:column;
+  }
+
   &--headerMain{
     @include buildCarHeader;
   }
@@ -84,6 +89,11 @@
     user-select: none;
     box-shadow: 2px 0 15px rgb(139, 136, 136);
     border-radius: 5px;
+
+    @media screen and(max-width: 768px){
+      margin: 0 0 3rem 0;
+    }
+
   }
 
   &--type {
@@ -97,6 +107,10 @@
   &--specs {
     font-size: 2rem;
     padding: .5rem;
+
+    @media screen and(max-width: 768px){
+      font-size: 1.6rem;
+    }
   }
   &--spec{
     padding: .5rem;
@@ -122,11 +136,16 @@
     border-radius: 50%;
     align-self: center;
     position:relative;
+
+    // @media screen and(max-width: 1000px){
+    //   visibility:hidden;
+    // }
 }
 
 /* On mouse-over, add a light red background color */
   &--label:hover input ~ &--checkmark {
     background-color: rgb(231, 84, 84);
+    
   }
 /* When radio button is checked, add red background */
   &--label input:checked ~ &--checkmark {
@@ -161,45 +180,6 @@
   // }
 }
 
-
-
-
-@media(max-width: 1000px){
-  .buildCar-engine {
-
-    &--label {
-      height: 20rem;
-      padding: 1rem 2rem;
-      margin-bottom: .8rem;
-      border-radius: 0;
-
-    }
-    &--header {
-      font-size: 1.2rem;
-    }
-    &--specs {
-      font-size: .9rem;
-    }
-  }
-}
-@media(max-width: 500px){
-  .buildCar-engine {
-
-    &--label {
-      height: 20rem;
-      padding: 1rem 2rem;
-      margin-bottom: .8rem;
-      border-radius: 0;
-      display:block;
-    }
-    &--header {
-      font-size: 1.2rem;
-    }
-    &--specs {
-      font-size: .9rem;
-    }
-  }
-}
 
 
 

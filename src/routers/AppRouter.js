@@ -35,26 +35,29 @@ class AppRouter extends React.Component {
   render(){
     return(
       <BrowserRouter>
-        <div className={this.state.menu ? "body-container body-container--overflow" : "body-container"}>
-          <Nav getStateFromNav={this.getStateFromNav} />
-          <Switch>
-            <Route path="/" component={LandingPage} exact={true}/>
-            <Route path="/select_toyota" component={BuildPriceSelection}/>
-            <Route path="/build/camry" component={BuildCarPageCamry}/>
-            <Route path="/build/86" component={BuildCarPage86}/>
-            <Route path="/build/corolla" component={BuildCarPageCorolla}/>
-            <Route path="/build/avalon" component={BuildCarPageAvalon}/>
-            <Route path="/build/yaris" component={BuildCarPageYaris}/>
-            <Route path="/search" component={SearchPage} />
-            <Route path="/search-inventory" component={SearchInventory} />
-            <Route path="/toyota/car/inventory" component={SearchCarInventory} />
-  
-            <Route path="/toyota-newsroom/supra" component={Supra} />
-            <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />
-            <Route path="/toyota-care" component={ToyotaCare} />
-  
-            <Route component={Page404} />
-          </Switch>
+        <div>
+        <Nav getStateFromNav={this.getStateFromNav} />
+          <div className={this.state.menu ? "body-container body-container--overflow" : "body-container"}>
+          
+            <Switch>
+              <Route path="/" component={LandingPage} exact={true}/>
+              <Route path="/select_toyota" component={BuildPriceSelection}/>
+              <Route path="/build/camry" component={BuildCarPageCamry}/>
+              <Route path="/build/86" component={BuildCarPage86}/>
+              <Route path="/build/corolla" component={BuildCarPageCorolla}/>
+              <Route path="/build/avalon" component={BuildCarPageAvalon}/>
+              <Route path="/build/yaris" component={BuildCarPageYaris}/>
+              <Route path="/search" component={SearchPage} />
+              <Route path="/search-inventory" component={SearchInventory} />
+              <Route path="/toyota/car/inventory" component={SearchCarInventory} />
+    
+              <Route path="/toyota-newsroom/supra" component={Supra} />
+              <Route path="/toyota-concept-vehicles/supra/xfinity-series" component={Xfinity} />
+              <Route path="/toyota-care" component={ToyotaCare} />
+    
+              <Route component={Page404} />
+            </Switch>
+          </div>
         </div>
       </BrowserRouter>
     )

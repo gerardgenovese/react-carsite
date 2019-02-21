@@ -207,6 +207,7 @@
     display:flex;
     justify-content:center;
     flex-wrap: wrap;
+
   }
 
   &-container{
@@ -262,6 +263,12 @@
     &--side{
       display:inline-block;
       // max-width: 100%;
+
+      &--bottomspace{
+        height: 20rem;
+        width: 100vw;
+        background:transparent;
+      }
     }
         
     &:hover &--front{
@@ -302,7 +309,9 @@
 
 
   }
-
+  .addroom{
+    height: 10rem;
+  }
 
 }
 
