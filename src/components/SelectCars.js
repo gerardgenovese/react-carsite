@@ -14,148 +14,100 @@ import avalonFront from "../relativeImages/exploreall/avalon/front.png"
 import yarisSide from "../relativeImages/exploreall/yaris/side.png"
 import yarisFront from "../relativeImages/exploreall/yaris/front.png"
 
-
-
-
 class SelectCars extends React.Component {
 
 
-  state = {
-    cars: this.props.cars,
-    // image: [],
-    // title: [],
-    // price: []
-    // camryAnimate: false,
-    // t86Animate: false,
-    // corollaAnimate:false,
-    // avalonAnimate:false,
-    // yarisAnimate:false
-  }
-  
-
-
-  // startAnimation(){
-  //   setTimeout(() => {
-  //     this.setState({ camryAnimate: true })
-  //   },100);
-  //   setTimeout(() => {
-  //     this.setState({ t86Animate: true })
-  //   },300);
-  //   setTimeout(() => {
-  //     this.setState({ corollaAnimate: true })
-  //   },500);
-  //   setTimeout(() => {
-  //     this.setState({ avalonAnimate: true })
-  //   },700);
-  //   setTimeout(() => {
-  //     this.setState({ yarisAnimate: true })
-  //   },900);
-  // }
-
-
-  // componentWillUnmount(){
-  //   this.setState({ camryAnimate: false, t86Animate: false, corollaAnimate: false, avalonAnimate: false, yarisAnimate: false });
-  // }
-  
-  
+  closeMenu = () => {
+    this.props.closeMenu();
+  };
 
   render(){
     // console.log("props", this.props)
-    //props coming in from Nav.js
-
-
-
-
-    //animate keyframes in exploreAll.scss
+    //props coming in from Nav.js as well as redux store & camryAnimate classNames etc are in exploreAll.scss
     return (
    
-      <div>
+      <div className="select-flex">
         <div className={this.props.menu ? "select-container" : "select-container--hidden"}>
-          <Link to="/build/camry" onClick={() => this.props.buildCar(this.state.cars[0])}>
-            <div className={this.props.menu ? "select-car camryAnimate" : "select-car"}>
+          <Link to="/build/camry" onClick={() => this.props.buildCar(this.props.cars[0])}>
+            <div className={this.props.menu ? "select-car camryAnimate" : "select-car"} onClick={this.closeMenu}>
               <div>
                 <img className="select-car--side" src={camrySide} alt="camry"/>
                 <img className="select-car--front" src={camryFront} alt="camry"/>
               </div>
               <div className="select-car--info">
-                <div className="select-car--model"><strong>2019 {this.state.cars[0].title}</strong></div> 
-                <div className="select-car--price">${this.state.cars[0].price}</div>
-                <div className="select-car--mileage">{this.state.cars[0].miles} est MPG</div>
+                <div className="select-car--model"><strong>2019 {this.props.cars[0].title}</strong></div> 
+                <div className="select-car--price">${this.props.cars[0].price}</div>
+                <div className="select-car--mileage">{this.props.cars[0].miles} est MPG</div>
               </div>
             </div>  
           </Link>
         </div> 
 
         <div className={this.props.menu ? "select-container" : "select-container--hidden"}>  
-          <Link to="/build/86" onClick={() => this.props.buildCar(this.state.cars[1])}>
-            <div className={this.props.menu ? "select-car t86Animate" : "select-car"}>
+          <Link to="/build/86" onClick={() => this.props.buildCar(this.props.cars[1])}>
+            <div className={this.props.menu ? "select-car t86Animate" : "select-car"} onClick={this.closeMenu}>
               <div>
                 <img className="select-car--side t86" src={t86Side} alt="86"/>
                 <img className="select-car--front t86" src={t86Front} alt="86"/>
               </div>
               <div className="select-car--info t86">
-                <div className="select-car--model"><strong>2019 {this.state.cars[1].title}</strong></div> 
-                <div className="select-car--price">${this.state.cars[1].price}</div>
-                <div className="select-car--mileage">{this.state.cars[1].miles} est MPG</div>
+                <div className="select-car--model"><strong>2019 {this.props.cars[1].title}</strong></div> 
+                <div className="select-car--price">${this.props.cars[1].price}</div>
+                <div className="select-car--mileage">{this.props.cars[1].miles} est MPG</div>
               </div>
             </div>  
           </Link>
         </div> 
 
         <div className={this.props.menu ? "select-container" : "select-container--hidden"}>
-          <Link to="/build/corolla" onClick={() => this.props.buildCar(this.state.cars[2])}>
-            <div className={this.props.menu ? "select-car corollaAnimate" : "select-car"}>
+          <Link to="/build/corolla" onClick={() => this.props.buildCar(this.props.cars[2])}>
+            <div className={this.props.menu ? "select-car corollaAnimate" : "select-car"} onClick={this.closeMenu}>
               <div>
                 <img className="select-car--side corolla" src={corollaSide} alt="corolla"/>
                 <img className="select-car--front corolla" src={corollaFront} alt="corolla"/>
               </div>
               <div className="select-car--info corolla">
-                <div className="select-car--model"><strong>2019 {this.state.cars[2].title}</strong></div> 
-                <div className="select-car--price">${this.state.cars[2].price}</div>
-                <div className="select-car--mileage">{this.state.cars[2].miles} est MPG</div>
+                <div className="select-car--model"><strong>2019 {this.props.cars[2].title}</strong></div> 
+                <div className="select-car--price">${this.props.cars[2].price}</div>
+                <div className="select-car--mileage">{this.props.cars[2].miles} est MPG</div>
               </div>
             </div>  
           </Link>
         </div> 
 
         <div className={this.props.menu ? "select-container" : "select-container--hidden"}>
-          <Link to="/build/avalon" onClick={() => this.props.buildCar(this.state.cars[3])}>
-            <div className={this.props.menu ? "select-car avalonAnimate" : "select-car"}>
+          <Link to="/build/avalon" onClick={() => this.props.buildCar(this.props.cars[3])}>
+            <div className={this.props.menu ? "select-car avalonAnimate" : "select-car"} onClick={this.closeMenu}>
               <div>
                 <img className="select-car--side avalon" src={avalonSide} alt="avalon"/>
                 <img className="select-car--front avalon" src={avalonFront} alt="avalon"/>
               </div>
               <div className="select-car--info avalon">
-                <div className="select-car--model"><strong>2019 {this.state.cars[3].title}</strong></div> 
-                <div className="select-car--price">${this.state.cars[3].price}</div>
-                <div className="select-car--mileage">{this.state.cars[3].miles} est MPG</div>
+                <div className="select-car--model"><strong>2019 {this.props.cars[3].title}</strong></div> 
+                <div className="select-car--price">${this.props.cars[3].price}</div>
+                <div className="select-car--mileage">{this.props.cars[3].miles} est MPG</div>
               </div>
             </div> 
           </Link>
         </div> 
 
         <div className={this.props.menu ? "select-container" : "select-container--hidden"}>
-          <Link to="/build/yaris" onClick={() => this.props.buildCar(this.state.cars[4])}> 
-            <div className={this.props.menu ? "select-car yarisAnimate" : "select-car"}>
+          <Link to="/build/yaris" onClick={() => this.props.buildCar(this.props.cars[4])}> 
+            <div className={this.props.menu ? "select-car yarisAnimate" : "select-car"} onClick={this.closeMenu}>
               <div>
                 <img className="select-car--side yaris" src={yarisSide} alt="yaris"/>
                 <img className="select-car--front yaris" src={yarisFront} alt="yaris="/>
               </div>
               <div className="select-car--info yaris">
-                <div className="select-car--model"><strong>2019 {this.state.cars[4].title}</strong></div> 
-                <div className="select-car--price">${this.state.cars[4].price}</div>
-                <div className="select-car--mileage">{this.state.cars[4].miles} est MPG</div>
+                <div className="select-car--model"><strong>2019 {this.props.cars[4].title}</strong></div> 
+                <div className="select-car--price">${this.props.cars[4].price}</div>
+                <div className="select-car--mileage">{this.props.cars[4].miles} est MPG</div>
               </div>
             </div>  
           </Link>
         </div> 
       </div> 
-
-    
     )
-
-
-   
   }
 }
 

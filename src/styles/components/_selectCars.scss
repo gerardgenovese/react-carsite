@@ -165,24 +165,24 @@
 
 // }
 
-@keyframes menuOpen {
-  0%{
-    height: 0;
-  }
-  100%{
-    height: 100%;
-  }
-}
+// @keyframes menuOpen {
+//   0%{
+//     height: 0;
+//   }
+//   100%{
+//     height: 100vh;
+//   }
+// }
 
-@keyframes menuClosed{
-  0%{
-    height: 100%;
-  }
-  100%{
-    height: 0;
+// @keyframes menuClosed{
+//   0%{
+//     height: 100vh;
+//   }
+//   100%{
+//     height: 0;
 
-  }
-}
+//   }
+// }
 
 // }
 // .select-menu-items--show{
@@ -203,66 +203,69 @@
 
 
 .select{
+  &-flex{
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
 
   &-container{
-    margin:1rem;
+    padding:3rem;
     display:flex;
     justify-content: center;
     align-items:center;
+    // min-height: 100%;
   }
   &-container--hidden{
     display:none;
   }
-  &-menu{
-    &--open{
-      transition: .5s;
-      animation: menuOpen .4s;
-      animation-fill-mode: forwards;
-      background: white;
-      // color: white;
-      width:100%;
-      height: 100vh;
-      top: 8rem;
-      left: 0;
-      position:fixed;
-      z-index: 100;
-      overflow-y: hidden;
-    }
-    &--closed{
-      position:fixed;
-      top: 8rem;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      height: 0;
-      transition: 2s;
-      animation: menuClosed .4s;
-      animation-fill-mode: forwards;      // border-bottom: 2px solid black;
-      background: white;
-      // color: white;
+  // &-menu{
+  //   &--open{
+  //     transition: .5s;
+  //     animation: menuOpen .4s;
+  //     animation-fill-mode: forwards;
+  //     background: white;
+  //     width:100%;
+  //     height: 100vh;
+  //     // top: 8rem;
+  //     top: 0;
+  //     left: 0;
+  //     position:fixed;
+  //     // position:absolute;
+  //     z-index: 100;
+  //     overflow:scroll;
 
-    }
-  }
+  //     // @media screen and(max-width:768px){
+  //     //   overflow: scroll;
+  //     // }
+  //   }
+  //   &--closed{
+  //     position:fixed;
+  //     top: 8rem;
+  //     left: 0;
+  //     z-index: 1;
+  //     width: 100%;
+  //     height: 0;
+  //     transition: 2s;
+  //     animation: menuClosed .4s;
+  //     animation-fill-mode: forwards;  
+  //     background: white;
+  //   }
+  // }
   &-car{
-    // pointer-events:none;
     position: relative;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
 
-    // &--imgContain{
-    //   width: 100%;
-    // }
-
     &--side{
       display:inline-block;
-      max-width: 100%;
+      // max-width: 100%;
     }
         
     &:hover &--front{
       display:inline-block;
-
     }
 
     &--front{
@@ -271,14 +274,44 @@
       top: 0;
       left: 0;
       z-index: 1;
-      // padding: 2rem;
-      // margin: 1rem;
     }
+
+    &--info {
+      font-size: 1.6rem;
+      font-family: tahoma;
+      margin-top: 1rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    
+    &--model {
+      // margin-top: 1rem;
+      font-size: 2rem;
+      text-transform:uppercase;
+    }
+    
+    &--price,
+    &--mileage {
+      font-size: 1.6rem;
+    } 
+    &--price{
+      padding: .5rem 0;
+    } 
+
+
+
   }
 
-  
 
 }
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////
 
 
 
