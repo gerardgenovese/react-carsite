@@ -7,14 +7,16 @@
   &-flex{
     // background-color: rgb(247, 243, 243);
     display:flex;
+    justify-content:center;
     margin: 1rem;
     // position:relative;
-
+    flex-wrap:wrap;
   }
   &-accs{
     // background-color: rgb(255, 255, 255);
-    width: 100%;
+    // width: 100%;
     margin: 2rem;
+
  
     &--items {
       background: white;
