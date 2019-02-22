@@ -1,3 +1,9 @@
+A mock-up site of a toyota car website. Choose a car, picks it's color and accessories, edit through filters, search for specific cars etc. 
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
