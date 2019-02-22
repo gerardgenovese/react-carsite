@@ -96,6 +96,7 @@ class SearchCarInventory extends React.Component {
 
   //capitalize the car model name
   carModelCapitalize(){ return this.props.location.state.model.slice(0,1).toUpperCase() + this.props.location.state.model.slice(1); };
+  capitalize(str){ return str.slice(0,1).toUpperCase() + str.slice(1) };
 
   //Get Car price and return price to string to include $ and ,
   carPrice = (price) => {
@@ -767,7 +768,7 @@ class SearchCarInventory extends React.Component {
       return (
         <div key={i} className="carInv-addRemoveOption--inner">
             <input type="checkbox" id={`remove${option}`} className="carInv-addRemoveOptions--input" data-type={data} value={option} onClick={(e) => this.removeOption(e, option, data)}/>
-            <label htmlFor={`remove${option}`} className="carInv-addRemoveOptions--label">{option}</label>
+            <label htmlFor={`remove${option}`} className="carInv-addRemoveOptions--label">{this.capitalize(option)}</label>
         </div>
 
 

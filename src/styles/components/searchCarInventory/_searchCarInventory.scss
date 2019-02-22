@@ -7,6 +7,13 @@
     width: 100vw;
     padding: 1rem;
     margin: 1rem 0;
+    background: rgb(44, 44, 44);
+    color:white;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border:none;
+    box-shadow: 2px 4px 5px rgb(145, 144, 144);
   }
   &-filterButton--MQ--hide{
     display:none;

@@ -18,6 +18,7 @@ class BuildCarAccessories extends React.Component{
     },500);
   };
 
+  //receives the data-type from the event and if the type and checkbox meet the condition we call add_remove_Cargo from the BuildCarPage and send the accessory price amount and the boolean value representing that it was checked/selected or not.
   addOrRemoveAccessories = (e) => {
     const checkbox = e.target.checked;
     const type = e.target.getAttribute("data-type");
@@ -41,18 +42,13 @@ class BuildCarAccessories extends React.Component{
 
   render(){
 
-    const container = {
-      height: "50vh"
-    };
+    const container = { height: "50vh" };
 
     return(
-
       <div>
-
-        {
-          
+        {  
           this.state.loading ? <div style={container}><div className="finance-loading"></div></div> :
-        
+  
           <div>
             <h1 className="buildCar--header">Choose Accessories</h1>
             <div className="buildCar-flex">
@@ -98,8 +94,6 @@ class BuildCarAccessories extends React.Component{
               </div>  
             </div>
           </div>
-
-
       }
       <Footer />
 
