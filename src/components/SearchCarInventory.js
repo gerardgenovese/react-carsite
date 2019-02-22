@@ -696,7 +696,6 @@ class SearchCarInventory extends React.Component {
 
 
 
-
    //when clicking on the specific option filter to remove from the UI and our filtered cars, we call this method to uncheck the checkboxes, filter through the state, and remove the option. We call onUserClick when the new state to re-render the UI with the proper state IE the correct cars accoriding to our filters
   //option comes in from addRemoveFilters in the render method. It is every string value that is a filter saved in our inventoryOptions array, which we use to showcase in the UI, that filter the user clicked 
    removeOption = (e, option, data) => {
@@ -730,30 +729,9 @@ class SearchCarInventory extends React.Component {
       console.log("wheelLocks")
       this.setState(() => ({ wheelLocks: true }), () => { this.onUserClick(e) });
     }
-    
-    
     else{
-      console.log(data);
+      return;
     }
-
-
-//     if(e.target.value === option){
-      
-//       document.getElementById(option).checked = false;
-//       document.getElementById(`remove${option}`).checked = false;
-//       console.log(document.getElementById(`remove${option}`).checked)
-//       let trim = this.state.trim.slice();
-//       let newOptions = trim.filter(el => el !== e.target.value )
-//       this.setState(() => ({ trim: newOptions }), () => { this.onUserClick(e) });
-      
-     
-//     }
-
- 
-
-//     console.log(e);
-// console.log(option)
-
    };
 
 
@@ -767,11 +745,6 @@ class SearchCarInventory extends React.Component {
   render(){
     // console.log("ci", this.props)
     // console.log("cistate",this.state);
-
-    //Slice first letter of car name and Capitalize then add the rest of string to create a Capitalized car name
-    // const car = this.props.location.state.model.slice(0,1).toUpperCase() + this.props.location.state.model.slice(1);
-
-
 
     //takes the state of inventoryOptions, which is each filter chosen by the User combined into a single array, loops through it, creates a new dom element to show on the UI, matches the data-type of the filter to pass to the removeOptions method so we can then remove the filter if the user clicks on it in the UI
     //data === data-type option === value in each input
@@ -792,9 +765,9 @@ class SearchCarInventory extends React.Component {
         data = "wheelLocks"
       } 
       return (
-        <div key={i}>
-            <input type="checkbox" id={`remove${option}`} data-type={data} value={option} onClick={(e) => this.removeOption(e, option, data)}/>
-            <label htmlFor={`remove${option}`} className="carInv-tab--filter">{option}</label>
+        <div key={i} className="carInv-addRemoveOption--inner">
+            <input type="checkbox" id={`remove${option}`} className="carInv-addRemoveOptions--input" data-type={data} value={option} onClick={(e) => this.removeOption(e, option, data)}/>
+            <label htmlFor={`remove${option}`} className="carInv-addRemoveOptions--label">{option}</label>
         </div>
 
 
