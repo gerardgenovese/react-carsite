@@ -22,6 +22,7 @@ class SlideShow extends React.Component{
     carModal: false
   } 
 
+  //takes in props from redux store which will populate all fields so we can then save to state and use
   componentWillMount(){
     const carInfo = [];
     const carBackground = [];
@@ -49,49 +50,32 @@ class SlideShow extends React.Component{
       perMonth,
       signing,
     })
-
-
-
-  
     // this.createSlideShowInterval();
-
   };
 
-
-  createSlideShowInterval = () => {
-    // console.log("create interval")
-    this.slideShow = setInterval(() => this.startSlideShow(), 5000);
-  }
+  //create and interval for our slideshow
+  createSlideShowInterval = () => this.slideShow = setInterval(() => this.startSlideShow(), 1000);
 
 
-  startSlideShow = () =>{
-    // console.log("new slide");
+  //keeps track of our slideshow index to rotate through show slides
+  startSlideShow = () => {
+    const { slideIndex, slideShow} = this.state;
+    slideIndex >= slideShow.length - 1 ? this.setState({ slideIndex: 0 }) : this.setState((prev) => ({ slideIndex: prev.slideIndex + 1}));
+  };
 
-    if(this.state.slideIndex > this.state.slideShow.length - 2){
-      this.setState({ slideIndex: 0 })
-    } else {
-        this.setState((prevState) => {
-          return {
-            slideIndex: prevState.slideIndex + 1,
-          }
-        });
-      }
-  }
-
+  //when called clear the interval for the slideshow and show the model. This will ensure the slideshow doesn't run while the modal is open.
   stopSlideShowAndGetModal = () => {
     console.log("unmount slideshow")
     this.setState({ carModal: true })
     clearInterval(this.slideShow);
   }
 
+  //unsubscribe from the interval when unmounted so we don't have any memory leaks
+  componentWillUnmount(){clearInterval(this.slideShow);}
 
-  componentWillUnmount(){
-    clearInterval(this.slideShow);
-  }
-
-
+  //next  & prev slideshow buttons
   next = () => {
-    if(this.state.slideIndex > this.state.slideShow.length - 2){
+    if(this.state.slideIndex >= this.state.slideShow.length - 1){
       this.setState({ slideIndex: 0})
     } else {
       this.setState((prevState) => {
@@ -114,19 +98,16 @@ class SlideShow extends React.Component{
     }
   };
 
-  getCarFromSlideShow = () => {
-    this.setState({ carModal: true, isSlideShow: false })
-    console.log("getcarfromslideshow",this.state.carInfo[this.state.slideIndex])
-
-  };
+  //gets the car 
+  // getCarFromSlideShow = () => this.setState({ carModal: true, isSlideShow: false });
 
 
   closeModal = () => {
     this.setState({ carModal: false })
   };
 
+  //renders a header for each car at index 
   getHeader(){
-
     const header = 
     [
       "You've got the wheel",
@@ -136,9 +117,10 @@ class SlideShow extends React.Component{
     ];
 
     return header[this.state.slideIndex];
-  }
-  getPhrase(){
+  };
 
+  //renders a phrase for each car at index
+  getPhrase(){
     const phrase = 
     [
       "Luxury that's affordable",
@@ -148,26 +130,18 @@ class SlideShow extends React.Component{
     ];
 
     return phrase[this.state.slideIndex];
-  }
+  };
 
 
   render(){
-    console.log("state", this.state);
+    // console.log("state", this.state);
 
-    const dollarSign = {
-      fontFamily: "helvetica",
-      fontSize: "1.5rem"
-    }
-
-    const backgroundImages = {
-      backgroundImage: `url(${this.state.carBackground[this.state.slideIndex]})`
-    }
+    const dollarSign = { fontFamily: "helvetica",fontSize: "1.5rem" };
+    const backgroundImages = { backgroundImage: `url(${this.state.carBackground[this.state.slideIndex]})`};
   
     return(
       <div className="slideshow">
-    
         <div key={this.state.slideIndex} className="slideshow-bg" style={backgroundImages}>
-    
           <div key={this.state.slideIndex} className="slideshow-container">
             <div className="slideshow-padding">
               <div className="slideshow-title">
@@ -200,16 +174,10 @@ class SlideShow extends React.Component{
               <SlideShowModal carModal={this.state.carModal} carInfo={this.state.carInfo[this.state.slideIndex]} closeModal={this.closeModal} startSlideShowAgain={this.createSlideShowInterval} buildCar={this.props.buildCar}/>         
             </div>
           </div>
-
           <img key={this.state.slideShow[this.state.slideIndex]} className="slideshow-img" src={this.state.slideShow[this.state.slideIndex]} alt="car" />  
-
-  
-
-        
           <button className="slideshow-prev" onClick={this.prev}> <i className="fas fa-arrow-left"></i></button>
           <button className="slideshow-next" onClick={this.next}> <i className="fas fa-arrow-right"></i></button>  
         </div>
-
 
           {/* media query only shows at 768px */}
         <div className="slideshow-mqContain">
@@ -238,14 +206,6 @@ class SlideShow extends React.Component{
             <div className="slideshow-button--text slideshow--text-mq">Learn More</div>
           </div>
         </div>
-    
-
-
-
-
-      
-     
-
       </div>
 
     )
@@ -256,7 +216,8 @@ const mapStateToProps = (state) => {
   return {
     slideShow: state.slideShow
   }
-}
+};
+
 export default connect(mapStateToProps,{
   buildCar
 })(SlideShow);
