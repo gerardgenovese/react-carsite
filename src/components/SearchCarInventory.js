@@ -32,7 +32,6 @@ class SearchCarInventory extends React.Component {
 
     priceLowToHigh: [],
 
-
     showFilterMQ: false,
     showFilterButtonMQ: false
   };
@@ -43,24 +42,24 @@ class SearchCarInventory extends React.Component {
 
       document.getElementById("L").checked = false;
       document.getElementById("LE").checked = false;
-      document.getElementById("car-model3").checked = false;
+      document.getElementById("Hybrid LE").checked = false;
 
-      document.getElementById("engine-acc1").checked = false;
-      document.getElementById("engine-acc2").checked = false;
+      document.getElementById("8 Speed Automatic").checked = false;
+      document.getElementById("8 Speed Manual").checked = false;
 
       document.querySelector("#lower").value = this.state.sliderOneDefaultValue;
       document.querySelector("#higher").value = this.state.sliderTwoDefaultValue;
 
-      document.getElementById("car-color1").checked = false;
-      document.getElementById("car-color2").checked = false;
-      document.getElementById("car-color3").checked = false;
-      document.getElementById("car-color4").checked = false;
-      document.getElementById("car-color5").checked = false;
-      document.getElementById("car-color6").checked = false;
+      document.getElementById("white").checked = false;
+      document.getElementById("black").checked = false;
+      document.getElementById("gray").checked = false;
+      document.getElementById("smoke").checked = false;
+      document.getElementById("blue").checked = false;
+      document.getElementById("red").checked = false;
       
-      document.getElementById("car-accessory1").checked = false;
-      document.getElementById("car-accessory2").checked = false;
-      document.getElementById("car-accessory3").checked = false;
+      document.getElementById("Cargo Tote").checked = false;
+      document.getElementById("Leather Mats").checked = false;
+      document.getElementById("Wheel Locks").checked = false;
 
       
     }, () => { this.showcaseCars() });
@@ -162,6 +161,9 @@ class SearchCarInventory extends React.Component {
     let leatherMats = this.state.leatherMats;
     let wheelLocks = this.state.wheelLocks;
 
+
+
+
     // let lowPricePoint = this.state.lowPricePoint;
     // let highPricePoint = this.state.highPricePoint;
 
@@ -213,10 +215,35 @@ class SearchCarInventory extends React.Component {
           break;
         default:
           break;
-      }
+      };
     }
 
-    this.setState(() => ({ filteredCars: [], inventoryOptions:[...combinedTrim, ...combinedEngine, ...combinedColor], trim: combinedTrim, engine: combinedEngine, color: combinedColor, cargoTote, leatherMats, wheelLocks }), () => {
+    //cargotote leathermats and wheellocks are all boolean values. To showcase them in the UI if the user clicks on a checkbox, we will give it a string value to add to inventoryOptions when their values are true
+    let addCargoTote = [];
+    let addLeatherMats = [];
+    let addWheelLocks = []
+
+
+    if(cargoTote === true){
+      addCargoTote.push("Cargo Tote");
+    } else{
+      addCargoTote.pop();
+    }
+    if(leatherMats === true){
+      addLeatherMats.push("Leather Mats");
+    } else{
+      addLeatherMats.pop();
+    }
+    if(wheelLocks === true){
+      addWheelLocks.push("Wheel Locks");
+    } else{
+      addWheelLocks.pop();
+    }
+
+    console.log("addcargotote", addCargoTote)
+
+
+    this.setState(() => ({ filteredCars: [], inventoryOptions:[...combinedTrim, ...combinedEngine, ...combinedColor, ...addCargoTote, ...addLeatherMats, ...addWheelLocks], trim: combinedTrim, engine: combinedEngine, color: combinedColor, cargoTote, leatherMats, wheelLocks }), () => {
       // console.log("clicked", this.state.leatherMats);
       this.getCorrectArrayToDisplay();
     });
@@ -668,39 +695,64 @@ class SearchCarInventory extends React.Component {
    };
 
 
-   //when clicking on the filter to remove we call this method uncheck the checkboxes filter through the state to remove the option, set a new state and call onUserClick to re-render the UI with the proper state
-   removeOption = (e, option) => {
 
+
+   //when clicking on the specific option filter to remove from the UI and our filtered cars, we call this method to uncheck the checkboxes, filter through the state, and remove the option. We call onUserClick when the new state to re-render the UI with the proper state IE the correct cars accoriding to our filters
+  //option comes in from addRemoveFilters in the render method. It is every string value that is a filter saved in our inventoryOptions array, which we use to showcase in the UI, that filter the user clicked 
+   removeOption = (e, option, data) => {
     e.persist();
-    // if(e.target.value === "L"){
-      
-    //   document.getElementById("L").checked = false;
-    //   document.getElementById("removeL").checked = false;
-    //   console.log(document.getElementById("removeL").checked)
-    //   let trim = this.state.trim.slice();
-    //   let newOptions = trim.filter(el => el !== e.target.value )
-    //   this.setState(() => ({ trim: newOptions }), () => { this.onUserClick(e) });
-      
-     
-    // }
-
-
-    if(e.target.value === option){
-      
       document.getElementById(option).checked = false;
       document.getElementById(`remove${option}`).checked = false;
       console.log(document.getElementById(`remove${option}`).checked)
+
+    if(data === "trim"){
+      console.log("trim")
       let trim = this.state.trim.slice();
       let newOptions = trim.filter(el => el !== e.target.value )
       this.setState(() => ({ trim: newOptions }), () => { this.onUserClick(e) });
+    } else if(data === "engine"){
+      console.log("engine")
+      let engine = this.state.engine.slice();
+      let newOptions = engine.filter(el => el !== e.target.value )
+      this.setState(() => ({ engine: newOptions }), () => { this.onUserClick(e) });
+    } else if(data === "color"){
+      console.log("color")
+      let color = this.state.color.slice();
+      let newOptions = color.filter(el => el !== e.target.value )
+      this.setState(() => ({ color: newOptions }), () => { this.onUserClick(e) });
+    } else if(data === "cargoTote"){
+      console.log("cargoTote")
+      this.setState(() => ({ cargoTote: true }), () => { this.onUserClick(e) });
+    } else if(data === "leatherMats"){
+      console.log("leatherMats")
+      this.setState(() => ({ leatherMats: true }), () => { this.onUserClick(e) });
+    } else if(data === "wheelLocks"){
+      console.log("wheelLocks")
+      this.setState(() => ({ wheelLocks: true }), () => { this.onUserClick(e) });
+    }
+    
+    
+    else{
+      console.log(data);
+    }
+
+
+//     if(e.target.value === option){
+      
+//       document.getElementById(option).checked = false;
+//       document.getElementById(`remove${option}`).checked = false;
+//       console.log(document.getElementById(`remove${option}`).checked)
+//       let trim = this.state.trim.slice();
+//       let newOptions = trim.filter(el => el !== e.target.value )
+//       this.setState(() => ({ trim: newOptions }), () => { this.onUserClick(e) });
       
      
-    }
+//     }
 
  
 
-    console.log(e);
-console.log(option)
+//     console.log(e);
+// console.log(option)
 
    };
 
@@ -714,25 +766,34 @@ console.log(option)
 
   render(){
     // console.log("ci", this.props)
-    console.log("cistate",this.state);
+    // console.log("cistate",this.state);
 
     //Slice first letter of car name and Capitalize then add the rest of string to create a Capitalized car name
     // const car = this.props.location.state.model.slice(0,1).toUpperCase() + this.props.location.state.model.slice(1);
 
 
 
+    //takes the state of inventoryOptions, which is each filter chosen by the User combined into a single array, loops through it, creates a new dom element to show on the UI, matches the data-type of the filter to pass to the removeOptions method so we can then remove the filter if the user clicks on it in the UI
+    //data === data-type option === value in each input
     let addRemoveOptions = this.state.inventoryOptions.map((option, i ) => {
-     
-      return (
-        // <div key={i} id={option} className="carInv-addRemoveOptions--innerFlex" data-type={option} onClick={this.removeOption.bind(this, option)}>
-        // <div key={i} id={option} className="carInv-addRemoveOptions--innerFlex" data-type={option}>
-        //   <div className="carInv-addRemoveOptions--options">{option}</div>
-        //   <div className="carInv-addRemoveOptions--close">X</div>
 
-   
-        // </div>
+      let data = "";
+      if(option === "L" || option === "LE" || option === "Hybrid LE"){
+        data = "trim";
+      } else if(option ==="8 Speed Automatic" || option === "8 Speed Manual"){
+        data = "engine"
+      } else if(option ==="white" || option === "black" || option ==="gray" || option === "smoke" || option ==="blue" || option ==="red"){
+        data = "color"
+      } else if(option === "Cargo Tote"){
+        data = "cargoTote"
+      } else if(option === "Leather Mats"){
+        data = "leatherMats"
+      } else if(option === "Wheel Locks"){
+        data = "wheelLocks"
+      } 
+      return (
         <div key={i}>
-            <input type="checkbox" id={`remove${option}`} data-type="trim" value={option} onClick={(e) => this.removeOption(e, option)}/>
+            <input type="checkbox" id={`remove${option}`} data-type={data} value={option} onClick={(e) => this.removeOption(e, option, data)}/>
             <label htmlFor={`remove${option}`} className="carInv-tab--filter">{option}</label>
         </div>
 
@@ -770,8 +831,8 @@ console.log(option)
                       <label htmlFor="LE" className="carInv-tab--content-label">LE</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-model3" className="carInv-tab--content-input" data-type="trim" value="Hybrid LE" onClick={this.onUserClick}/>
-                      <label htmlFor="car-model3" className="carInv-tab--content-label">Hybrid LE</label>
+                      <input type="checkbox" id="Hybrid LE" className="carInv-tab--content-input" data-type="trim" value="Hybrid LE" onClick={this.onUserClick}/>
+                      <label htmlFor="Hybrid LE" className="carInv-tab--content-label">Hybrid LE</label>
                     </div>
                   </div>
                 </div>
@@ -781,12 +842,12 @@ console.log(option)
                   <label htmlFor="main-header2" className="carInv-tab--header-label">Engine</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="engine-acc1" className="carInv-tab--content-input" data-type="engine" value="8 Speed Automatic" onClick={this.onUserClick}/>
-                      <label htmlFor="engine-acc1" className="carInv-tab--content-label">2.5 4-Cyl 8 speed Automatic</label>
+                      <input type="checkbox" id="8 Speed Automatic" className="carInv-tab--content-input" data-type="engine" value="8 Speed Automatic" onClick={this.onUserClick}/>
+                      <label htmlFor="8 Speed Automatic" className="carInv-tab--content-label">2.5 4-Cyl 8 speed Automatic</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="engine-acc2" className="carInv-tab--content-input" data-type="engine" value="8 Speed Manual" onClick={this.onUserClick}/>
-                      <label htmlFor="engine-acc2" className="carInv-tab--content-label">2.5 4-Cyl 8 speed Manual</label>
+                      <input type="checkbox" id="8 Speed Manual" className="carInv-tab--content-input" data-type="engine" value="8 Speed Manual" onClick={this.onUserClick}/>
+                      <label htmlFor="8 Speed Manual" className="carInv-tab--content-label">2.5 4-Cyl 8 speed Manual</label>
                     </div>
                   </div>
                 </div>
@@ -812,34 +873,34 @@ console.log(option)
                   <label htmlFor="main-header4" className="carInv-tab--header-label">Exterior Color</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color1" className="carInv-tab--content-input" data-type="color" value="white" onClick={this.onUserClick}/>
+                      <input type="checkbox" id="white" className="carInv-tab--content-input" data-type="color" value="white" onClick={this.onUserClick}/>
                       <div className="carInv-color carInv-color--white"></div>
-                      <label htmlFor="car-color1" className="carInv-tab--content-label carInv-color--text">White</label>
+                      <label htmlFor="white" className="carInv-tab--content-label carInv-color--text">White</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color2" className="carInv-tab--content-input" data-type="color" value="black" onClick={this.onUserClick}/>
+                      <input type="checkbox" id="black" className="carInv-tab--content-input" data-type="color" value="black" onClick={this.onUserClick}/>
                       <div className="carInv-color carInv-color--black"></div>
-                      <label htmlFor="car-color2" className="carInv-tab--content-label carInv-color--text">Black</label>
+                      <label htmlFor="black" className="carInv-tab--content-label carInv-color--text">Black</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color3" className="carInv-tab--content-input" data-type="color" value="gray" onClick={this.onUserClick}/>
+                      <input type="checkbox" id="gray" className="carInv-tab--content-input" data-type="color" value="gray" onClick={this.onUserClick}/>
                       <div className="carInv-color carInv-color--gray"></div>
-                      <label htmlFor="car-color3" className="carInv-tab--content-label carInv-color--text">Gray</label>
+                      <label htmlFor="gray" className="carInv-tab--content-label carInv-color--text">Gray</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color4" className="carInv-tab--content-input" data-type="color" value="smoke" onClick={this.onUserClick}/>
+                      <input type="checkbox" id="smoke" className="carInv-tab--content-input" data-type="color" value="smoke" onClick={this.onUserClick}/>
                       <div className="carInv-color carInv-color--smoke"></div>
-                      <label htmlFor="car-color4" className="carInv-tab--content-label carInv-color--text">Smoke</label>
+                      <label htmlFor="smoke" className="carInv-tab--content-label carInv-color--text">Smoke</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color5" className="carInv-tab--content-input" data-type="color" value="blue" onClick={this.onUserClick}/>
+                      <input type="checkbox" id="blue" className="carInv-tab--content-input" data-type="color" value="blue" onClick={this.onUserClick}/>
                       <div className="carInv-color carInv-color--blue"></div>
-                      <label htmlFor="car-color5" className="carInv-tab--content-label carInv-color--text">Blue</label>
+                      <label htmlFor="blue" className="carInv-tab--content-label carInv-color--text">Blue</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-color6" className="carInv-tab--content-input" data-type="color" value="red" onClick={this.onUserClick}/>
+                      <input type="checkbox" id="red" className="carInv-tab--content-input" data-type="color" value="red" onClick={this.onUserClick}/>
                       <div className="carInv-color carInv-color--red"></div>
-                      <label htmlFor="car-color6" className="carInv-tab--content-label carInv-color--text">Red</label>
+                      <label htmlFor="red" className="carInv-tab--content-label carInv-color--text">Red</label>
                     </div>
                    
                   </div>
@@ -849,16 +910,16 @@ console.log(option)
                   <label htmlFor="main-header5" className="carInv-tab--header-label">Accessories</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-accessory1" className="carInv-tab--content-input" data-type="cargoTote" value="Cargo Tote" onClick={this.onUserClick}/>
-                      <label htmlFor="car-accessory1" className="carInv-tab--content-label">Cargo Tote</label>
+                      <input type="checkbox" id="Cargo Tote" className="carInv-tab--content-input" data-type="cargoTote" value="Cargo Tote" onClick={this.onUserClick}/>
+                      <label htmlFor="Cargo Tote" className="carInv-tab--content-label">Cargo Tote</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-accessory2" className="carInv-tab--content-input" data-type="leatherMats" value="Leather Mats" onClick={this.onUserClick}/>
-                      <label htmlFor="car-accessory2" className="carInv-tab--content-label">Leather Mats</label>
+                      <input type="checkbox" id="Leather Mats" className="carInv-tab--content-input" data-type="leatherMats" value="Leather Mats" onClick={this.onUserClick}/>
+                      <label htmlFor="Leather Mats" className="carInv-tab--content-label">Leather Mats</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-accessory3" className="carInv-tab--content-input" data-type="wheelLocks" value="Wheel Locks" onClick={this.onUserClick}/>
-                      <label htmlFor="car-accessory3" className="carInv-tab--content-label">Wheel Locks</label>
+                      <input type="checkbox" id="Wheel Locks" className="carInv-tab--content-input" data-type="wheelLocks" value="Wheel Locks" onClick={this.onUserClick}/>
+                      <label htmlFor="Wheel Locks" className="carInv-tab--content-label">Wheel Locks</label>
                     </div>
                   </div>
                 </div>
