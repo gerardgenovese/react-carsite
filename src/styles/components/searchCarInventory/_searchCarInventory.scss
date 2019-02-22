@@ -6,6 +6,7 @@
     display:block;
     width: 100vw;
     padding: 1rem;
+    margin: 1rem 0;
   }
   &-filterButton--MQ--hide{
     display:none;
@@ -34,17 +35,31 @@
     width: 60%;
   }
 
-  &-filter-groupHeader{
+  &-filter--groupHeader{
     display:flex;
     justify-content: space-around;
-    padding: 2rem;
+    background:white;
+    font-size: 1.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    padding: 1.5rem 0;
+
+    & > div:last-child{
+      color: red;
+      cursor:pointer;
+    }
 
   }
-  &-pricepoint--header{
-    display:flex;
-    justify-content: space-between;
-
-    padding: 2rem;
+  &-pricepoint{
+    &--header{
+      display:flex;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+    &--matches{
+      font-size: 2rem;
+      font-family:Arial, Helvetica, sans-serif;
+    }
   }
   // &-selected{
   //   // &--flex{
@@ -73,10 +88,9 @@
     }
 
     &--innerFlex{
-      background:white;
-      border:1px solid rgb(185, 184, 184);
       display: flex;
       align-items:center;
+      justify-content: space-around;
       margin: .5rem;
       padding-right: 1rem;
     }
@@ -219,6 +233,33 @@
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//WHEN CHECKBOX CLICKED FILTERED STRINGS SHOWS ON UI
+.carInv-addRemoveOptions--innerFlex input{
+  // opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

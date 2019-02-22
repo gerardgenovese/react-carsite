@@ -41,8 +41,8 @@ class SearchCarInventory extends React.Component {
   clearAllFilters = () => {
     this.setState(() => ({ inventoryOptions: [], filteredCars: [], trim: [], engine: [], color: [], cargoTote: false, leatherMats: false, wheelLocks: false, sliderRangeOne: this.state.sliderOneDefaultValue, sliderRangeTwo: this.state.sliderTwoDefaultValue, lowPricePoint: this.state.sliderOneDefaultValue, highPricePoint: this.state.sliderTwoDefaultValue }), () => {
 
-      document.getElementById("car-model1").checked = false;
-      document.getElementById("car-model2").checked = false;
+      document.getElementById("L").checked = false;
+      document.getElementById("LE").checked = false;
       document.getElementById("car-model3").checked = false;
 
       document.getElementById("engine-acc1").checked = false;
@@ -130,7 +130,7 @@ class SearchCarInventory extends React.Component {
     }
   };
 
-  //gets the select value and calls function
+  //gets the select option value and then calls function to price low to high or high to low
   getPricePoint = (e) => e.target.value === "low" ? this.lowToHigh() : this.highToLow();
 
   lowToHigh = () => {
@@ -662,17 +662,47 @@ class SearchCarInventory extends React.Component {
     if(range1 === range2){ return( <div>{range1} - {range2}</div> )}
    };
 
-   //when filter button is showing in 768px or below its onClick will toggle between showing the filters full screen fixed and then hiding it
+   //when filter button is showing in 768px or below this onClick method will toggle between showing the filters full screen at a fixed position and then hiding it 
    getShowFilterMQ = () => {
     this.setState({ showFilterMQ: !this.state.showFilterMQ });
    };
 
 
+   //when clicking on the filter to remove we call this method uncheck the checkboxes filter through the state to remove the option, set a new state and call onUserClick to re-render the UI with the proper state
+   removeOption = (e, option) => {
+
+    e.persist();
+    // if(e.target.value === "L"){
+      
+    //   document.getElementById("L").checked = false;
+    //   document.getElementById("removeL").checked = false;
+    //   console.log(document.getElementById("removeL").checked)
+    //   let trim = this.state.trim.slice();
+    //   let newOptions = trim.filter(el => el !== e.target.value )
+    //   this.setState(() => ({ trim: newOptions }), () => { this.onUserClick(e) });
+      
+     
+    // }
 
 
+    if(e.target.value === option){
+      
+      document.getElementById(option).checked = false;
+      document.getElementById(`remove${option}`).checked = false;
+      console.log(document.getElementById(`remove${option}`).checked)
+      let trim = this.state.trim.slice();
+      let newOptions = trim.filter(el => el !== e.target.value )
+      this.setState(() => ({ trim: newOptions }), () => { this.onUserClick(e) });
+      
+     
+    }
 
+ 
 
+    console.log(e);
+console.log(option)
 
+   };
 
 
 
@@ -691,14 +721,26 @@ class SearchCarInventory extends React.Component {
 
 
 
-    let addRemoveOptions = this.state.inventoryOptions.map((e, i ) => {
+    let addRemoveOptions = this.state.inventoryOptions.map((option, i ) => {
+     
       return (
-        <div key={i} className="carInv-addRemoveOptions--innerFlex">
-          <div className="carInv-addRemoveOptions--options">{e}</div>
-          <div className="carInv-addRemoveOptions--close">X</div>
-          <div>&nbsp;</div>
+        // <div key={i} id={option} className="carInv-addRemoveOptions--innerFlex" data-type={option} onClick={this.removeOption.bind(this, option)}>
+        // <div key={i} id={option} className="carInv-addRemoveOptions--innerFlex" data-type={option}>
+        //   <div className="carInv-addRemoveOptions--options">{option}</div>
+        //   <div className="carInv-addRemoveOptions--close">X</div>
+
+   
+        // </div>
+        <div key={i}>
+            <input type="checkbox" id={`remove${option}`} data-type="trim" value={option} onClick={(e) => this.removeOption(e, option)}/>
+            <label htmlFor={`remove${option}`} className="carInv-tab--filter">{option}</label>
         </div>
+
+
+
+
       )
+      
     });
 
  
@@ -708,8 +750,8 @@ class SearchCarInventory extends React.Component {
         <button className={this.state.showFilterMQ ? "carInv-filterButton--MQ--hide" : "carInv-filterButton--MQ--show"} onClick={this.getShowFilterMQ}>FILTERS</button>
         <div className="carInv-mainFlex">
           <div className="carInv-leftContainer">
-            <div className="carInv-filter-groupHeader">
-              <div>Filters</div>
+            <div className="carInv-filter--groupHeader">
+              <div>FILTERS</div>
               <div onClick={this.clearAllFilters}>Clear All</div>
             </div>
             <div>
@@ -720,12 +762,12 @@ class SearchCarInventory extends React.Component {
                   <label htmlFor="main-header1" className="carInv-tab--header-label">Model Trims</label>
                   <div className="carInv-tab--content">
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-model1" className="carInv-tab--content-input" data-type="trim" value="L" onClick={this.onUserClick}/>
-                      <label htmlFor="car-model1" className="carInv-tab--content-label">L</label>
+                      <input type="checkbox" id="L" className="carInv-tab--content-input" data-type="trim" value="L" onClick={this.onUserClick}/>
+                      <label htmlFor="L" className="carInv-tab--content-label">L</label>
                     </div>
                     <div className="carInv-tab--content-flex">
-                      <input type="checkbox" id="car-model2" className="carInv-tab--content-input" data-type="trim" value="LE" onClick={this.onUserClick}/>
-                      <label htmlFor="car-model2" className="carInv-tab--content-label">LE</label>
+                      <input type="checkbox" id="LE" className="carInv-tab--content-input" data-type="trim" value="LE" onClick={this.onUserClick}/>
+                      <label htmlFor="LE" className="carInv-tab--content-label">LE</label>
                     </div>
                     <div className="carInv-tab--content-flex">
                       <input type="checkbox" id="car-model3" className="carInv-tab--content-input" data-type="trim" value="Hybrid LE" onClick={this.onUserClick}/>
@@ -825,7 +867,7 @@ class SearchCarInventory extends React.Component {
           </div>
           <div className="carInv-rightContainer">
             <div className="carInv-pricepoint--header">
-              <div>{this.carMatchesNumberDisplay()}</div>
+              <div className="carInv-pricepoint--matches">{this.carMatchesNumberDisplay()}</div>
                 <form onChange={this.getPricePoint}>
                   <select name="pricepoint">
                     <option hidden>Sort Prices</option>
