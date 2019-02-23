@@ -6,16 +6,14 @@ import relatedPhotos from "../../relativeImages/whatshappeningpages/supra.jpg";
 const Supra = () => {
   return(
     <div>
-
-
       <div className="supra">
 
         <div className="supra-container supra-flex">
-          <div className="supra-nav supra-flex">
+          <div className="supra-nav supra-flex-inner">
             <img className="supra-nav--img" src={logo} alt="toyota-logo" />
             <div className="supra-nav--text">-USA NEWSROOM</div>
           </div>
-          <div className="supra-search supra-flex">
+          <div className="supra-search supra-flex--inner2">
             <div className="supra-dropdown">
               <button className="supra-dropdown--button">Search All Content</button>
               <i className="fa fa-arrow-down supra-dropdown--arrow" aria-hidden="true"></i>
@@ -214,7 +212,7 @@ const Supra = () => {
               </div>
              
               <div className="supra-footer--link">web assistance</div>
-              <div>© Toyota Motor Sales, U.S.A., Inc.</div>
+              <div className="supra-footer--copy">© Toyota Motor Sales, U.S.A., Inc.</div>
             </div>
           </div>
         </div>

@@ -23,6 +23,7 @@ const WHTParent = () => {
       <div className="whtP-container">
         <div className="whtP-contain">
           <Link to="/toyota-newsroom/supra" target="_blank">
+          {/* <a href="supra.html" target="_blank"> */}
             <WHTChild 
               image={img1}
               callToAction="Latest News"
@@ -30,6 +31,7 @@ const WHTParent = () => {
               header2="Two important causes"
               body="Barrett-Jackson will auction the first globally produced all-new toyota Supra, with all proceeds going to charity."
             />
+            {/* </a>  */}
           </Link>
           <Link to="/toyota/supra">
             <WHTChild 

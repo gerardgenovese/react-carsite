@@ -9,13 +9,13 @@
   background-color:rgba(0, 0, 0, 0.726) !important;
 }
 
-// .ReactModalPortal{
-//   background: blue !important;
-// }
+.ReactModalPortal{
+  background: blue !important;
+}
 
 .ReactModalPortal .ReactModal__Overlay--after-open{
   position:relative;
-  z-index: 3;
+  z-index: 10;
 }
 
 
@@ -162,41 +162,6 @@
     }
   }
 
-  // &-offer{
-  //   display:flex;
-  //   justify-content: space-between;
-  //   align-items:center;
-  //   padding: 0 2rem;
-  //   &--text{
-  //     font-size: 1.4rem;
-  //     font-family: tahoma;
-  //     font-weight:bold;
-  //     color:rgb(49, 48, 48);
-  //     text-transform: uppercase;
-  //     // margin-left: 5rem;
-  //   }
-
-  //   &--container1{
-  //     padding: 2rem 0;
-  //   }
-  //   &--container2{
-
-  //     display:flex;
-  //     flex-direction:column;
-  //     justify-content: center;
-  //     align-items:center;
-  //   }
-  //   &-button{
-  //     @include buttonGray;
-  //     // margin: 3rem 0;
-  //     margin: 2rem 0;
-
-  //     &-text{
-  //       color:black;
-  //     }
-  //   }
-
-  // }
 
   &-offer{
     &--flex{

@@ -835,8 +835,8 @@ class SearchCarInventory extends React.Component {
                       <div className="range-flex">
                         {this.showCorrectSliderRange()}
                       </div>
-                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderOneDefaultValue} className="slider" id="lower" onMouseUp={this.rangeOne} data-type="range"/>
-                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderTwoDefaultValue} className="slider" id="higher" onMouseUp={this.rangeTwo} data-type="range"/>
+                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderOneDefaultValue} className="rangeSlider" id="lower" onMouseUp={this.rangeOne} data-type="range"/>
+                      <input type="range" min={this.state.sliderOneDefaultValue} max={this.state.sliderTwoDefaultValue} defaultValue={this.state.sliderTwoDefaultValue} className="rangeSlider" id="higher" onMouseUp={this.rangeTwo} data-type="range"/>
                     </div>
                   </div>
                 </div>
