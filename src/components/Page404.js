@@ -3,7 +3,7 @@ import React from "react";
 const Page404 = () => {
 
   const style={
-    margin: "3rem 0",
+    margin: "15rem 0",
     textAlign:"center",
     fontSize: "3rem",
     fontWeight: "bold"

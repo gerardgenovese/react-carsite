@@ -6,12 +6,12 @@ $margin3: 3rem;
   position:absolute;
   top: 0;
   // left: 0;
-  // width: 100vw;
   width: 100vw;
   z-index:200;
   padding-top: 3rem;
-  // width: 100vw;
- 
+
+
+
   &-flex{
     display:flex; 
 
@@ -46,6 +46,10 @@ $margin3: 3rem;
     &--text{
       font-size: 1.6rem;
       margin-left: .5rem;
+
+      @media screen and(max-width:450px){
+        font-size:1.2rem;
+      }
     }
   }
 

@@ -244,7 +244,7 @@ class BuildCarPageYaris extends React.Component{
               <div className="buildCar-panelContainer">
                 <div className={this.state.buildCarColors ?"buildCar-panelButtons buildCar-border buildCar-panelActive" : "buildCar-panelButtons buildCar-border buildCar-panelInactive"} data-value="buildCarColors" onClick={this.changeBuildOption}>
                   <p className="buildCar-panelButtons-text" data-value="buildCarColors" onClick={this.changeBuildOption}>Color</p>
-                  <i className="fas fa-car" data-value="buildCarColors" onClick={this.changeBuildOption}></i>
+                  <i className="fas fa-car panel-car" data-value="buildCarColors" onClick={this.changeBuildOption}></i>
                 </div>
                 <div className={this.state.buildCarEngine ?"buildCar-panelButtons buildCar-panelActive" : "buildCar-panelButtons buildCar-panelInactive"} data-value="buildCarEngine" onClick={this.changeBuildOption}>
                   <p className="buildCar-panelButtons-text" data-value="buildCarEngine"  onClick={this.changeBuildOption}>Engine</p>

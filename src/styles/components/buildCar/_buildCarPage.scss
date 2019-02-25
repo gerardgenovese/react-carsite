@@ -245,13 +245,17 @@
 
 
 
-.fas.fa-car,
+.panel-car,
 .fas.fa-cogs,
 .fas.fa-tags,
 .fas.fa-images,
 .fas.fa-calculator{
+  font-size: 2rem;
   @media screen and(max-width:768px){
     font-size: 1.2rem;
+  }
+  @media screen and(max-width:450px){
+    font-size: 1rem;
   }
 }
 

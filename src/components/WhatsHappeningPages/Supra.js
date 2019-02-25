@@ -134,7 +134,7 @@ const Supra = () => {
             </div>
             <br/>
             <p className="supra-postBody--text">toyota supra philanthropy</p>
-            <div style={{color: "red" }} className="supra-postBody--goBack">Back</div>
+            {/* <div style={{color: "red" }} className="supra-postBody--goBack">Back</div> */}
           </div>
      
 
