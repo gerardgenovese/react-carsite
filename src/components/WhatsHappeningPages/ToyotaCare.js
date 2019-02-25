@@ -54,9 +54,9 @@ class ToyotaCare extends React.Component {
             </div>
           </div>
           <div className="tcare-flexButton">
-            <div className="tcare-maint-button">
-              <button className="tcare-maint-button--main"></button>
-              <div className="tcare-maint-button--text">DownLoad Brochure</div>
+            <div className="tcare-mainT-button">
+              <button className="tcare-mainT-button--main"></button>
+              <div className="tcare-mainT-button--text">DownLoad Brochure</div>
             </div>
             <div className="tcare-find-button">
               <button className="tcare-find-button--main"></button>

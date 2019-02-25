@@ -10,16 +10,16 @@ class ToyotaCareModal extends React.Component{
 
   render(){
 
-    const videoStyle = {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: "75%",
-      height: "75%",
-      margin: "0 auto",
-      zIndex: 5
-    }
+    // const videoStyle = {
+    //   position: "absolute",
+    //   top: "50%",
+    //   left: "50%",
+    //   transform: "translate(-50%, -50%)",
+    //   width: "75%",
+    //   height: "75%",
+    //   margin: "0 auto",
+    //   zIndex: 5
+    // }
  
     const { toyotaCareModal, closeModal } = this.props;
 
@@ -30,7 +30,7 @@ class ToyotaCareModal extends React.Component{
           <p className="toyotacare-header--text">ToyotaCare</p>
           <button className="toyotacare-header--close" onClick={closeModal}>X</button>
         </div>
-          <iframe title="toyotacare" style={videoStyle} className="toyotacare-iframe" src="https://www.youtube.com/embed/lBYbcOn7kiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe title="toyotacare" className="toyotacare-iframe" src="https://www.youtube.com/embed/lBYbcOn7kiY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Modal>
    
 

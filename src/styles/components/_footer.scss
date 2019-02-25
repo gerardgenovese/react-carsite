@@ -1,6 +1,26 @@
 .footer{
-  margin-top: 10rem;
+  // margin-top: 10rem;
   background: #f3ecec;
+
+  &-desktop{
+    display:block;
+
+    @media screen and(max-width: 900px){
+      display:none;
+    }
+  }
+
+  &-mobile{
+    display:none;
+
+    @media screen and(max-width: 900px){
+      display:block;
+    }
+  }
+
+  &-xfinity{
+    margin: 0;
+  }
   &-social{
     display:flex;
     justify-content:center;
@@ -10,18 +30,12 @@
   }
   &-main{
     display:flex;
-    // justify-content:space-around;
+    justify-content:space-around;
     font-size: 1.5rem;
     font-family: tahoma;
     color: rgb(39, 38, 38);
-    margin: 0 10%;
+    margin: 0 5%;
     padding: 0 0 5rem 0;
-
-    @media screen and(max-width: 768px){
-      justify-content: center;
-      margin: 0;
-      font-size: 1.3rem;
-    }
 
     &--title{
       font-weight:bold;
@@ -33,9 +47,6 @@
     cursor:pointer;
   }
 }
-
-
-
 
 
 ////Modal
@@ -78,8 +89,100 @@
 
 
 
-video{
-  width: 100%;
-  height: inherit;
+// video{
+//   width: 100%;
+//   height: inherit;
+// }
+
+
+
+///footer media query 900px start display css at top
+
+
+.footer{
+  background: #f3ecec;
+  &-tab{
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+    color: rgb(19, 18, 18);
+    overflow: hidden;
+    border-bottom: 1px solid rgb(172, 170, 170);
+
+    //main header input
+    &--header{
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+
+    //main header input label
+      &-label{
+        position: relative;
+        display: block;
+        font-size: 2rem;
+        padding: 0 0 0 1em;
+        // background: #16a085;
+        font-weight: bold;
+        line-height: 3;
+        cursor: pointer;
+      }
+    }
+    //menu content that open and closes with car trims
+    &--content{
+      text-align:center;
+      font-size: 1.6rem;
+      padding: 1rem 0;
+      max-height: 0;
+      overflow: hidden;
+      // background: #1abc9c;
+      -webkit-transition: max-height 1.5s;
+      -o-transition: max-height 1.5s;
+      transition: max-height 1.5s;
+      //flex wrapper for checkbox and label text 
+
+      & > p{
+        cursor:pointer;
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  //when checkbox is checked max height set to 0 that menu content closes
+  &-tab &-tab--header:checked ~ &-tab--content{
+    max-height: 100vh;
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
+  }
+  //the label to show the text for what car options your choosing
+  &-tab &-tab--header-label::after{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 3em;
+    height: 3em;
+    line-height: 3;
+    text-align: center;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+  }
+  //the open/close "x" "+" when clicked rotates to proper position
+  &-tab &-tab--header[type=checkbox] + &-tab--header-label::after{
+    content: "+";
+    transform: rotate(180deg);
+  }
+  &-tab &-tab--header[type=checkbox]:checked + &-tab--header-label::after{
+    transform: rotate(45deg);
+  }
 }
+
+
+
+
+
+
+
+
 
