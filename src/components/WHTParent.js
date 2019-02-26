@@ -22,7 +22,7 @@ const WHTParent = () => {
 
       <div className="whtP-container">
         <div className="whtP-contain">
-          <Link to="/toyota-newsroom/supra" target="_blank">
+          <Link to="/toyota-newsroom/supra" target="_blank" title="This link HAS content. Click to See!">
           {/* <a href="supra.html" target="_blank"> */}
             <WHTChild 
               image={img1}
@@ -33,7 +33,7 @@ const WHTParent = () => {
             />
             {/* </a>  */}
           </Link>
-          <Link to="/toyota/supra">
+          <Link to="/toyota/supra" title="**This link has no content**">
             <WHTChild 
               image={img2}
               callToAction="Latest News"
@@ -42,7 +42,7 @@ const WHTParent = () => {
               body="Get information on open safety recalls and service campaigns."
             />
           </Link>
-          <Link to="/toyota/supra">
+          <Link to="/toyota/supra" title="**This link has no content**">
             <WHTChild 
               image={img3}
               callToAction="Latest News"
@@ -56,7 +56,7 @@ const WHTParent = () => {
      
 
         <div className="whtP-contain middle">
-          <Link to="/toyota-concept-vehicles/supra/xfinity-series" target="_blank">
+          <Link to="/toyota-concept-vehicles/supra/xfinity-series" target="_blank" title="This link HAS content. Click to See!">
             <WHTChild
               image={img4}
               callToAction="Latest News"
@@ -65,7 +65,7 @@ const WHTParent = () => {
               body="The al-new Supra race car joins the NASCAR Xfinity Series and is set to make its racing debut in 2019."
             />
           </Link>
-          <Link to="/toyota/supra">
+          <Link to="/toyota/supra" title="**This link has no content**">
             <WHTChild
               image={img5}
               callToAction="Latest News"
@@ -77,7 +77,7 @@ const WHTParent = () => {
           </Link>
         </div>
         <div className="whtP-contain">
-          <Link to="/toyota-care" target="_blank">
+          <Link to="/toyota-care" target="_blank" title="This link HAS content. Click to See!">
             <WHTChild 
               image={img6}
               callToAction="Latest News"
@@ -87,7 +87,7 @@ const WHTParent = () => {
               className="middle"
             />
           </Link>
-          <Link to="/toyota/supra">
+          <Link to="/toyota/supra" title="**this link has no content**">
             <WHTChild 
               image={img7}
               callToAction="Latest News"
@@ -96,7 +96,7 @@ const WHTParent = () => {
               body="From north to south, east to west, we’re hundreds of thousands of team members strong – all dedicated to helping you go places."
             />
             </Link>
-          <Link to="/toyota/supra">
+          <Link to="/toyota/supra" title="**This link has no content**">
             <WHTChild 
               image={img8}
               callToAction="Latest News"

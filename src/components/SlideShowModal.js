@@ -2,6 +2,8 @@ import React from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
 
+import { Capitalize } from "./Functions";
+
 class SlideShowModal extends React.Component{
 
   componentDidMount(){
@@ -16,7 +18,7 @@ class SlideShowModal extends React.Component{
   buildCarSelected = (e) => {
     //slideshowreducer brings in a new image for the slideshow but we want the generic image to appear on the buildcarpage. So we rebuild the object with all props and replace the img from the slideshow with the buildCarImg prop that is holding the generic img of our car in our slideshowreducer object.
     const replaceCarImageForBuildPage = {
-      title: this.props.carInfo.title, 
+      model: this.props.carInfo.model, 
       img: this.props.carInfo.buildCarImg,
       carAngle: 0,
       color:this.props.carInfo.color,
@@ -32,7 +34,7 @@ class SlideShowModal extends React.Component{
   };
 
   render(){
-    // console.log("modal props", this.props.carInfo);
+    console.log("modal props", this.props.carInfo);
 
     const { carModal, carInfo } = this.props;
 
@@ -77,7 +79,7 @@ class SlideShowModal extends React.Component{
         <div className="modal-offer">
           <div className="modal-pricing--flex modal-offer--flex">
             <div className="modal-pricing--flexPricing modal-offer--border">
-              <div className="modal-pricing--details modal-offer--details">  Lease a 2018 {carInfo.title} for ${carInfo.perMonth} for 36 Months. (Includes 12000 miles per year for the Lease Term of 36 months)</div>
+              <div className="modal-pricing--details modal-offer--details">  Lease a 2019 at ${carInfo.perMonth} for 36 Months. (Includes 12000 miles per year for the Lease Term of 36 months)</div>
             </div>
             <div className="modal-offer--buttons">
               <div className="modal-offer--button">
@@ -118,7 +120,7 @@ class SlideShowModal extends React.Component{
         <div className="modal-finePrint">
           <div className="modal-finePrint--header">Offer Details</div>
           <div>
-          Lease a new 2018 {carInfo.title} for ${carInfo.perMonth} a month for 36 with ${carInfo.signing} due at signing, Total MSRP including freight is ${carInfo.price + carInfo.perMonth + carInfo.signing}. Monthly payments of ${carInfo.perMonth} x 36 months, totals ${carInfo.perMonth * 36}. Capitalized cost of ${carInfo.perMonth * 36 + carInfo.signing} based on down payment and dealer participation which may vary by dealer. Lease-end purchase option is $14224. $350 disposition fee due at lease end unless customer purchases vehicle or decides to re-finance through Toyota Financial Services. Lease does not include taxes, license, title fees, acquisition fee of $650, insurance, regionally required equipment and other dealers’ charges are extra and not included in the amounts shown. Closed-end lease. Payment may vary depending upon final transaction price. Customer responsible for maintenance, excess wear and tear and $.15 per mile over 12,000 miles per year. To qualified Tier 1+ customers through Toyota Financial Services. Must take retail delivery by 01-02-2019. Does not include College Grad or Military Rebate. $2250 Lease Subvention Cash provided by Toyota Financial Service to eligible customers who finance a new, unused or unlicensed 2018 RAV4 model #2018-4432. Offer ends 01-02-2019. *Covers normal factory scheduled service. Plan is 2 years or 25K miles, whichever comes first. The new Toyota vehicle cannot be part of a rental or commercial fleet, or a livery or taxi vehicle. See plan for complete coverage details. See participating Toyota dealer for details. Valid only in the continental United States and Alaska. http://www.toyota.com/toyota-care/
+          Lease a new 2019 {Capitalize(carInfo.model)} for ${carInfo.perMonth} a month for 36 with ${carInfo.signing} due at signing, Total MSRP including freight is ${carInfo.price + carInfo.perMonth + carInfo.signing}. Monthly payments of ${carInfo.perMonth} x 36 months, totals ${carInfo.perMonth * 36}. Capitalized cost of ${carInfo.perMonth * 36 + carInfo.signing} based on down payment and dealer participation which may vary by dealer. Lease-end purchase option is $14224. $350 disposition fee due at lease end unless customer purchases vehicle or decides to re-finance through Toyota Financial Services. Lease does not include taxes, license, title fees, acquisition fee of $650, insurance, regionally required equipment and other dealers’ charges are extra and not included in the amounts shown. Closed-end lease. Payment may vary depending upon final transaction price. Customer responsible for maintenance, excess wear and tear and $.15 per mile over 12,000 miles per year. To qualified Tier 1+ customers through Toyota Financial Services. Must take retail delivery by 01-02-2019. Does not include College Grad or Military Rebate. $2250 Lease Subvention Cash provided by Toyota Financial Service to eligible customers who finance a new, unused or unlicensed 2018 RAV4 model #2018-4432. Offer ends 01-02-2019. *Covers normal factory scheduled service. Plan is 2 years or 25K miles, whichever comes first. The new Toyota vehicle cannot be part of a rental or commercial fleet, or a livery or taxi vehicle. See plan for complete coverage details. See participating Toyota dealer for details. Valid only in the continental United States and Alaska. http://www.toyota.com/toyota-care/
           </div>
         </div>
       </Modal>

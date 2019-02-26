@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { buildCar } from "../redux/actions";
 import Footer from "./Footer";
 
+import { CarPriceToString } from "./Functions";
+
 class Search extends React.Component{
 
   state = {
@@ -61,18 +63,6 @@ class Search extends React.Component{
 
   //shows the car match on UI
   showCar = () => {
-    // this.setState({ carIsShowing: false });
-    // // setTimeout(() => {
-    //   if(this.state.carModel === this.state.textInput && this.state.textInput !== undefined && this.state.textInput !== ""){
-
-    //     this.setState({ carIsShowing: true })
-    //   } else {
-    //       this.setState({ carIsShowing: false })
-
-    //     }
-    // // },200);
-
-
     this.setState(() => ({ carIsShowing: false }), () => {
       if(this.state.carModel === this.state.textInput && this.state.textInput !== undefined && this.state.textInput !== ""){
         this.setState({ carIsShowing: true })
@@ -83,7 +73,7 @@ class Search extends React.Component{
   };
 
   render(){
-    console.log("state",this.state)
+    // console.log("state",this.state)
     return(
       <div className="search">
         <input className="search-input" type="text" onChange={this.filterList} placeholder="Search for your Toyota vehicle..."/>
@@ -101,7 +91,7 @@ class Search extends React.Component{
                   </Link>
          
                 <div className="search-price">
-                  {this.state.carPrice}
+                  { CarPriceToString(this.state.carPrice) }
                 </div>  
               </div>
        

@@ -76,12 +76,19 @@
 
   &-imgContain{
     width: 100%;
+
+    @media screen and(min-width: 1400px){
+      width: 40%;
+    }
   }
 
   &-img{
     width: 100%;
     transition: .5s;
 
+    @media screen and(min-width: 1400px){
+      width: 100%;
+    }
 
 
     

@@ -14,6 +14,8 @@ import avalonFront from "../relativeImages/exploreall/avalon/front.png"
 import yarisSide from "../relativeImages/exploreall/yaris/side.png"
 import yarisFront from "../relativeImages/exploreall/yaris/front.png"
 
+import { CarPriceToString } from "./Functions";
+
 class ExploreAll extends React.Component {
 
   state = {
@@ -46,6 +48,7 @@ class ExploreAll extends React.Component {
 
 
   render(){
+    const { cars } = this.state;
     return (
       <div>
         <div>
@@ -59,7 +62,7 @@ class ExploreAll extends React.Component {
                 </div>
                 <div className="explore-car--info">
                   <div className="explore-car--model"><strong>2019 {this.state.cars[0].title}</strong></div> 
-                  <div className="explore-car--price">${this.state.cars[0].price}</div>
+                  <div className="explore-car--price">{CarPriceToString(cars[0].price)}</div>
                   <div className="explore-car--mileage">{this.state.cars[0].miles} est MPG</div>
                 </div>
               </div>  
@@ -72,7 +75,7 @@ class ExploreAll extends React.Component {
                 </div>
                 <div className="explore-car--info t86">
                   <div className="explore-car--model"><strong>2019 {this.state.cars[1].title}</strong></div> 
-                  <div className="explore-car--price">${this.state.cars[1].price}</div>
+                  <div className="explore-car--price">{CarPriceToString(cars[1].price)}</div>
                   <div className="explore-car--mileage">{this.state.cars[1].miles} est MPG</div>
                 </div>
               </div>  
@@ -85,7 +88,7 @@ class ExploreAll extends React.Component {
                 </div>
                 <div className="explore-car--info corolla">
                   <div className="explore-car--model"><strong>2019 {this.state.cars[2].title}</strong></div> 
-                  <div className="explore-car--price">${this.state.cars[2].price}</div>
+                  <div className="explore-car--price">{CarPriceToString(cars[2].price)}</div>
                   <div className="explore-car--mileage">{this.state.cars[2].miles} est MPG</div>
                 </div>
               </div>  
@@ -98,7 +101,7 @@ class ExploreAll extends React.Component {
                 </div>
                 <div className="explore-car--info avalon">
                   <div className="explore-car--model"><strong>2019 {this.state.cars[3].title}</strong></div> 
-                  <div className="explore-car--price">${this.state.cars[3].price}</div>
+                  <div className="explore-car--price">{CarPriceToString(cars[3].price)}</div>
                   <div className="explore-car--mileage">{this.state.cars[3].miles} est MPG</div>
                 </div>
               </div> 
@@ -111,7 +114,7 @@ class ExploreAll extends React.Component {
                 </div>
                 <div className="explore-car--info yaris">
                   <div className="explore-car--model"><strong>2019 {this.state.cars[4].title}</strong></div> 
-                  <div className="explore-car--price">${this.state.cars[4].price}</div>
+                  <div className="explore-car--price">{CarPriceToString(cars[4].price)}</div>
                   <div className="explore-car--mileage">{this.state.cars[4].miles} est MPG</div>
                 </div>
               </div>  

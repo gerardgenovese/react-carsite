@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import Footer from "./Footer";
 
+import { Capitalize, CarPriceToString } from "./Functions";
+
 class BuildCarSummary extends React.Component{
   state={
     engineOne : true,
@@ -18,21 +20,9 @@ class BuildCarSummary extends React.Component{
     return this.props.purchase.engineOne === true ? <div>2.5 4-Cyl. Super Thruster Engine 8-Speed Automatic</div> : <div>2.5 4-Cyl. Super Thrust Engine 8-Speed Manual</div>
   };
 
-  //runs in our JSX with a totalPrice argument destructured from our redux store. That price which is a number is passed to our getTotalString which can then return our total price with a $ and , IE 30000 turn into $30,000
-  getCarTotalString = (price) =>  this.props.getTotalString(price);
-
-  //takes the number price of the car without any options IE engine/accessories and turns it into a string, same thing like above.
-  getPriceString = () => {
-    let price = this.props.purchase.price;
-    let priceString = price.toString();
-    let first = priceString.slice(0,2);
-    let second = priceString.slice(2);
-    return <div>${first},{second}</div>
-  };
-
   render(){
     // console.log("props", this.props.purchase)
-    const { model, color, totalPrice } = this.props.purchase;
+    const { model, color, cargoTote, leatherMats, wheelLocks, totalPrice } = this.props.purchase;
     const container = { height: "40vh" };
 
     return(
@@ -45,7 +35,7 @@ class BuildCarSummary extends React.Component{
                 <div className="summary-wrapper">
               
                   <div className="summary-title">
-                    2019 Toyota {model}
+                    2019 Toyota {Capitalize(model)}
                   </div>
                   <div className="summary-engineFlex">
                     <div className="summary-engine">
@@ -61,7 +51,7 @@ class BuildCarSummary extends React.Component{
                     </div>
                     <div className="border"></div>
                     <div className="summary-desc--info">
-                      {this.getPriceString()}
+                      { CarPriceToString(this.props.purchase.price) }
                     </div>
                   </div>
                   <div className="summary-flex">
@@ -82,7 +72,7 @@ class BuildCarSummary extends React.Component{
                     </div>
                     <div className="border"></div>
                     <div className="summary-desc--info">
-                      {this.props.purchase.cargoTote === 0 ? "0" : "$75.00"}
+                      {cargoTote === 0 ? "0" : "$75.00"}
                     </div>
                   </div>
                   <div className="summary-flex">
@@ -91,7 +81,7 @@ class BuildCarSummary extends React.Component{
                     </div>
                     <div className="border"></div>
                     <div className="summary-desc--info">
-                    {this.props.purchase.leatherMats === 0 ? "0" : "$75.00"}
+                    {leatherMats === 0 ? "0" : "$75.00"}
                     </div>
                   </div>
                   <div className="summary-flex">
@@ -100,7 +90,7 @@ class BuildCarSummary extends React.Component{
                     </div>
                     <div className="border"></div>
                     <div className="summary-desc--info">
-                    {this.props.purchase.wheelLocks === 0 ? "0" : "$75.00"}
+                    {wheelLocks === 0 ? "0" : "$75.00"}
                     </div>
                   </div>
                   <div className="summary-flex">
@@ -109,7 +99,7 @@ class BuildCarSummary extends React.Component{
                     </div>
                     <div className="border"></div>
                     <div className="summary-desc--info">
-                      {this.getCarTotalString(totalPrice)}
+                      { CarPriceToString(totalPrice) }
                     </div>
                   </div>
                 </div>

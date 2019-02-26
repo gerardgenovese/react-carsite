@@ -1,6 +1,9 @@
 import React from "react";
 import dbJSON from "../db/db.json";
 
+
+import { Capitalize } from "./Functions";
+
 // import test from "../relativeImages/exploreall/86/front.PNG"
 
 //** NOTES **/
@@ -95,7 +98,7 @@ class SearchCarInventory extends React.Component {
   };
 
   //capitalize the car model name
-  carModelCapitalize(){ return this.props.location.state.model.slice(0,1).toUpperCase() + this.props.location.state.model.slice(1); };
+  // Capitalize(){ return this.props.location.state.model.slice(0,1).toUpperCase() + this.props.location.state.model.slice(1); };
   capitalize(str){ return str.slice(0,1).toUpperCase() + str.slice(1) };
 
   //Get Car price and return price to string to include $ and ,
@@ -628,7 +631,7 @@ class SearchCarInventory extends React.Component {
       return(
         <div key={i} className="showcase">
           <div className="showcase-flexOne">
-            <p>{this.carModelCapitalize()}</p>
+            <p>{Capitalize(this.props.location.state.model)}</p>
             <p>{car.trim}</p>
             <div className="showcase-imgContain">
               <img src={car.image} alt={car.model} className="showcase-img"/>
@@ -768,7 +771,7 @@ class SearchCarInventory extends React.Component {
       return (
         <div key={i} className="carInv-addRemoveOption--inner">
             <input type="checkbox" id={`remove${option}`} className="carInv-addRemoveOptions--input" data-type={data} value={option} onClick={(e) => this.removeOption(e, option, data)}/>
-            <label htmlFor={`remove${option}`} className="carInv-addRemoveOptions--label">{this.capitalize(option)}</label>
+            <label htmlFor={`remove${option}`} className="carInv-addRemoveOptions--label">{Capitalize(option)}</label>
         </div>
 
 
@@ -781,7 +784,7 @@ class SearchCarInventory extends React.Component {
  
     return(
       <div className="carInv">
-        <div className="build_price-header carInv-header">2019 {this.carModelCapitalize()} Inventory</div>
+        <div className="build_price-header carInv-header">2019 {Capitalize(this.props.location.state.model)} Inventory</div>
         <button className={this.state.showFilterMQ ? "carInv-filterButton--MQ--hide" : "carInv-filterButton--MQ--show"} onClick={this.getShowFilterMQ}>FILTERS</button>
         <div className="carInv-mainFlex">
           <div className="carInv-leftContainer">

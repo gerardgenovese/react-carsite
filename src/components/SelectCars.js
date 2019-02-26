@@ -14,6 +14,8 @@ import avalonFront from "../relativeImages/exploreall/avalon/front.png"
 import yarisSide from "../relativeImages/exploreall/yaris/side.png"
 import yarisFront from "../relativeImages/exploreall/yaris/front.png"
 
+import { CarPriceToString } from "./Functions";
+
 class SelectCars extends React.Component {
 
 
@@ -24,6 +26,8 @@ class SelectCars extends React.Component {
   render(){
     // console.log("props", this.props)
     //props coming in from Nav.js as well as redux store & camryAnimate classNames etc are in exploreAll.scss
+
+    const { cars } = this.props;
     return (
    
       <div className="select-flex">
@@ -36,7 +40,7 @@ class SelectCars extends React.Component {
               </div>
               <div className="select-car--info">
                 <div className="select-car--model"><strong>2019 {this.props.cars[0].title}</strong></div> 
-                <div className="select-car--price">${this.props.cars[0].price}</div>
+                <div className="select-car--price">{CarPriceToString(cars[0].price)}</div>
                 <div className="select-car--mileage">{this.props.cars[0].miles} est MPG</div>
               </div>
             </div>  
@@ -52,7 +56,7 @@ class SelectCars extends React.Component {
               </div>
               <div className="select-car--info t86">
                 <div className="select-car--model"><strong>2019 {this.props.cars[1].title}</strong></div> 
-                <div className="select-car--price">${this.props.cars[1].price}</div>
+                <div className="select-car--price">{CarPriceToString(cars[1].price)}</div>
                 <div className="select-car--mileage">{this.props.cars[1].miles} est MPG</div>
               </div>
             </div>  
@@ -68,7 +72,7 @@ class SelectCars extends React.Component {
               </div>
               <div className="select-car--info corolla">
                 <div className="select-car--model"><strong>2019 {this.props.cars[2].title}</strong></div> 
-                <div className="select-car--price">${this.props.cars[2].price}</div>
+                <div className="select-car--price">{CarPriceToString(cars[2].price)}</div>
                 <div className="select-car--mileage">{this.props.cars[2].miles} est MPG</div>
               </div>
             </div>  
@@ -84,7 +88,7 @@ class SelectCars extends React.Component {
               </div>
               <div className="select-car--info avalon">
                 <div className="select-car--model"><strong>2019 {this.props.cars[3].title}</strong></div> 
-                <div className="select-car--price">${this.props.cars[3].price}</div>
+                <div className="select-car--price">{CarPriceToString(cars[3].price)}</div>
                 <div className="select-car--mileage">{this.props.cars[3].miles} est MPG</div>
               </div>
             </div> 
@@ -100,7 +104,7 @@ class SelectCars extends React.Component {
               </div>
               <div className="select-car--info yaris">
                 <div className="select-car--model"><strong>2019 {this.props.cars[4].title}</strong></div> 
-                <div className="select-car--price">${this.props.cars[4].price}</div>
+                <div className="select-car--price">{CarPriceToString(cars[4].price)}</div>
                 <div className="select-car--mileage">{this.props.cars[4].miles} est MPG</div>
               </div>
             </div>  

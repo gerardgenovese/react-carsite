@@ -54,7 +54,7 @@ class SlideShow extends React.Component{
   };
 
   //create and interval for our slideshow
-  createSlideShowInterval = () => this.slideShow = setInterval(() => this.startSlideShow(), 1000);
+  createSlideShowInterval = () => this.slideShow = setInterval(() => this.startSlideShow(), 5000);
 
 
   //keeps track of our slideshow index to rotate through show slides

@@ -37,9 +37,17 @@
   }
   &-leftContainer{
     width: 30%;
+
+    @media screen and(max-width:768px){
+      width: 100%;
+    }
   }
   &-rightContainer{
     width: 60%;
+
+    @media screen and(max-width: 768px){
+      width: 100%;
+    }
   }
 
   &-filter--groupHeader{
@@ -68,21 +76,6 @@
       font-family:Arial, Helvetica, sans-serif;
     }
   }
-  // &-selected{
-  //   // &--flex{
-  //   //   display:flex;
-  //   //   align-items:center;
-  //   //   width: 100%;
-
-  //   //   // &--options{
-  //   //   //   display:flex;
-  //   //   //   align-items:center;
-  //   //   // }
-  //   // }
-
-
-  // }
-
 
   &-addRemoveOptions{
     display:flex;
@@ -94,14 +87,7 @@
       flex-wrap: wrap;
     }
 
-    // &--innerFlex{
-    //   display: flex;
-    //   align-items:center;
-    //   justify-content: space-around;
-    //   margin: .5rem;
-    //   padding-right: 1rem;
-    // }
- 
+  
     &--input{
       display:none;
     }
@@ -119,10 +105,7 @@
         color:white;
         padding: .2rem .4rem;
         border-radius: 50%;
-     
-   
-    
-      }
+       }
     }
 
     &--flex{

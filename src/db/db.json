@@ -254,7 +254,7 @@
       "engine": "8 Speed Manual",
       "cargoTote": true,
       "leatherMats": true,
-      "wheelLocks": false,
+      "wheelLocks": true,
       "price": 35650,
       "image": "/images/avalon/sidefront/blue.jpg"
     },

@@ -8,6 +8,8 @@ import BuildCarFinance from "../BuildCarFinance";
 import BuildCarSummary from "../BuildCarSummary";
 import { purchase } from "../../redux/actions";
 
+import { CarPriceToString } from "../Functions";
+
 class BuildCarPageCamry extends React.Component{
   state = {
     model: this.props.car.model,
@@ -163,21 +165,21 @@ class BuildCarPageCamry extends React.Component{
   };
 
   //takes the totalPrice from state and turns it into a string so we can add a $ and , so IE 30000 turns into $30,000
-  carString = () => {
-  //for testing. remove when done
-    // if(this.state.totalPrice === undefined){return <div>$30,000</div>}
+  // carString = () => {
+  // //for testing. remove when done
+  //   // if(this.state.totalPrice === undefined){return <div>$30,000</div>}
   
-    let total = this.state.totalPrice;
-    let totalString = total.toString();
-    let first = totalString.slice(0,2);
-    let second = totalString.slice(2);
+  //   let total = this.state.totalPrice;
+  //   let totalString = total.toString();
+  //   let first = totalString.slice(0,2);
+  //   let second = totalString.slice(2);
 
-    return(
-      <div>
-        ${first},{second}
-      </div>
-    )
-  };
+  //   return(
+  //     <div>
+  //       ${first},{second}
+  //     </div>
+  //   )
+  // };
 
   //gets the window offset position when scrolling so we can animate some things when the user scrolls down or up
   buildCarScroll = () => {
@@ -235,7 +237,8 @@ class BuildCarPageCamry extends React.Component{
               </div>
               <div className="buildCar-priceButtonFlex">
                 <div className="buildCar-price">
-                  {this.carString()}
+                  {/* {this.carString()} */}
+                  { CarPriceToString(this.state.totalPrice) }
                 </div>
                 <button className="buildCar-changeAngle" onClick={this.rotateCarImage}><i className="fas fa-arrow-circle-right"></i></button>
               </div>
@@ -293,7 +296,7 @@ class BuildCarPageCamry extends React.Component{
             : this.state.buildCarFinance ? 
               <BuildCarFinance carPrice={this.state.totalPrice}/> 
             :
-              <BuildCarSummary model={this.state.model} getTotalString={this.carString}/> 
+              <BuildCarSummary /> 
             }  
           </div>
         </div>
