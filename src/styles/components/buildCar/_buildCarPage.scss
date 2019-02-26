@@ -75,22 +75,19 @@
   }
 
   &-imgContain{
-    width: 100%;
+    width: 50%;
+
 
     @media screen and(min-width: 1400px){
-      width: 40%;
+      width: 35%;
     }
   }
 
   &-img{
     width: 100%;
     transition: .5s;
-
-    @media screen and(min-width: 1400px){
-      width: 100%;
-    }
-
-
+    // display:block;
+    // margin: 0 auto;
     
     @media screen and(max-width: 1200px){
       width: 80%;

@@ -44,8 +44,13 @@
     margin: 1rem;
     box-shadow: 2px 2px 4px rgb(209, 205, 205);
     border:2px solid transparent;
+
     &:hover{
       border:2px solid red;
+    }
+
+    @media screen and(max-width:768px){
+      flex: 0 0 100%;
     }
   }
   &-img{
