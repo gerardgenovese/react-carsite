@@ -35,8 +35,8 @@ class Nav extends React.Component {
     return(
       <div>
           <div className={this.state.menu ? "nav-container--open" : "nav-container--closed"}>
-            {/* <div></div>
-            <div></div> */}
+            {/* <div></div> */}
+            <div></div>
             <div className="nav-flex">
               <NavLink to="/" exact={true} activeClassName="is-active nav-link" className="nav-link" onClick={this.closeMenuAfterClick}>
                 <div>Explore</div>
@@ -68,7 +68,7 @@ class Nav extends React.Component {
               {this.state.menu ? <i className="fa fa-arrow-up" aria-hidden="true"></i> : <i className="fa fa-arrow-down" aria-hidden="true"></i>}
             </div>  
           </div>   
-          <div></div>
+          {/* <div></div> */}
           <SelectCars menu={this.state.menu} closeMenu={this.closeMenuAfterClick}/> 
         </div> 
       
@@ -81,11 +81,3 @@ class Nav extends React.Component {
 }
 
 export default Nav;
-
-
-      /* <div className={this.state.menuItems ? "select-menu-items--show" : "select-menu-items--hidden"}> */
-
-
-            /* <div className={this.state.menu ? "select-menu--open" : "select-menu--closed"} onClick={this.closeMenuAfterClick}>
-          <SelectCars menu={this.state.menu} />
-        </div> */
