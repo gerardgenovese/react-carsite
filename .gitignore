@@ -22,10 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-public/images
+# public/images
 relativeimages
 
-public/*
+public/index.html
 src/*
 build/static/css/*.map
 build/static/js/*.map
