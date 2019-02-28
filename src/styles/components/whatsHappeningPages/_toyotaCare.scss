@@ -150,6 +150,11 @@ $textcolor: rgb(143, 141, 141);
       font-size: 2rem;
       margin-top: 2rem;
       letter-spacing: .2rem;
+
+      //iphone 5/SE
+      @media screen and (device-aspect-ratio: 40/71) {
+        padding: 0 .5rem;
+      }
     }
     &--header2{
       font-size: 1.6rem;

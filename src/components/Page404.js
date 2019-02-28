@@ -15,7 +15,7 @@ const Page404 = () => {
   return(
     <div style={style}>
       Ooops! We haven't built this page yet...dispatching monkeys to begin coding immediately! 
-      <iframe style={iframeStyle} title="404" src="https://giphy.com/embed/5Zesu5VPNGJlm" width="480" height="270" frameBorder="0" allowFullScreen></iframe><p></p>
+      <iframe style={iframeStyle} title="404" src="https://giphy.com/embed/5Zesu5VPNGJlm" width="480" height="270" frameBorder="0" allowFullScreen></iframe>
       
       </div>
   )

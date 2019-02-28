@@ -8,7 +8,7 @@ import BuildCarFinance from "../BuildCarFinance";
 import BuildCarSummary from "../BuildCarSummary";
 import { purchase } from "../../redux/actions";
 
-import { CarPriceToString } from "../Functions";
+import { CarPriceToString } from "../../functions/Functions";
 
 class BuildCarPageCorolla extends React.Component{
   state = {

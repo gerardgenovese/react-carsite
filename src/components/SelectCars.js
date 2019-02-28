@@ -14,7 +14,7 @@ import avalonFront from "../relativeImages/exploreall/avalon/front.png"
 import yarisSide from "../relativeImages/exploreall/yaris/side.png"
 import yarisFront from "../relativeImages/exploreall/yaris/front.png"
 
-import { CarPriceToString } from "./Functions";
+import { CarPriceToString } from "../functions/Functions";
 
 class SelectCars extends React.Component {
 

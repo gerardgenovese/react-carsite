@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
 
-import { Capitalize } from "./Functions";
+import { Capitalize } from "../functions/Functions";
 
 class SlideShowModal extends React.Component{
 

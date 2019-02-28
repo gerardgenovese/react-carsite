@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { buildCar } from "../redux/actions";
 import Footer from "./Footer";
 
-import { CarPriceToString } from "./Functions";
+import { CarPriceToString } from "../functions/Functions";
 
 class Search extends React.Component{
 

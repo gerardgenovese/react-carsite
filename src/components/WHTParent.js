@@ -33,7 +33,7 @@ const WHTParent = () => {
             />
             {/* </a>  */}
           </Link>
-          <Link to="/toyota/supra" title="**This link has no content**">
+          <Link to="/toyota/404" title="**This link has no content**">
             <WHTChild 
               image={img2}
               callToAction="Latest News"
@@ -42,7 +42,7 @@ const WHTParent = () => {
               body="Get information on open safety recalls and service campaigns."
             />
           </Link>
-          <Link to="/toyota/supra" title="**This link has no content**">
+          <Link to="/toyota/404" title="**This link has no content**">
             <WHTChild 
               image={img3}
               callToAction="Latest News"
@@ -65,7 +65,7 @@ const WHTParent = () => {
               body="The al-new Supra race car joins the NASCAR Xfinity Series and is set to make its racing debut in 2019."
             />
           </Link>
-          <Link to="/toyota/supra" title="**This link has no content**">
+          <Link to="/toyota/404" title="**This link has no content**">
             <WHTChild
               image={img5}
               callToAction="Latest News"
@@ -87,7 +87,7 @@ const WHTParent = () => {
               className="middle"
             />
           </Link>
-          <Link to="/toyota/supra" title="**this link has no content**">
+          <Link to="/toyota/404" title="**this link has no content**">
             <WHTChild 
               image={img7}
               callToAction="Latest News"
@@ -96,7 +96,7 @@ const WHTParent = () => {
               body="From north to south, east to west, we’re hundreds of thousands of team members strong – all dedicated to helping you go places."
             />
             </Link>
-          <Link to="/toyota/supra" title="**This link has no content**">
+          <Link to="/toyota/404" title="**This link has no content**">
             <WHTChild 
               image={img8}
               callToAction="Latest News"

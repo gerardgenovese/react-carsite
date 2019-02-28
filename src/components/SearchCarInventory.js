@@ -2,7 +2,7 @@ import React from "react";
 import dbJSON from "../db/db.json";
 
 
-import { Capitalize } from "./Functions";
+import { Capitalize } from "../functions/Functions";
 
 // import test from "../relativeImages/exploreall/86/front.PNG"
 

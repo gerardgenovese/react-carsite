@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Footer from "./Footer";
 
-import { Capitalize, CarPriceToString } from "./Functions";
+import { Capitalize, CarPriceToString } from "../functions/Functions";
 
 class BuildCarSummary extends React.Component{
   state={

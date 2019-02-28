@@ -8,7 +8,7 @@ import BuildCarFinance from "../BuildCarFinance";
 import BuildCarSummary from "../BuildCarSummary";
 import { purchase } from "../../redux/actions";
 
-import { CarPriceToString } from "../Functions";
+import { CarPriceToString } from "../../functions/Functions";
 
 class BuildCarPage86 extends React.Component{
   state = {
@@ -57,6 +57,7 @@ class BuildCarPage86 extends React.Component{
     window.removeEventListener("scroll", this.buildCarScroll, true);
     // console.log("buildcar scroll unmounted")
   };
+
   
   //when user clicks a panel link, the correct panel will show while hiding the others
   changeBuildOption = (e) => {
@@ -91,7 +92,7 @@ class BuildCarPage86 extends React.Component{
       }; 
   };
 
-  //receives its arguments from BuildCarColors in the onChangeColor method. Then sets the state with the correct color and image to showcase.
+  // receives its arguments from BuildCarColors in the onChangeColor method. Then sets the state with the correct color and image to showcase.
   changeColor = (color, image) => {
     this.setState({color, image})
   };
@@ -150,7 +151,6 @@ class BuildCarPage86 extends React.Component{
 
   //takes all state values and returns a total price for the car
   getTotal() {
-    // setTimeout(() => {
       const getCargo = JSON.parse(JSON.stringify(this.state.cargoTote));
       const getMats = JSON.parse(JSON.stringify(this.state.leatherMats));
       const getLocks = JSON.parse(JSON.stringify(this.state.wheelLocks));
@@ -158,28 +158,9 @@ class BuildCarPage86 extends React.Component{
       const leatherMats = getMats.price;
       const wheelLocks = getLocks.price;
       const total = this.props.car.price + this.state.engine + cargoTote + leatherMats + wheelLocks;
-
-      // console.log(this.state.price + this.state.engine + cargoTote + leatherMats + wheelLocks);
       this.setState({totalPrice:total})
-    // },100);
+
   };
-
-  //takes the totalPrice from state and turns it into a string so we can add a $ and , so IE 30000 turns into $30,000
-  // carString = () => {
-  // //for testing. remove when done
-  //   // if(this.state.totalPrice === undefined){return <div>$30,000</div>}
-  
-  //   let total = this.state.totalPrice;
-  //   let totalString = total.toString();
-  //   let first = totalString.slice(0,2);
-  //   let second = totalString.slice(2);
-
-  //   return(
-  //     <div>
-  //       ${first},{second}
-  //     </div>
-  //   )
-  // };
 
   //gets the window offset position when scrolling so we can animate some things when the user scrolls down or up
   buildCarScroll = () => {
@@ -187,7 +168,6 @@ class BuildCarPage86 extends React.Component{
       if(position > 25) {this.setState({ carTransition: true })} 
       else if(position < 55) {this.setState({ carTransition: false })}
   };
-
 
   //send the user selections that are held in state to redux store with the getPurchasedItems function so we can grab those values in our summary page
   getPurchasedItems = () => {
@@ -213,7 +193,7 @@ class BuildCarPage86 extends React.Component{
   };
 
   //when the user clicks the panel button for summary we changeBuildOption which will show the summary body and hide the other options body and then we getPurchasedItems propagating the information with what the user has selected IE car, color, engine type, accessories.
-  summaryPanelButton = (e) => {this.changeBuildOption(e); this.getPurchasedItems();};
+  summaryPanelButton = (e) => { this.changeBuildOption(e); this.getPurchasedItems(); };
   
   render(){
     // console.log("buildcarpagestate",this.state);

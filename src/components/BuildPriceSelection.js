@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { buildCar } from "../redux/actions";
-import { Capitalize, CarPriceToString, CreateAsShownPriceRandomly, Miles } from "./Functions";
+import { Capitalize, CarPriceToString, CreateAsShownPriceRandomly, Miles } from "../functions/Functions.js";
 
 import Footer from "./Footer";
 
