@@ -38,6 +38,58 @@ class SearchCarInventory extends React.Component {
     showFilterMQ: false,
     showFilterButtonMQ: false
   };
+  
+  componentWillMount(){
+    //gets the price of the selected car, from <Link> in SlideShowModal.js, as a number and saves the two default value for the range slider and sets the range slider values
+    try{
+      let defaultValueOne = this.props.location.state.price;
+      defaultValueOne = defaultValueOne.toString();
+      let defaultValueTwo = this.props.location.state.price + 1000;
+      defaultValueTwo = defaultValueTwo.toString();
+  
+      this.setState({ model: this.props.location.state.model, lowPricePoint: defaultValueOne, highPricePoint: defaultValueTwo,
+        sliderOneDefaultValue: defaultValueOne, sliderTwoDefaultValue: defaultValueTwo, sliderRangeOne: defaultValueOne,
+        sliderRangeTwo: defaultValueTwo
+      });
+    } catch(err){
+      console.log(err);
+      if(this.state.price === undefined){
+        return this.errorReturn();
+     
+      }
+    }
+  };
+
+  //scroll to top of page when page loads & runs method to put car objects into state
+  //gets window width for searchcarinventory filters display. Above 768 show filters. Below 768 hide and enable button click method getshowFilterMQ to show it.
+  componentDidMount() {
+    window.scrollTo(0, 0); 
+
+    if(window.innerWidth > 768){
+      this.setState({ showFilterMQ: true, showFilterButtonMQ: false });
+     } else if(window.innerWidth < 768) {
+      this.setState({ showFilterMQ: false, showFilterButtonMQ: true });
+     }
+
+    this.loadImages();
+  };
+
+
+  errorReturn(){
+
+    const styles = {
+      fontSize: "2rem",
+      textAlign: "center",
+      fontWeight: "bold"
+    };
+    return(
+      <div style={styles}>
+         <div>You typed in a path but didn't pick a car. I'm not a mind reader. Go back and select a vehicle so I can show you our inventory.</div>
+        <img src={window.location.origin + "/images/pcError.png"} alt="Error" />
+      </div>
+     
+    )
+  }
 
   //when clear All is clicked all filters are removed checkboxes unchecked, range sliders returned to default values and showcaseCars method is called to display the cars
   clearAllFilters = () => {
@@ -64,38 +116,9 @@ class SearchCarInventory extends React.Component {
       document.getElementById("Leather Mats").checked = false;
       document.getElementById("Wheel Locks").checked = false;
 
-      
     }, () => { this.showcaseCars() });
   };
 
-
-
-  componentWillMount(){
-    //gets the price of the selected car, from <Link> in SlideShowModal.js, as a number and saves the two default value for the range slider and sets the range slider values
-    let defaultValueOne = this.props.location.state.price;
-    defaultValueOne = defaultValueOne.toString();
-    let defaultValueTwo = this.props.location.state.price + 1000;
-    defaultValueTwo = defaultValueTwo.toString();
-
-    this.setState({ model: this.props.location.state.model, lowPricePoint: defaultValueOne, highPricePoint: defaultValueTwo,
-      sliderOneDefaultValue: defaultValueOne, sliderTwoDefaultValue: defaultValueTwo, sliderRangeOne: defaultValueOne,
-      sliderRangeTwo: defaultValueTwo
-    });
-  };
-
-  //scroll to top of page when page loads & runs method to put car objects into state
-  //gets window width for searchcarinventory filters display. Above 768 show filters. Below 768 hide and enable button click method getshowFilterMQ to show it.
-  componentDidMount() {
-    window.scrollTo(0, 0); 
-
-    if(window.innerWidth > 768){
-      this.setState({ showFilterMQ: true, showFilterButtonMQ: false });
-     } else if(window.innerWidth < 768) {
-      this.setState({ showFilterMQ: false, showFilterButtonMQ: true });
-     }
-
-    this.loadImages();
-  };
 
   //capitalize the car model name
   // Capitalize(){ return this.props.location.state.model.slice(0,1).toUpperCase() + this.props.location.state.model.slice(1); };
@@ -597,67 +620,74 @@ class SearchCarInventory extends React.Component {
   //this will showcase all car matches after filtering and display them on the UI
   showcaseCars(){
 
-    //set a variable to hold the correct array that we will map through and showcase
-    let carArray;
+    if(this.state.model === ""){
+      return this.errorReturn()
+    } else{
 
-    if(this.state.filteredCars.length > 0){
-      carArray = this.state.filteredCars;
-    } else if(this.state.filteredCars.length === 0){
-        if((this.state.trim.length > 0) || (this.state.engine.length > 0) || (this.state.color.length > 0)){
-          return(
-            <div>
-              No Matches Found
-            </div>
-          )
-        } else if((this.state.cargoTote === true) || (this.state.leatherMats === true) || (this.state.wheelLocks === true)){
-            return (
+    
+
+      //set a variable to hold the correct array that we will map through and showcase
+      let carArray;
+
+      if(this.state.filteredCars.length > 0){
+        carArray = this.state.filteredCars;
+      } else if(this.state.filteredCars.length === 0){
+          if((this.state.trim.length > 0) || (this.state.engine.length > 0) || (this.state.color.length > 0)){
+            return(
               <div>
                 No Matches Found
               </div>
             )
-        } else if((this.state.lowPricePoint !== this.state.sliderOneDefaultValue) || (this.state.highPricePoint !== this.state.sliderTwoDefaultValue)){
-          return(
-            <div>
-              No Matches Found
-            </div>
-          )
-        } else {
-          carArray = this.state.cars;
+          } else if((this.state.cargoTote === true) || (this.state.leatherMats === true) || (this.state.wheelLocks === true)){
+              return (
+                <div>
+                  No Matches Found
+                </div>
+              )
+          } else if((this.state.lowPricePoint !== this.state.sliderOneDefaultValue) || (this.state.highPricePoint !== this.state.sliderTwoDefaultValue)){
+            return(
+              <div>
+                No Matches Found
+              </div>
+            )
+          } else {
+            carArray = this.state.cars;
+          }
         }
-      }
 
-    return carArray.map((car, i) => { 
-      let color = { background: car.color };
-      return(
-        <div key={i} className="showcase">
-          <div className="showcase-flexOne">
-            <p>{Capitalize(this.props.location.state.model)}</p>
-            <p>{car.trim}</p>
-            <div className="showcase-imgContain">
-              <img src={car.image} alt={car.model} className="showcase-img"/>
-            </div>
-          </div>
-          <div className="showcase-flexTwo">
-            <div className="showcase-desc">    
-              {car.engine === "8 Speed Automatic" ? <div>  {this.carPrice(car.price)}  Total MSRP (As Built) 29
-              3.5L V6 DOHC 24-Valve With Dual VVT-i 8-speed Electronically Controlled <strong>Automatic Transmission</strong> with Intelligence (ECT-i) with Front-Wheel Drive</div> : <div>  {this.carPrice(car.price)}  Total MSRP (As Built) 29
-              3.5L V6 DOHC 24-Valve With Dual VVT-i 8-speed <strong>Manual Transmission</strong> with Intelligence (ECT-i) with Front-Wheel Drive</div>}
-            </div>
-            <div className="showcase-flexThree">
-              <div className="showcase-flexColor">
-                <div className="showcase-color" style={color}></div>
-              </div>
-              <div className="showcase-acc">
-                <div className="showcase-acc--header">PACKAGES & ACCESSORIES</div>
-                <div className="showcase-acc--items showcase-cargoTote">{car.cargoTote ? "Cargo Tote" : ""}</div>
-                <div className="showcase-acc--items showcase-leatherMats">{car.leatherMats ? "Leather Mats" : ""}</div>
-                <div className="showcase-acc--items showcase-wheelLocks">{car.wheelLocks ? "Wheel Locks" : ""}</div>
+      return carArray.map((car, i) => { 
+        let color = { background: car.color };
+        return(
+          <div key={i} className="showcase">
+            <div className="showcase-flexOne">
+              <p>{Capitalize(this.props.location.state.model)}</p>
+              <p>{car.trim}</p>
+              <div className="showcase-imgContain">
+                <img src={car.image} alt={car.model} className="showcase-img"/>
               </div>
             </div>
+            <div className="showcase-flexTwo">
+              <div className="showcase-desc">    
+                {car.engine === "8 Speed Automatic" ? <div>  {this.carPrice(car.price)}  Total MSRP (As Built) 29
+                3.5L V6 DOHC 24-Valve With Dual VVT-i 8-speed Electronically Controlled <strong>Automatic Transmission</strong> with Intelligence (ECT-i) with Front-Wheel Drive</div> : <div>  {this.carPrice(car.price)}  Total MSRP (As Built) 29
+                3.5L V6 DOHC 24-Valve With Dual VVT-i 8-speed <strong>Manual Transmission</strong> with Intelligence (ECT-i) with Front-Wheel Drive</div>}
+              </div>
+              <div className="showcase-flexThree">
+                <div className="showcase-flexColor">
+                  <div className="showcase-color" style={color}></div>
+                </div>
+                <div className="showcase-acc">
+                  <div className="showcase-acc--header">PACKAGES & ACCESSORIES</div>
+                  <div className="showcase-acc--items showcase-cargoTote">{car.cargoTote ? "Cargo Tote" : ""}</div>
+                  <div className="showcase-acc--items showcase-leatherMats">{car.leatherMats ? "Leather Mats" : ""}</div>
+                  <div className="showcase-acc--items showcase-wheelLocks">{car.wheelLocks ? "Wheel Locks" : ""}</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      )
-    })
+        )
+      })
+    }
    
   };
 
@@ -748,7 +778,7 @@ class SearchCarInventory extends React.Component {
 
   render(){
     // console.log("ci", this.props)
-    // console.log("cistate",this.state);
+    console.log("cistate",this.state);
 
     //takes the state of inventoryOptions, which is each filter chosen by the User combined into a single array, loops through it, creates a new dom element to show on the UI, matches the data-type of the filter to pass to the removeOptions method so we can then remove the filter if the user clicks on it in the UI
     //data === data-type option === value in each input
@@ -784,7 +814,7 @@ class SearchCarInventory extends React.Component {
  
     return(
       <div className="carInv">
-        <div className="build_price-header carInv-header">2019 {Capitalize(this.props.location.state.model)} Inventory</div>
+        <div className="build_price-header carInv-header">2019 { Capitalize(this.state.model) } Inventory</div>
         <button className={this.state.showFilterMQ ? "carInv-filterButton--MQ--hide" : "carInv-filterButton--MQ--show"} onClick={this.getShowFilterMQ}>FILTERS</button>
         <div className="carInv-mainFlex">
           <div className="carInv-leftContainer">
@@ -926,6 +956,11 @@ class SearchCarInventory extends React.Component {
       </div>
     )
   }
+}
+
+SearchCarInventory.defaultProps = {
+  model: "camry",
+  defaultValueOne: 25000
 }
 
 export default SearchCarInventory;

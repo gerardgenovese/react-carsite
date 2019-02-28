@@ -95,28 +95,6 @@ class SlideShowModal extends React.Component{
           </div>
         </div>
 
-        {/* <div className="modal-offer">
-          <div className="modal-offer--container1">
-            <div className="modal-offer--text">
-              Lease a 2018 {carInfo.title} for ${carInfo.perMonth} 
-            </div>
-          </div>
-          <div className="modal-offer--container2">
-            <div className="modal-offer-button">
-     
-              <Link to={{ pathname: "/toyota/car/inventory", state: {model: carInfo.model, price:carInfo.price} }} className="modal-offer-button--main"></Link>
-              <div className="modal-offer-button--text">Search Inventory</div> 
-            </div>
-            <div className="modal-offer-button">
-              <Link to={`/build/${carInfo.model}`} onClick={this.buildCarSelected} className="modal-offer-button--main"></Link>
-              <div className="modal-offer-button--text">Build Yours</div>
-            </div>
-          </div>
-        </div> */}
-
-
-
-
         <div className="modal-finePrint">
           <div className="modal-finePrint--header">Offer Details</div>
           <div>
