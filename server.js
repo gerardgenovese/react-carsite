@@ -9,9 +9,6 @@ const app = express();
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 
-// const publicPath = path.join(__dirname, "..", "public");
-// app.use(express.static(publicPath));
-
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

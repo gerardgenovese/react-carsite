@@ -56,13 +56,13 @@ class SlideShow extends React.Component{
   //create and interval for our slideshow
   createSlideShowInterval = () => this.slideShow = setInterval(() => this.startSlideShow(), 5000);
 
-  //keeps track of our slideshow index to rotate through show slides
+  //keeps track of our slideshow index to rotate through slides
   startSlideShow = () => {
     const { slideIndex, slideShow} = this.state;
     slideIndex >= slideShow.length - 1 ? this.setState({ slideIndex: 0 }) : this.setState((prev) => ({ slideIndex: prev.slideIndex + 1}));
   };
 
-  //when called clear the interval for the slideshow and show the model. This will ensure the slideshow doesn't run while the modal is open.
+  //when called, clear the interval for the slideshow and show the model. This will ensure the slideshow doesn't run while the modal is open.
   stopSlideShowAndGetModal = () => {
     console.log("unmount slideshow")
     this.setState({ carModal: true })

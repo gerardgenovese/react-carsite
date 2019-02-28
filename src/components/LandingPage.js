@@ -8,7 +8,7 @@ import Footer from "./Footer";
 
 const LandingPage = () => {
   return(
-    <div className='landingContain'>
+    <div className="landingContain">
       <SlideShow />
       <SectionNav />
       <ExploreAll />
