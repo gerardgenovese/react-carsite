@@ -2,7 +2,7 @@ export default () => {
   return [
     { 
       model: "avalon", 
-      img: "/images/slideshow/avalonslide.png",
+      img: "/images/slideshow/avalonSlide.png",
       carAngle: 0,
       color:"blue",
       engine: 0,
@@ -15,7 +15,7 @@ export default () => {
     },
     { 
       model: "camry", 
-      img: "/images/slideshow/camryslide.png",
+      img: "/images/slideshow/camrySlide.png",
       carAngle: 0,
       color:"red",
       engine: "0",
@@ -28,7 +28,7 @@ export default () => {
     },
     { 
       model: "corolla", 
-      img: "/images/slideshow/corollaslide.png",
+      img: "/images/slideshow/corollaSlide.png",
       carAngle: 0,
       color:"white",
       engine: "0",
