@@ -87,7 +87,6 @@ class SearchCarInventory extends React.Component {
          <div>You typed in a path but didn't pick a car. I'm not a mind reader. Go back and select a vehicle so I can show you our inventory.</div>
         <img src={window.location.origin + "/images/pcError.png"} alt="Error" />
       </div>
-     
     )
   }
 

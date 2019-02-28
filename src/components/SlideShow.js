@@ -40,7 +40,7 @@ class SlideShow extends React.Component{
       prices.push(car.price);
       perMonth.push(car.perMonth);
       signing.push(car.signing);
-    });
+    })
     this.setState({ 
       carInfo,
       carBackground,
@@ -55,7 +55,6 @@ class SlideShow extends React.Component{
 
   //create and interval for our slideshow
   createSlideShowInterval = () => this.slideShow = setInterval(() => this.startSlideShow(), 5000);
-
 
   //keeps track of our slideshow index to rotate through show slides
   startSlideShow = () => {
@@ -135,7 +134,6 @@ class SlideShow extends React.Component{
 
   render(){
     // console.log("state", this.state);
-
     const dollarSign = { fontFamily: "helvetica",fontSize: "1.5rem" };
     const backgroundImages = { backgroundImage: `url(${this.state.carBackground[this.state.slideIndex]})`};
   
