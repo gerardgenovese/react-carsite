@@ -26,6 +26,6 @@ public/images
 relativeimages
 
 public/index.html
-# src/*
+src/*
 build/static/css/*.map
 build/static/js/*.map
