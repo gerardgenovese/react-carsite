@@ -50,7 +50,7 @@ class SlideShow extends React.Component{
       perMonth,
       signing,
     })
-    this.createSlideShowInterval();
+    // this.createSlideShowInterval();
   };
 
   //create and interval for our slideshow
