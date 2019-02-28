@@ -4,14 +4,12 @@
 
   &-container{
     &--open{
-
-
       font-size: 1.5rem;
       border-bottom: $border;
       width: 100vw;
       position: fixed;
       top: 0;
-      z-index: 5;
+      z-index: 8;
       
       display:flex;
       align-items:center;
@@ -47,7 +45,7 @@
       left: 0;
       width: 100vw;
       background: white;
-      z-index: 5;
+      z-index: 7;
       animation: menuOpen .4s;
       animation-fill-mode: forwards;
       // overflow:scroll;

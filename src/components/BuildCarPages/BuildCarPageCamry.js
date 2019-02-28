@@ -222,7 +222,7 @@ class BuildCarPageCamry extends React.Component{
       <div>
         <div className={this.state.carTransition ? "buildCar-sectionScroll" : "buildCar-section"}>  
           <div className={this.state.carTransition ? "buildCar-mainContainerScroll" : "buildCar-mainContainer"}>
-            <div>&nbsp;</div>
+            {/* <div>&nbsp;</div> */}
             <div className="buildCar-mainInnerContainer">
               <div className="buildCar-titleFlex">
                 <div className="buildCar-yourBuild">
