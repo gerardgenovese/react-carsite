@@ -35,8 +35,8 @@ class Nav extends React.Component {
     return(
       <div>
           <div className={this.state.menu ? "nav-container--open" : "nav-container--closed"}>
-            <div></div>
-            <div></div>
+            {/* <div></div>
+            <div></div> */}
             <div className="nav-flex">
               <NavLink to="/" exact={true} activeClassName="is-active nav-link" className="nav-link" onClick={this.closeMenuAfterClick}>
                 <div>Explore</div>

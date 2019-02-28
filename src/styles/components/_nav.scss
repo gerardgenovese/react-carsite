@@ -28,9 +28,6 @@
       width: 100vw;
       position:absolute;
       top: 0;
-    
-
-
       display:flex;
       align-items:center;
       justify-content: space-between;
@@ -51,9 +48,6 @@
       width: 100vw;
       background: white;
       z-index: 5;
-      // padding-right: 5rem;
-      // overflow:hidden;
-      // height: 1000px;
       animation: menuOpen .4s;
       animation-fill-mode: forwards;
       // overflow:scroll;
@@ -66,7 +60,6 @@
     }
 
     &--closed{
-
       height: 4rem;
       animation: menuClosed .4s;
       animation-fill-mode: forwards;
