@@ -50,7 +50,7 @@
       animation-fill-mode: forwards;
       // overflow:scroll;
       overflow:hidden;
-      padding: .5rem 0 0 0;
+      padding: .5rem 0;
       @media screen and(max-width: 768px){
         overflow:scroll;
        
@@ -68,7 +68,8 @@
       width: 100vw;
       background: white;
       z-index: 5;
-      padding: .5rem 0 0 0;
+      padding: .5rem 0;
+      overflow:hidden;
       // background:blue;
     }
 
